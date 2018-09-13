@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace BlingLuxury.Clases
 {
-    class Producto
+    public class Producto
     {
-        private int id { get; set; }
-        private int codigoDeBarras { get; set; }
-        private double peso { get; set; }
-        private int id_modelo { get; set; }
-        private int id_precio_adquisicion { get; set; }
-        private int id_color { get; set; }
-        private int id_categoria { get; set; }
+        public int id { get; set; }
+        public int codigoDeBarras { get; set; }
+        public double peso { get; set; }
+        public Modelo id_modelo { get; set; }
+        public PrecioAdquisicion id_precio_adquisicion { get; set; }
+        public Color id_color { get; set; }
+        public Categoria id_categoria { get; set; }
 
         public Producto()
         {
 
         }
         public Producto(int id, int codigoDeBarras, double peso, 
-            int id_modelo, int id_precio_adquisicion, int id_color, 
-            int id_categoria)
+            Modelo id_modelo, PrecioAdquisicion id_precio_adquisicion, Color id_color, 
+            Categoria id_categoria)
         {
             this.id = id;
             this.codigoDeBarras = codigoDeBarras;
@@ -32,8 +32,8 @@ namespace BlingLuxury.Clases
             this.id_color = id_color;
             this.id_categoria = id_categoria;
         }
-        public Producto(int codigoDeBarras, double peso, int id_modelo,
-            int id_precio_aduisicion, int id_color, int id_categoria)
+        public Producto(int codigoDeBarras, double peso, Modelo id_modelo,
+            PrecioAdquisicion id_precio_aduisicion, Color id_color, Categoria id_categoria)
         {
             this.codigoDeBarras = codigoDeBarras;
             this.peso = peso;

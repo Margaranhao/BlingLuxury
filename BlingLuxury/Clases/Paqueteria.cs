@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace BlingLuxury.Clases
 {
-    class Paqueteria
+    public class Paqueteria
     {
-        private int id { get; set; }
-        private string nombre { get; set; }
-        private int id_envio { get; set; }
+        public int id { get; set; }
+        public string nombre { get; set; }
+        public TipoEnvio id_envio { get; set; }
         public Paqueteria()
         {
 
         }
-        public Paqueteria(int id, string nombre, int id_envio)
+        public Paqueteria(int id, string nombre, TipoEnvio id_envio)
         {
             this.id = id;
             this.nombre = nombre;
             this.id_envio = id_envio;
         }
-        public Paqueteria(string nombre, int id_envio)
+        public Paqueteria(string nombre, TipoEnvio id_envio)
         {
             this.nombre = nombre;
             this.id_envio = id_envio;

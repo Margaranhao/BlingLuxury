@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace BlingLuxury.Clases
 {
-    class Deposito
+    public class Deposito
     {
-        private int id { get; set; }
-        private double cantidad { get; set; }
-        private DateTime fecha { get; set; }
-        private int id_estado { get; set; }
-        private int id_usuario { get; set; }
+        public int id { get; set; }
+        public double cantidad { get; set; }
+        public DateTime fecha { get; set; }
+        public Estado id_estado { get; set; }
+        public Usuario id_usuario { get; set; }
         public Deposito()
         {
 
         }
         public Deposito(int id, double cantidad, DateTime fecha, 
-            int id_estado, int id_usuario)
+            Estado id_estado, Usuario id_usuario)
         {
             this.id = id;
             this.cantidad = cantidad;
@@ -26,7 +26,7 @@ namespace BlingLuxury.Clases
             this.id_estado = id_estado;
             this.id_usuario = id_usuario;
         }
-        public Deposito(double cantidad, DateTime fecha, int id_estado, int id_usuario)
+        public Deposito(double cantidad, DateTime fecha, Estado id_estado, Usuario id_usuario)
         {
             this.cantidad = cantidad;
             this.fecha = fecha;

@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace BlingLuxury.Clases
 {
-    class Inventario
+    public class Inventario
     {
-        private int id { get; set; }
-        private DateTime fecha { get; set; }
-        private int cantidad { get; set; }
-        private int id_producto { get; set; }
-        private int id_usuario { get; set; }
+        public int id { get; set; }
+        public DateTime fecha { get; set; }
+        public int cantidad { get; set; }
+        public Producto id_producto { get; set; }
+        public Usuario id_usuario { get; set; }
 
         public Inventario()
         {
 
         }
         public Inventario(int id, DateTime fecha, int cantidad, 
-            int id_producto, int id_usuario)
+            Producto id_producto, Usuario id_usuario)
         {
             this.id = id;
             this.fecha = fecha;
@@ -27,8 +27,8 @@ namespace BlingLuxury.Clases
             this.id_producto = id_producto;
             this.id_usuario = id_usuario;
         }
-        public Inventario(DateTime fecha, int cantidad, int id_producto,
-            int id_usuario)
+        public Inventario(DateTime fecha, int cantidad, Producto id_producto,
+            Usuario id_usuario)
         {
             this.fecha = fecha;
             this.cantidad = cantidad;

@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace BlingLuxury.Clases
 {
-    class EntidadFederativa
+    public class EntidadFederativa
     {
-        private int id { get; set; }
-        private string nombre { get; set; }
-        private int id_municipio { get; set; }
+        public int id { get; set; }
+        public string nombre { get; set; }
+        public Municipio id_municipio { get; set; }
         public EntidadFederativa()
         {
 
         }
-        public EntidadFederativa(int id, string nombre, int id_municipio)
+        public EntidadFederativa(int id, string nombre, Municipio id_municipio)
         {
             this.id = id;
             this.nombre = nombre;
             this.id_municipio = id_municipio;
         }
-        public EntidadFederativa(string nombre, int id_municipio)
+        public EntidadFederativa(string nombre, Municipio id_municipio)
         {
             this.nombre = nombre;
             this.id_municipio = id_municipio;

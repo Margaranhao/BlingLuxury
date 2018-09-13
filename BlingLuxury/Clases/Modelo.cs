@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace BlingLuxury.Clases
 {
-    class Modelo
+    public class Modelo
     {
-        private int id { get; set; }
-        private string nombre { get; set; }
-        private int id_marca { get; set; }
+        public int id { get; set; }
+        public string nombre { get; set; }
+        public Marca id_marca { get; set; }
         public Modelo()
         {
 
         }
-        public Modelo(int id, string nombre, int id_marca)
+        public Modelo(int id, string nombre, Marca id_marca)
         {
             this.id = id;
             this.nombre = nombre;
             this.id_marca = id_marca;
         }
-        public Modelo(string nombre, int id_marca)
+        public Modelo(string nombre, Marca id_marca)
         {
             this.nombre = nombre;
             this.id_marca = id_marca;

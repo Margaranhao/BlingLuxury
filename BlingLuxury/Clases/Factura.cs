@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace BlingLuxury.Clases
 {
-    class Factura
+    public class Factura
     {
-        private int id { get; set; }
-        private int folio { get; set; }
-        private DateTime fecha { get; set; }
-        private double total { get; set; }
-        private int id_cliente { get; set; }
-        private int id_destino { get; set; }
-        private int id_usuario { get; set; }
+        public int id { get; set; }
+        public int folio { get; set; }
+        public DateTime fecha { get; set; }
+        public double total { get; set; }
+        public Cliente id_cliente { get; set; }
+        public DestinoEnvio id_destino { get; set; }
+        public Usuario id_usuario { get; set; }
         public Factura()
         {
 
         }
         public Factura(int id, int folio, DateTime fecha, 
-            double total, int id_cliente, int id_destino, int id_usuario)
+            double total, Cliente id_cliente, DestinoEnvio id_destino, Usuario id_usuario)
         {
             this.id = id;
             this.folio = folio;
@@ -31,7 +31,7 @@ namespace BlingLuxury.Clases
             this.id_usuario = id_usuario;
         }
         public Factura(int folio, DateTime fecha, double total,
-            int id_cliente, int id_destino, int id_usuario)
+            Cliente id_cliente, DestinoEnvio id_destino, Usuario id_usuario)
         {
             this.folio = folio;
             this.fecha = fecha;

@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace BlingLuxury.Clases
 {
-    class Promocion
+    public class Promocion
     {
-        private int id { get; set; }
-        private DateTime fechaInicio { get; set; }
-        private DateTime fechaFin { get; set; }
-        private bool oferta { get; set; }
-        private int id_producto { get; set; }
+        public int id { get; set; }
+        public DateTime fechaInicio { get; set; }
+        public DateTime fechaFin { get; set; }
+        public bool oferta { get; set; }
+        public Producto id_producto { get; set; }
 
         public Promocion()
         {
 
         }
         public Promocion(int id, DateTime fechaInicio, 
-            DateTime fechaFin, bool oferta, int id_producto)
+            DateTime fechaFin, bool oferta, Producto id_producto)
         {
             this.id = id;
             this.fechaInicio = fechaInicio;
@@ -28,7 +28,7 @@ namespace BlingLuxury.Clases
             this.id_producto = id_producto;
         }
         public Promocion(DateTime fechaInicio, DateTime fechaFin, 
-            bool oferta, int id_producto)
+            bool oferta, Producto id_producto)
         {
             this.fechaInicio = fechaInicio;
             this.fechaFin = fechaFin;

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace BlingLuxury.Clases
 {
-    class Categoria
+    public class Categoria
     {
-        private int id { get; set; }
-        private string nombre { get; set; }
+        public int id { get; set; }
+        public string nombre { get; set; }
 
         public Categoria()
         {

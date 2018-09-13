@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace BlingLuxury.Clases
 {
-    class PrecioUnitario
+    public class PrecioUnitario
     {
-        private int id { get; set; }
-        private double precio { get; set; }
-        private int id_precio_adquisicion { get; set; }
+        public int id { get; set; }
+        public double precio { get; set; }
+        public PrecioAdquisicion id_precio_adquisicion { get; set; }
 
         public PrecioUnitario()
         {
 
         }
-        public PrecioUnitario(int id, double precio, int id_precio_adquisicion)
+        public PrecioUnitario(int id, double precio, PrecioAdquisicion id_precio_adquisicion)
         {
             this.id = id;
             this.precio = precio;
             this.id_precio_adquisicion = id_precio_adquisicion;
         }
-        public PrecioUnitario(double precio, int id_precio_adquisicion)
+        public PrecioUnitario(double precio, PrecioAdquisicion id_precio_adquisicion)
         {
             this.precio = precio;
             this.id_precio_adquisicion = id_precio_adquisicion;

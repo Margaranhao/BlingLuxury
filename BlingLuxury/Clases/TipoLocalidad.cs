@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace BlingLuxury.Clases
 {
-    class TipoLocalidad
+    public class TipoLocalidad
     {
-        private int id { get; set; }
-        private string nombre { get; set; }
-        private int id_localidad { get; set; }
+        public int id { get; set; }
+        public string nombre { get; set; }
+        public Localidad id_localidad { get; set; }
 
         public TipoLocalidad()
         {
 
         }
-        public TipoLocalidad(int id, string nombre, int id_licalidad)
+        public TipoLocalidad(int id, string nombre, Localidad id_licalidad)
         {
             this.id = id;
             this.nombre = nombre;
             this.id_localidad = id_localidad;
         }
-        public TipoLocalidad(string nombre, int id_localidad)
+        public TipoLocalidad(string nombre, Localidad id_localidad)
         {
             this.nombre = nombre;
             this.id_localidad = id_localidad;

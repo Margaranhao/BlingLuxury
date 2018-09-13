@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace BlingLuxury.Clases
 {
-    class DestinoEnvio
+   public class DestinoEnvio
     {
-        private int id { get; set; }
-        private double costo_economico { get; set; }
-        private double costo_express { get; set; }
-        private int id_localidad { get; set; }
-        private int id_envio { get; set; }
+        public int id { get; set; }
+        public double costo_economico { get; set; }
+        public double costo_express { get; set; }
+        public Localidad id_localidad { get; set; }
+        public  TipoEnvio id_envio { get; set; }
         public DestinoEnvio()
         {
 
         }
         public DestinoEnvio(int id, double costo_economico, double costo_express,
-            int id_localidad, int id_envio)
+            Localidad id_localidad, TipoEnvio id_envio)
         {
             this.id = id;
             this.costo_economico = costo_economico;
@@ -27,7 +27,7 @@ namespace BlingLuxury.Clases
             this.id_envio = id_envio;
         }
         public DestinoEnvio(double costo_economico, double costo_express,
-            int id_localidad, int id_envio)
+            Localidad id_localidad, TipoEnvio id_envio)
         {
             this.costo_economico = costo_economico;
             this.costo_express = costo_express;
