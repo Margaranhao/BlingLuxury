@@ -81,7 +81,15 @@
     <Compile Include="Clases\TipoLocalidad.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="Conexion\Conexion.cs" />
+    <Compile Include="DAO\CategoriaDAO.cs" />
+    <Compile Include="DAO\ClienteDAO.cs" />
+    <Compile Include="DAO\CodigoPostalDAO.cs" />
+    <Compile Include="DAO\ColorDAO.cs" />
     <Compile Include="DAO\CRUD.cs" />
+    <Compile Include="DAO\DepositoDAO.cs" />
+    <Compile Include="DAO\DestinoEnvioDAO.cs" />
+    <Compile Include="DAO\DetalleFacturaDAO.cs" />
+    <Compile Include="DAO\EntidadFederativaDAO.cs" />
     <Compile Include="fmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>

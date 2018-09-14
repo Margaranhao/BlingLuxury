@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace BlingLuxury.Clases
 {
     public class Usuario
     {
+
         //Las variables de tipo enteras que no requieran operaciones se deben considerar string
         public int id { set; get; }
         public string nombre { set; get; }
         public string nick { set; get; }
         public string pass { set; get; }
         public Nivel id_nivel { get; set; }
-        public char valor();
+
 
         public Usuario()//Toda clase debe tener un constructor vacio
         {
