@@ -14,7 +14,7 @@ namespace BlingLuxury.Clases
         public string nick { set; get; }
         public string pass { set; get; }
         public Nivel id_nivel { get; set; }
-        public char valor();
+        
 
         public Usuario()//Toda clase debe tener un constructor vacio
         {

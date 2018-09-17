@@ -9,16 +9,21 @@ namespace BlingLuxury.Clases
     public class Marca
     {
         public int id { get; set; }
-        public string nombre { get; set; }
+        public string nombre { get; set; }//nombre de la marca
+
+        //constructor por default
         public Marca()
         {
 
         }
+        //constructor con todos los parametros, muy util para listar
         public Marca(int id, string nombre)
         {
             this.id = id;
             this.nombre = nombre;
         }
+
+        //constructor sin id, muy util para inserts
         public Marca(string nombre)
         {
             this.nombre = nombre;

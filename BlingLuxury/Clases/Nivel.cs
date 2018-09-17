@@ -9,7 +9,9 @@ namespace BlingLuxury.Clases
     public class Nivel
     {
         public int id { get; set; }
-        public string nombre { get; set; }
+        public string nombre { get; set; }//Nivel de acceso del 
+
+        //constructor por default
         public Nivel()
         {
 

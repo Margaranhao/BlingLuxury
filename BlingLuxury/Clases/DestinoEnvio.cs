@@ -13,10 +13,14 @@ namespace BlingLuxury.Clases
         public double costo_express { get; set; }
         public Localidad id_localidad { get; set; }
         public  TipoEnvio id_envio { get; set; }
+
+        //constructor por default
         public DestinoEnvio()
         {
 
         }
+
+        //constructor con todos los parametros, muy util para listar
         public DestinoEnvio(int id, double costo_economico, double costo_express,
             Localidad id_localidad, TipoEnvio id_envio)
         {
@@ -26,6 +30,8 @@ namespace BlingLuxury.Clases
             this.id_localidad = id_localidad;
             this.id_envio = id_envio;
         }
+
+        //constructor sin id, muy util para inserts
         public DestinoEnvio(double costo_economico, double costo_express,
             Localidad id_localidad, TipoEnvio id_envio)
         {

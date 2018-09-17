@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
-namespace BlingLuxury.CONEXION
+namespace BlingLuxury.Connection
 {
     class Conexion
     {

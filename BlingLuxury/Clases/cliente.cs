@@ -13,7 +13,7 @@ namespace BlingLuxury.Clases
         public string telefono { set; get; }
         public string calle { set; get; }
         public string colonia { set; get; }
-        public Rango id_rango { get; set; }
+        public Rango id_rango { get; set; } //para saber nivel del cliente 
         public Municipio id_municipio { set; get; }
         public Usuario id_usuario { set; get; }
 
@@ -22,9 +22,9 @@ namespace BlingLuxury.Clases
         {
 
         }
-        //constructor con todos los parametros
+        //constructor con todos los parametros util para listar
         public Cliente(int id, string telefono, string calle, string colonia, 
-            Rango id_rango, Municipio id_municipio, Usuario id_usuario)//Constructor con todos los valores es muy util para listar
+            Rango id_rango, Municipio id_municipio, Usuario id_usuario)
         {
             this.id = id;
             this.telefono = telefono;
@@ -34,8 +34,10 @@ namespace BlingLuxury.Clases
             this.id_municipio = id_municipio;
             this.id_usuario = id_usuario;
         }
+
+        //Constructor sin id es muy util cuando no se necesita el id como en los insert
         public Cliente(string telefono, string calle, string colonia, Rango rango, 
-            Municipio municipio, Usuario usuario )//Constructor sin id es muy util cuando no se necesita el id como en los insert
+            Municipio municipio, Usuario usuario )
         {
             this.telefono = telefono;
             this.calle = calle;

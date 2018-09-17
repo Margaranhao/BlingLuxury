@@ -14,10 +14,13 @@ namespace BlingLuxury.Clases
         public Producto id_producto { get; set; }
         public Usuario id_usuario { get; set; }
 
+        //constructor por default
         public Inventario()
         {
 
         }
+
+        //constructor con todos los parametros, muy util para listar
         public Inventario(int id, DateTime fecha, int cantidad, 
             Producto id_producto, Usuario id_usuario)
         {
@@ -27,6 +30,8 @@ namespace BlingLuxury.Clases
             this.id_producto = id_producto;
             this.id_usuario = id_usuario;
         }
+
+        //constructor sin id, muy util para inserts
         public Inventario(DateTime fecha, int cantidad, Producto id_producto,
             Usuario id_usuario)
         {

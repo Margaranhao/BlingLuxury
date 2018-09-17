@@ -80,8 +80,25 @@
     <Compile Include="Clases\TipoEnvio.cs" />
     <Compile Include="Clases\TipoLocalidad.cs" />
     <Compile Include="Clases\Usuario.cs" />
-    <Compile Include="Conexion\Conexion.cs" />
+    <Compile Include="Connection\Conexion.cs" />
     <Compile Include="DAO\CRUD.cs" />
+    <Compile Include="DAO\LocalidadDAO.cs" />
+    <Compile Include="DAO\MarcaDAO.cs" />
+    <Compile Include="DAO\ModeloDAO.cs" />
+    <Compile Include="DAO\MunicipioDAO.cs" />
+    <Compile Include="DAO\NivelDAO.cs" />
+    <Compile Include="DAO\PaqueteriaDAO.cs" />
+    <Compile Include="DAO\PrecioAdquisicionDAO.cs" />
+    <Compile Include="DAO\PrecioMayoreoDAO.cs" />
+    <Compile Include="DAO\PrecioUnitarioDAO.cs" />
+    <Compile Include="DAO\ProductoDAO.cs" />
+    <Compile Include="DAO\PromocionDAO.cs" />
+    <Compile Include="DAO\RangoDAO.cs" />
+    <Compile Include="DAO\RastreoDAO.cs" />
+    <Compile Include="DAO\RetiroDAO.cs" />
+    <Compile Include="DAO\TipoEnvioDAO.cs" />
+    <Compile Include="DAO\TipoLocalidadDAO.cs" />
+    <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="fmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>

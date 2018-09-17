@@ -31,6 +31,8 @@ namespace BlingLuxury.Clases
             this.id_factura = id_factura;
             this.id_inventario = id_inventario;
         }
+
+        //constructor sin id, muy util para inserts
         public DetalleFactura(int cantidad, double precio, Factura id_factura,
             Inventario id_inventario)
         {

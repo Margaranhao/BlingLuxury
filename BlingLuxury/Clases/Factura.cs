@@ -15,10 +15,12 @@ namespace BlingLuxury.Clases
         public Cliente id_cliente { get; set; }
         public DestinoEnvio id_destino { get; set; }
         public Usuario id_usuario { get; set; }
+        //constructor por default
         public Factura()
         {
 
         }
+        //constructor con todos los parametros, muy util para listar
         public Factura(int id, int folio, DateTime fecha, 
             double total, Cliente id_cliente, DestinoEnvio id_destino, Usuario id_usuario)
         {
@@ -30,6 +32,7 @@ namespace BlingLuxury.Clases
             this.id_destino = id_destino;
             this.id_usuario = id_usuario;
         }
+        //constructor sin id, muy util para inserts
         public Factura(int folio, DateTime fecha, double total,
             Cliente id_cliente, DestinoEnvio id_destino, Usuario id_usuario)
         {
