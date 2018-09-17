@@ -10,32 +10,33 @@ using System.Threading.Tasks;
 
 namespace BlingLuxury.DAO
 {
-    public class DepositoDAO : CRUD<Deposito>
+    class FacturaDAO : CRUD<Factura>
     {
-        private static DepositoDAO depositoDAO;
+        private static FacturaDAO facturaDAO;
         protected string sql;
 
-        public DepositoDAO()
+        public FacturaDAO()
         {
 
         }
 
-        public static DepositoDAO getInstance() //Evita que la clase se instancie más de una vez
+        public static FacturaDAO getInstance() //Evita que la clase se instancie más de una vez
         {
-            if (depositoDAO == null)
-                depositoDAO = new DepositoDAO();
-            return depositoDAO;
+            if (facturaDAO == null)
+                facturaDAO = new FacturaDAO();
+            return facturaDAO;
         }
-        public void Actualizar(int id, Deposito t) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
+        public void Actualizar(int id, Factura t) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {
-                sql = "UPDATE deposito SET cantidad = '" + t.cantidad + "', fecha = '" + t.fecha + "', id_estado = '" + t.id_estado + "', id_usuario = '" + t.id_usuario + "' WHERE id > 0 AND id = '" + id + "';";
+                sql = "UPDATE factura SET folio = '" + t.folio + "', fecha ='" + t.fecha + "', total ='" + t.total + "', id_cliente ='" + t.id_cliente + "', id_destino ='" + t.id_destino + "', id_usuario ='" + t.id_usuario + "' WHERE id > 0 AND id = '" + id + "';";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();
                 Conexion.getInstance().getConnection().Close();
+                throw new NotImplementedException();
             }
             catch (Exception ex)
             {
@@ -44,15 +45,16 @@ namespace BlingLuxury.DAO
             }
         }
 
-        public Deposito Buscar(string query) //Recibe un query de busqueda
+        public Factura Buscar(string query) //Recibe un query de busqueda
         {
             try
             {
                 Conexion.getInstance().setCadenaConnection();
                 using (MySqlCommand cmd = new MySqlCommand(query, Conexion.getInstance().getConnection()))
                 {
+                    //Se crea la clase del objeto a buscar y el DataReader que tomara la respuesta de la consulta
                     MySqlDataReader reader;
-                    Deposito deposito;
+                    Factura factura;
                     cmd.Prepare();
                     cmd.CommandTimeout = 60;
                     using (reader = cmd.ExecuteReader())
@@ -61,40 +63,39 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())//Se recorre cada elemento que obtuvo el reader
                             {
-                               //Se crea un nuevo objeto de la clase y se retorna
-                                deposito = new Deposito(reader.GetInt32(0), reader.GetDouble(1), reader.GetDateTime(2), new Estado(reader.GetString(3)), new Usuario(reader.GetString(4), reader.GetString(5), reader.GetString(6), new Nivel(reader.GetString(7))));
-                                return deposito;
+                                //Se crea un nuevo objeto de la clase y se retorna
+                               factura = new Factura(reader.GetInt32(0), reader.GetInt32(1), reader.GetDateTime(2), reader.GetDouble(3), new Cliente(reader.GetString(4), reader.GetString(5), reader.GetString(6), new Rango(reader.GetString(7)), new Municipio(reader.GetString(8), new Localidad(reader.GetString(9), new CodigoPostal(reader.GetString(10)))), new Usuario(reader.GetString(11), reader.GetString(12), reader.GetString(13), new Nivel(reader.GetString(14)))), new DestinoEnvio(reader.GetInt32(15), reader.GetDouble(16), reader.GetDouble(17), new Localidad(reader.GetString(18), new CodigoPostal(reader.GetString(19))), new TipoEnvio(reader.GetString(20), reader.GetDateTime(21))), new Usuario(reader.GetString(22), reader.GetString(23), reader.GetString(24), new Nivel(reader.GetString(25))));
+                                return factura;
                             }
-                            // Se cierra la conexion y se retorna
+                            //Se Cierra la conexión y se retorna
                             Conexion.getInstance().getConnection().Close();
-                            return new Deposito();
+                            return new Factura();
                         }
                         else
                         {
-                            // Se cierra la conecion y se retorna un objeto de la clase vacio
+                            //Se cierra la conexión y se retorna una objeto de la clase vacio
                             Conexion.getInstance().getConnection().Close();
-                            return new Deposito();
+                            return new Factura();
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
             }
         }
 
-        public void CambiarEstado(int id, Deposito t)
+        public void CambiarEstado(int id, Factura t)
         {
             throw new NotImplementedException();
         }
 
-        public void Insertar(Deposito t) // Se recibe el objeto de la clase a insertar
+        public void Insertar(Factura t) // Se recibe el objeto de la clase a insertar
         {
             try
             {
-                sql = "INSERT INTO deposito(cantidad, fecha, id_estado, id_usuario)VALUES('" + t.cantidad + "','" + t.fecha + "','" + t.id_estado + "','" + t.id_usuario + "');";
+                sql = "INSERT INTO factura(folio, fecha, total, id_cliente, id_destino, id_usuario)VALUES('" + t.folio + "','" + t.fecha + "','" + t.total + "','" + t.id_cliente + "','" + t.id_destino + "','" + t.id_usuario + "');";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
@@ -104,14 +105,13 @@ namespace BlingLuxury.DAO
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
             }
         }
 
-        public List<Deposito> Listar(string query) //Se recibe el query de busqueda
+        public List<Factura> Listar(string query) //Se recibe el query de busqueda
         {
-            List<Deposito> depositoLista = new List<Deposito>();
+            List<Factura> facturaLista = new List<Factura>();
             try
             {
                 Conexion.getInstance().setCadenaConnection();
@@ -126,17 +126,17 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())
                             {
-                                depositoLista.Add(new Deposito(reader.GetInt32(0), reader.GetDouble(1), reader.GetDateTime(2), new Estado(reader.GetString(3)), new Usuario(reader.GetString(4), reader.GetString(5), reader.GetString(6), new Nivel(reader.GetString(7))))); 
+                                facturaLista.Add(new Factura(reader.GetInt32(0), reader.GetInt32(1), reader.GetDateTime(2), reader.GetDouble(3), new Cliente(reader.GetString(4), reader.GetString(5), reader.GetString(6), new Rango(reader.GetString(7)), new Municipio(reader.GetString(8), new Localidad(reader.GetString(9), new CodigoPostal(reader.GetString(10)))), new Usuario(reader.GetString(11), reader.GetString(12), reader.GetString(13), new Nivel(reader.GetString(14)))), new DestinoEnvio(reader.GetInt32(15), reader.GetDouble(16), reader.GetDouble(17), new Localidad(reader.GetString(18), new CodigoPostal(reader.GetString(19))), new TipoEnvio(reader.GetString(20), reader.GetDateTime(21))), new Usuario(reader.GetString(22), reader.GetString(23), reader.GetString(24), new Nivel(reader.GetString(25)))));
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();
-                            return depositoLista;
+                            return facturaLista;
                         }
                         else
                         {
                             Conexion.getInstance().Desconectar();
                             reader.Close();
-                            return depositoLista;
+                            return facturaLista;
                         }
                     }
                 }

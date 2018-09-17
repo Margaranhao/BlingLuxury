@@ -1,5 +1,7 @@
 ﻿using BlingLuxury.Clases;
+using BlingLuxury.CONEXION;
 using BlingLuxury.CRUD;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,16 +10,80 @@ using System.Threading.Tasks;
 
 namespace BlingLuxury.DAO
 {
-    class EntidadFederativaDAO : CRUD<EntidadFederativa>
+    public class EntidadFederativaDAO : CRUD<EntidadFederativa>
     {
-        public void Actualizar(int id, EntidadFederativa t)
+        private static EntidadFederativaDAO entidadfederativaDAO;
+        protected string sql;
+
+        public EntidadFederativaDAO()
         {
-            throw new NotImplementedException();
+
         }
 
-        public EntidadFederativa Buscar(string query)
+        public static EntidadFederativaDAO getInstance() //Evita que la clase se instancie más de una vez
         {
-            throw new NotImplementedException();
+            if (entidadfederativaDAO == null)
+                entidadfederativaDAO = new EntidadFederativaDAO();
+            return entidadfederativaDAO;
+        }
+        public void Actualizar(int id, EntidadFederativa t) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
+        {
+            try
+            {
+                sql = "UPDATE entidad_federativa SET nombre = '" + t.nombre + "',id_municipio'" + t.id_municipio + "' WHERE id > 0 AND id = '" + id + "';";
+                Conexion.getInstance().setCadenaConnection();
+                MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
+                cmd.Prepare();
+                cmd.ExecuteNonQuery();
+                Conexion.getInstance().getConnection().Close();
+                throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public EntidadFederativa Buscar(string query) //Recibe un query de busqueda
+        {
+            try
+            {
+                Conexion.getInstance().setCadenaConnection();
+                using (MySqlCommand cmd = new MySqlCommand(query, Conexion.getInstance().getConnection()))
+                {
+                    //Se crea la clase del objeto a buscar y el DataReader que tomara la respuesta de la consulta
+                    MySqlDataReader reader;
+                    EntidadFederativa entidadfederativa;
+                    cmd.Prepare();
+                    cmd.CommandTimeout = 60;
+                    using (reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)//Se comprueba que el reader tenga resultado
+                        {
+                            while (reader.Read())//Se recorre cada elemento que obtuvo el reader
+                            {
+                                //Se crea un nuevo objeto de la clase y se retorna
+                                entidadfederativa = new EntidadFederativa(reader.GetInt32(0), reader.GetString(1), new Municipio(reader.GetString(2), new Localidad(reader.GetString(3), new CodigoPostal(reader.GetString(4)))));
+                                return entidadfederativa;
+                            }
+                            //Se Cierra la conexión y se retorna
+                            Conexion.getInstance().getConnection().Close();
+                            return new EntidadFederativa();
+                        }
+                        else
+                        {
+                            //Se cierra la conexión y se retorna una objeto de la clase vacio
+                            Conexion.getInstance().getConnection().Close();
+                            return new EntidadFederativa();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public void CambiarEstado(int id, EntidadFederativa t)
@@ -25,14 +91,60 @@ namespace BlingLuxury.DAO
             throw new NotImplementedException();
         }
 
-        public void Insertar(EntidadFederativa t)
+        public void Insertar(EntidadFederativa t) // Se recibe el objeto de la clase a insertar
         {
-            throw new NotImplementedException();
+            try
+            {
+                sql = "INSERT INTO entidad_federativa(nombre, id_municipio)VALUES('" + t.nombre + "','" + t.id_municipio + "');";
+                Conexion.getInstance().setCadenaConnection();
+                MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
+                cmd.Prepare();
+                cmd.CommandTimeout = 60;
+                cmd.ExecuteNonQuery();
+                Conexion.getInstance().getConnection().Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
-        public List<EntidadFederativa> Listar(string query)
+        public List<EntidadFederativa> Listar(string query) //Se recibe el query de busqueda
         {
-            throw new NotImplementedException();
+            List<EntidadFederativa> entidadfederativaLista = new List<EntidadFederativa>();
+            try
+            {
+                Conexion.getInstance().setCadenaConnection();
+                using (MySqlCommand cmd = new MySqlCommand(query, Conexion.getInstance().getConnection()))
+                {
+                    MySqlDataReader reader;
+                    cmd.Prepare();
+                    cmd.CommandTimeout = 60;
+                    using (reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                entidadfederativaLista.Add(new EntidadFederativa(reader.GetInt32(0), reader.GetString(1), new Municipio(reader.GetString(2), new Localidad(reader.GetString(3), new CodigoPostal(reader.GetString(4))))));
+                            }
+                            Conexion.getInstance().Desconectar();
+                            reader.Close();
+                            return entidadfederativaLista;
+                        }
+                        else
+                        {
+                            Conexion.getInstance().Desconectar();
+                            reader.Close();
+                            return entidadfederativaLista;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

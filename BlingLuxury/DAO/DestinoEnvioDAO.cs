@@ -20,17 +20,17 @@ namespace BlingLuxury.DAO
 
         }
 
-        public static DestinoEnvioDAO getInstance()
+        public static DestinoEnvioDAO getInstance() //Evita que la clase se instancie más de una vez
         {
             if (destinoenvioDAO == null)
                 destinoenvioDAO = new DestinoEnvioDAO();
             return destinoenvioDAO;
         }
-        public void Actualizar(int id, DestinoEnvio t)
+        public void Actualizar(int id, DestinoEnvio t) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {
-                sql = "UPDATE destino_envio SET id_envio = '" + t.id_envio + "' WHERE id > 0 AND id = '" + id + "';";
+                sql = "UPDATE destino_envio SET costo_economico = '" + t.costo_economico + "', costo_express = '" + t.costo_express + "', id_localidad = '" + t.id_localidad + "', id_envio = '" + t.id_envio + "' WHERE id > 0 AND id = '" + id + "';";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
@@ -44,7 +44,7 @@ namespace BlingLuxury.DAO
             }
         }
 
-        public DestinoEnvio Buscar(string query)
+        public DestinoEnvio Buscar(string query) //Recibe un query de busqueda
         {
             try
             {
@@ -63,7 +63,7 @@ namespace BlingLuxury.DAO
                             while (reader.Read())//Se recorre cada elemento que obtuvo el reader
                             {
                                 //Se crea un nuevo objeto de la clase y se retorna
-                                destinoenvio = new DestinoEnvio();// reader.GetInt32(0), reader.GetDouble(1), reader.GetDouble(2), new Localidad(reader.GetString(3), new CodigoPostal(reader.GetString(4), new TipoLocalidad(reader.GetString(5), new TipoEnvio(reader.GetString(6), reader.GetDateTime(7))))));
+                                destinoenvio = new DestinoEnvio(reader.GetInt32(0), reader.GetDouble(1), reader.GetDouble(2), new Localidad(reader.GetString(3), new CodigoPostal(reader.GetString(4))), new TipoEnvio(reader.GetString(5), reader.GetDateTime(6)));
                                 return destinoenvio;
                             }
                             //Se Cierra la conexión y se retorna
@@ -90,7 +90,7 @@ namespace BlingLuxury.DAO
             throw new NotImplementedException();
         }
 
-        public void Insertar(DestinoEnvio t)
+        public void Insertar(DestinoEnvio t) // Se recibe el objeto de la clase a insertar
         {
             try
             {
@@ -108,7 +108,7 @@ namespace BlingLuxury.DAO
             }
         }
 
-        public List<DestinoEnvio> Listar(string query)
+        public List<DestinoEnvio> Listar(string query) //Se recibe el query de busqueda
         {
             List<DestinoEnvio> destinoenvioLista = new List<DestinoEnvio>();
             try
@@ -125,7 +125,7 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())
                             {
-                                destinoenvioLista.Add(new DestinoEnvio()); // reader.GetInt32(0), reader.GetDouble(1), reader.GetDouble(2), new Localidad(reader.GetString(3), new CodigoPostal(reader.GetString(4), new TipoLocalidad(reader.GetString(5), new TipoEnvio(reader.GetString(6), reader.GetDateTime(7))))));
+                                destinoenvioLista.Add(new DestinoEnvio(reader.GetInt32(0), reader.GetDouble(1), reader.GetDouble(2), new Localidad(reader.GetString(3), new CodigoPostal(reader.GetString(4))), new TipoEnvio(reader.GetString(5), reader.GetDateTime(6)))); 
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();

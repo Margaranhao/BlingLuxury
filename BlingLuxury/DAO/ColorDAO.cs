@@ -20,14 +20,14 @@ namespace BlingLuxury.DAO
 
         }
 
-        public static ColorDAO getInstance()
+        public static ColorDAO getInstance() //Evita que la clase se instancie más de una vez
         {
             if (colorDAO == null)
                 colorDAO = new ColorDAO();
             return colorDAO;
         }
 
-        public void Actualizar(int id, Color t)
+        public void Actualizar(int id, Color t) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {
@@ -45,7 +45,7 @@ namespace BlingLuxury.DAO
             }
         }
 
-        public Color Buscar(string query)
+        public Color Buscar(string query) //Recibe un query de busqueda
         {
             try
             {
@@ -91,7 +91,7 @@ namespace BlingLuxury.DAO
             throw new NotImplementedException();
         }
 
-        public void Insertar(Color t)
+        public void Insertar(Color t) // Se recibe el objeto de la clase a insertar
         {
             try
             {
@@ -109,7 +109,7 @@ namespace BlingLuxury.DAO
             }
         }
 
-        public List<Color> Listar(string query)
+        public List<Color> Listar(string query) //Se recibe el query de busqueda
         {
             List<Color> colorLista = new List<Color>();
             try
