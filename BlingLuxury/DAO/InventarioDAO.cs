@@ -10,32 +10,34 @@ using System.Threading.Tasks;
 
 namespace BlingLuxury.DAO
 {
-    public class DepositoDAO : CRUD<Deposito>
+    class InventarioDAO : CRUD<Inventario>
     {
-        private static DepositoDAO depositoDAO;
+
+        private static InventarioDAO inventarioDAO;
         protected string sql;
 
-        public DepositoDAO()
+        public InventarioDAO()
         {
 
         }
 
-        public static DepositoDAO getInstance() //Evita que la clase se instancie más de una vez
+        public static InventarioDAO getInstance() //Evita que la clase se instancie más de una vez
         {
-            if (depositoDAO == null)
-                depositoDAO = new DepositoDAO();
-            return depositoDAO;
+            if (inventarioDAO == null)
+                inventarioDAO = new InventarioDAO();
+            return inventarioDAO;
         }
-        public void Actualizar(int id, Deposito t) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
+        public void Actualizar(int id, Inventario t)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {
-                sql = "UPDATE deposito SET cantidad = '" + t.cantidad + "', fecha = '" + t.fecha + "', id_estado = '" + t.id_estado + "', id_usuario = '" + t.id_usuario + "' WHERE id > 0 AND id = '" + id + "';";
+                sql = "UPDATE inventario SET fecha = '" + t.fecha + "', cantidad = '" + t.cantidad + "', id_producto = '" + t.id_producto + "', id_usuario = '" + t.id_usuario + "' WHERE id > 0 AND id = '" + id + "';";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();
                 Conexion.getInstance().getConnection().Close();
+                throw new NotImplementedException();
             }
             catch (Exception ex)
             {
@@ -44,15 +46,16 @@ namespace BlingLuxury.DAO
             }
         }
 
-        public Deposito Buscar(string query) //Recibe un query de busqueda
+        public Inventario Buscar(string query) //Recibe un query de busqueda
         {
             try
             {
                 Conexion.getInstance().setCadenaConnection();
                 using (MySqlCommand cmd = new MySqlCommand(query, Conexion.getInstance().getConnection()))
                 {
+                    //Se crea la clase del objeto a buscar y el DataReader que tomara la respuesta de la consulta
                     MySqlDataReader reader;
-                    Deposito deposito;
+                    Inventario inventario;
                     cmd.Prepare();
                     cmd.CommandTimeout = 60;
                     using (reader = cmd.ExecuteReader())
@@ -61,40 +64,40 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())//Se recorre cada elemento que obtuvo el reader
                             {
-                               //Se crea un nuevo objeto de la clase y se retorna
-                                deposito = new Deposito(reader.GetInt32(0), reader.GetDouble(1), reader.GetDateTime(2), new Estado(reader.GetString(3)), new Usuario(reader.GetString(4), reader.GetString(5), reader.GetString(6), new Nivel(reader.GetString(7))));
-                                return deposito;
+                                //Se crea un nuevo objeto de la clase y se retorna
+                                inventario = new Inventario(reader.GetInt32(0), reader.GetDateTime(1), reader.GetInt32(2), new Producto(reader.GetInt32(3), reader.GetDouble(4), new Modelo(reader.GetString(5), new Marca(reader.GetString(6))), new PrecioAdquisicion(reader.GetDouble(7)), new Color(reader.GetString(8)), new Categoria(reader.GetString(9))), new Usuario(reader.GetString(10), reader.GetString(12), reader.GetString(13), new Nivel(reader.GetString(14))));
+                                return inventario;
                             }
-                            // Se cierra la conexion y se retorna
+                            //Se Cierra la conexión y se retorna
                             Conexion.getInstance().getConnection().Close();
-                            return new Deposito();
+                            return new Inventario();
                         }
                         else
                         {
-                            // Se cierra la conecion y se retorna un objeto de la clase vacio
+                            //Se cierra la conexión y se retorna una objeto de la clase vacio
                             Conexion.getInstance().getConnection().Close();
-                            return new Deposito();
+                            return new Inventario();
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
             }
+
         }
 
-        public void CambiarEstado(int id, Deposito t)
+        public void CambiarEstado(int id, Inventario t)
         {
             throw new NotImplementedException();
         }
 
-        public void Insertar(Deposito t) // Se recibe el objeto de la clase a insertar
+        public void Insertar(Inventario t) // Se recibe el objeto de la clase a insertar
         {
             try
             {
-                sql = "INSERT INTO deposito(cantidad, fecha, id_estado, id_usuario)VALUES('" + t.cantidad + "','" + t.fecha + "','" + t.id_estado + "','" + t.id_usuario + "');";
+                sql = "INSERT INTO inventario(fecha, cantidad, id_producto, id_usuario)VALUES('" + t.fecha + "','" + t.cantidad + "','" + t.id_producto + "','" + t.id_usuario + "');";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
@@ -104,14 +107,14 @@ namespace BlingLuxury.DAO
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
             }
         }
 
-        public List<Deposito> Listar(string query) //Se recibe el query de busqueda
+        public List<Inventario> Listar(string query) //Se recibe el query de busqueda
         {
-            List<Deposito> depositoLista = new List<Deposito>();
+
+            List<Inventario> inventarioLista = new List<Inventario>();
             try
             {
                 Conexion.getInstance().setCadenaConnection();
@@ -126,17 +129,17 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())
                             {
-                                depositoLista.Add(new Deposito(reader.GetInt32(0), reader.GetDouble(1), reader.GetDateTime(2), new Estado(reader.GetString(3)), new Usuario(reader.GetString(4), reader.GetString(5), reader.GetString(6), new Nivel(reader.GetString(7))))); 
+                                inventarioLista.Add(new Inventario(reader.GetInt32(0), reader.GetDateTime(1), reader.GetInt32(2), new Producto(reader.GetInt32(3), reader.GetDouble(4), new Modelo(reader.GetString(5), new Marca(reader.GetString(6))), new PrecioAdquisicion(reader.GetDouble(7)), new Color(reader.GetString(8)), new Categoria(reader.GetString(9))), new Usuario(reader.GetString(10), reader.GetString(12), reader.GetString(13), new Nivel(reader.GetString(14)))));
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();
-                            return depositoLista;
+                            return inventarioLista;
                         }
                         else
                         {
                             Conexion.getInstance().Desconectar();
                             reader.Close();
-                            return depositoLista;
+                            return inventarioLista;
                         }
                     }
                 }

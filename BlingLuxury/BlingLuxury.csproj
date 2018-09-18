@@ -90,6 +90,9 @@
     <Compile Include="DAO\DestinoEnvioDAO.cs" />
     <Compile Include="DAO\DetalleFacturaDAO.cs" />
     <Compile Include="DAO\EntidadFederativaDAO.cs" />
+    <Compile Include="DAO\EstadoDAO.cs" />
+    <Compile Include="DAO\FacturaDAO.cs" />
+    <Compile Include="DAO\InventarioDAO.cs" />
     <Compile Include="fmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>

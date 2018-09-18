@@ -10,32 +10,33 @@ using System.Threading.Tasks;
 
 namespace BlingLuxury.DAO
 {
-    public class DepositoDAO : CRUD<Deposito>
+    class EstadoDAO : CRUD<Estado>
     {
-        private static DepositoDAO depositoDAO;
+        private static EstadoDAO estadoDAO;
         protected string sql;
 
-        public DepositoDAO()
+        public EstadoDAO()
         {
 
         }
 
-        public static DepositoDAO getInstance() //Evita que la clase se instancie más de una vez
+        public static EstadoDAO getInstance() //Evita que la clase se instancie más de una vez
         {
-            if (depositoDAO == null)
-                depositoDAO = new DepositoDAO();
-            return depositoDAO;
+            if (estadoDAO == null)
+                estadoDAO = new EstadoDAO();
+            return estadoDAO;
         }
-        public void Actualizar(int id, Deposito t) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
+        public void Actualizar(int id, Estado t) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {
-                sql = "UPDATE deposito SET cantidad = '" + t.cantidad + "', fecha = '" + t.fecha + "', id_estado = '" + t.id_estado + "', id_usuario = '" + t.id_usuario + "' WHERE id > 0 AND id = '" + id + "';";
+                sql = "UPDATE estado SET nombre = '" + t.nombre + "' WHERE id > 0 AND id = '" + id + "';";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();
                 Conexion.getInstance().getConnection().Close();
+                throw new NotImplementedException();
             }
             catch (Exception ex)
             {
@@ -44,15 +45,16 @@ namespace BlingLuxury.DAO
             }
         }
 
-        public Deposito Buscar(string query) //Recibe un query de busqueda
+        public Estado Buscar(string query) //Recibe un query de busqueda
         {
             try
             {
                 Conexion.getInstance().setCadenaConnection();
                 using (MySqlCommand cmd = new MySqlCommand(query, Conexion.getInstance().getConnection()))
                 {
+                    //Se crea la clase del objeto a buscar y el DataReader que tomara la respuesta de la consulta
                     MySqlDataReader reader;
-                    Deposito deposito;
+                    Estado estado;
                     cmd.Prepare();
                     cmd.CommandTimeout = 60;
                     using (reader = cmd.ExecuteReader())
@@ -61,40 +63,39 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())//Se recorre cada elemento que obtuvo el reader
                             {
-                               //Se crea un nuevo objeto de la clase y se retorna
-                                deposito = new Deposito(reader.GetInt32(0), reader.GetDouble(1), reader.GetDateTime(2), new Estado(reader.GetString(3)), new Usuario(reader.GetString(4), reader.GetString(5), reader.GetString(6), new Nivel(reader.GetString(7))));
-                                return deposito;
+                                //Se crea un nuevo objeto de la clase y se retorna
+                                estado = new Estado(reader.GetInt32(0), reader.GetString(1));
+                                return estado;
                             }
-                            // Se cierra la conexion y se retorna
+                            //Se Cierra la conexión y se retorna
                             Conexion.getInstance().getConnection().Close();
-                            return new Deposito();
+                            return new Estado();
                         }
                         else
                         {
-                            // Se cierra la conecion y se retorna un objeto de la clase vacio
+                            //Se cierra la conexión y se retorna una objeto de la clase vacio
                             Conexion.getInstance().getConnection().Close();
-                            return new Deposito();
+                            return new Estado();
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
             }
         }
 
-        public void CambiarEstado(int id, Deposito t)
+        public void CambiarEstado(int id, Estado t)
         {
             throw new NotImplementedException();
         }
 
-        public void Insertar(Deposito t) // Se recibe el objeto de la clase a insertar
+        public void Insertar(Estado t) // Se recibe el objeto de la clase a insertar
         {
             try
             {
-                sql = "INSERT INTO deposito(cantidad, fecha, id_estado, id_usuario)VALUES('" + t.cantidad + "','" + t.fecha + "','" + t.id_estado + "','" + t.id_usuario + "');";
+                sql = "INSERT INTO estado(nombre)VALUES('" + t.nombre + "');";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
@@ -104,14 +105,13 @@ namespace BlingLuxury.DAO
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
             }
         }
 
-        public List<Deposito> Listar(string query) //Se recibe el query de busqueda
+        public List<Estado> Listar(string query) //Se recibe el query de busqueda
         {
-            List<Deposito> depositoLista = new List<Deposito>();
+            List<Estado> estadoLista = new List<Estado>();
             try
             {
                 Conexion.getInstance().setCadenaConnection();
@@ -126,17 +126,17 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())
                             {
-                                depositoLista.Add(new Deposito(reader.GetInt32(0), reader.GetDouble(1), reader.GetDateTime(2), new Estado(reader.GetString(3)), new Usuario(reader.GetString(4), reader.GetString(5), reader.GetString(6), new Nivel(reader.GetString(7))))); 
+                                estadoLista.Add(new Estado(reader.GetInt32(0), reader.GetString(1)));
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();
-                            return depositoLista;
+                            return estadoLista;
                         }
                         else
                         {
                             Conexion.getInstance().Desconectar();
                             reader.Close();
-                            return depositoLista;
+                            return estadoLista;
                         }
                     }
                 }

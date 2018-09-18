@@ -20,13 +20,13 @@ namespace BlingLuxury.DAO
 
         }
 
-        public static CodigoPostalDAO getInstance()
+        public static CodigoPostalDAO getInstance() //Evita que la clase se instancie más de una vez
         {
             if (codigopostalDAO == null)
                 codigopostalDAO = new CodigoPostalDAO();
             return codigopostalDAO;
         }
-        public void Actualizar(int id, CodigoPostal t)
+        public void Actualizar(int id, CodigoPostal t) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {
@@ -44,7 +44,7 @@ namespace BlingLuxury.DAO
             }
         }
 
-        public CodigoPostal Buscar(string query)
+        public CodigoPostal Buscar(string query) //Recibe un query de busqueda
         {
             try
             {
@@ -91,7 +91,7 @@ namespace BlingLuxury.DAO
             throw new NotImplementedException();
         }
 
-        public void Insertar(CodigoPostal t)
+        public void Insertar(CodigoPostal t) // Se recibe el objeto de la clase a insertar
         {
             try
             {
@@ -110,7 +110,7 @@ namespace BlingLuxury.DAO
             }
         }
 
-        public List<CodigoPostal> Listar(string query)
+        public List<CodigoPostal> Listar(string query) // Recibe el query de busqueda
         {
             List<CodigoPostal> codigopostalLista = new List<CodigoPostal>();
             try

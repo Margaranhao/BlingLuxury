@@ -40,11 +40,11 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.cbxEntidadFederativa = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.cbxMunicipio = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.cbxLocalidad = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -59,13 +59,11 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl
@@ -104,7 +102,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(120, 29);
+            this.textBox2.Location = new System.Drawing.Point(148, 31);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(453, 22);
@@ -127,7 +125,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.label2.Location = new System.Drawing.Point(50, 19);
+            this.label2.Location = new System.Drawing.Point(35, 20);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 18);
@@ -141,7 +139,11 @@
             this.cbxNivel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxNivel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
             this.cbxNivel.FormattingEnabled = true;
-            this.cbxNivel.Location = new System.Drawing.Point(108, 18);
+            this.cbxNivel.Items.AddRange(new object[] {
+            "Administrador",
+            "Cliente ",
+            "Gestor"});
+            this.cbxNivel.Location = new System.Drawing.Point(93, 19);
             this.cbxNivel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbxNivel.Name = "cbxNivel";
             this.cbxNivel.Size = new System.Drawing.Size(157, 24);
@@ -165,7 +167,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(120, 62);
+            this.textBox3.Location = new System.Drawing.Point(148, 64);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(157, 21);
@@ -188,25 +190,25 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.label6.Location = new System.Drawing.Point(342, 93);
+            this.label6.Location = new System.Drawing.Point(348, 93);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 18);
             this.label6.TabIndex = 11;
             this.label6.Text = "Estado:";
             // 
-            // cbxEntidadFederativa
+            // comboBox3
             // 
-            this.cbxEntidadFederativa.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cbxEntidadFederativa.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbxEntidadFederativa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxEntidadFederativa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.cbxEntidadFederativa.FormattingEnabled = true;
-            this.cbxEntidadFederativa.Location = new System.Drawing.Point(416, 91);
-            this.cbxEntidadFederativa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cbxEntidadFederativa.Name = "cbxEntidadFederativa";
-            this.cbxEntidadFederativa.Size = new System.Drawing.Size(157, 24);
-            this.cbxEntidadFederativa.TabIndex = 12;
+            this.comboBox3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(444, 92);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(157, 24);
+            this.comboBox3.TabIndex = 12;
             // 
             // label5
             // 
@@ -220,18 +222,18 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Municipio:";
             // 
-            // cbxMunicipio
+            // comboBox2
             // 
-            this.cbxMunicipio.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cbxMunicipio.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbxMunicipio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxMunicipio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.cbxMunicipio.FormattingEnabled = true;
-            this.cbxMunicipio.Location = new System.Drawing.Point(120, 88);
-            this.cbxMunicipio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cbxMunicipio.Name = "cbxMunicipio";
-            this.cbxMunicipio.Size = new System.Drawing.Size(157, 24);
-            this.cbxMunicipio.TabIndex = 10;
+            this.comboBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(148, 90);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(157, 24);
+            this.comboBox2.TabIndex = 10;
             // 
             // label4
             // 
@@ -245,18 +247,18 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Localidad:";
             // 
-            // cbxLocalidad
+            // comboBox1
             // 
-            this.cbxLocalidad.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cbxLocalidad.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbxLocalidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxLocalidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.cbxLocalidad.FormattingEnabled = true;
-            this.cbxLocalidad.Location = new System.Drawing.Point(416, 61);
-            this.cbxLocalidad.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cbxLocalidad.Name = "cbxLocalidad";
-            this.cbxLocalidad.Size = new System.Drawing.Size(157, 24);
-            this.cbxLocalidad.TabIndex = 8;
+            this.comboBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(444, 62);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(157, 24);
+            this.comboBox1.TabIndex = 8;
             // 
             // flowLayoutPanel1
             // 
@@ -267,7 +269,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(149, 53);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(679, 426);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(681, 431);
             this.flowLayoutPanel1.TabIndex = 8;
             // 
             // groupBox2
@@ -277,11 +279,11 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.cbxLocalidad);
-            this.groupBox2.Controls.Add(this.cbxEntidadFederativa);
+            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.comboBox3);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.cbxMunicipio);
+            this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Location = new System.Drawing.Point(20, 106);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(20, 3, 4, 3);
             this.groupBox2.Name = "groupBox2";
@@ -456,21 +458,12 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(121, 183);
             this.flowLayoutPanel2.TabIndex = 13;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(149, 510);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(679, 148);
-            this.dataGridView1.TabIndex = 14;
-            // 
             // fmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.ClientSize = new System.Drawing.Size(906, 720);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(826, 478);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.lbl);
@@ -480,7 +473,6 @@
             this.Name = "fmRegistro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fmRegistro";
-            this.Load += new System.EventHandler(this.fmRegistro_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -489,7 +481,6 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -508,11 +499,11 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbxEntidadFederativa;
+        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cbxMunicipio;
+        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cbxLocalidad;
+        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -527,6 +518,5 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

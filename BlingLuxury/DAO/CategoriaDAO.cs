@@ -20,13 +20,13 @@ namespace BlingLuxury.DAO
 
         }
 
-        public static CategoriaDAO getInstance()
+        public static CategoriaDAO getInstance() //Evita que la clase se instancie más de una vez
         {
             if (categoriaDAO == null)
                 categoriaDAO = new CategoriaDAO();
             return categoriaDAO;
         }
-        public void Actualizar(int id, Categoria t)
+        public void Actualizar(int id, Categoria t) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {
@@ -46,7 +46,7 @@ namespace BlingLuxury.DAO
 
         }
 
-        public Categoria Buscar(string query)
+        public Categoria Buscar(string query) //Recibe un query de busqueda
         {
             try
             {
@@ -87,12 +87,12 @@ namespace BlingLuxury.DAO
             }
         }
 
-        public void CambiarEstado(int id, Categoria t)
+        public void CambiarEstado(int id, Categoria t) 
         {
             throw new NotImplementedException();
         }
 
-        public void Insertar(Categoria t)
+        public void Insertar(Categoria t) // Se recibe el objeto de la clase a insertar
         {
             try
             {
@@ -110,7 +110,7 @@ namespace BlingLuxury.DAO
             }
         }
 
-        public List<Categoria> Listar(string query)
+        public List<Categoria> Listar(string query) //Se Recibe el query de la busqueda
         {
             List<Categoria> categoriaLista = new List<Categoria>();
             try

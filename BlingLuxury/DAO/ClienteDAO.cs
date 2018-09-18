@@ -20,17 +20,17 @@ namespace BlingLuxury.DAO
 
         }
 
-        public static ClienteDAO getInstance()
+        public static ClienteDAO getInstance() //Evita que la clase se instancie más de una vez
         {
             if (clienteDAO == null)
                 clienteDAO = new ClienteDAO();
             return clienteDAO;
         }
-        public void Actualizar(int id, Cliente t)
+        public void Actualizar(int id, Cliente t) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {
-                sql = "UPDATE cliente SET telefono = '" + t.telefono + "' WHERE id > 0 AND id = '" + id + "';";
+                sql = "UPDATE cliente SET telefono = '" + t.telefono + "', calle = '" + t.calle + "', colonia = '" + t.colonia + "', id_rango = '" + t.id_rango + "', id_municipio = '" + t.id_municipio + "', id_usuario = '" + t.id_usuario +  "' WHERE id > 0 AND id = '" + id + "';";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
@@ -44,7 +44,7 @@ namespace BlingLuxury.DAO
             }
         }
 
-        public Cliente Buscar(string query)
+        public Cliente Buscar(string query) //Recibe un query de busqueda
         {
             try
             {
@@ -63,7 +63,7 @@ namespace BlingLuxury.DAO
                             while (reader.Read())//Se recorre cada elemento que obtuvo el reader
                             {
                                 //Se crea un nuevo objeto de la clase y se retorna
-                                cliente = new Cliente(); //Falta Código reader.GetInt32(0).....
+                                cliente = new Cliente(reader.GetString(0),reader.GetString(1),reader.GetString(2),new Rango(reader.GetString(3)),new Municipio(reader.GetString(4),new Localidad(reader.GetString(5),new CodigoPostal(reader.GetString(6)))),new Usuario(reader.GetString(7),reader.GetString(8),reader.GetString(9), new Nivel(reader.GetString(10))));
                                 return cliente;
                             }
                             //Se Cierra la conexión y se retorna
@@ -90,7 +90,7 @@ namespace BlingLuxury.DAO
             throw new NotImplementedException();
         }
 
-        public void Insertar(Cliente t)
+        public void Insertar(Cliente t) // Se recibe el objeto de la clase a insertar
         {
             try
             {
@@ -108,7 +108,7 @@ namespace BlingLuxury.DAO
             }
         }
 
-        public List<Cliente> Listar(string query)
+        public List<Cliente> Listar(string query) //Se recibe el query de busqueda
         {
             List<Cliente> clienteLista = new List<Cliente>();
             try
@@ -125,7 +125,7 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())
                             {
-                                clienteLista.Add(new Cliente()); //Falta Código reader.GetInt32(0).....
+                                clienteLista.Add(new Cliente(reader.GetString(0), reader.GetString(1), reader.GetString(2), new Rango(reader.GetString(3)), new Municipio(reader.GetString(4), new Localidad(reader.GetString(5), new CodigoPostal(reader.GetString(6)))), new Usuario(reader.GetString(7), reader.GetString(8), reader.GetString(9), new Nivel(reader.GetString(10))))); 
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();
