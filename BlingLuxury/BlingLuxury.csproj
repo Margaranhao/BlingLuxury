@@ -81,7 +81,18 @@
     <Compile Include="Clases\TipoLocalidad.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="Connection\Conexion.cs" />
+    <Compile Include="DAO\CategoriaDAO.cs" />
+    <Compile Include="DAO\ClienteDAO.cs" />
+    <Compile Include="DAO\CodigoPostalDAO.cs" />
+    <Compile Include="DAO\ColorDAO.cs" />
     <Compile Include="DAO\CRUD.cs" />
+    <Compile Include="DAO\DepositoDAO.cs" />
+    <Compile Include="DAO\DestinoEnvioDAO.cs" />
+    <Compile Include="DAO\DetalleFacturaDAO.cs" />
+    <Compile Include="DAO\EntidadFederativaDAO.cs" />
+    <Compile Include="DAO\EstadoDAO.cs" />
+    <Compile Include="DAO\FacturaDAO.cs" />
+    <Compile Include="DAO\InventarioDAO.cs" />
     <Compile Include="DAO\LocalidadDAO.cs" />
     <Compile Include="DAO\MarcaDAO.cs" />
     <Compile Include="DAO\ModeloDAO.cs" />
@@ -117,6 +128,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProducto.Designer.cs">
+      <DependentUpon>FrmProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyDatabase1.examples.cs" />
     <Compile Include="MyDatabase1.generated.cs">
       <AutoGen>True</AutoGen>
@@ -133,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProducto.resx">
+      <DependentUpon>FrmProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

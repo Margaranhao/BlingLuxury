@@ -24,7 +24,7 @@ namespace BlingLuxury.Clases
         }
 
         //constructor sin id, muy util para insertspublic Estado(string nombre)
-        {
+        public Estado(string nombre){
             this.nombre = nombre;
         }
 
