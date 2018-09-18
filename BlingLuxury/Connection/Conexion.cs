@@ -8,12 +8,14 @@ using System.Windows.Forms;
 
 namespace BlingLuxury.Connection
 {
-    class Conexion
+    public class Conexion
     {
-        private static Conexion conexion;
-        private MySqlConnection connection;
+        public static Conexion conexion;
+        public MySqlConnection connection;
 
-        protected string cadenaConexion = "Server = localhost; port = 3306; database = bling_luxury; Uid = root; Pwd = root;";
+        public string cadenaConexion = "Server = localhost; port = 3306; database = bling_luxury; Uid = root; Pwd = root;";
+
+        public static MySqlConnection Connection { get; internal set; }
 
         public Conexion()
         {
@@ -23,7 +25,7 @@ namespace BlingLuxury.Connection
         public static Conexion getInstance()
         {
             if (conexion == null)
-                conexion = new CONEXION.Conexion();
+                conexion = new Connection.Conexion();
             conexion.Conectar();
             return conexion;
         }
