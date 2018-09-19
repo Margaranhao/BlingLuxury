@@ -31,5 +31,10 @@ namespace BlingLuxury
         {
 
         }
+
+        private void FrmProducto_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
