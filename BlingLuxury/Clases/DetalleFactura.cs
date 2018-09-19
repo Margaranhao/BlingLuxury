@@ -12,7 +12,6 @@ namespace BlingLuxury.Clases
         public int id { get; set; }
         public int cantidad { get; set; }
         public double precio { get; set; }
-
         public Factura id_factura { get; set; }
         public Inventario id_inventario { get; set; }
 
