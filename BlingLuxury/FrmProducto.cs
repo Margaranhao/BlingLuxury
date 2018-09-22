@@ -41,7 +41,7 @@ namespace BlingLuxury
         #region Formulario
         private void insertarProducto()
         {
-            Insertar();
+           // Insertar();
         }
         #endregion
 
