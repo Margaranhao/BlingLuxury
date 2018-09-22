@@ -30,7 +30,7 @@ namespace BlingLuxury.DAO
         {
             try
             {
-                sql = "UPDATE entidad_federativa SET nombre = '" + t.nombre + "',id_municipio'" + t.id_municipio + "' WHERE id > 0 AND id = '" + id + "';";
+                sql = "UPDATE entidad_federativa SET nombre = '" + t.nombre + "' WHERE id > 0 AND id = '" + id + "';";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
@@ -64,7 +64,7 @@ namespace BlingLuxury.DAO
                             while (reader.Read())//Se recorre cada elemento que obtuvo el reader
                             {
                                 //Se crea un nuevo objeto de la clase y se retorna
-                                entidadfederativa = new EntidadFederativa(reader.GetInt32(0), reader.GetString(1), new Municipio(reader.GetString(2), new Localidad(reader.GetString(3), new CodigoPostal(reader.GetString(4)))));
+                                entidadfederativa = new EntidadFederativa(reader.GetInt32(0), reader.GetString(1));
                                 return entidadfederativa;
                             }
                             //Se Cierra la conexión y se retorna
@@ -95,7 +95,7 @@ namespace BlingLuxury.DAO
         {
             try
             {
-                sql = "INSERT INTO entidad_federativa(nombre, id_municipio)VALUES('" + t.nombre + "','" + t.id_municipio + "');";
+                sql = "INSERT INTO entidad_federativa(nombre)VALUES('" + t.nombre + "');";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
@@ -126,7 +126,7 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())
                             {
-                                entidadfederativaLista.Add(new EntidadFederativa(reader.GetInt32(0), reader.GetString(1), new Municipio(reader.GetString(2), new Localidad(reader.GetString(3), new CodigoPostal(reader.GetString(4))))));
+                                entidadfederativaLista.Add(new EntidadFederativa(reader.GetInt32(0), reader.GetString(1)));
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();

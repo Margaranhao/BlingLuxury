@@ -1,4 +1,6 @@
-﻿namespace BlingLuxury
+﻿using System;
+
+namespace BlingLuxury
 {
     partial class fmRegistro
     {
@@ -31,13 +33,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmRegistro));
             this.lbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbxNivel = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cbxEntidadFederativa = new System.Windows.Forms.ComboBox();
@@ -48,12 +50,10 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtPass = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -92,23 +92,23 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Nombre:";
             // 
-            // textBox1
+            // txtNombre
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(108, 48);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(430, 22);
-            this.textBox1.TabIndex = 4;
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(108, 48);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(430, 22);
+            this.txtNombre.TabIndex = 2;
             // 
-            // textBox2
+            // txtDireccion
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(120, 29);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(453, 22);
-            this.textBox2.TabIndex = 6;
+            this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.Location = new System.Drawing.Point(120, 29);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(453, 22);
+            this.txtDireccion.TabIndex = 3;
             // 
             // label3
             // 
@@ -145,7 +145,8 @@
             this.cbxNivel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbxNivel.Name = "cbxNivel";
             this.cbxNivel.Size = new System.Drawing.Size(157, 24);
-            this.cbxNivel.TabIndex = 3;
+            this.cbxNivel.TabIndex = 1;
+            this.cbxNivel.SelectedIndexChanged += new System.EventHandler(this.cbxNivel_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -153,7 +154,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cbxNivel);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(20, 9);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(20, 9, 4, 3);
@@ -163,13 +164,13 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
-            // textBox3
+            // txtTelefono
             // 
-            this.textBox3.Location = new System.Drawing.Point(120, 62);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(157, 21);
-            this.textBox3.TabIndex = 14;
+            this.txtTelefono.Location = new System.Drawing.Point(120, 62);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(157, 21);
+            this.txtTelefono.TabIndex = 4;
             // 
             // label7
             // 
@@ -188,7 +189,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.label6.Location = new System.Drawing.Point(342, 93);
+            this.label6.Location = new System.Drawing.Point(343, 63);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 18);
@@ -202,11 +203,12 @@
             this.cbxEntidadFederativa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxEntidadFederativa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
             this.cbxEntidadFederativa.FormattingEnabled = true;
-            this.cbxEntidadFederativa.Location = new System.Drawing.Point(416, 91);
+            this.cbxEntidadFederativa.Location = new System.Drawing.Point(417, 61);
             this.cbxEntidadFederativa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbxEntidadFederativa.Name = "cbxEntidadFederativa";
             this.cbxEntidadFederativa.Size = new System.Drawing.Size(157, 24);
-            this.cbxEntidadFederativa.TabIndex = 12;
+            this.cbxEntidadFederativa.TabIndex = 5;
+            this.cbxEntidadFederativa.SelectedIndexChanged += new System.EventHandler(this.cbxEntidadFederativa_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -231,14 +233,15 @@
             this.cbxMunicipio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbxMunicipio.Name = "cbxMunicipio";
             this.cbxMunicipio.Size = new System.Drawing.Size(157, 24);
-            this.cbxMunicipio.TabIndex = 10;
+            this.cbxMunicipio.TabIndex = 6;
+            this.cbxMunicipio.SelectedIndexChanged += new System.EventHandler(this.cbxMunicipio_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.label4.Location = new System.Drawing.Point(323, 63);
+            this.label4.Location = new System.Drawing.Point(324, 91);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 18);
@@ -252,11 +255,11 @@
             this.cbxLocalidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxLocalidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
             this.cbxLocalidad.FormattingEnabled = true;
-            this.cbxLocalidad.Location = new System.Drawing.Point(416, 61);
+            this.cbxLocalidad.Location = new System.Drawing.Point(417, 89);
             this.cbxLocalidad.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbxLocalidad.Name = "cbxLocalidad";
             this.cbxLocalidad.Size = new System.Drawing.Size(157, 24);
-            this.cbxLocalidad.TabIndex = 8;
+            this.cbxLocalidad.TabIndex = 7;
             // 
             // flowLayoutPanel1
             // 
@@ -267,20 +270,20 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(149, 53);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(679, 426);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(679, 363);
             this.flowLayoutPanel1.TabIndex = 8;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.txtTelefono);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.txtDireccion);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.cbxLocalidad);
             this.groupBox2.Controls.Add(this.cbxEntidadFederativa);
-            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.cbxMunicipio);
             this.groupBox2.Location = new System.Drawing.Point(20, 106);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(20, 3, 4, 3);
@@ -289,15 +292,14 @@
             this.groupBox2.Size = new System.Drawing.Size(644, 127);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.textBox6);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.textBox5);
+            this.groupBox3.Controls.Add(this.txtPass);
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.textBox4);
+            this.groupBox3.Controls.Add(this.txtUsuario);
             this.groupBox3.Location = new System.Drawing.Point(20, 239);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(20, 3, 4, 3);
             this.groupBox3.Name = "groupBox3";
@@ -305,27 +307,6 @@
             this.groupBox3.Size = new System.Drawing.Size(644, 117);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.label10.Location = new System.Drawing.Point(36, 76);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(156, 18);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Repetir contraseña:";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(200, 75);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(220, 22);
-            this.textBox6.TabIndex = 10;
             // 
             // label9
             // 
@@ -339,14 +320,14 @@
             this.label9.TabIndex = 7;
             this.label9.Text = "Contraseña:";
             // 
-            // textBox5
+            // txtPass
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(200, 46);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(220, 22);
-            this.textBox5.TabIndex = 8;
+            this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPass.Location = new System.Drawing.Point(200, 46);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.Size = new System.Drawing.Size(220, 22);
+            this.txtPass.TabIndex = 9;
             // 
             // label8
             // 
@@ -360,14 +341,14 @@
             this.label8.TabIndex = 5;
             this.label8.Text = "Nombre de usuario:";
             // 
-            // textBox4
+            // txtUsuario
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(200, 16);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(220, 22);
-            this.textBox4.TabIndex = 6;
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(200, 16);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(220, 22);
+            this.txtUsuario.TabIndex = 8;
             // 
             // btnModificar
             // 
@@ -385,7 +366,7 @@
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
             this.btnModificar.Size = new System.Drawing.Size(114, 33);
-            this.btnModificar.TabIndex = 9;
+            this.btnModificar.TabIndex = 12;
             this.btnModificar.UseVisualStyleBackColor = false;
             // 
             // btnAgregar
@@ -404,8 +385,9 @@
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
             this.btnAgregar.Size = new System.Drawing.Size(114, 33);
-            this.btnAgregar.TabIndex = 10;
+            this.btnAgregar.TabIndex = 11;
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnLimpiar
             // 
@@ -423,8 +405,9 @@
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
             this.btnLimpiar.Size = new System.Drawing.Size(114, 33);
-            this.btnLimpiar.TabIndex = 11;
+            this.btnLimpiar.TabIndex = 13;
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnSalir
             // 
@@ -442,8 +425,9 @@
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
             this.btnSalir.Size = new System.Drawing.Size(114, 33);
-            this.btnSalir.TabIndex = 12;
+            this.btnSalir.TabIndex = 14;
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -495,17 +479,22 @@
 
         }
 
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+            
+        }
+
         #endregion
 
         private System.Windows.Forms.Label lbl;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbxNivel;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbxEntidadFederativa;
@@ -516,12 +505,10 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnLimpiar;

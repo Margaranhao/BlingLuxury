@@ -59,7 +59,7 @@ namespace BlingLuxury.DAO
                             while (reader.Read())//se recorre cada elemento que obtuvo el reader
                             {
                                 // Se crea un nuevo objeto de la clase y se retorna
-                                usuario = new Usuario(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3),new Nivel(reader.GetString(4)));
+                                usuario = new Usuario(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3),new Nivel(reader.GetInt32(4),reader.GetString(4)));
                                 return usuario;
                             }
                             // Se cierra la conexion y se retorna
@@ -114,12 +114,11 @@ namespace BlingLuxury.DAO
         }
         */
 
-
         public void Insertar(Usuario t)// Se recibe el objeto de la clase a insertar
         {
             try
             {
-                sql = "INSERT INTO usuario(nombre, nick, pass, id_nivel) VALUES ('" + t.nombre + "','" + t.nick + "''" + t.pass + "','" + t.id_nivel + "');";
+                sql = "INSERT INTO usuario(nombre, nick, pass, id_nivel) VALUES ('" + t.nombre + "','" + t.nick + "''" + t.pass + "'," + t.id_nivel + ");";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
@@ -150,7 +149,7 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())
                             {
-                                usuarioLista.Add(new Usuario(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), new Nivel(reader.GetString(4))));
+                                usuarioLista.Add(new Usuario(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), new Nivel()));
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();
@@ -173,4 +172,3 @@ namespace BlingLuxury.DAO
 
     }
 }
-

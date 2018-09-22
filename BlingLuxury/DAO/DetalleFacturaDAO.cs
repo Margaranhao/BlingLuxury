@@ -63,7 +63,7 @@ namespace BlingLuxury.DAO
                             while (reader.Read())//Se recorre cada elemento que obtuvo el reader
                             {
                                 //Se crea un nuevo objeto de la clase y se retorna
-                                detallefactura = new DetalleFactura(reader.GetInt32(0), reader.GetInt32(1), reader.GetDouble(2),new Factura(reader.GetInt32(3), reader.GetDateTime(4),reader.GetDouble(5), new Cliente(reader.GetString(6), reader.GetString(7), reader.GetString(8), new Rango(reader.GetString(9)), new Municipio(reader.GetString(10), new Localidad(reader.GetString(11), new CodigoPostal(reader.GetString(12)))), new Usuario(reader.GetString(13), reader.GetString(14), reader.GetString(15), new Nivel(reader.GetString(16)))), new DestinoEnvio(reader.GetDouble(17), reader.GetDouble(18), new Localidad(reader.GetString(19), new CodigoPostal(reader.GetString(20))), new TipoEnvio(reader.GetString(21), reader.GetDateTime(22))), new Usuario(reader.GetString(23), reader.GetString(24),reader.GetString(25), new Nivel(reader.GetString(26)))),new Inventario(reader.GetDateTime(27), reader.GetInt32(28), new Producto(reader.GetInt32(29), reader.GetDouble(30), new Modelo(reader.GetString(31), new Marca(reader.GetString(32))), new PrecioAdquisicion(reader.GetDouble(33)), new Color(reader.GetString(34)), new Categoria(reader.GetString(35))), new Usuario(reader.GetString(36), reader.GetString(37), reader.GetString(38), new Nivel(reader.GetString(39)))));
+                                detallefactura = new DetalleFactura(reader.GetInt32(0), reader.GetInt32(1), reader.GetDouble(2),new Factura(),new Inventario());
                                 return detallefactura;
                             }
                             //Se Cierra la conexión y se retorna
@@ -125,7 +125,7 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())
                             {
-                                detallefacturaLista.Add(new DetalleFactura(reader.GetInt32(0), reader.GetInt32(1), reader.GetDouble(2), new Factura(reader.GetInt32(3), reader.GetDateTime(4), reader.GetDouble(5), new Cliente(reader.GetString(6), reader.GetString(7), reader.GetString(8), new Rango(reader.GetString(9)), new Municipio(reader.GetString(10), new Localidad(reader.GetString(11), new CodigoPostal(reader.GetString(12)))), new Usuario(reader.GetString(13), reader.GetString(14), reader.GetString(15), new Nivel(reader.GetString(16)))), new DestinoEnvio(reader.GetDouble(17), reader.GetDouble(18), new Localidad(reader.GetString(19), new CodigoPostal(reader.GetString(20))), new TipoEnvio(reader.GetString(21), reader.GetDateTime(22))), new Usuario(reader.GetString(23), reader.GetString(24), reader.GetString(25), new Nivel(reader.GetString(26)))), new Inventario(reader.GetDateTime(27), reader.GetInt32(28), new Producto(reader.GetInt32(29), reader.GetDouble(30), new Modelo(reader.GetString(31), new Marca(reader.GetString(32))), new PrecioAdquisicion(reader.GetDouble(33)), new Color(reader.GetString(34)), new Categoria(reader.GetString(35))), new Usuario(reader.GetString(36), reader.GetString(37), reader.GetString(38), new Nivel(reader.GetString(39))))));
+                                detallefacturaLista.Add(new DetalleFactura(reader.GetInt32(0), reader.GetInt32(1), reader.GetDouble(2), new Factura(), new Inventario()));
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();

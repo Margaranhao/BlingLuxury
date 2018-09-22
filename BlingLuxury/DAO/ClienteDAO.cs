@@ -63,7 +63,7 @@ namespace BlingLuxury.DAO
                             while (reader.Read())//Se recorre cada elemento que obtuvo el reader
                             {
                                 //Se crea un nuevo objeto de la clase y se retorna
-                                cliente = new Cliente(reader.GetString(0),reader.GetString(1),reader.GetString(2),new Rango(reader.GetString(3)),new Municipio(reader.GetString(4),new Localidad(reader.GetString(5),new CodigoPostal(reader.GetString(6)))),new Usuario(reader.GetString(7),reader.GetString(8),reader.GetString(9), new Nivel(reader.GetString(10))));
+                                cliente = new Cliente(reader.GetString(0),reader.GetString(1),reader.GetString(2),new Rango(),new Municipio(),new Usuario());
                                 return cliente;
                             }
                             //Se Cierra la conexión y se retorna
@@ -125,7 +125,7 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())
                             {
-                                clienteLista.Add(new Cliente(reader.GetString(0), reader.GetString(1), reader.GetString(2), new Rango(reader.GetString(3)), new Municipio(reader.GetString(4), new Localidad(reader.GetString(5), new CodigoPostal(reader.GetString(6)))), new Usuario(reader.GetString(7), reader.GetString(8), reader.GetString(9), new Nivel(reader.GetString(10))))); 
+                                clienteLista.Add(new Cliente(reader.GetString(0), reader.GetString(1), reader.GetString(2), new Rango(), new Municipio(), new Usuario())); 
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();

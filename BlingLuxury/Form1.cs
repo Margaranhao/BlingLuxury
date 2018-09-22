@@ -15,7 +15,6 @@ namespace BlingLuxury
             InitializeComponent();
             
         }
-
        
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -27,7 +26,7 @@ namespace BlingLuxury
             txtPass.LostFocus += new EventHandler(this.TextLostFocus1);
 
         }
-
+        #region Focus
         public void TextGotFocus(object sender, EventArgs e)
         {
             if(txtUser.Text == "usuario")
@@ -61,13 +60,14 @@ namespace BlingLuxury
                 txtPass.ForeColor = Color.Gray;
             }
         }
+
+        #endregion
         BaseDeDatos d = new BaseDeDatos();
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (d.executecommand("select * from usuarios where usuario='" + txtUser.Text + "'and pass ='" + txtPass.Text + "'"));
+            
         }
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -86,6 +86,5 @@ namespace BlingLuxury
 
         }
 
-        
     }
 }

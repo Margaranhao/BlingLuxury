@@ -42,7 +42,7 @@ namespace BlingLuxury.Connection
             }
             connection = new MySqlConnection(getCadenaConnection());
             connection.Open();
-            MessageBox.Show("Conexión Establecida");
+            //MessageBox.Show("Conexión Establecida");
         }
 
         public void Desconectar()
