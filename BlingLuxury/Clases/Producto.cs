@@ -20,6 +20,17 @@ namespace BlingLuxury.Clases
         {
 
         }
+        public Producto(int id, int codigoDeBarras)
+        {
+            this.id = id;
+            this.codigoDeBarras = codigoDeBarras;
+        }
+        public Producto(int id, int codigoDeBarras , PrecioAdquisicion id_precio_adquisicion)
+        {
+            this.id = id;
+            this.codigoDeBarras = codigoDeBarras;
+            this.id_precio_adquisicion = id_precio_adquisicion;
+        }
         public Producto(int id, int codigoDeBarras, double peso, 
             Modelo id_modelo, PrecioAdquisicion id_precio_adquisicion, Color id_color, 
             Categoria id_categoria)

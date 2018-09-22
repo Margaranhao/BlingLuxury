@@ -32,23 +32,23 @@
             this.lblProducto = new System.Windows.Forms.Label();
             this.flpProducto = new System.Windows.Forms.FlowLayoutPanel();
             this.gbxProducto = new System.Windows.Forms.GroupBox();
-            this.pbxImagen = new System.Windows.Forms.PictureBox();
-            this.lblCodigoBarras = new System.Windows.Forms.Label();
-            this.txtCodigoBarras = new System.Windows.Forms.TextBox();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.lblCategoria = new System.Windows.Forms.Label();
-            this.lblId = new System.Windows.Forms.Label();
-            this.cbxCategoria = new System.Windows.Forms.ComboBox();
-            this.gbxProducto1 = new System.Windows.Forms.GroupBox();
             this.txtPeso = new System.Windows.Forms.TextBox();
             this.lblPeso = new System.Windows.Forms.Label();
+            this.lblPrecio = new System.Windows.Forms.Label();
+            this.pbxImagen = new System.Windows.Forms.PictureBox();
+            this.lblCodigoBarras = new System.Windows.Forms.Label();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.txtCodigoBarras = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.lblId = new System.Windows.Forms.Label();
+            this.gbxProducto1 = new System.Windows.Forms.GroupBox();
             this.lblMarca = new System.Windows.Forms.Label();
             this.cbxColor = new System.Windows.Forms.ComboBox();
-            this.lblPrecio = new System.Windows.Forms.Label();
             this.cbxMarca = new System.Windows.Forms.ComboBox();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.lblColor = new System.Windows.Forms.Label();
+            this.lblCategoria = new System.Windows.Forms.Label();
             this.lblModelo = new System.Windows.Forms.Label();
+            this.cbxCategoria = new System.Windows.Forms.ComboBox();
             this.cbxModelo = new System.Windows.Forms.ComboBox();
             this.dgvProducto = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -108,6 +108,39 @@
             this.gbxProducto.TabIndex = 7;
             this.gbxProducto.TabStop = false;
             // 
+            // txtPeso
+            // 
+            this.txtPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPeso.Location = new System.Drawing.Point(154, 93);
+            this.txtPeso.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.Size = new System.Drawing.Size(165, 22);
+            this.txtPeso.TabIndex = 3;
+            // 
+            // lblPeso
+            // 
+            this.lblPeso.AutoSize = true;
+            this.lblPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPeso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.lblPeso.Location = new System.Drawing.Point(54, 95);
+            this.lblPeso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPeso.Name = "lblPeso";
+            this.lblPeso.Size = new System.Drawing.Size(93, 18);
+            this.lblPeso.TabIndex = 7;
+            this.lblPeso.Text = "Peso (KG):";
+            // 
+            // lblPrecio
+            // 
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.lblPrecio.Location = new System.Drawing.Point(59, 127);
+            this.lblPrecio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(88, 18);
+            this.lblPrecio.TabIndex = 5;
+            this.lblPrecio.Text = "Precio ($):";
+            // 
             // pbxImagen
             // 
             this.pbxImagen.Image = ((System.Drawing.Image)(resources.GetObject("pbxImagen.Image")));
@@ -130,6 +163,15 @@
             this.lblCodigoBarras.TabIndex = 5;
             this.lblCodigoBarras.Text = "Código de Barras:";
             // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio.Location = new System.Drawing.Point(154, 126);
+            this.txtPrecio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(165, 22);
+            this.txtPrecio.TabIndex = 4;
+            // 
             // txtCodigoBarras
             // 
             this.txtCodigoBarras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -148,18 +190,6 @@
             this.txtId.TabIndex = 1;
             this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
             // 
-            // lblCategoria
-            // 
-            this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.lblCategoria.Location = new System.Drawing.Point(36, 35);
-            this.lblCategoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(86, 18);
-            this.lblCategoria.TabIndex = 2;
-            this.lblCategoria.Text = "Categoria:";
-            // 
             // lblId
             // 
             this.lblId.AutoSize = true;
@@ -171,19 +201,6 @@
             this.lblId.Size = new System.Drawing.Size(26, 18);
             this.lblId.TabIndex = 13;
             this.lblId.Text = "Id:";
-            // 
-            // cbxCategoria
-            // 
-            this.cbxCategoria.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cbxCategoria.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbxCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.cbxCategoria.FormattingEnabled = true;
-            this.cbxCategoria.Location = new System.Drawing.Point(127, 32);
-            this.cbxCategoria.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cbxCategoria.Name = "cbxCategoria";
-            this.cbxCategoria.Size = new System.Drawing.Size(230, 24);
-            this.cbxCategoria.TabIndex = 5;
             // 
             // gbxProducto1
             // 
@@ -202,27 +219,6 @@
             this.gbxProducto1.Size = new System.Drawing.Size(644, 130);
             this.gbxProducto1.TabIndex = 8;
             this.gbxProducto1.TabStop = false;
-            // 
-            // txtPeso
-            // 
-            this.txtPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPeso.Location = new System.Drawing.Point(154, 93);
-            this.txtPeso.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtPeso.Name = "txtPeso";
-            this.txtPeso.Size = new System.Drawing.Size(165, 22);
-            this.txtPeso.TabIndex = 3;
-            // 
-            // lblPeso
-            // 
-            this.lblPeso.AutoSize = true;
-            this.lblPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPeso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.lblPeso.Location = new System.Drawing.Point(54, 95);
-            this.lblPeso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPeso.Name = "lblPeso";
-            this.lblPeso.Size = new System.Drawing.Size(93, 18);
-            this.lblPeso.TabIndex = 7;
-            this.lblPeso.Text = "Peso (KG):";
             // 
             // lblMarca
             // 
@@ -249,18 +245,6 @@
             this.cbxColor.Size = new System.Drawing.Size(157, 24);
             this.cbxColor.TabIndex = 8;
             // 
-            // lblPrecio
-            // 
-            this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.lblPrecio.Location = new System.Drawing.Point(59, 127);
-            this.lblPrecio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(88, 18);
-            this.lblPrecio.TabIndex = 5;
-            this.lblPrecio.Text = "Precio ($):";
-            // 
             // cbxMarca
             // 
             this.cbxMarca.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -275,15 +259,6 @@
             this.cbxMarca.TabIndex = 7;
             this.cbxMarca.SelectedIndexChanged += new System.EventHandler(this.cbxMarca_SelectedIndexChanged);
             // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecio.Location = new System.Drawing.Point(154, 126);
-            this.txtPrecio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(165, 22);
-            this.txtPrecio.TabIndex = 4;
-            // 
             // lblColor
             // 
             this.lblColor.AutoSize = true;
@@ -296,6 +271,18 @@
             this.lblColor.TabIndex = 7;
             this.lblColor.Text = "Color:";
             // 
+            // lblCategoria
+            // 
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.lblCategoria.Location = new System.Drawing.Point(36, 35);
+            this.lblCategoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(86, 18);
+            this.lblCategoria.TabIndex = 2;
+            this.lblCategoria.Text = "Categoria:";
+            // 
             // lblModelo
             // 
             this.lblModelo.AutoSize = true;
@@ -307,6 +294,19 @@
             this.lblModelo.Size = new System.Drawing.Size(69, 18);
             this.lblModelo.TabIndex = 9;
             this.lblModelo.Text = "Modelo:";
+            // 
+            // cbxCategoria
+            // 
+            this.cbxCategoria.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cbxCategoria.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbxCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.cbxCategoria.FormattingEnabled = true;
+            this.cbxCategoria.Location = new System.Drawing.Point(127, 32);
+            this.cbxCategoria.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cbxCategoria.Name = "cbxCategoria";
+            this.cbxCategoria.Size = new System.Drawing.Size(230, 24);
+            this.cbxCategoria.TabIndex = 5;
             // 
             // cbxModelo
             // 
@@ -358,6 +358,7 @@
             this.btnLimpiar.Size = new System.Drawing.Size(114, 33);
             this.btnLimpiar.TabIndex = 10;
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnAgregar
             // 
@@ -377,6 +378,7 @@
             this.btnAgregar.Size = new System.Drawing.Size(114, 33);
             this.btnAgregar.TabIndex = 11;
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
@@ -415,6 +417,7 @@
             this.btnSalir.Size = new System.Drawing.Size(114, 33);
             this.btnSalir.TabIndex = 13;
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // FrmProducto
             // 
@@ -430,6 +433,7 @@
             this.Name = "FrmProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmProducto";
+            this.Load += new System.EventHandler(this.FrmProducto_Load);
             this.flpProducto.ResumeLayout(false);
             this.gbxProducto.ResumeLayout(false);
             this.gbxProducto.PerformLayout();

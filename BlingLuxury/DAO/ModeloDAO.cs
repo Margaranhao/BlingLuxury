@@ -124,7 +124,7 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())
                             {
-                                modeloLista.Add(new Modelo(reader.GetInt32(0), reader.GetString(1), new Marca(reader.GetString(2))));
+                                modeloLista.Add(new Modelo(reader.GetInt32(0), reader.GetString(1), new Marca()));
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();

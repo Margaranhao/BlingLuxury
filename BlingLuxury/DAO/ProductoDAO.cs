@@ -30,7 +30,7 @@ namespace BlingLuxury.DAO
         {
             try
             {
-                sql = "UPDATE producto SET codigo_de_barras = '" + t.codigoDeBarras + "', peso = '" + t.peso + "', id_modelo ='" + t.id_modelo + "', id_precio_adquisicion = '" + t.id_precio_adquisicion + "', id_color = '" + t.id_color + "', id_categoria = '" + t.id_categoria + "' WHERE id > 0 AND id = '" + id + "';";
+                sql = "UPDATE producto SET codigo_de_barras = '" + t.codigoDeBarras + "', peso = '" + t.peso + "', id_modelo ='" + t.id_modelo.id + "', id_precio_adquisicion = '" + t.id_precio_adquisicion.id + "', id_color = '" + t.id_color.id + "', id_categoria = '" + t.id_categoria.id + "' WHERE id > 0 AND id = '" + id + "';";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
@@ -62,7 +62,7 @@ namespace BlingLuxury.DAO
                             while (reader.Read())//se recorre cada elemento que obtuvo el reader
                             {
                                 // Se crea un nuevo objeto de la clase y se retorna
-                                producto = new Producto(reader.GetInt32(0), reader.GetDouble(1), new Modelo(reader.GetString(2), new Marca(reader.GetString(3))), new PrecioAdquisicion(reader.GetDouble(4)), new Color(reader.GetString(5)), new Categoria(reader.GetString(6)));
+                                producto = new Producto(reader.GetInt32(0), reader.GetInt32(1), reader.GetDouble(2), new Modelo(reader.GetString(3)), new PrecioAdquisicion(reader.GetDouble(5)), new Color(reader.GetString(6)), new Categoria(reader.GetString(7)));
                                 return producto;
                             }
                             // Se cierra la conexion y se retorna
@@ -94,7 +94,7 @@ namespace BlingLuxury.DAO
         {
             try
             {
-                sql = "INSERT INTO producto(codigo_de_barras, peso, id_modelo, id_precio_adquisicion, id_color, id_categoria) VALUES ('" + t.codigoDeBarras + "','" + t.peso + "''" + t.id_modelo + "','" + t.id_precio_adquisicion + "', '" + t.id_color + "', '" + t.id_categoria + "');";
+                sql = "INSERT INTO producto(codigo_de_barras, peso, id_modelo, id_precio_adquisicion, id_color, id_categoria) VALUES ('" + t.codigoDeBarras + "','" + t.peso + "''" + t.id_modelo.id + "','" + t.id_precio_adquisicion.id + "', '" + t.id_color.id + "', '" + t.id_categoria.id + "');";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
@@ -125,7 +125,8 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())
                             {
-                                productoLista.Add(new Producto(reader.GetInt32(0), reader.GetDouble(1), new Modelo(reader.GetString(2), new Marca(reader.GetString(3))), new PrecioAdquisicion(reader.GetDouble(4)), new Color(reader.GetString(5)), new Categoria(reader.GetString(6))));
+                                //productoLista.Add(new Producto(idProducto, codigoBarras, peso, modelo, precioAdquisicion, color, categoria));
+                                productoLista.Add(new Producto(reader.GetInt32(0),reader.GetInt32(1), reader.GetDouble(2),  new Modelo(reader.GetString(3)), new PrecioAdquisicion(reader.GetDouble(2)), new Color(reader.GetString(5)), new Categoria(reader.GetString(6))));
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();

@@ -15,6 +15,10 @@ namespace BlingLuxury.Clases
         {
 
         }
+        public Color(int id)
+        {
+            this.id = id;
+        }
         //constructor con todos los parametros, muy util para listar
         public Color(int id, string nombre)
         {

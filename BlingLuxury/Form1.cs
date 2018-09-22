@@ -61,11 +61,11 @@ namespace BlingLuxury
                 txtPass.ForeColor = Color.Gray;
             }
         }
-        BaseDeDatos d = new BaseDeDatos();
+       
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (d.executecommand("select * from usuarios where usuario='" + txtUser.Text + "'and pass ='" + txtPass.Text + "'"));
+            
         }
 
 
