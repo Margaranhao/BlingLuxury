@@ -118,7 +118,7 @@ namespace BlingLuxury.DAO
         {
             try
             {
-                sql = "INSERT INTO usuario(nombre, nick, pass, id_nivel) VALUES ('" + t.nombre + "','" + t.nick + "''" + t.pass + "'," + t.id_nivel + ");";
+                sql = "INSERT INTO usuario(nombre, nick, pass, id_nivel) VALUES ('" + t.nombre + "','" + t.nick + "','" + t.pass + "'," + t.id_nivel.id + ");";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();

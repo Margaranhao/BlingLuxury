@@ -65,7 +65,7 @@ namespace BlingLuxury
 
         private void Insertar()//metodo para registrar usuarios
         {
-            UsuarioDAO.getInstance().Insertar(new Usuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, new Nivel(cbxNivel.ValueMember)));
+            UsuarioDAO.getInstance().Insertar(new Usuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))));
         }
         #region Usuario
         public DataTable ListarUsuario()// Metodo que obtiene en forma de lista 
@@ -143,12 +143,12 @@ namespace BlingLuxury
             {
                 //Cargar los atributos de nivel
                 #region
-                cbxNivel.DataSource = listarNivel();
                 cbxNivel.ValueMember = "Id";
                 cbxNivel.DisplayMember = "Nivel";
+                cbxNivel.DataSource = listarNivel();
                 cbxNivel.SelectedIndex = -1;
                 cbxNivel.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                cbxNivel.AutoCompleteSource = AutoCompleteSource.ListItems;
+                cbxNivel.AutoCompleteSource = AutoCompleteSource.ListItems;               
                 #endregion
             }
             catch

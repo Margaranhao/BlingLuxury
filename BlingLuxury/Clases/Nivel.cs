@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
+using BlingLuxury.Connection;
+using BlingLuxury.DAO;
 
 namespace BlingLuxury.Clases
 {
@@ -16,7 +19,10 @@ namespace BlingLuxury.Clases
         {
 
         }
-
+        public Nivel(int id)
+        {
+            this.id = id;
+        }
         public Nivel(int id, string nombre)
         {
             this.id = id;
