@@ -16,6 +16,20 @@ namespace BlingLuxury.Clases
         {
 
         }
+
+        public Modelo(int id)
+        {
+            this.id = id;
+        }
+        public Modelo(int id, string nombre)
+        {
+            this.id = id;
+            this.nombre = nombre;
+        }
+        public Modelo(string nombre)
+        {
+            this.nombre = nombre;
+        }
         //constructor con todos los parametros, muy util para listar
         public Modelo(int id, string nombre, Marca id_marca)
         {

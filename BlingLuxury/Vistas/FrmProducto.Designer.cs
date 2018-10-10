@@ -32,6 +32,8 @@
             this.lblProducto = new System.Windows.Forms.Label();
             this.flpProducto = new System.Windows.Forms.FlowLayoutPanel();
             this.gbxProducto = new System.Windows.Forms.GroupBox();
+            this.cbxPrecios = new System.Windows.Forms.ComboBox();
+            this.lblPrecios = new System.Windows.Forms.Label();
             this.txtPeso = new System.Windows.Forms.TextBox();
             this.lblPeso = new System.Windows.Forms.Label();
             this.lblPrecio = new System.Windows.Forms.Label();
@@ -56,12 +58,18 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblBuscar = new System.Windows.Forms.Label();
             this.flpProducto.SuspendLayout();
             this.gbxProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
             this.gbxProducto1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblProducto
@@ -80,16 +88,18 @@
             this.flpProducto.BackColor = System.Drawing.Color.White;
             this.flpProducto.Controls.Add(this.gbxProducto);
             this.flpProducto.Controls.Add(this.gbxProducto1);
-            this.flpProducto.Controls.Add(this.dgvProducto);
-            this.flpProducto.Location = new System.Drawing.Point(133, 45);
+            this.flpProducto.Location = new System.Drawing.Point(162, 45);
             this.flpProducto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.flpProducto.Name = "flpProducto";
-            this.flpProducto.Size = new System.Drawing.Size(671, 503);
+            this.flpProducto.Size = new System.Drawing.Size(669, 339);
             this.flpProducto.TabIndex = 11;
+            this.flpProducto.Paint += new System.Windows.Forms.PaintEventHandler(this.flpProducto_Paint);
             // 
             // gbxProducto
             // 
             this.gbxProducto.BackColor = System.Drawing.SystemColors.Window;
+            this.gbxProducto.Controls.Add(this.cbxPrecios);
+            this.gbxProducto.Controls.Add(this.lblPrecios);
             this.gbxProducto.Controls.Add(this.txtPeso);
             this.gbxProducto.Controls.Add(this.lblPeso);
             this.gbxProducto.Controls.Add(this.lblPrecio);
@@ -107,6 +117,34 @@
             this.gbxProducto.Size = new System.Drawing.Size(644, 172);
             this.gbxProducto.TabIndex = 7;
             this.gbxProducto.TabStop = false;
+            this.gbxProducto.Enter += new System.EventHandler(this.gbxProducto_Enter);
+            // 
+            // cbxPrecios
+            // 
+            this.cbxPrecios.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cbxPrecios.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbxPrecios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxPrecios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.cbxPrecios.FormattingEnabled = true;
+            this.cbxPrecios.Location = new System.Drawing.Point(444, 124);
+            this.cbxPrecios.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cbxPrecios.Name = "cbxPrecios";
+            this.cbxPrecios.Size = new System.Drawing.Size(157, 24);
+            this.cbxPrecios.TabIndex = 17;
+            this.cbxPrecios.Visible = false;
+            // 
+            // lblPrecios
+            // 
+            this.lblPrecios.AutoSize = true;
+            this.lblPrecios.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
+            this.lblPrecios.Location = new System.Drawing.Point(359, 127);
+            this.lblPrecios.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrecios.Name = "lblPrecios";
+            this.lblPrecios.Size = new System.Drawing.Size(88, 18);
+            this.lblPrecios.TabIndex = 16;
+            this.lblPrecios.Text = "Precio ($):";
+            this.lblPrecios.Visible = false;
             // 
             // txtPeso
             // 
@@ -116,12 +154,13 @@
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(165, 22);
             this.txtPeso.TabIndex = 3;
+            this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeso_KeyPress);
             // 
             // lblPeso
             // 
             this.lblPeso.AutoSize = true;
             this.lblPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPeso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.lblPeso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
             this.lblPeso.Location = new System.Drawing.Point(54, 95);
             this.lblPeso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPeso.Name = "lblPeso";
@@ -133,7 +172,7 @@
             // 
             this.lblPrecio.AutoSize = true;
             this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.lblPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
             this.lblPrecio.Location = new System.Drawing.Point(59, 127);
             this.lblPrecio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrecio.Name = "lblPrecio";
@@ -146,17 +185,18 @@
             this.pbxImagen.Image = ((System.Drawing.Image)(resources.GetObject("pbxImagen.Image")));
             this.pbxImagen.Location = new System.Drawing.Point(362, 21);
             this.pbxImagen.Name = "pbxImagen";
-            this.pbxImagen.Size = new System.Drawing.Size(254, 127);
+            this.pbxImagen.Size = new System.Drawing.Size(254, 94);
             this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxImagen.TabIndex = 15;
             this.pbxImagen.TabStop = false;
+            this.pbxImagen.Click += new System.EventHandler(this.pbxImagen_Click);
             // 
             // lblCodigoBarras
             // 
             this.lblCodigoBarras.AutoSize = true;
             this.lblCodigoBarras.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigoBarras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.lblCodigoBarras.Location = new System.Drawing.Point(9, 58);
+            this.lblCodigoBarras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
+            this.lblCodigoBarras.Location = new System.Drawing.Point(2, 58);
             this.lblCodigoBarras.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCodigoBarras.Name = "lblCodigoBarras";
             this.lblCodigoBarras.Size = new System.Drawing.Size(145, 18);
@@ -171,15 +211,20 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(165, 22);
             this.txtPrecio.TabIndex = 4;
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // txtCodigoBarras
             // 
             this.txtCodigoBarras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoBarras.Location = new System.Drawing.Point(154, 57);
             this.txtCodigoBarras.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtCodigoBarras.MaxLength = 13;
             this.txtCodigoBarras.Name = "txtCodigoBarras";
             this.txtCodigoBarras.Size = new System.Drawing.Size(165, 22);
             this.txtCodigoBarras.TabIndex = 2;
+            this.txtCodigoBarras.AcceptsTabChanged += new System.EventHandler(this.txtCodigoBarras_TextChanged);
+            this.txtCodigoBarras.TextChanged += new System.EventHandler(this.txtCodigoBarras_TextChanged);
+            this.txtCodigoBarras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoBarras_KeyPress_1);
             // 
             // txtId
             // 
@@ -188,19 +233,21 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(165, 20);
             this.txtId.TabIndex = 1;
+            this.txtId.Visible = false;
             this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
             // 
             // lblId
             // 
             this.lblId.AutoSize = true;
             this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.lblId.Location = new System.Drawing.Point(124, 24);
+            this.lblId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
+            this.lblId.Location = new System.Drawing.Point(121, 24);
             this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(26, 18);
             this.lblId.TabIndex = 13;
             this.lblId.Text = "Id:";
+            this.lblId.Visible = false;
             // 
             // gbxProducto1
             // 
@@ -216,21 +263,23 @@
             this.gbxProducto1.Margin = new System.Windows.Forms.Padding(20, 3, 4, 3);
             this.gbxProducto1.Name = "gbxProducto1";
             this.gbxProducto1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.gbxProducto1.Size = new System.Drawing.Size(644, 130);
+            this.gbxProducto1.Size = new System.Drawing.Size(644, 132);
             this.gbxProducto1.TabIndex = 8;
             this.gbxProducto1.TabStop = false;
+            this.gbxProducto1.Enter += new System.EventHandler(this.gbxProducto1_Enter);
             // 
             // lblMarca
             // 
             this.lblMarca.AutoSize = true;
             this.lblMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMarca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.lblMarca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
             this.lblMarca.Location = new System.Drawing.Point(381, 35);
             this.lblMarca.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(60, 18);
             this.lblMarca.TabIndex = 11;
             this.lblMarca.Text = "Marca:";
+            this.lblMarca.Click += new System.EventHandler(this.lblMarca_Click);
             // 
             // cbxColor
             // 
@@ -263,8 +312,8 @@
             // 
             this.lblColor.AutoSize = true;
             this.lblColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblColor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.lblColor.Location = new System.Drawing.Point(381, 77);
+            this.lblColor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
+            this.lblColor.Location = new System.Drawing.Point(386, 77);
             this.lblColor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblColor.Name = "lblColor";
             this.lblColor.Size = new System.Drawing.Size(55, 18);
@@ -275,7 +324,7 @@
             // 
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.lblCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
             this.lblCategoria.Location = new System.Drawing.Point(36, 35);
             this.lblCategoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCategoria.Name = "lblCategoria";
@@ -287,7 +336,7 @@
             // 
             this.lblModelo.AutoSize = true;
             this.lblModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModelo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.lblModelo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
             this.lblModelo.Location = new System.Drawing.Point(53, 77);
             this.lblModelo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblModelo.Name = "lblModelo";
@@ -324,10 +373,11 @@
             // dgvProducto
             // 
             this.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducto.Location = new System.Drawing.Point(3, 323);
+            this.dgvProducto.Location = new System.Drawing.Point(25, 19);
             this.dgvProducto.Name = "dgvProducto";
-            this.dgvProducto.Size = new System.Drawing.Size(647, 152);
+            this.dgvProducto.Size = new System.Drawing.Size(619, 139);
             this.dgvProducto.TabIndex = 9;
+            this.dgvProducto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto_CellContentClick);
             // 
             // flowLayoutPanel2
             // 
@@ -335,10 +385,11 @@
             this.flowLayoutPanel2.Controls.Add(this.btnAgregar);
             this.flowLayoutPanel2.Controls.Add(this.btnModificar);
             this.flowLayoutPanel2.Controls.Add(this.btnSalir);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(5, 181);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(22, 181);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(121, 183);
             this.flowLayoutPanel2.TabIndex = 16;
+            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
             // 
             // btnLimpiar
             // 
@@ -358,6 +409,7 @@
             this.btnLimpiar.Size = new System.Drawing.Size(114, 33);
             this.btnLimpiar.TabIndex = 10;
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click_1);
             // 
             // btnAgregar
             // 
@@ -377,6 +429,7 @@
             this.btnAgregar.Size = new System.Drawing.Size(114, 33);
             this.btnAgregar.TabIndex = 11;
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click_1);
             // 
             // btnModificar
             // 
@@ -396,6 +449,7 @@
             this.btnModificar.Size = new System.Drawing.Size(114, 33);
             this.btnModificar.TabIndex = 12;
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnSalir
             // 
@@ -415,13 +469,55 @@
             this.btnSalir.Size = new System.Drawing.Size(114, 33);
             this.btnSalir.TabIndex = 13;
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.Controls.Add(this.groupBox1);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(162, 425);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(669, 161);
+            this.flowLayoutPanel1.TabIndex = 17;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dgvProducto);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(661, 158);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(229, 397);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(165, 20);
+            this.textBox1.TabIndex = 18;
+            // 
+            // lblBuscar
+            // 
+            this.lblBuscar.AutoSize = true;
+            this.lblBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuscar.ForeColor = System.Drawing.Color.White;
+            this.lblBuscar.Location = new System.Drawing.Point(162, 398);
+            this.lblBuscar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBuscar.Name = "lblBuscar";
+            this.lblBuscar.Size = new System.Drawing.Size(66, 18);
+            this.lblBuscar.TabIndex = 19;
+            this.lblBuscar.Text = "Buscar:";
             // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.ClientSize = new System.Drawing.Size(804, 548);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
+            this.ClientSize = new System.Drawing.Size(831, 585);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblBuscar);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flpProducto);
             this.Controls.Add(this.lblProducto);
@@ -439,6 +535,8 @@
             this.gbxProducto1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -453,15 +551,11 @@
         private System.Windows.Forms.PictureBox pbxImagen;
         private System.Windows.Forms.Label lblCodigoBarras;
         private System.Windows.Forms.TextBox txtCodigoBarras;
-        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label lblCategoria;
-        private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.ComboBox cbxCategoria;
         private System.Windows.Forms.GroupBox gbxProducto1;
-        private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.ComboBox cbxColor;
         private System.Windows.Forms.Label lblPrecio;
-        private System.Windows.Forms.ComboBox cbxMarca;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label lblColor;
         private System.Windows.Forms.Label lblModelo;
@@ -472,5 +566,15 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.Label lblMarca;
+        private System.Windows.Forms.ComboBox cbxMarca;
+        private System.Windows.Forms.ComboBox cbxPrecios;
+        private System.Windows.Forms.Label lblPrecios;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblBuscar;
     }
 }

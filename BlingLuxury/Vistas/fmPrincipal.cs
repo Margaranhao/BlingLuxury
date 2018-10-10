@@ -16,5 +16,16 @@ namespace BlingLuxury
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmProducto producto = new FrmProducto();
+            producto.Show();
+        }
+
+        private void fmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -20,6 +20,10 @@ namespace BlingLuxury.Clases
         {
 
         }
+        public Producto(int id)
+        {
+            this.id = id;
+        }
         public Producto(int id, int codigoDeBarras, double peso, 
             Modelo id_modelo, PrecioAdquisicion id_precio_adquisicion, Color id_color, 
             Categoria id_categoria)
@@ -33,7 +37,7 @@ namespace BlingLuxury.Clases
             this.id_categoria = id_categoria;
         }
         public Producto(int codigoDeBarras, double peso, Modelo id_modelo,
-            PrecioAdquisicion id_precio_aduisicion, Color id_color, Categoria id_categoria)
+            PrecioAdquisicion id_precio_adquisicion, Color id_color, Categoria id_categoria)
         {
             this.codigoDeBarras = codigoDeBarras;
             this.peso = peso;
@@ -41,6 +45,20 @@ namespace BlingLuxury.Clases
             this.id_precio_adquisicion = id_precio_adquisicion;
             this.id_color = id_color;
             this.id_categoria = id_categoria;
+        }
+
+        public Producto( int id, int codigoBarras)
+        {
+            this.id = id;
+            this.codigoDeBarras = codigoDeBarras;
+        }
+        public Producto(Modelo id_modelo, PrecioAdquisicion id_precio_adquisicion, Color id_color, Categoria id_categoria)
+        {
+            this.id_modelo = id_modelo;
+            this.id_precio_adquisicion = id_precio_adquisicion;
+            this.id_color = id_color;
+            this.id_categoria = id_categoria;
+
         }
     }
 }

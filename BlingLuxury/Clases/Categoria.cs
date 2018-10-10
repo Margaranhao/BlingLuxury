@@ -16,6 +16,11 @@ namespace BlingLuxury.Clases
         {
 
         }
+
+        public Categoria(int id)
+        {
+            this.id = id;
+        }
         //constructor con todos los parametros
         public Categoria(int id, string nombre)
         {
