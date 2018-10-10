@@ -29,7 +29,7 @@ namespace BlingLuxury.DAO
         {
             try
             {
-                sql = "UPDATE localidad SET nombre = '" + t.nombre + "','" + t.id_municipio + "','" + t.id_tipo_localidad + "', id_cp = '" + t.id_cp + "' WHERE id > 0 AND id = '" + id + "';";
+                sql = "UPDATE localidad SET nombre = '" + t.nombre + "',id_municipio = " + t.id_municipio.id + ", id_tipo_localidad = " + t.id_tipo_localidad.id + ", id_cp = '" + t.id_cp.id + "' WHERE id > 0 AND id = '" + id + "';";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
@@ -93,7 +93,7 @@ namespace BlingLuxury.DAO
         {
             try
             {
-                sql = "INSERT INTO localidad(nombre, id_municipio, id_tipo_localidad, id_cp) VALUES ('" + t.nombre + "','" + t.id_municipio + "','" + t.id_tipo_localidad + "','" + t.id_cp + "');";
+                sql = "INSERT INTO localidad(nombre, id_municipio, id_tipo_localidad, id_cp) VALUES ('" + t.nombre + "'," + t.id_municipio.id + "," + t.id_tipo_localidad.id + "," + t.id_cp.id + ");";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();

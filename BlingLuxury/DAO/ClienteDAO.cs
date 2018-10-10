@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BlingLuxury.DAO
 {
@@ -30,7 +31,7 @@ namespace BlingLuxury.DAO
         {
             try
             {
-                sql = "UPDATE cliente SET telefono = '" + t.telefono + "', calle = '" + t.calle + "', colonia = '" + t.colonia + "', id_rango = '" + t.id_rango + "', id_municipio = '" + t.id_municipio + "', id_usuario = '" + t.id_usuario +  "' WHERE id > 0 AND id = '" + id + "';";
+                sql = "UPDATE cliente SET telefono = '" + t.telefono + "', calle = '" + t.calle + "', id_localidad = " + t.id_localidad.id + ", id_rango = " + t.id_rango.id + ", id_municipio = " + t.id_municipio.id + ", id_usuario = " + t.id_usuario.id + " WHERE id > 0 AND id = " + id + ";";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
@@ -63,7 +64,7 @@ namespace BlingLuxury.DAO
                             while (reader.Read())//Se recorre cada elemento que obtuvo el reader
                             {
                                 //Se crea un nuevo objeto de la clase y se retorna
-                                cliente = new Cliente(reader.GetString(0),reader.GetString(1),reader.GetString(2),new Rango(),new Municipio(),new Usuario());
+                                cliente = new Cliente(reader.GetInt32(0),reader.GetString(1), reader.GetString(2),new Localidad(), new Rango(), new Municipio(), new Usuario());
                                 return cliente;
                             }
                             //Se Cierra la conexión y se retorna
@@ -93,8 +94,8 @@ namespace BlingLuxury.DAO
         public void Insertar(Cliente t) // Se recibe el objeto de la clase a insertar
         {
             try
-            {
-                sql = "INSERT INTO cliente(telefono, calle , colonia, id_rango, id_municipio, id_usuario)VALUES('" + t.telefono + "','" + t.calle + "','" + t.colonia + "','" + t.id_rango + "','" + t.id_municipio + "','" + t.id_usuario + "');";
+            {               
+                sql = "insert into cliente(telefono, calle, id_localidad, id_rango, id_municipio, id_usuario)values('" + t.telefono + "','" + t.calle + "'," + t.id_localidad.id + "," + t.id_rango.id + "," + t.id_municipio.id + ", last_insert_id());";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
@@ -102,11 +103,12 @@ namespace BlingLuxury.DAO
                 cmd.ExecuteNonQuery();
                 Conexion.getInstance().getConnection().Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                MessageBox.Show("Ocurrio un error");
             }
         }
+
 
         public List<Cliente> Listar(string query) //Se recibe el query de busqueda
         {
@@ -125,7 +127,7 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())
                             {
-                                clienteLista.Add(new Cliente(reader.GetString(0), reader.GetString(1), reader.GetString(2), new Rango(), new Municipio(), new Usuario())); 
+                                clienteLista.Add(new Cliente(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), new Localidad(), new Rango(), new Municipio(), new Usuario()));
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();
@@ -145,6 +147,11 @@ namespace BlingLuxury.DAO
 
                 throw new Exception(ex.Message);
             }
+        }
+
+        internal void Actualizar(Cliente cliente)
+        {
+            throw new NotImplementedException();
         }
     }
 }

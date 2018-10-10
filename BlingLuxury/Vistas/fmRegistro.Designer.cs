@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace BlingLuxury
 {
@@ -31,6 +32,9 @@ namespace BlingLuxury
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmRegistro));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -39,6 +43,7 @@ namespace BlingLuxury
             this.label2 = new System.Windows.Forms.Label();
             this.cbxNivel = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,16 +55,21 @@ namespace BlingLuxury
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnUsuario = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txtPass = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnClose = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.rbnClientes = new System.Windows.Forms.RadioButton();
+            this.rbnAdmin = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -73,7 +83,7 @@ namespace BlingLuxury
             this.lbl.AutoSize = true;
             this.lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl.ForeColor = System.Drawing.Color.White;
-            this.lbl.Location = new System.Drawing.Point(435, 9);
+            this.lbl.Location = new System.Drawing.Point(357, 9);
             this.lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl.Name = "lbl";
             this.lbl.Size = new System.Drawing.Size(112, 29);
@@ -84,8 +94,8 @@ namespace BlingLuxury
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.label1.Location = new System.Drawing.Point(27, 49);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
+            this.label1.Location = new System.Drawing.Point(27, 53);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 18);
@@ -94,27 +104,35 @@ namespace BlingLuxury
             // 
             // txtNombre
             // 
-            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(108, 48);
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.txtNombre.Location = new System.Drawing.Point(108, 51);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(430, 22);
+            this.txtNombre.Size = new System.Drawing.Size(371, 23);
             this.txtNombre.TabIndex = 2;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
             this.txtDireccion.Location = new System.Drawing.Point(120, 29);
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtDireccion.MaxLength = 50;
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(453, 22);
+            this.txtDireccion.Size = new System.Drawing.Size(453, 23);
             this.txtDireccion.TabIndex = 3;
+            this.txtDireccion.TextChanged += new System.EventHandler(this.txtDireccion_TextChanged);
+            this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccion_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
             this.label3.Location = new System.Drawing.Point(27, 30);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -126,8 +144,8 @@ namespace BlingLuxury
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.label2.Location = new System.Drawing.Point(50, 19);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
+            this.label2.Location = new System.Drawing.Point(27, 23);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 18);
@@ -137,20 +155,24 @@ namespace BlingLuxury
             // cbxNivel
             // 
             this.cbxNivel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cbxNivel.DisplayMember = "Seleccionar";
+            this.cbxNivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxNivel.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbxNivel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxNivel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
             this.cbxNivel.FormattingEnabled = true;
-            this.cbxNivel.Location = new System.Drawing.Point(108, 18);
+            this.cbxNivel.Location = new System.Drawing.Point(108, 22);
             this.cbxNivel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbxNivel.Name = "cbxNivel";
             this.cbxNivel.Size = new System.Drawing.Size(157, 24);
             this.cbxNivel.TabIndex = 1;
+            this.cbxNivel.ValueMember = "Seleccionar";
             this.cbxNivel.SelectedIndexChanged += new System.EventHandler(this.cbxNivel_SelectedIndexChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cbxNivel);
             this.groupBox1.Controls.Add(this.label1);
@@ -160,24 +182,38 @@ namespace BlingLuxury
             this.groupBox1.Margin = new System.Windows.Forms.Padding(20, 9, 4, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Size = new System.Drawing.Size(644, 91);
+            this.groupBox1.Size = new System.Drawing.Size(608, 91);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(542, 23);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(31, 21);
+            this.txtId.TabIndex = 3;
+            this.txtId.Visible = false;
+            // 
             // txtTelefono
             // 
+            this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
             this.txtTelefono.Location = new System.Drawing.Point(120, 62);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtTelefono.MaxLength = 10;
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(157, 21);
+            this.txtTelefono.Size = new System.Drawing.Size(157, 22);
             this.txtTelefono.TabIndex = 4;
+            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.label7.Location = new System.Drawing.Point(35, 63);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
+            this.label7.Location = new System.Drawing.Point(27, 63);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 18);
@@ -188,8 +224,8 @@ namespace BlingLuxury
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.label6.Location = new System.Drawing.Point(343, 63);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
+            this.label6.Location = new System.Drawing.Point(328, 63);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 18);
@@ -199,6 +235,7 @@ namespace BlingLuxury
             // cbxEntidadFederativa
             // 
             this.cbxEntidadFederativa.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cbxEntidadFederativa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxEntidadFederativa.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbxEntidadFederativa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxEntidadFederativa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
@@ -214,7 +251,7 @@ namespace BlingLuxury
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
             this.label5.Location = new System.Drawing.Point(27, 91);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
@@ -225,6 +262,7 @@ namespace BlingLuxury
             // cbxMunicipio
             // 
             this.cbxMunicipio.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cbxMunicipio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxMunicipio.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbxMunicipio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxMunicipio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
@@ -240,8 +278,8 @@ namespace BlingLuxury
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.label4.Location = new System.Drawing.Point(324, 91);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
+            this.label4.Location = new System.Drawing.Point(328, 91);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 18);
@@ -251,6 +289,7 @@ namespace BlingLuxury
             // cbxLocalidad
             // 
             this.cbxLocalidad.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cbxLocalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxLocalidad.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbxLocalidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxLocalidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
@@ -270,7 +309,7 @@ namespace BlingLuxury
             this.flowLayoutPanel1.Location = new System.Drawing.Point(149, 53);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(679, 363);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(643, 332);
             this.flowLayoutPanel1.TabIndex = 8;
             // 
             // groupBox2
@@ -289,31 +328,47 @@ namespace BlingLuxury
             this.groupBox2.Margin = new System.Windows.Forms.Padding(20, 3, 4, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox2.Size = new System.Drawing.Size(644, 127);
+            this.groupBox2.Size = new System.Drawing.Size(608, 127);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnUsuario);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.txtPass);
-            this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.txtUsuario);
             this.groupBox3.Location = new System.Drawing.Point(20, 239);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(20, 3, 4, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox3.Size = new System.Drawing.Size(644, 117);
+            this.groupBox3.Size = new System.Drawing.Size(608, 92);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
+            // 
+            // btnUsuario
+            // 
+            this.btnUsuario.BackColor = System.Drawing.Color.LightGray;
+            this.btnUsuario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.btnUsuario.FlatAppearance.BorderSize = 3;
+            this.btnUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
+            this.btnUsuario.Location = new System.Drawing.Point(25, 15);
+            this.btnUsuario.Name = "btnUsuario";
+            this.btnUsuario.Size = new System.Drawing.Size(142, 23);
+            this.btnUsuario.TabIndex = 10;
+            this.btnUsuario.Text = "Generar Usuario";
+            this.btnUsuario.UseVisualStyleBackColor = false;
+            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.label9.Location = new System.Drawing.Point(92, 45);
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
+            this.label9.Location = new System.Drawing.Point(27, 46);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(100, 18);
@@ -322,33 +377,27 @@ namespace BlingLuxury
             // 
             // txtPass
             // 
-            this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass.Location = new System.Drawing.Point(200, 46);
+            this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.txtPass.Location = new System.Drawing.Point(135, 44);
             this.txtPass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtPass.MaxLength = 15;
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(220, 22);
+            this.txtPass.Size = new System.Drawing.Size(220, 23);
             this.txtPass.TabIndex = 9;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.label8.Location = new System.Drawing.Point(35, 17);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(157, 18);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "Nombre de usuario:";
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(200, 16);
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.txtUsuario.Location = new System.Drawing.Point(174, 15);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtUsuario.MaxLength = 20;
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(220, 22);
+            this.txtUsuario.Size = new System.Drawing.Size(181, 23);
             this.txtUsuario.TabIndex = 8;
+            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
+            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
             // btnModificar
             // 
@@ -368,6 +417,7 @@ namespace BlingLuxury
             this.btnModificar.Size = new System.Drawing.Size(114, 33);
             this.btnModificar.TabIndex = 12;
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnAgregar
             // 
@@ -440,20 +490,111 @@ namespace BlingLuxury
             this.flowLayoutPanel2.Size = new System.Drawing.Size(121, 183);
             this.flowLayoutPanel2.TabIndex = 13;
             // 
+            // btnClose
+            // 
+            this.btnClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose.BackgroundImage")));
+            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.ForeColor = System.Drawing.Color.Transparent;
+            this.btnClose.Location = new System.Drawing.Point(756, 9);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(36, 29);
+            this.btnClose.TabIndex = 15;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(149, 510);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Vivaldi", 8.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.Location = new System.Drawing.Point(149, 426);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(679, 148);
+            this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(643, 225);
             this.dataGridView1.TabIndex = 14;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.txtBuscar.Location = new System.Drawing.Point(213, 398);
+            this.txtBuscar.MaxLength = 50;
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(164, 22);
+            this.txtBuscar.TabIndex = 16;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label10.Location = new System.Drawing.Point(145, 398);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(70, 20);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Buscar:";
+            // 
+            // rbnClientes
+            // 
+            this.rbnClientes.AutoSize = true;
+            this.rbnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbnClientes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.rbnClientes.Location = new System.Drawing.Point(396, 399);
+            this.rbnClientes.Name = "rbnClientes";
+            this.rbnClientes.Size = new System.Drawing.Size(82, 20);
+            this.rbnClientes.TabIndex = 18;
+            this.rbnClientes.TabStop = true;
+            this.rbnClientes.Text = "Clientes";
+            this.rbnClientes.UseVisualStyleBackColor = true;
+            // 
+            // rbnAdmin
+            // 
+            this.rbnAdmin.AutoSize = true;
+            this.rbnAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbnAdmin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.rbnAdmin.Location = new System.Drawing.Point(500, 399);
+            this.rbnAdmin.Name = "rbnAdmin";
+            this.rbnAdmin.Size = new System.Drawing.Size(139, 20);
+            this.rbnAdmin.TabIndex = 19;
+            this.rbnAdmin.TabStop = true;
+            this.rbnAdmin.Text = "Administradores";
+            this.rbnAdmin.UseVisualStyleBackColor = true;
             // 
             // fmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.ClientSize = new System.Drawing.Size(906, 720);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
+            this.ClientSize = new System.Drawing.Size(793, 656);
+            this.Controls.Add(this.rbnAdmin);
+            this.Controls.Add(this.rbnClientes);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -507,13 +648,19 @@ namespace BlingLuxury
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtPass;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnUsuario;
+        private System.Windows.Forms.RadioButton rbnClientes;
+        private System.Windows.Forms.RadioButton rbnAdmin;
     }
 }

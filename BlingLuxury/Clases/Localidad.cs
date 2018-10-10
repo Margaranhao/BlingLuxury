@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace BlingLuxury.Clases
 {
@@ -18,6 +19,16 @@ namespace BlingLuxury.Clases
         public Localidad()
         {
 
+        }
+
+        public Localidad(int id)
+        {
+            this.id = id;
+        }
+        public Localidad(int id, string nombre)
+        {
+            this.id = id;
+            this.nombre = nombre;
         }
         //constructor con todos los parametros, muy util para listar
         public Localidad(int id, string nombre, Municipio id_municipio, TipoLocalidad id_tipo_localidad, CodigoPostal id_cp)

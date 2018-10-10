@@ -29,7 +29,7 @@ namespace BlingLuxury.DAO
         {
             try
             {
-                sql = "UPDATE municipio SET nombre = '" + t.nombre + "', id entidad_federativa= '" + t.id_entidad_federativa + "' WHERE id > 0 AND id = '" + id + "';";
+                sql = "UPDATE municipio SET nombre = '" + t.nombre + "', id entidad_federativa= " + t.id_entidad_federativa.id + " WHERE id > 0 AND id = " + id + ";";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
@@ -93,7 +93,7 @@ namespace BlingLuxury.DAO
         {
             try
             {
-                sql = "INSERT INTO municipio(nombre, id_entidad_federativa) VALUES ('" + t.nombre + "','" + t.id_entidad_federativa + "');";
+                sql = "INSERT INTO municipio(nombre, id_entidad_federativa) VALUES ('" + t.nombre + "'," + t.id_entidad_federativa.id + ");";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();

@@ -54,9 +54,6 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
-    <Reference Include="conexionBDMysql">
-      <HintPath>..\..\..\..\PROYECTO BLING LUXURY\pruebas\conector a MYSQL SERVER\conexionBDMysql.dll</HintPath>
-    </Reference>
     <Reference Include="MySql.Data, Version=6.10.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -130,6 +127,7 @@
     <Compile Include="DAO\TipoEnvioDAO.cs" />
     <Compile Include="DAO\TipoLocalidadDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="Validaciones\Validar.cs" />
     <Compile Include="Vistas\fmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +145,12 @@
     </Compile>
     <Compile Include="Vistas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\frmModificarRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmModificarRegistro.Designer.cs">
+      <DependentUpon>frmModificarRegistro.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\FrmProducto.cs">
       <SubType>Form</SubType>
