@@ -93,6 +93,7 @@
     <Compile Include="Clases\Promocion.cs" />
     <Compile Include="Clases\Rango.cs" />
     <Compile Include="Clases\Rastreo.cs" />
+    <Compile Include="Clases\RegistroUsuario.cs" />
     <Compile Include="Clases\Retiro.cs" />
     <Compile Include="Clases\TipoEnvio.cs" />
     <Compile Include="Clases\TipoLocalidad.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="DAO\PromocionDAO.cs" />
     <Compile Include="DAO\RangoDAO.cs" />
     <Compile Include="DAO\RastreoDAO.cs" />
+    <Compile Include="DAO\RegistroUsuarioDAO.cs" />
     <Compile Include="DAO\RetiroDAO.cs" />
     <Compile Include="DAO\TipoEnvioDAO.cs" />
     <Compile Include="DAO\TipoLocalidadDAO.cs" />

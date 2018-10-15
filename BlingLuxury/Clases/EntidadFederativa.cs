@@ -30,5 +30,9 @@ namespace BlingLuxury.Clases
         {
             this.nombre = nombre;
         }
+        public EntidadFederativa(int id)
+        {
+            this.id = id;
+        }
     }
 }

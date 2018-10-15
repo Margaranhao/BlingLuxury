@@ -38,13 +38,13 @@ namespace BlingLuxury.DAO
                 cmd.ExecuteNonQuery();
                 Conexion.getInstance().getConnection().Close();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
-                throw new Exception(ex.Message);
+                //throw new Exception(ex.Message);
             }
         }
-
+       
         public Cliente Buscar(string query) //Recibe un query de busqueda
         {
             try
@@ -90,7 +90,6 @@ namespace BlingLuxury.DAO
         {
             throw new NotImplementedException();
         }
-
         public void Insertar(Cliente t) // Se recibe el objeto de la clase a insertar
         {
             try
@@ -108,8 +107,6 @@ namespace BlingLuxury.DAO
                 MessageBox.Show("Ocurrio un error");
             }
         }
-
-
         public List<Cliente> Listar(string query) //Se recibe el query de busqueda
         {
             List<Cliente> clienteLista = new List<Cliente>();
@@ -147,12 +144,7 @@ namespace BlingLuxury.DAO
 
                 throw new Exception(ex.Message);
             }
-        }
-
-        internal void Actualizar(Cliente cliente)
-        {
-            throw new NotImplementedException();
-        }
+        }        
     }
 }
 

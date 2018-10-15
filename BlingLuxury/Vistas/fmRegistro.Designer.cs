@@ -35,6 +35,9 @@ namespace BlingLuxury
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -68,14 +71,17 @@ namespace BlingLuxury
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.rbnClientes = new System.Windows.Forms.RadioButton();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.rbnAdmin = new System.Windows.Forms.RadioButton();
+            this.rbnClientes = new System.Windows.Forms.RadioButton();
+            this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl
@@ -172,6 +178,7 @@ namespace BlingLuxury
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBox1.Controls.Add(this.txtIdCliente);
             this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cbxNivel);
@@ -558,18 +565,37 @@ namespace BlingLuxury
             this.label10.TabIndex = 17;
             this.label10.Text = "Buscar:";
             // 
-            // rbnClientes
+            // dataGridView2
             // 
-            this.rbnClientes.AutoSize = true;
-            this.rbnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbnClientes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.rbnClientes.Location = new System.Drawing.Point(396, 399);
-            this.rbnClientes.Name = "rbnClientes";
-            this.rbnClientes.Size = new System.Drawing.Size(82, 20);
-            this.rbnClientes.TabIndex = 18;
-            this.rbnClientes.TabStop = true;
-            this.rbnClientes.Text = "Clientes";
-            this.rbnClientes.UseVisualStyleBackColor = true;
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AllowUserToResizeColumns = false;
+            this.dataGridView2.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView2.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Vivaldi", 8.25F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView2.Location = new System.Drawing.Point(149, 426);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView2.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(643, 225);
+            this.dataGridView2.TabIndex = 20;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick_1);
             // 
             // rbnAdmin
             // 
@@ -583,6 +609,30 @@ namespace BlingLuxury
             this.rbnAdmin.TabStop = true;
             this.rbnAdmin.Text = "Administradores";
             this.rbnAdmin.UseVisualStyleBackColor = true;
+            this.rbnAdmin.CheckedChanged += new System.EventHandler(this.rbnAdmin_CheckedChanged);
+            // 
+            // rbnClientes
+            // 
+            this.rbnClientes.AutoSize = true;
+            this.rbnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbnClientes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.rbnClientes.Location = new System.Drawing.Point(396, 399);
+            this.rbnClientes.Name = "rbnClientes";
+            this.rbnClientes.Size = new System.Drawing.Size(82, 20);
+            this.rbnClientes.TabIndex = 18;
+            this.rbnClientes.TabStop = true;
+            this.rbnClientes.Text = "Clientes";
+            this.rbnClientes.UseVisualStyleBackColor = true;
+            this.rbnClientes.CheckedChanged += new System.EventHandler(this.rbnClientes_CheckedChanged);
+            // 
+            // txtIdCliente
+            // 
+            this.txtIdCliente.Location = new System.Drawing.Point(542, 50);
+            this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.ReadOnly = true;
+            this.txtIdCliente.Size = new System.Drawing.Size(31, 21);
+            this.txtIdCliente.TabIndex = 4;
+            this.txtIdCliente.Visible = false;
             // 
             // fmRegistro
             // 
@@ -590,6 +640,7 @@ namespace BlingLuxury
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
             this.ClientSize = new System.Drawing.Size(793, 656);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.rbnAdmin);
             this.Controls.Add(this.rbnClientes);
             this.Controls.Add(this.label10);
@@ -606,6 +657,7 @@ namespace BlingLuxury
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fmRegistro";
             this.Load += new System.EventHandler(this.fmRegistro_Load);
+            this.Shown += new System.EventHandler(this.fmRegistro_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -615,6 +667,7 @@ namespace BlingLuxury
             this.groupBox3.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -660,7 +713,9 @@ namespace BlingLuxury
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnUsuario;
-        private System.Windows.Forms.RadioButton rbnClientes;
+        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.RadioButton rbnAdmin;
+        private System.Windows.Forms.RadioButton rbnClientes;
+        private System.Windows.Forms.TextBox txtIdCliente;
     }
 }

@@ -24,6 +24,12 @@ namespace BlingLuxury.Clases
         {
             this.id = id;
         }
+        public Municipio(int id, string nombre)
+        {
+            this.id = id;
+            this.nombre = nombre;
+            
+        }
 
         //constructor con todos los parametros, muy util para listar
         public Municipio(int id, string nombre, EntidadFederativa id_entidad_federativa)

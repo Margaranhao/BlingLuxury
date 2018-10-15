@@ -28,5 +28,9 @@ namespace BlingLuxury.Clases
         {
             this.nombre = nombre;
         }
+        public CodigoPostal(int id)
+        {
+            this.id = id;
+        }
     }
 }
