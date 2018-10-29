@@ -25,7 +25,7 @@ namespace BlingLuxury.DAO
             return municipioDAO;
         }
 
-        public void Actualizar(int id, Municipio t)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
+        public void Actualizar(Municipio t, int id)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {

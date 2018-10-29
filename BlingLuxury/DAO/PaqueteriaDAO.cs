@@ -25,7 +25,7 @@ namespace BlingLuxury.DAO
             return paqueteriaDAO;
         }
 
-        public void Actualizar(int id, Paqueteria t)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
+        public void Actualizar(Paqueteria t,int id)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {

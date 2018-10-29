@@ -123,7 +123,7 @@ namespace BlingLuxury.DAO
             }
         }
 
-        public void Actualizar(int id, Rastreo t)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
+        public void Actualizar(Rastreo t, int id)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {

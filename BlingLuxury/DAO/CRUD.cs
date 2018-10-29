@@ -12,7 +12,7 @@ namespace BlingLuxury.CRUD
         List<T> Listar(string query);
         void Insertar(T t);
         T Buscar(string query);
-        void Actualizar(int id, T t);
+        void Actualizar(T t, int id);
         void CambiarEstado(int id, T t);
     }
 }

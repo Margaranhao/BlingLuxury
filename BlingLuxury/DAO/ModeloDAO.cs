@@ -25,7 +25,7 @@ namespace BlingLuxury.DAO
             return modeloDAO;
         }
 
-        public void Actualizar(int id, Modelo t)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
+        public void Actualizar(Modelo t, int id)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {
@@ -62,7 +62,7 @@ namespace BlingLuxury.DAO
                             {
                                 // Se crea un nuevo objeto de la clase y se retorna
                                 modelo = new Modelo(reader.GetInt32(0), reader.GetString(1), new Marca());
-                                    //reader.GetInt32(2),reader.GetString(3)));
+                                //reader.GetInt32(2),reader.GetString(3)));
                                 return modelo;
                             }
                             // Se cierra la conexion y se retorna
@@ -126,7 +126,7 @@ namespace BlingLuxury.DAO
                             while (reader.Read())
                             {
                                 modeloLista.Add(new Modelo(reader.GetInt32(0), reader.GetString(1), new Marca()));
-                                    //reader.GetInt32(2),reader.GetString(3))));
+                                //reader.GetInt32(2),reader.GetString(3))));
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();

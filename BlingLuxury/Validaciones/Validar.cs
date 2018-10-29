@@ -23,6 +23,7 @@ namespace BlingLuxury.Validaciones
             else
             {
                 pE.Handled = true;
+                MessageBox.Show("NO SE ADMITEN LETRAS, SOLO NÚMEROS", "¡¡¡ADVERTENCIA!!!", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -43,6 +44,32 @@ namespace BlingLuxury.Validaciones
             else
             {
                 pE.Handled = true;
+                MessageBox.Show("NO SE ADMITEN NÚMEROS, SOLO LETRAS", "¡¡¡ADVERTENCIA!!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        public static void SoloDecimales(KeyPressEventArgs pE)
+        {
+            if (Char.IsDigit(pE.KeyChar))
+            {
+                pE.Handled = false;
+            }
+            else if (Char.IsSeparator(pE.KeyChar))
+            {
+                pE.Handled = false;
+            }
+            else if (Char.IsControl(pE.KeyChar))
+            {
+                pE.Handled = false;
+            }
+            else if (pE.KeyChar.ToString().Equals("."))
+            {
+                pE.Handled = false;
+            }
+            else
+            {
+                pE.Handled = true;
+                MessageBox.Show("SOLO SE ADMITEN NÚMEROS DECIMALES", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

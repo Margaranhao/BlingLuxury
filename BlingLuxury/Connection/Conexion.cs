@@ -66,6 +66,12 @@ namespace BlingLuxury.Connection
         {
             return connection != null;
         }
+
+        internal void setCadenaConnetion()
+        {
+            throw new NotImplementedException();
+        }
+
         public string getCadenaConnection()
         {
             return cadenaConexion;

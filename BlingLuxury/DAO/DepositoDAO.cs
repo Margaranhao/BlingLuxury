@@ -26,7 +26,7 @@ namespace BlingLuxury.DAO
                 depositoDAO = new DepositoDAO();
             return depositoDAO;
         }
-        public void Actualizar(int id, Deposito t) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
+        public void Actualizar(Deposito t, int id) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {

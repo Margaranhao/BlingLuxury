@@ -25,7 +25,7 @@ namespace BlingLuxury.DAO
             return marcaDAO;
         }
 
-        public void Actualizar(int id, Marca t)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
+        public void Actualizar(Marca t, int id)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {

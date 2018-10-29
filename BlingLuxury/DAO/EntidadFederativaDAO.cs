@@ -26,7 +26,7 @@ namespace BlingLuxury.DAO
                 entidadfederativaDAO = new EntidadFederativaDAO();
             return entidadfederativaDAO;
         }
-        public void Actualizar(int id, EntidadFederativa t) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
+        public void Actualizar(EntidadFederativa t, int id) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {

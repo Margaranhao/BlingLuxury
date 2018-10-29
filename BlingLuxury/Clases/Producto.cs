@@ -9,7 +9,7 @@ namespace BlingLuxury.Clases
     public class Producto
     {
         public int id { get; set; }
-        public int codigoDeBarras { get; set; }
+        public string codigoDeBarras { get; set; }
         public double peso { get; set; }
         public Modelo id_modelo { get; set; }
         public PrecioAdquisicion id_precio_adquisicion { get; set; }
@@ -24,8 +24,8 @@ namespace BlingLuxury.Clases
         {
             this.id = id;
         }
-        public Producto(int id, int codigoDeBarras, double peso, 
-            Modelo id_modelo, PrecioAdquisicion id_precio_adquisicion, Color id_color, 
+        public Producto(int id, string codigoDeBarras, double peso,
+            Modelo id_modelo, PrecioAdquisicion id_precio_adquisicion, Color id_color,
             Categoria id_categoria)
         {
             this.id = id;
@@ -36,7 +36,7 @@ namespace BlingLuxury.Clases
             this.id_color = id_color;
             this.id_categoria = id_categoria;
         }
-        public Producto(int codigoDeBarras, double peso, Modelo id_modelo,
+        public Producto(string codigoDeBarras, double peso, Modelo id_modelo,
             PrecioAdquisicion id_precio_adquisicion, Color id_color, Categoria id_categoria)
         {
             this.codigoDeBarras = codigoDeBarras;
@@ -47,13 +47,24 @@ namespace BlingLuxury.Clases
             this.id_categoria = id_categoria;
         }
 
-        public Producto( int id, int codigoBarras)
+        public Producto(int id, string codigoBarras)
         {
             this.id = id;
             this.codigoDeBarras = codigoDeBarras;
         }
-        public Producto(Modelo id_modelo, PrecioAdquisicion id_precio_adquisicion, Color id_color, Categoria id_categoria)
+        public Producto(int id, double peso, Modelo id_modelo, PrecioAdquisicion id_precio_adquisicion, Color id_color, Categoria id_categoria)
         {
+            this.id = id;
+            this.peso = peso;
+            this.id_modelo = id_modelo;
+            this.id_precio_adquisicion = id_precio_adquisicion;
+            this.id_color = id_color;
+            this.id_categoria = id_categoria;
+
+        }
+        public Producto(double peso, Modelo id_modelo, PrecioAdquisicion id_precio_adquisicion, Color id_color, Categoria id_categoria)
+        {
+            this.peso = peso;
             this.id_modelo = id_modelo;
             this.id_precio_adquisicion = id_precio_adquisicion;
             this.id_color = id_color;
@@ -62,3 +73,4 @@ namespace BlingLuxury.Clases
         }
     }
 }
+

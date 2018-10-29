@@ -26,7 +26,7 @@ namespace BlingLuxury.DAO
                 estadoDAO = new EstadoDAO();
             return estadoDAO;
         }
-        public void Actualizar(int id, Estado t) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
+        public void Actualizar(Estado t, int id) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {
