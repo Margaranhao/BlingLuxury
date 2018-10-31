@@ -48,6 +48,7 @@
             this.btnCoCancelar.TabIndex = 13;
             this.btnCoCancelar.Text = "Cancelar";
             this.btnCoCancelar.UseVisualStyleBackColor = true;
+            this.btnCoCancelar.Click += new System.EventHandler(this.btnCoCancelar_Click);
             // 
             // btnCoAgregar
             // 
@@ -62,12 +63,13 @@
             // txtColor
             // 
             this.txtColor.Location = new System.Drawing.Point(46, 17);
+            this.txtColor.MaxLength = 15;
             this.txtColor.Name = "txtColor";
             this.txtColor.Size = new System.Drawing.Size(138, 20);
             this.txtColor.TabIndex = 9;
             this.txtColor.TextChanged += new System.EventHandler(this.txtColor_TextChanged);
             this.txtColor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtColor_KeyPress);
-            //this.txtColor.Validating += new System.ComponentModel.CancelEventHandler(this.txtColor_Validating);
+            this.txtColor.Validating += new System.ComponentModel.CancelEventHandler(this.txtColor_Validating);
             // 
             // lblColor
             // 
