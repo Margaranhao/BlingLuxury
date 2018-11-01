@@ -11,10 +11,11 @@ namespace BlingLuxury.Clases
         public int id { get; set; }
         public string nombre { get; set; }
 
-        public Rango()
+        public Rango() //Constructor vacio
         {
 
         }
+        //constructor con todos los parametros, muy util para listar
         public Rango(int id, string nombre)
         {
             this.id = id;

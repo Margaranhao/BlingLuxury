@@ -33,13 +33,41 @@ namespace BlingLuxury.Vistas
         public frmColor()
         {
             InitializeComponent();
-        }               
+        }                          
+        #region Eventos
+        private void btnCoAgregar_Click(object sender, EventArgs e) //Botón para Agregar colores
+        {
+            if (txtColor.Text.Trim() == "") // Condición para no insertar si el TextBox esta vacio
+            {
+                errorColor.SetError(txtColor, "No se pueden dejar el campo vacio"); //Mensaje en que aparece en el icono del Error Provider
+                //Mensaje en caso de que se cumpla la condicion del TextBox vacio
+                MessageBox.Show("No se puede insertar un valor vacio", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtColor.Focus();
+            }
+            else
+            {
+                Insertar(); // Se Manda llamar el metodo para insertar los datos
+                enviado(txtColor.Text); //Envia de un TextBox los datos al formulario y los ubica en el ComboBox Color
+                errorColor.Clear(); // Limpia el Error
+                this.Close(); //Cierra el formulario Color
+            }
+        }
+        private void btnCoCancelar_Click(object sender, EventArgs e) //Botón para cancelar peticion y cerrar formulario
+        {
+            //Condicion donde pregunta si deceas cancelar y salir del formulario a travez de un mensaje en ventana emergente
+            if (MessageBox.Show("¿Desea Cancelar?", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
+            {
+                this.Close(); //si se cumple Se cierra el Formulario Color
+            }
+        }
+        #endregion
+        #region Interaccion BD
         #region Insertar
         private void Insertar() //Metodo para Insertar Colores
         {
             try
             {
-                ColorDAO.getInstance().Insertar(new Clases.Color(txtColor.Text)); 
+                ColorDAO.getInstance().Insertar(new Clases.Color(txtColor.Text));
                 //Manda mensaje de confirmacion cuando se agregan los datos
                 MessageBox.Show("Color agrego correctamente", "Color Agregado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 mostrarColores(); //Actualiza el DataGridView
@@ -49,24 +77,14 @@ namespace BlingLuxury.Vistas
                 MessageBox.Show(ex.Message);
             }
         }
-        #endregion Insertar        
-        private void btnCoAgregar_Click(object sender, EventArgs e) //Botón para Agregar colores
+        #endregion Insertar     
+        private void txtColor_TextChanged(object sender, EventArgs e) //Busca las coincidencias al momento de teclear datos en el TextBox
         {
-            if (txtColor.Text.Trim() == "") // Condición para no insertar si el TextBox esta vacio
-            {
-                errorColor.SetError(txtColor, "No se pueden dejar el campo vacio"); //Mensaje en que aparece en el icono del Error Provider
-                //Mensaje en caso de que se cumpla la condicion del TextBox vacio
-                MessageBox.Show("No se puede insertar un valor vacio", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning); 
-                txtColor.Focus();
-            }
-            else
-            {                
-                    Insertar(); // Se Manda llamar el metodo para insertar los datos
-                    enviado(txtColor.Text); //Envia de un TextBox los datos al formulario y los ubica en el ComboBox Color
-                    errorColor.Clear(); // Limpia el Error
-                    this.Close(); //Cierra el formulario Color
-                }
-            }       
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dgvColores.DataSource;
+            bs.Filter = $"Color like '%" + txtColor.Text + "%'";
+            dgvColores.DataSource = bs;
+        }
         #region Color        
         public DataTable listarColor() //Metodo que obtiene de forma de lista de Color
         {
@@ -74,7 +92,7 @@ namespace BlingLuxury.Vistas
             dt.Columns.Add("Id");
             dt.Columns.Add("Color");
             try
-            {                
+            {
                 sql = "SELECT id, nombre FROM color ORDER BY id;";
                 List<Clases.Color> colorLista = ColorDAO.getInstance().Listar(sql);
                 for (int i = 0; i < colorLista.Count; i++)
@@ -103,25 +121,20 @@ namespace BlingLuxury.Vistas
 
             }
         }
-        #endregion Color      
+        #endregion Color
+        #endregion
+        #region Interaccion Formularios
         private void frmColor_Load(object sender, EventArgs e)
         {
             mostrarColores();
         }
+        #endregion
+        #region Validaciones
         private void txtColor_KeyPress(object sender, KeyPressEventArgs e) //Valida que al ingresar datos solo acepta Letras
         {
             //Solo Acepta Letras
             Validar.SoloLetras(e);
         }
-
-        private void txtColor_TextChanged(object sender, EventArgs e) //Busca las coincidencias al momento de teclear datos en el TextBox
-        {
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dgvColores.DataSource;
-            bs.Filter = $"Color like '%" + txtColor.Text + "%'";
-            dgvColores.DataSource = bs;
-        }
-
         private void txtColor_Validating(object sender, CancelEventArgs e) //Metodo que valida el TextBox para que no se insete vacio 
         {
             if (txtColor.Text.Trim() == "") //Condicion para que el TextBox no este vacio
@@ -132,19 +145,13 @@ namespace BlingLuxury.Vistas
             else
             {
                 errorColor.Clear(); //Limpia el icono cuando insertas datos
-            }            
-        }
-        private void btnCoCancelar_Click(object sender, EventArgs e) //Botón para cancelar peticion y cerrar formulario
-        {
-            //Condicion donde pregunta si deceas cancelar y salir del formulario a travez de un mensaje en ventana emergente
-            if (MessageBox.Show("¿Desea Cancelar?", "Cancelar", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
-            {
-                this.Close(); //si se cumple Se cierra el Formulario Color
             }
-        }        
+        }
     }
 }
-   
-        
-    
+#endregion
+
+
+
+
 

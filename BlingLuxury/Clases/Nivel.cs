@@ -23,6 +23,7 @@ namespace BlingLuxury.Clases
         {
             this.id = id;
         }
+        //constructor con todos los parametros, muy util para listar
         public Nivel(int id, string nombre)
         {
             this.id = id;

@@ -19,7 +19,7 @@ namespace BlingLuxury
 {
     public partial class FrmProducto : Form
     {
-        DataTable dt = new DataTable();
+        
         public FrmProducto()
         {
             InitializeComponent();
@@ -27,6 +27,7 @@ namespace BlingLuxury
         #region Variables
         protected string sql;
         protected int id;
+        DataTable dt = new DataTable();
         #endregion
 
         #region Interaccion BD
@@ -486,8 +487,8 @@ namespace BlingLuxury
 
             id = Convert.ToInt32(txtId.Text);
         }
-        #endregion
-        
+        #endregion        
+
         #region Eventos
         private void btnSalir_Click_1(object sender, EventArgs e)
         {
@@ -646,6 +647,30 @@ namespace BlingLuxury
 
                 e.Handled = false;
             }
+        }
+
+        private void btnModelo_Click(object sender, EventArgs e)
+        {
+            frmModelo modelofrm = new frmModelo();
+            modelofrm.enviado += new frmModelo.pasarModelo(realizar2);
+            modelofrm.Show();
+            mostrarModelo();
+        }
+        public void realizar2(string modelo)
+        {
+            cbxModelo.Text = modelo;
+        }
+
+        private void btnMarca_Click(object sender, EventArgs e)
+        {
+            mostrarMarca();
+            frmMarca marcafrm = new frmMarca();
+            marcafrm.enviado += new frmMarca.pasarMarca(realizar3);
+            marcafrm.Show();
+        }
+        public void realizar3(string marca)
+        {
+            cbxMarca.Text = marca;
         }
     }
 }

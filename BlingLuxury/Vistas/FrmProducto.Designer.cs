@@ -265,6 +265,7 @@ namespace BlingLuxury
             this.btnMarca.TabIndex = 15;
             this.btnMarca.Text = "+";
             this.btnMarca.UseVisualStyleBackColor = true;
+            this.btnMarca.Click += new System.EventHandler(this.btnMarca_Click);
             // 
             // btnColor
             // 
@@ -284,6 +285,7 @@ namespace BlingLuxury
             this.btnModelo.TabIndex = 13;
             this.btnModelo.Text = "+";
             this.btnModelo.UseVisualStyleBackColor = true;
+            this.btnModelo.Click += new System.EventHandler(this.btnModelo_Click);
             // 
             // btnCategoria
             // 

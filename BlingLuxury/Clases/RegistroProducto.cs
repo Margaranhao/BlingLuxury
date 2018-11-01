@@ -20,11 +20,11 @@ namespace BlingLuxury.Clases
         public Categoria productoIdCategoria { get; set; }
 
 
-        public RegistroProducto()
+        public RegistroProducto() //Constructor Vacio
         {
 
         }
-
+        //constructor con todos los parametros, muy util para listar
         public RegistroProducto(int idProducto, string codigoProducto, double pesoProducto, Modelo productoIdModelo, Marca modeloIdMarca, 
                                 PrecioAdquisicion productoIdPrecio_adquisicion, Color productoIdColor, Categoria productoIdCategoria)
         {
