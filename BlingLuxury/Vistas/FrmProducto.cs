@@ -29,7 +29,9 @@ namespace BlingLuxury
         protected int id;
         DataTable dt = new DataTable();
         #endregion
-
+        /// <summary>
+        /// hhhhhhhhhhhhhhhhhhhhhddddd
+        /// </summary>
         #region Interaccion BD
         #region Modificar        
         private void Modificar()//metodo para Modificar 
