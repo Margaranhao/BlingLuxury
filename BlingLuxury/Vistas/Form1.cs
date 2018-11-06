@@ -62,11 +62,11 @@ namespace BlingLuxury
 
 
         #endregion
-    
 
         private void btnLogin_Click(object sender, EventArgs e)
-        {
-            
+        {            
+            fmPrincipal principal = new fmPrincipal();
+            principal.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)

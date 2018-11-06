@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BlingLuxury.DAO
 {
@@ -27,7 +28,7 @@ namespace BlingLuxury.DAO
             return colorDAO;
         }
 
-        public void Actualizar(int id, Color t) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
+        public void Actualizar(Color t, int id) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {
@@ -146,6 +147,6 @@ namespace BlingLuxury.DAO
 
                 throw new Exception(ex.Message);
             }
-        }
+        }       
     }
 }

@@ -14,10 +14,11 @@ namespace BlingLuxury.Clases
         public string razon { get; set; }
         public Usuario id_usuario { get; set; }
 
-        public Retiro()
+        public Retiro() //Constructor Vacio
         {
 
         }
+        //constructor con todos los parametros, muy util para listar
         public Retiro(int id, DateTime fecha, double cantidad, 
             string razon, Usuario id_usuario)
         {

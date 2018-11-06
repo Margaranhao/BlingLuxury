@@ -26,7 +26,7 @@ namespace BlingLuxury.DAO
                 facturaDAO = new FacturaDAO();
             return facturaDAO;
         }
-        public void Actualizar(int id, Factura t) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
+        public void Actualizar(Factura t, int id) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {

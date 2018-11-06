@@ -11,10 +11,11 @@ namespace BlingLuxury.Clases
         public int id { get; set; }
         public string nombre { get; set; }
         public DateTime fecha { get; set; }
-        public TipoEnvio()
+        public TipoEnvio() //Constructor Vacio
         {
 
         }
+        //constructor con todos los parametros, muy util para listar
         public TipoEnvio(int id, string nombre, DateTime fecha)
         {
             this.id = id;

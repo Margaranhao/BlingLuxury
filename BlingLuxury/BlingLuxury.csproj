@@ -94,6 +94,7 @@
     <Compile Include="Clases\Rango.cs" />
     <Compile Include="Clases\Rastreo.cs" />
     <Compile Include="Clases\RegistroUsuario.cs" />
+    <Compile Include="Clases\RegistroProducto.cs" />
     <Compile Include="Clases\Retiro.cs" />
     <Compile Include="Clases\TipoEnvio.cs" />
     <Compile Include="Clases\TipoLocalidad.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="DAO\RangoDAO.cs" />
     <Compile Include="DAO\RastreoDAO.cs" />
     <Compile Include="DAO\RegistroUsuarioDAO.cs" />
+    <Compile Include="DAO\RegistroProductoDAO.cs" />
     <Compile Include="DAO\RetiroDAO.cs" />
     <Compile Include="DAO\TipoEnvioDAO.cs" />
     <Compile Include="DAO\TipoLocalidadDAO.cs" />
@@ -153,6 +155,30 @@
     </Compile>
     <Compile Include="Vistas\frmModificarRegistro.Designer.cs">
       <DependentUpon>frmModificarRegistro.cs</DependentUpon>
+	  </Compile>
+    <Compile Include="Vistas\frmCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmCategoria.Designer.cs">
+      <DependentUpon>frmCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\frmColor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmColor.Designer.cs">
+      <DependentUpon>frmColor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\frmMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmMarca.Designer.cs">
+      <DependentUpon>frmMarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\frmModelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmModelo.Designer.cs">
+      <DependentUpon>frmModelo.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\FrmProducto.cs">
       <SubType>Form</SubType>
@@ -176,6 +202,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frmCategoria.resx">
+      <DependentUpon>frmCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frmColor.resx">
+      <DependentUpon>frmColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frmMarca.resx">
+      <DependentUpon>frmMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frmModelo.resx">
+      <DependentUpon>frmModelo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FrmProducto.resx">
       <DependentUpon>FrmProducto.cs</DependentUpon>
@@ -229,6 +267,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Imagenes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -24,7 +24,7 @@ namespace BlingLuxury.DAO
                 promocionDAO = new PromocionDAO();
             return promocionDAO;
         }
-        public void Actualizar(int id, Promocion t)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
+        public void Actualizar(Promocion t, int id)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {
@@ -60,7 +60,11 @@ namespace BlingLuxury.DAO
                             while (reader.Read())//se recorre cada elemento que obtuvo el reader
                             {
                                 // Se crea un nuevo objeto de la clase y se retorna
-                                promocion = new Promocion(reader.GetInt32(0), reader.GetDateTime(1), reader.GetDateTime(2), reader.GetBoolean(3), new Producto(reader.GetInt32(4),reader.GetInt32(5)));
+
+                                //promocion = new Promocion(reader.GetInt32(0), reader.GetDateTime(1), reader.GetDateTime(2), reader.GetBoolean(3), new Producto(reader.GetInt32(4),reader.GetInt32(5)));
+
+                                promocion = new Promocion(reader.GetInt32(0), reader.GetDateTime(1), reader.GetDateTime(2), reader.GetBoolean(3), new Producto(reader.GetString(4),reader.GetDouble(5),new Modelo(reader.GetString(6), new Marca(reader.GetString(7))), new PrecioAdquisicion(reader.GetDouble(8)), new Color(reader.GetString(9)), new Categoria(reader.GetString(10))));
+
                                 return promocion;
                             }
                             // Se cierra la conexion y se retorna
@@ -123,7 +127,11 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())
                             {
-                                promocionLista.Add(new Promocion(reader.GetInt32(0), reader.GetDateTime(1), reader.GetDateTime(2), reader.GetBoolean(3), new Producto(reader.GetInt32(4), reader.GetInt32(5))));
+
+                                //promocionLista.Add(new Promocion(reader.GetInt32(0), reader.GetDateTime(1), reader.GetDateTime(2), reader.GetBoolean(3), new Producto(reader.GetInt32(4), reader.GetInt32(5))));
+
+                                promocionLista.Add(new Promocion(reader.GetInt32(0), reader.GetDateTime(1), reader.GetDateTime(2), reader.GetBoolean(3), new Producto(reader.GetString(4), reader.GetDouble(5), new Modelo(reader.GetString(6), new Marca(reader.GetString(7))), new PrecioAdquisicion(reader.GetDouble(8)), new Color(reader.GetString(9)), new Categoria(reader.GetString(10)))));
+
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();

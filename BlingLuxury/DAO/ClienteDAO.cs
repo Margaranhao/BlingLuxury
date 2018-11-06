@@ -27,7 +27,7 @@ namespace BlingLuxury.DAO
                 clienteDAO = new ClienteDAO();
             return clienteDAO;
         }
-        public void Actualizar(int id, Cliente t) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
+        public void Actualizar(Cliente t, int id) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {

@@ -25,7 +25,7 @@ namespace BlingLuxury.DAO
             return nivelDAO;
         }
 
-        public void Actualizar(int id, Nivel t)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
+        public void Actualizar(Nivel t, int id)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {

@@ -24,7 +24,7 @@ namespace BlingLuxury.DAO
                 tipoEnvioDAO = new TipoEnvioDAO();
             return tipoEnvioDAO;
         }
-        public void Actualizar(int id, TipoEnvio t)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
+        public void Actualizar(TipoEnvio t, int id)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {

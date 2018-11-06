@@ -43,5 +43,10 @@ namespace BlingLuxury.Clases
             this.nombre = nombre;
             this.id_marca = id_marca;
         }
+        public Modelo(int id, Marca id_marca)
+        {
+            this.id = id;
+            this.id_marca = id_marca;
+        }
     }
 }

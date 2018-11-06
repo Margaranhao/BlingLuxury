@@ -25,11 +25,11 @@ namespace BlingLuxury.DAO
             return modeloDAO;
         }
 
-        public void Actualizar(int id, Modelo t)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
+        public void Actualizar(Modelo t, int id)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {
-                sql = "UPDATE modelo SET nombre = '" + t.nombre + "', id_marca = '" + t.id_marca + "' WHERE id > 0 AND id = '" + id + "';";
+                sql = "UPDATE modelo SET nombre = '" + t.nombre + "', id_marca = '" + t.id_marca.id + "' WHERE id > 0 AND id = '" + id + "';";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
@@ -61,7 +61,8 @@ namespace BlingLuxury.DAO
                             while (reader.Read())//se recorre cada elemento que obtuvo el reader
                             {
                                 // Se crea un nuevo objeto de la clase y se retorna
-                                modelo = new Modelo(reader.GetInt32(0), reader.GetString(1), new Marca(reader.GetString(2)));
+                                modelo = new Modelo(reader.GetInt32(0), reader.GetString(1), new Marca());
+                                //reader.GetInt32(2),reader.GetString(3)));
                                 return modelo;
                             }
                             // Se cierra la conexion y se retorna
@@ -93,7 +94,7 @@ namespace BlingLuxury.DAO
         {
             try
             {
-                sql = "INSERT INTO modelo(nombre, id_marca) VALUES ('" + t.nombre + "','" + t.id_marca + "');";
+                sql = "INSERT INTO modelo(nombre, id_marca) VALUES ('" + t.nombre + "','" + t.id_marca.id + "');";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
@@ -125,6 +126,8 @@ namespace BlingLuxury.DAO
                             while (reader.Read())
                             {
                                 modeloLista.Add(new Modelo(reader.GetInt32(0), reader.GetString(1), new Marca()));
+                                //reader.GetInt32(2),reader.GetString(3))));
+
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();

@@ -24,7 +24,7 @@ namespace BlingLuxury.DAO
                 rangoDAO = new RangoDAO();
             return rangoDAO;
         }
-        public void Actualizar(int id, Rango t)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
+        public void Actualizar(Rango t, int id)//Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
             {
