@@ -13,6 +13,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
+    <PublishUrl>publicar\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,10 +48,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject>BlingLuxury.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
-    <Reference Include="conexionBDMysql">
-      <HintPath>..\..\..\..\PROYECTO BLING LUXURY\pruebas\conector a MYSQL SERVER\conexionBDMysql.dll</HintPath>
-    </Reference>
     <Reference Include="MySql.Data, Version=6.10.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -76,6 +93,7 @@
     <Compile Include="Clases\Promocion.cs" />
     <Compile Include="Clases\Rango.cs" />
     <Compile Include="Clases\Rastreo.cs" />
+    <Compile Include="Clases\RegistroUsuario.cs" />
     <Compile Include="Clases\Retiro.cs" />
     <Compile Include="Clases\TipoEnvio.cs" />
     <Compile Include="Clases\TipoLocalidad.cs" />
@@ -106,32 +124,40 @@
     <Compile Include="DAO\PromocionDAO.cs" />
     <Compile Include="DAO\RangoDAO.cs" />
     <Compile Include="DAO\RastreoDAO.cs" />
+    <Compile Include="DAO\RegistroUsuarioDAO.cs" />
     <Compile Include="DAO\RetiroDAO.cs" />
     <Compile Include="DAO\TipoEnvioDAO.cs" />
     <Compile Include="DAO\TipoLocalidadDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
-    <Compile Include="fmPrincipal.cs">
+    <Compile Include="Validaciones\Validar.cs" />
+    <Compile Include="Vistas\fmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fmPrincipal.Designer.cs">
+    <Compile Include="Vistas\fmPrincipal.Designer.cs">
       <DependentUpon>fmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="fmRegistro.cs">
+    <Compile Include="Vistas\fmRegistro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fmRegistro.Designer.cs">
+    <Compile Include="Vistas\fmRegistro.Designer.cs">
       <DependentUpon>fmRegistro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Vistas\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Vistas\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmProducto.cs">
+    <Compile Include="Vistas\frmModificarRegistro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmProducto.Designer.cs">
+    <Compile Include="Vistas\frmModificarRegistro.Designer.cs">
+      <DependentUpon>frmModificarRegistro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FrmProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\FrmProducto.Designer.cs">
       <DependentUpon>FrmProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="MyDatabase1.examples.cs" />
@@ -142,16 +168,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="fmPrincipal.resx">
+    <EmbeddedResource Include="Vistas\fmPrincipal.resx">
       <DependentUpon>fmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fmRegistro.resx">
+    <EmbeddedResource Include="Vistas\fmRegistro.resx">
       <DependentUpon>fmRegistro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Vistas\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmProducto.resx">
+    <EmbeddedResource Include="Vistas\FrmProducto.resx">
       <DependentUpon>FrmProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -192,7 +218,18 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

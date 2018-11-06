@@ -15,6 +15,11 @@ namespace BlingLuxury.Clases
         {
 
         }
+
+        public Rango(int id)
+        {
+            this.id = id;
+        }
         public Rango(int id, string nombre)
         {
             this.id = id;

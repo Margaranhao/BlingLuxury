@@ -10,7 +10,7 @@ namespace BlingLuxury.Clases
     {
         public int id { get; set; }
         public string nombre { get; set; } //nombre del Estado/Entidad Federativa
-        public Municipio id_municipio { get; set; }
+        
 
         //constructor por default
         public EntidadFederativa()
@@ -19,17 +19,20 @@ namespace BlingLuxury.Clases
         }
 
         //constructor con todos los parametros, muy util para listar
-        public EntidadFederativa(int id, string nombre, Municipio id_municipio)
+        public EntidadFederativa(int id, string nombre)
         {
             this.id = id;
             this.nombre = nombre;
-            this.id_municipio = id_municipio;
+            
         }
         //constructor sin id, muy util para inserts
-        public EntidadFederativa(string nombre, Municipio id_municipio)
+        public EntidadFederativa(string nombre)
         {
             this.nombre = nombre;
-            this.id_municipio = id_municipio;
+        }
+        public EntidadFederativa(int id)
+        {
+            this.id = id;
         }
     }
 }

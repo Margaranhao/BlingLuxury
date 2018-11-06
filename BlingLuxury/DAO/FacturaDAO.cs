@@ -64,7 +64,7 @@ namespace BlingLuxury.DAO
                             while (reader.Read())//Se recorre cada elemento que obtuvo el reader
                             {
                                 //Se crea un nuevo objeto de la clase y se retorna
-                               factura = new Factura(reader.GetInt32(0), reader.GetInt32(1), reader.GetDateTime(2), reader.GetDouble(3), new Cliente(reader.GetString(4), reader.GetString(5), reader.GetString(6), new Rango(reader.GetString(7)), new Municipio(reader.GetString(8), new Localidad(reader.GetString(9), new CodigoPostal(reader.GetString(10)))), new Usuario(reader.GetString(11), reader.GetString(12), reader.GetString(13), new Nivel(reader.GetString(14)))), new DestinoEnvio(reader.GetInt32(15), reader.GetDouble(16), reader.GetDouble(17), new Localidad(reader.GetString(18), new CodigoPostal(reader.GetString(19))), new TipoEnvio(reader.GetString(20), reader.GetDateTime(21))), new Usuario(reader.GetString(22), reader.GetString(23), reader.GetString(24), new Nivel(reader.GetString(25))));
+                               factura = new Factura(reader.GetInt32(0), reader.GetInt32(1), reader.GetDateTime(2), reader.GetDouble(3), new Cliente(), new DestinoEnvio(), new Usuario());
                                 return factura;
                             }
                             //Se Cierra la conexión y se retorna
@@ -126,7 +126,7 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())
                             {
-                                facturaLista.Add(new Factura(reader.GetInt32(0), reader.GetInt32(1), reader.GetDateTime(2), reader.GetDouble(3), new Cliente(reader.GetString(4), reader.GetString(5), reader.GetString(6), new Rango(reader.GetString(7)), new Municipio(reader.GetString(8), new Localidad(reader.GetString(9), new CodigoPostal(reader.GetString(10)))), new Usuario(reader.GetString(11), reader.GetString(12), reader.GetString(13), new Nivel(reader.GetString(14)))), new DestinoEnvio(reader.GetInt32(15), reader.GetDouble(16), reader.GetDouble(17), new Localidad(reader.GetString(18), new CodigoPostal(reader.GetString(19))), new TipoEnvio(reader.GetString(20), reader.GetDateTime(21))), new Usuario(reader.GetString(22), reader.GetString(23), reader.GetString(24), new Nivel(reader.GetString(25)))));
+                                facturaLista.Add(new Factura(reader.GetInt32(0), reader.GetInt32(1), reader.GetDateTime(2), reader.GetDouble(3), new Cliente(), new DestinoEnvio(), new Usuario()));
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();

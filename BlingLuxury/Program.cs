@@ -16,7 +16,7 @@ namespace BlingLuxury
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmProducto());
+            Application.Run(new fmLogin());
         }
     }
 }

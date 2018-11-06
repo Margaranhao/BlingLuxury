@@ -42,6 +42,10 @@ namespace BlingLuxury.Connection
             }
             connection = new MySqlConnection(getCadenaConnection());
             connection.Open();
+<<<<<<< HEAD
+=======
+            //MessageBox.Show("Conexión Establecida");
+>>>>>>> origin/Registro
         }
 
         public void Desconectar()

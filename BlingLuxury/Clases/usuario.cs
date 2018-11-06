@@ -15,12 +15,16 @@ namespace BlingLuxury.Clases
         public string nombre { set; get; }
         public string nick { set; get; }
         public string pass { set; get; }
-        public Nivel id_nivel { get; set; }
+        public Nivel id_nivel { set; get; }
 
 
         public Usuario()//Toda clase debe tener un constructor vacio
         {
 
+        }
+        public Usuario(int id)
+        {
+            this.id = id;
         }
         public Usuario(int id, string nombre, string nick, string pass, Nivel id_nivel)//Constructor con todos los valores es muy util para listar
         {
