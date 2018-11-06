@@ -82,10 +82,11 @@ namespace BlingLuxury
             // 
             // lblProducto
             // 
+            this.lblProducto.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblProducto.AutoSize = true;
             this.lblProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProducto.ForeColor = System.Drawing.Color.White;
-            this.lblProducto.Location = new System.Drawing.Point(366, 13);
+            this.lblProducto.Location = new System.Drawing.Point(488, 13);
             this.lblProducto.Name = "lblProducto";
             this.lblProducto.Size = new System.Drawing.Size(118, 29);
             this.lblProducto.TabIndex = 1;
@@ -99,7 +100,7 @@ namespace BlingLuxury
             this.flpProducto.Location = new System.Drawing.Point(162, 45);
             this.flpProducto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.flpProducto.Name = "flpProducto";
-            this.flpProducto.Size = new System.Drawing.Size(669, 339);
+            this.flpProducto.Size = new System.Drawing.Size(886, 346);
             this.flpProducto.TabIndex = 11;
             // 
             // gbxProducto
@@ -107,10 +108,10 @@ namespace BlingLuxury
             this.gbxProducto.BackColor = System.Drawing.SystemColors.Window;
             this.gbxProducto.Controls.Add(this.btnPrecios);
             this.gbxProducto.Controls.Add(this.cbxPrecios);
+            this.gbxProducto.Controls.Add(this.pbxImagen);
             this.gbxProducto.Controls.Add(this.txtPeso);
             this.gbxProducto.Controls.Add(this.lblPeso);
             this.gbxProducto.Controls.Add(this.lblPrecio);
-            this.gbxProducto.Controls.Add(this.pbxImagen);
             this.gbxProducto.Controls.Add(this.lblCodigoBarras);
             this.gbxProducto.Controls.Add(this.txtCodigoBarras);
             this.gbxProducto.Controls.Add(this.txtId);
@@ -183,7 +184,7 @@ namespace BlingLuxury
             // pbxImagen
             // 
             this.pbxImagen.Image = ((System.Drawing.Image)(resources.GetObject("pbxImagen.Image")));
-            this.pbxImagen.Location = new System.Drawing.Point(372, 16);
+            this.pbxImagen.Location = new System.Drawing.Point(383, 16);
             this.pbxImagen.Name = "pbxImagen";
             this.pbxImagen.Size = new System.Drawing.Size(254, 145);
             this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -407,7 +408,7 @@ namespace BlingLuxury
             this.dgvProducto.Location = new System.Drawing.Point(3, 16);
             this.dgvProducto.Name = "dgvProducto";
             this.dgvProducto.ReadOnly = true;
-            this.dgvProducto.Size = new System.Drawing.Size(655, 139);
+            this.dgvProducto.Size = new System.Drawing.Size(877, 211);
             this.dgvProducto.StandardTab = true;
             this.dgvProducto.TabIndex = 9;
             this.dgvProducto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducto_CellContentClick);
@@ -509,7 +510,7 @@ namespace BlingLuxury
             this.flowLayoutPanel1.Controls.Add(this.groupBox1);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(162, 425);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(669, 161);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(886, 233);
             this.flowLayoutPanel1.TabIndex = 17;
             // 
             // groupBox1
@@ -517,7 +518,7 @@ namespace BlingLuxury
             this.groupBox1.Controls.Add(this.dgvProducto);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(661, 158);
+            this.groupBox1.Size = new System.Drawing.Size(883, 230);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -545,12 +546,13 @@ namespace BlingLuxury
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose.BackgroundImage")));
             this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.Transparent;
-            this.btnClose.Location = new System.Drawing.Point(790, 4);
+            this.btnClose.Location = new System.Drawing.Point(1033, 4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(36, 29);
             this.btnClose.TabIndex = 20;
@@ -559,13 +561,14 @@ namespace BlingLuxury
             // 
             // btnMin
             // 
+            this.btnMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMin.BackColor = System.Drawing.Color.Yellow;
             this.btnMin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMin.BackgroundImage")));
             this.btnMin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnMin.FlatAppearance.BorderSize = 0;
             this.btnMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMin.ForeColor = System.Drawing.Color.Transparent;
-            this.btnMin.Location = new System.Drawing.Point(715, 4);
+            this.btnMin.Location = new System.Drawing.Point(958, 4);
             this.btnMin.Name = "btnMin";
             this.btnMin.Size = new System.Drawing.Size(36, 29);
             this.btnMin.TabIndex = 22;
@@ -574,13 +577,14 @@ namespace BlingLuxury
             // 
             // btnRestaurar
             // 
+            this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnRestaurar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.BackgroundImage")));
             this.btnRestaurar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnRestaurar.FlatAppearance.BorderSize = 0;
             this.btnRestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRestaurar.ForeColor = System.Drawing.Color.Transparent;
-            this.btnRestaurar.Location = new System.Drawing.Point(751, 4);
+            this.btnRestaurar.Location = new System.Drawing.Point(994, 4);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(36, 29);
             this.btnRestaurar.TabIndex = 23;
@@ -592,7 +596,7 @@ namespace BlingLuxury
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
-            this.ClientSize = new System.Drawing.Size(831, 585);
+            this.ClientSize = new System.Drawing.Size(1074, 670);
             this.Controls.Add(this.btnRestaurar);
             this.Controls.Add(this.btnMin);
             this.Controls.Add(this.btnClose);

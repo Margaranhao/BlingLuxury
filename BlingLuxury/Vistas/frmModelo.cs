@@ -67,13 +67,14 @@ namespace BlingLuxury.Vistas
             DataTable dt = new DataTable("Modelo");
             dt.Columns.Add("Id");
             dt.Columns.Add("Modelo");
+            dt.Columns.Add("Marca Id");
             try
             {
-                sql = "SELECT id, nombre FROM modelo ORDER BY id;";
+                sql = "SELECT id, nombre, id_marca FROM modelo ORDER BY id;";
                 List<Modelo> modeloLista = ModeloDAO.getInstance().Listar(sql);
                 for (int i = 0; i < modeloLista.Count; i++)
                 {
-                    dt.Rows.Add(modeloLista[i].id, modeloLista[i].nombre);
+                    dt.Rows.Add(modeloLista[i].id, modeloLista[i].nombre, modeloLista[i].id_marca);
                 }
                 return dt;
             }
@@ -109,7 +110,7 @@ namespace BlingLuxury.Vistas
         {
             try
             {
-                ModeloDAO.getInstance().Insertar(new Modelo(txtModeloA.Text));
+                ModeloDAO.getInstance().Insertar(new Modelo(txtModeloA.Text, new Marca(Convert.ToInt32(txtIdMarca.Text))));
                 //Manda mensaje de confirmacion cuando se agregan los datos
                 MessageBox.Show("Modelo agrego correctamente", "Modelo Agregado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 mostrarModelos(); //Actualiza el DataGridView
@@ -147,6 +148,12 @@ namespace BlingLuxury.Vistas
         {
             //Solo Acepta Letras
             Validar.SoloLetras(e);
+        }
+
+        private void txtIdMarca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Solo Acepta Números
+            Validar.SoloNumeros(e);
         }
     }
 }

@@ -36,6 +36,8 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.errorModelo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtIdMarca = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvModelos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorModelo)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +64,7 @@
             // txtId
             // 
             this.txtId.BackColor = System.Drawing.Color.Plum;
-            this.txtId.Location = new System.Drawing.Point(199, 12);
+            this.txtId.Location = new System.Drawing.Point(140, 156);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(41, 20);
             this.txtId.TabIndex = 2;
@@ -77,12 +79,12 @@
             this.dgvModelos.Location = new System.Drawing.Point(20, 38);
             this.dgvModelos.Name = "dgvModelos";
             this.dgvModelos.ReadOnly = true;
-            this.dgvModelos.Size = new System.Drawing.Size(220, 110);
+            this.dgvModelos.Size = new System.Drawing.Size(274, 110);
             this.dgvModelos.TabIndex = 15;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(43, 153);
+            this.btnAgregar.Location = new System.Drawing.Point(44, 154);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 16;
@@ -92,7 +94,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(141, 154);
+            this.btnCancelar.Location = new System.Drawing.Point(193, 154);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 17;
@@ -104,12 +106,31 @@
             // 
             this.errorModelo.ContainerControl = this;
             // 
+            // txtIdMarca
+            // 
+            this.txtIdMarca.Location = new System.Drawing.Point(245, 12);
+            this.txtIdMarca.Name = "txtIdMarca";
+            this.txtIdMarca.Size = new System.Drawing.Size(50, 20);
+            this.txtIdMarca.TabIndex = 18;
+            this.txtIdMarca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdMarca_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(190, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Id_Marca:";
+            // 
             // frmModelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Violet;
-            this.ClientSize = new System.Drawing.Size(252, 185);
+            this.ClientSize = new System.Drawing.Size(309, 185);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtIdMarca);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvModelos);
@@ -135,5 +156,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ErrorProvider errorModelo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtIdMarca;
     }
 }

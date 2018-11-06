@@ -65,7 +65,7 @@ namespace BlingLuxury
         //BaseDeDatos d = new BaseDeDatos();
 
         private void btnLogin_Click(object sender, EventArgs e)
-        {
+        {            
             fmPrincipal principal = new fmPrincipal();
             principal.Show();
         }

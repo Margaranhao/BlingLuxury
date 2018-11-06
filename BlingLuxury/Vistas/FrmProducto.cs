@@ -136,7 +136,8 @@ namespace BlingLuxury
                 List<Marca> marcaLista = MarcaDAO.getInstance().Listar(sql);
                 for (int i = 0; i < marcaLista.Count; i++)
                 {
-                    dt.Rows.Add(marcaLista[i].id, marcaLista[i].nombre);
+                    dt.Rows.Add(marcaLista[i].nombre);
+                    //marcaLista[i].id,
                 }
                 return dt;
             }
@@ -239,8 +240,8 @@ namespace BlingLuxury
                 sql += "producto.id_precio_adquisicion, precio_adquisicion.precio, producto.id_color, color.nombre, producto.id_categoria, categoria.nombre ";
                 sql += "from producto inner join modelo on modelo.id = producto.id_modelo inner join marca on marca.id = modelo.id_marca ";
                 sql += "inner join precio_adquisicion on precio_adquisicion.id = producto.id_precio_adquisicion ";
-                sql += "inner join color on color.id = producto.id_color inner join categoria on categoria.id = producto.id_categoria ;";
-                sql += "order by producto.codigo_de_barras desc ;";
+                sql += "inner join color on color.id = producto.id_color inner join categoria on categoria.id = producto.id_categoria ";
+                sql += "order by producto.id desc ;";
                 //sql = "SELECT id, codigo_de_barras, peso, id_modelo, id_precio_adquisicion, id_color, id_categoria FROM producto;";
                 //List<Producto> listaProducto = ProductoDAO.getInstance().Listar(sql);
                 List<RegistroProducto> listarRegistroProducto = RegistroProductoDAO.getInstance().Listar(sql);
@@ -410,9 +411,10 @@ namespace BlingLuxury
             dt.Columns.Add("Id");
             dt.Columns.Add("Nombre");
 
+
             try
             {
-                sql = "SELECT id, nombre FROM modelo ORDER BY nombre;";
+                sql = "SELECT id, nombre FROM modelo ORDER BY id;";
                 List<Modelo> modeloLista = ModeloDAO.getInstance().Listar(sql);
                 for (int i = 0; i < modeloLista.Count; i++)
                 {
@@ -454,6 +456,8 @@ namespace BlingLuxury
             mostrarColor();
             mostrarModelo();
             mostrarPrecio();
+            //this.Location = Screen.PrimaryScreen.WorkingArea.Location;
+            //this.Size = Screen.PrimaryScreen.WorkingArea.Size;
         }
         private void limpiarRegistro()
         {
