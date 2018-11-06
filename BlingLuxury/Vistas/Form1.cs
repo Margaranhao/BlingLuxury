@@ -59,13 +59,10 @@ namespace BlingLuxury
                 txtPass.ForeColor = Color.Gray;
             }
         }
-<<<<<<< HEAD:BlingLuxury/Form1.cs
-       
-=======
+
 
         #endregion
-        //BaseDeDatos d = new BaseDeDatos();
->>>>>>> origin/Registro:BlingLuxury/Vistas/Form1.cs
+    
 
         private void btnLogin_Click(object sender, EventArgs e)
         {

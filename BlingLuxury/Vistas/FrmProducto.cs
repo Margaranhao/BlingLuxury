@@ -66,7 +66,6 @@ namespace BlingLuxury
 
         }
 
-<<<<<<< HEAD:BlingLuxury/FrmProducto.cs
         protected string sql;
 
         private DataTable listarProducto()
@@ -345,11 +344,6 @@ namespace BlingLuxury
         }
 
         
-=======
-        private void FrmProducto_Load(object sender, EventArgs e)
-        {
 
-        }
->>>>>>> origin/Registro:BlingLuxury/Vistas/FrmProducto.cs
     }
 }
