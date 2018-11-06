@@ -136,7 +136,7 @@ namespace BlingLuxury
                 List<Marca> marcaLista = MarcaDAO.getInstance().Listar(sql);
                 for (int i = 0; i < marcaLista.Count; i++)
                 {
-                    dt.Rows.Add(marcaLista[i].nombre);
+                    dt.Rows.Add(marcaLista[i].id, marcaLista[i].nombre);
                     //marcaLista[i].id,
                 }
                 return dt;
