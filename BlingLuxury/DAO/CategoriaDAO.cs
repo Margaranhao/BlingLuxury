@@ -81,10 +81,12 @@ namespace BlingLuxury.DAO
                     }
                 }
             }
+
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
+
         }
 
         public void CambiarEstado(int id, Categoria t) 
