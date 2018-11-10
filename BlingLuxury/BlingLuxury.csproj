@@ -155,7 +155,7 @@
     </Compile>
     <Compile Include="Vistas\frmModificarRegistro.Designer.cs">
       <DependentUpon>frmModificarRegistro.cs</DependentUpon>
-	  </Compile>
+    </Compile>
     <Compile Include="Vistas\frmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>

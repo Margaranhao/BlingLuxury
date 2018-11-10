@@ -872,5 +872,25 @@ namespace BlingLuxury
             //Solo aceptara letras
             Validar.SoloLetras(e);
         }
+
+        private void btnRestaurar_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+            {
+                //Maximizar
+                WindowState = FormWindowState.Maximized;
+            }
+            else if (WindowState == FormWindowState.Maximized)
+            {
+                //Restaurar
+                WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void btnMin_Click(object sender, EventArgs e)
+        {
+            //Minimizar
+            WindowState = FormWindowState.Minimized;
+        }
     }
 }

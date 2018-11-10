@@ -75,6 +75,8 @@ namespace BlingLuxury
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.rbnAdmin = new System.Windows.Forms.RadioButton();
             this.rbnClientes = new System.Windows.Forms.RadioButton();
+            this.btnRestaurar = new System.Windows.Forms.Button();
+            this.btnMin = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -508,6 +510,7 @@ namespace BlingLuxury
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose.BackgroundImage")));
             this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnClose.FlatAppearance.BorderSize = 0;
@@ -635,12 +638,46 @@ namespace BlingLuxury
             this.rbnClientes.UseVisualStyleBackColor = true;
             this.rbnClientes.CheckedChanged += new System.EventHandler(this.rbnClientes_CheckedChanged);
             // 
+            // btnRestaurar
+            // 
+            this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRestaurar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnRestaurar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRestaurar.BackgroundImage")));
+            this.btnRestaurar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRestaurar.FlatAppearance.BorderSize = 0;
+            this.btnRestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestaurar.ForeColor = System.Drawing.Color.Transparent;
+            this.btnRestaurar.Location = new System.Drawing.Point(718, 9);
+            this.btnRestaurar.Name = "btnRestaurar";
+            this.btnRestaurar.Size = new System.Drawing.Size(36, 29);
+            this.btnRestaurar.TabIndex = 25;
+            this.btnRestaurar.UseVisualStyleBackColor = false;
+            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
+            // 
+            // btnMin
+            // 
+            this.btnMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMin.BackColor = System.Drawing.Color.Yellow;
+            this.btnMin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMin.BackgroundImage")));
+            this.btnMin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMin.FlatAppearance.BorderSize = 0;
+            this.btnMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMin.ForeColor = System.Drawing.Color.Transparent;
+            this.btnMin.Location = new System.Drawing.Point(682, 9);
+            this.btnMin.Name = "btnMin";
+            this.btnMin.Size = new System.Drawing.Size(36, 29);
+            this.btnMin.TabIndex = 24;
+            this.btnMin.UseVisualStyleBackColor = false;
+            this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
+            // 
             // fmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
             this.ClientSize = new System.Drawing.Size(793, 656);
+            this.Controls.Add(this.btnRestaurar);
+            this.Controls.Add(this.btnMin);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.rbnAdmin);
             this.Controls.Add(this.rbnClientes);
@@ -718,5 +755,7 @@ namespace BlingLuxury
         private System.Windows.Forms.RadioButton rbnAdmin;
         private System.Windows.Forms.RadioButton rbnClientes;
         private System.Windows.Forms.TextBox txtIdCliente;
+        private System.Windows.Forms.Button btnRestaurar;
+        private System.Windows.Forms.Button btnMin;
     }
 }
