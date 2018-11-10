@@ -20,12 +20,12 @@ namespace BlingLuxury.Clases
         {
 
         }
-        public Producto(int id, int codigoDeBarras)
-        {
-            this.id = id;
-            this.codigoDeBarras = codigoDeBarras;
-        }
-        public Producto(int id, int codigoDeBarras , PrecioAdquisicion id_precio_adquisicion)
+        //public Producto(int id, string codigoDeBarras)
+        //{
+        //    this.id = id;
+        //    this.codigoDeBarras = codigoDeBarras;
+        //}
+        public Producto(int id, string codigoDeBarras , PrecioAdquisicion id_precio_adquisicion)
         {
             this.id = id;
             this.codigoDeBarras = codigoDeBarras;

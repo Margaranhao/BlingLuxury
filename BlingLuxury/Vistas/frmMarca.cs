@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BlingLuxury.Vistas
-{   
+{
     public partial class frmMarca : Form
     {
         #region Variables
@@ -55,9 +55,10 @@ namespace BlingLuxury.Vistas
             DataTable dt = new DataTable("Marca");
             dt.Columns.Add("Id");
             dt.Columns.Add("Marca");
+                     
             try
             {
-                sql = "SELECT id, nombre FROM marca ORDER BY id;";
+                sql = "SELECT id, nombre FROM marca;";
                 List<Marca> marcaLista = MarcaDAO.getInstance().Listar(sql);
                 for (int i = 0; i < marcaLista.Count; i++)
                 {
@@ -77,7 +78,7 @@ namespace BlingLuxury.Vistas
             {
                 #region
                 dgvMarcas.DataSource = listarMarca();
-                id = Convert.ToInt32(txtIdMa.Text);
+                //id = Convert.ToInt32(txtIdMa.Text);
                 #endregion
             }
             catch

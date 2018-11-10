@@ -28,10 +28,7 @@ namespace BlingLuxury.DAO
         public void Actualizar(Producto t, int id) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
-            {
-
-                //sql = "UPDATE producto SET codigo_de_barras = '" + t.codigoDeBarras + "', peso = '" + t.peso + "', id_modelo ='" + t.id_modelo.id + "', id_precio_adquisicion = '" + t.id_precio_adquisicion.id + "', id_color = '" + t.id_color.id + "', id_categoria = '" + t.id_categoria.id + "' WHERE id > 0 AND id = '" + id + "';";
-
+            {                
                 //modifique esta parte codigo_de_barras = '" + t.codigoDeBarras + "' y el where le agrege lo del codigo y movi precio
                 sql = "UPDATE producto SET peso = '" + t.peso + "', id_modelo = '" + t.id_modelo.id + "', id_precio_adquisicion = '" + t.id_precio_adquisicion.precio + "', id_color = '" + t.id_color.id + "', id_categoria = '" + t.id_categoria.id + "' WHERE id > 0 AND codigo_de_barras > 0 AND id = '" + id + "';";
 
@@ -46,7 +43,6 @@ namespace BlingLuxury.DAO
                 throw new Exception(ex.Message);
             }
         }
-
         public Producto Buscar(string query) //Recibe un query de busqueda
         {
             try
@@ -64,11 +60,7 @@ namespace BlingLuxury.DAO
                         if (reader.HasRows)//se comprueba que el reader tenga resultado
                         {
                             while (reader.Read())//se recorre cada elemento que obtuvo el reader
-                            {
-
-                                // Se crea un nuevo objeto de la clase y se retorna
-                                //producto = new Producto(reader.GetInt32(0), reader.GetInt32(1), reader.GetDouble(2), new Modelo(reader.GetString(3)), new PrecioAdquisicion(reader.GetDouble(5)), new Color(reader.GetString(6)), new Categoria(reader.GetString(7)));
-
+                            {                                
                                 // Se crea un nuevo objeto de la clase y se retorna                                                                                             
                                 producto = new Producto(reader.GetInt32(0), reader.GetString(1), reader.GetDouble(2), new Modelo(), new PrecioAdquisicion(), new Color(), new Categoria());
 
@@ -85,7 +77,6 @@ namespace BlingLuxury.DAO
                             return new Producto();
                         }
                     }
-
                 }
             }
             catch (Exception ex)
@@ -103,7 +94,6 @@ namespace BlingLuxury.DAO
         {
             try
             {
-
                 //sql = "INSERT INTO producto(codigo_de_barras, peso, id_modelo, id_precio_adquisicion, id_color, id_categoria) VALUES ('" + t.codigoDeBarras + "','" + t.peso + "''" + t.id_modelo.id + "','" + t.id_precio_adquisicion.id + "', '" + t.id_color.id + "', '" + t.id_categoria.id + "');";
 
                 sql = "INSERT INTO producto (codigo_de_barras, peso, id_modelo, id_precio_adquisicion, id_color, id_categoria) VALUES ('" + t.codigoDeBarras + "','" + t.peso + "','" + t.id_modelo.id + "','" + t.id_precio_adquisicion.precio + "','" + t.id_color.id + "','" + t.id_categoria.id + "');";
@@ -119,7 +109,6 @@ namespace BlingLuxury.DAO
                 throw new Exception(ex.Message);
             }
         }
-
         public List<Producto> Listar(string query)
         {
             List<Producto> productoLista = new List<Producto>();

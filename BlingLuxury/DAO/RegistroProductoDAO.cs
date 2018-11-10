@@ -75,11 +75,11 @@ namespace BlingLuxury.DAO
 
                                 registroproductoLista.Add(new RegistroProducto(idProducto, codigoProducto, pesoProducto, productoIdModelo, modeloIdMarca,
                                                           productoIdPrecio_adquisicion, productoIdColor, productoIdCategoria));
-                                
+
                             }
-                                Conexion.getInstance().Desconectar();
-                                reader.Close();
-                                return registroproductoLista;
+                            Conexion.getInstance().Desconectar();
+                            reader.Close();
+                            return registroproductoLista;
 
                         }
                         else

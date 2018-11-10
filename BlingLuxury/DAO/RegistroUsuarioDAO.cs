@@ -26,7 +26,7 @@ namespace BlingLuxury.DAO
             return registroUsuarioDAO;
         }
 
-        public void Actualizar(int id, RegistroUsuario t)
+        public void Actualizar(RegistroUsuario t, int id)
         {
             throw new NotImplementedException();
         }

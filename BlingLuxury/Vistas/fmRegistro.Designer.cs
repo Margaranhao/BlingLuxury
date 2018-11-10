@@ -46,6 +46,7 @@ namespace BlingLuxury
             this.label2 = new System.Windows.Forms.Label();
             this.cbxNivel = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -74,7 +75,6 @@ namespace BlingLuxury
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.rbnAdmin = new System.Windows.Forms.RadioButton();
             this.rbnClientes = new System.Windows.Forms.RadioButton();
-            this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -192,6 +192,15 @@ namespace BlingLuxury
             this.groupBox1.Size = new System.Drawing.Size(608, 91);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
+            // 
+            // txtIdCliente
+            // 
+            this.txtIdCliente.Location = new System.Drawing.Point(542, 50);
+            this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.ReadOnly = true;
+            this.txtIdCliente.Size = new System.Drawing.Size(31, 21);
+            this.txtIdCliente.TabIndex = 4;
+            this.txtIdCliente.Visible = false;
             // 
             // txtId
             // 
@@ -553,6 +562,7 @@ namespace BlingLuxury
             this.txtBuscar.Size = new System.Drawing.Size(164, 22);
             this.txtBuscar.TabIndex = 16;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             // 
             // label10
             // 
@@ -624,15 +634,6 @@ namespace BlingLuxury
             this.rbnClientes.Text = "Clientes";
             this.rbnClientes.UseVisualStyleBackColor = true;
             this.rbnClientes.CheckedChanged += new System.EventHandler(this.rbnClientes_CheckedChanged);
-            // 
-            // txtIdCliente
-            // 
-            this.txtIdCliente.Location = new System.Drawing.Point(542, 50);
-            this.txtIdCliente.Name = "txtIdCliente";
-            this.txtIdCliente.ReadOnly = true;
-            this.txtIdCliente.Size = new System.Drawing.Size(31, 21);
-            this.txtIdCliente.TabIndex = 4;
-            this.txtIdCliente.Visible = false;
             // 
             // fmRegistro
             // 

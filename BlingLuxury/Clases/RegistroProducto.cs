@@ -25,7 +25,7 @@ namespace BlingLuxury.Clases
 
         }
         //constructor con todos los parametros, muy util para listar
-        public RegistroProducto(int idProducto, string codigoProducto, double pesoProducto, Modelo productoIdModelo, Marca modeloIdMarca, 
+        public RegistroProducto(int idProducto, string codigoProducto, double pesoProducto, Modelo productoIdModelo, Marca modeloIdMarca,
                                 PrecioAdquisicion productoIdPrecio_adquisicion, Color productoIdColor, Categoria productoIdCategoria)
         {
             this.idProducto = idProducto;
@@ -36,7 +36,7 @@ namespace BlingLuxury.Clases
             this.productoIdPrecio_adquisicion = productoIdPrecio_adquisicion;
             this.productoIdColor = productoIdColor;
             this.productoIdCategoria = productoIdCategoria;
-            
+
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using BlingLuxury.Clases;
-using BlingLuxury.DAO;
 using BlingLuxury.Connection;
 using BlingLuxury.DAO;
 using BlingLuxury.Validaciones;
@@ -20,7 +19,7 @@ namespace BlingLuxury
 {
     public partial class FrmProducto : Form
     {
-        
+
         public FrmProducto()
         {
             InitializeComponent();
@@ -30,40 +29,37 @@ namespace BlingLuxury
         protected int id;
         DataTable dt = new DataTable();
         #endregion
-        /// <summary>
-        /// hhhhhhhhhhhhhhhhhhhhhddddd
-        /// </summary>
+
         #region Interaccion BD
         #region Modificar        
         private void Modificar()//metodo para Modificar 
         {
             //if (Convert.ToInt32(cbxNivel.SelectedValue) == 1 || Convert.ToInt32(cbxNivel.SelectedValue) == 2)
             //{
-                if (txtPeso.Text.Length > 0 && txtCodigoBarras.Text.Length > 0)
-                {
-                    DataTable df = BuscarConId(Convert.ToInt32(txtId.Text), txtCodigoBarras.Text);//envia a buscar el producto
+            if (txtPeso.Text.Length > 0 && txtCodigoBarras.Text.Length > 0)
+            {
+                DataTable df = BuscarConId(Convert.ToInt32(txtId.Text), txtCodigoBarras.Text);//envia a buscar el producto
 
-                    if (df.Rows.Count == 0)//si no hay resultados realiza la insercion
-                    {
+                if (df.Rows.Count == 0)//si no hay resultados realiza la insercion
+                {
                     ProductoDAO.getInstance().Actualizar(new Producto(Convert.ToDouble(txtPeso.Text), new Modelo(Convert.ToInt32(cbxModelo.SelectedValue)), new PrecioAdquisicion(Convert.ToInt32(cbxPrecios.SelectedValue)), new Clases.Color(Convert.ToInt32(cbxColor.SelectedValue)), new Categoria(Convert.ToInt32(cbxCategoria.SelectedValue))), id);
                     MessageBox.Show("Producto modificado exitosamente", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        dgvProducto.DataSource = listarRegistroProducto();//actualiza el datagridview                    
-                    }
-                    if (df.Rows.Count >= 1)
-                    {
-                        MessageBox.Show("Ya existe un Producto con ese Código. Intente otro", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
+                    dgvProducto.DataSource = listarRegistroProducto();//actualiza el datagridview                    
                 }
-                else
+                if (df.Rows.Count >= 1)
                 {
-                    MessageBox.Show("Falta agregar datos", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Ya existe un Producto con ese Código. Intente otro", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-            }            
+            }
+            else
+            {
+                MessageBox.Show("Falta agregar datos", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
         #endregion
         #region Insertar        
         private void Insertar()//Metodo para Insertar Productos
         {
-
             try
             {
                 ProductoDAO.getInstance().Insertar(new Producto(Convert.ToString(txtCodigoBarras.Text), Convert.ToDouble(txtPeso.Text), new Modelo(Convert.ToInt32(cbxModelo.SelectedValue), new Marca(Convert.ToInt32(cbxMarca.SelectedValue))), new PrecioAdquisicion(Convert.ToInt32(cbxPrecios.SelectedValue)), new Clases.Color(Convert.ToInt32(cbxColor.SelectedValue)), new Categoria(Convert.ToInt32(cbxCategoria.SelectedValue))));
@@ -139,8 +135,7 @@ namespace BlingLuxury
                 List<Marca> marcaLista = MarcaDAO.getInstance().Listar(sql);
                 for (int i = 0; i < marcaLista.Count; i++)
                 {
-                    dt.Rows.Add(marcaLista[i].id, marcaLista[i].nombre);
-                    //marcaLista[i].id,
+                    dt.Rows.Add(marcaLista[i].id, marcaLista[i].nombre);                   
                 }
                 return dt;
             }
@@ -263,7 +258,6 @@ namespace BlingLuxury
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
                 return dt;
             }
@@ -272,7 +266,6 @@ namespace BlingLuxury
         {
             try
             {
-
                 #region
                 dgvProducto.DataSource = listarRegistroProducto();
                 //dgvProducto.Columns[0].Visible = true; // Id
@@ -304,57 +297,11 @@ namespace BlingLuxury
             bs.DataSource = dgvProducto.DataSource;
             bs.Filter = $"CodigoBarras like '%" + txtBuscar.Text + "%'";
             dgvProducto.DataSource = bs;
-        }
-        //    foreach (DataGridViewRow Row in dgvProducto.Rows)
-        //    {
-        //        string strFila = Row.Index.ToString();
-        //        string valor = Convert.ToString(Row.Cells["Id"].Value);
-
-        //        if (valor == this.txtBuscar.Text)
-        //        {
-        //            dgvProducto.Rows[Convert.ToInt32(strFila)].DefaultCellStyle.BackColor = System.Drawing.Color.Red;
-        //        }
-        //    }
+        }       
         #endregion Producto
-
-
-        #region Variables
-
-        #endregion
-
-        #region BD
-        private void Insertar()
-        {
-            try
-            {
-                ProductoDAO.getInstance().Insertar(new Producto(Convert.ToInt32(txtCodigoBarras.Text), Convert.ToDouble(txtPeso.Text), new Modelo(Convert.ToInt32(cbxModelo.SelectedValue)), new PrecioAdquisicion(Convert.ToDouble(txtPrecio.Text)), new Clases.Color(Convert.ToInt32(cbxColor.SelectedValue)), new Categoria(Convert.ToInt32(cbxCategoria.SelectedValue))));
-                MessageBox.Show("Producto insertado de manera correcta", "Proceso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception (ex.Message);
-            }
-        }
-        #endregion
-
-        #region Formulario
-        private void insertarProducto()
-        {
-           // Insertar();
-        }
-        #endregion
-
-        #region Eventos
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            insertarProducto();
-        }
-        #endregion
-        private void groupBox1_Enter(object sender, EventArgs e)
 
         #region Categoria
         public DataTable listarCategoria() //Metodo que obtiene de forma de lista de Categoria
-
         {
             DataTable dt = new DataTable("Categoria");
             dt.Columns.Add("Id");
@@ -421,41 +368,6 @@ namespace BlingLuxury
                 return dt;
             }
         }
-        protected string sql;
-
-        private DataTable listarProducto()
-        {
-            DataTable dt = new DataTable("Productos");
-            dt.Columns.Add("Id");
-            dt.Columns.Add("CodigoBarras");
-            dt.Columns.Add("Peso");
-            dt.Columns.Add("ModeloId");
-            dt.Columns.Add("PrecioIdAdquisicion");
-            dt.Columns.Add("ColorId");
-            dt.Columns.Add("CategoriaId");
-
-            try
-            {
-                sql = "SELECT id, codigo_de_barras, peso, id_modelo, id_precio_adquisicion, id_color, id_categoria FROM producto;";
-                List<Producto> listaProducto = ProductoDAO.getInstance().Listar(sql);
-                for (int i = 0; i < listaProducto.Count; i++)
-                {
-                    dt.Rows.Add(listaProducto[i].id, listaProducto[i].codigoDeBarras, listaProducto[i].peso, listaProducto[i].id_modelo, listaProducto[i].id_precio_adquisicion, listaProducto[i].id_color, listaProducto[i].id_categoria);
-                }
-                return dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return dt;
-            }
-        }
-
-        private void mostrarProducto()
-        {
-
-        }
-        private DataTable listarModelo() //Metodo que obtiene de forma de lista de Categoria
 
         public void mostrarColor()
         {
@@ -485,9 +397,6 @@ namespace BlingLuxury
             dt.Columns.Add("Id");
             dt.Columns.Add("Nombre");
 
-            try
-            {
-                sql = "SELECT id, nombre FROM modelo;";
 
             try
             {
@@ -504,18 +413,6 @@ namespace BlingLuxury
                 MessageBox.Show(ex.Message);
                 return dt;
             }
-
-        }
-
-        private void mostrarModelo()
-        {
-            try
-            {
-                //Cargar los Atributos de Categoria
-                #region
-                cbxModelo.DataSource = listarModelo();
-                cbxModelo.DisplayMember = "Nombre";
-                cbxModelo.ValueMember = "Id";
         }
         public void mostrarModelo()
         {
@@ -530,196 +427,12 @@ namespace BlingLuxury
                 cbxModelo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 cbxModelo.AutoCompleteSource = AutoCompleteSource.ListItems;
                 #endregion
-
-                #region
-                dgvProducto.DataSource = listarModelo();
-                dgvProducto.Columns[0].Visible = false;
-                dgvProducto.Columns[1].Visible = false;
-                dgvProducto.Columns[2].Visible = false;
-                dgvProducto.Columns[3].Visible = false;
-                dgvProducto.Columns[4].Visible = false;
-                #endregion
             }
             catch
             {
 
             }
         }
-
-        private DataTable listarCategoria() //Metodo que obtiene de forma de lista de Categoria
-        {
-            DataTable dt = new DataTable("Categoria");
-            dt.Columns.Add("Id");
-            dt.Columns.Add("Nombre");
-
-            try
-            {
-                sql = "SELECT id, nombre FROM categoria;";
-                List<Categoria> categoriaLista = CategoriaDAO.getInstance().Listar(sql);
-                for (int i = 0; i < categoriaLista.Count; i++)
-                {
-                    dt.Rows.Add(categoriaLista[i].id, categoriaLista[i].nombre);
-                }
-                return dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return dt;
-            }
-
-
-        }
-
-        private void mostrarCategoria()
-        {
-            try
-            {
-                //Cargar los Atributos de Categoria
-                #region
-                cbxCategoria.DataSource = listarCategoria();
-                cbxCategoria.DisplayMember = "Nombre";
-                cbxCategoria.ValueMember = "Id";
-                cbxCategoria.SelectedIndex = 0;
-                cbxCategoria.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                cbxCategoria.AutoCompleteSource = AutoCompleteSource.ListItems;
-                #endregion
-
-                #region
-                dgvProducto.DataSource = listarCategoria();
-                dgvProducto.Columns[0].Visible = false;
-                dgvProducto.Columns[1].Visible = false;
-                dgvProducto.Columns[2].Visible = false;
-                dgvProducto.Columns[3].Visible = false;
-                dgvProducto.Columns[4].Visible = false;
-                #endregion
-            }
-            catch
-            {
-
-            }
-        }
-
-        private DataTable listarColor() //Metodo que obtiene de forma de lista de Categoria
-        {
-            DataTable dt = new DataTable("Color");
-            dt.Columns.Add("Id");
-            dt.Columns.Add("Nombre");
-
-            try
-            {
-                sql = "SELECT id, nombre FROM color;";
-                List<Clases.Color> colorLista = ColorDAO.getInstance().Listar(sql);
-                for (int i = 0; i < colorLista.Count; i++)
-                {
-                    dt.Rows.Add(colorLista[i].id, colorLista[i].nombre);
-                }
-                return dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return dt;
-            }
-
-
-        }
-
-        private void mostrarColor()
-        {
-            try
-            {
-                //Cargar los Atributos de Categoria
-                #region
-                cbxColor.DataSource = listarColor();
-                cbxColor.DisplayMember = "Nombre";
-                cbxColor.ValueMember = "Id";
-                cbxColor.SelectedIndex = 0;
-                cbxColor.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                cbxColor.AutoCompleteSource = AutoCompleteSource.ListItems;
-                #endregion
-
-                #region
-                dgvProducto.DataSource = listarColor();
-                dgvProducto.Columns[0].Visible = false;
-                dgvProducto.Columns[1].Visible = false;
-                dgvProducto.Columns[2].Visible = false;
-                dgvProducto.Columns[3].Visible = false;
-                dgvProducto.Columns[4].Visible = false;
-                #endregion
-            }
-            catch
-            {
-
-            }
-        }
-        private void FrmProducto_Load(object sender, EventArgs e)
-        {
-            mostrarModelo();
-            mostrarMarca();
-            mostrarProducto();
-            mostrarCategoria();
-            mostrarColor();
-        }
-
-        private DataTable listarMarca()
-        {
-            DataTable dt = new DataTable("Marca");
-            dt.Columns.Add("Id");
-            dt.Columns.Add("Marca");
-
-            try
-            {
-                sql = "SELECT nombre FROM marca;";
-                List<Marca> marcaLista = MarcaDAO.getInstance().Listar(sql);
-                for (int i = 0; i < marcaLista.Count; i++)
-                {
-                    dt.Rows.Add(marcaLista[i].nombre);
-                }
-                return dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return dt;
-            }
-        }
-
-        private void mostrarMarca()
-        {
-            try
-            {
-                //Cargar los Atributos de Categoria
-                #region
-                cbxMarca.DataSource = listarMarca();
-                cbxMarca.DisplayMember = "Nombre";
-                cbxMarca.ValueMember = "Id";
-                cbxMarca.SelectedIndex = 0;
-                cbxMarca.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                cbxMarca.AutoCompleteSource = AutoCompleteSource.ListItems;
-                #endregion
-
-                #region
-                dgvProducto.DataSource = listarMarca();
-                dgvProducto.Columns[0].Visible = false;
-                dgvProducto.Columns[1].Visible = false;
-                dgvProducto.Columns[2].Visible = false;
-                dgvProducto.Columns[3].Visible = false;
-                dgvProducto.Columns[4].Visible = false;
-                #endregion
-            }
-            catch
-            {
-
-            }
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("¿Desea Salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
-            {
-                this.Close();
-            }
         #endregion Modelo
         private void FrmProducto_Load(object sender, EventArgs e)
         {
@@ -828,73 +541,73 @@ namespace BlingLuxury
         private void txtPeso_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.SoloDecimales(e);
-            //if (e.KeyChar == 8)
-            //{
-            //    e.Handled = false;
-            //    return;
-            //}
-            //bool IsDec = false;
-            //int nroDec = 0;
+            if (e.KeyChar == 8)
+            {
+                e.Handled = false;
+                return;
+            }
+            bool IsDec = false;
+            int nroDec = 0;
 
-            //for (int i = 0; i < txtPeso.Text.Length; i++)
-            //{
-            //    if (txtPeso.Text[i] == '.')
-            //        IsDec = true;
+            for (int i = 0; i < txtPeso.Text.Length; i++)
+            {
+                if (txtPeso.Text[i] == '.')
+                    IsDec = true;
 
-            //    if (IsDec && nroDec++ >= 3)
-            //    {
-            //        e.Handled = true;
-            //        return;
-            //    }
-            //}
-            //if (e.KeyChar >= 48 && e.KeyChar <= 57)
-            //    e.Handled = false;
-            //else if (e.KeyChar == 46)
-            //    e.Handled = (IsDec) ? true : false;
-            //else
-            //    e.Handled = true;
+                if (IsDec && nroDec++ >= 3)
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 46)
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
         }
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.SoloDecimales(e);
-            //if (e.KeyChar == 8)
-            //{
-            //    e.Handled = false;
-            //    return;
-            //}
-            //bool IsDec = false;
-            //int nroDec = 0;
+            if (e.KeyChar == 8)
+            {
+                e.Handled = false;
+                return;
+            }
+            bool IsDec = false;
+            int nroDec = 0;
 
-            //for (int i = 0; i < txtPeso.Text.Length; i++)
-            //{
-            //    if (txtPeso.Text[i] == '.')
-            //        IsDec = true;
+            for (int i = 0; i < txtPeso.Text.Length; i++)
+            {
+                if (txtPeso.Text[i] == '.')
+                    IsDec = true;
 
-            //    if (IsDec && nroDec++ >= 2)
-            //    {
-            //        e.Handled = true;
-            //        return;
-            //    }
-            //}
-            //if (e.KeyChar >= 48 && e.KeyChar <= 57)
-            //    e.Handled = false;
-            //else if (e.KeyChar == 46)
-            //    e.Handled = (IsDec) ? true : false;
-            //else
-            //    e.Handled = true;
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 46)
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
         }
         //26 nuevos formularios
         private void btnCategoria_Click(object sender, EventArgs e)
         {
             mostrarCategoria();
-            frmCategoria categoriafrm = new frmCategoria();            
-            categoriafrm.enviado += new frmCategoria.pasarCategoria(realizar);            
+            frmCategoria categoriafrm = new frmCategoria();
+            categoriafrm.enviado += new frmCategoria.pasarCategoria(realizar);
             categoriafrm.Show();
-                           
+
         }
         public void realizar(string categoria)
         {
-            cbxCategoria.Text = categoria;                               
+            cbxCategoria.Text = categoria;
         }
 
         private void btnColor_Click(object sender, EventArgs e)
@@ -911,7 +624,7 @@ namespace BlingLuxury
 
         private void cbxCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // mostrarCategoria();
+            // mostrarCategoria();
         }
 
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
@@ -939,28 +652,15 @@ namespace BlingLuxury
         }
 
         private void btnMarca_Click(object sender, EventArgs e)
-        {
-            mostrarMarca();
+        {            
             frmMarca marcafrm = new frmMarca();
             marcafrm.enviado += new frmMarca.pasarMarca(realizar3);
             marcafrm.Show();
+            mostrarMarca();
         }
         public void realizar3(string marca)
         {
             cbxMarca.Text = marca;
-        }
-
-        private void limpiarRegistro()
-        {
-            txtId.Clear();
-            txtCodigoBarras.Clear();
-            txtPeso.Clear();
-            txtPrecio.Clear();
-        }
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-
-            limpiarRegistro();
         }
     }
 }

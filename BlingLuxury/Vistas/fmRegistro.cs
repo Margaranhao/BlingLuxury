@@ -386,6 +386,7 @@ namespace BlingLuxury
         {
             dr.DefaultView.RowFilter = $"Nombre LIKE '%" + txtBuscar.Text + "%'";// para buscar coincidencias de el campo nombre
             dc.DefaultView.RowFilter = $"Nombre LIKE '%" + txtBuscar.Text + "%'";
+            
         }
         #endregion
 
@@ -682,7 +683,7 @@ namespace BlingLuxury
 
                     if (df.Rows.Count == 0)//si no hay resultados realiza la insercion
                     {
-                        UsuarioDAO.getInstance().Actualizar(Convert.ToInt32(txtId.Text), new Usuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))));
+                        UsuarioDAO.getInstance().Actualizar(new Usuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))), Convert.ToInt32(txtId.Text));
                         MessageBox.Show("Usuario modificado exitosamente");
                         dataGridView2.DataSource = ListarUsuario();//actualiza el datagridview                    
                     }
@@ -711,9 +712,9 @@ namespace BlingLuxury
                     DataTable df = BuscarConId(Convert.ToInt32(txtId.Text),txtUsuario.Text);//envia a buscar el usuario
                     if (df.Rows.Count == 0)//si no hay resultados realiza la insercion
                     {                        
-                        UsuarioDAO.getInstance().Actualizar(Convert.ToInt32(txtId.Text), new Usuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))));
+                        UsuarioDAO.getInstance().Actualizar(new Usuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))), Convert.ToInt32(txtId.Text));
                         {
-                            ClienteDAO.getInstance().Actualizar(Convert.ToInt32(txtIdCliente.Text),new Cliente(txtTelefono.Text, txtDireccion.Text, new Localidad(Convert.ToInt32(cbxLocalidad.SelectedValue)), new Rango(r), new Municipio(Convert.ToInt32(cbxMunicipio.SelectedValue)), new Usuario()));
+                            ClienteDAO.getInstance().Actualizar(new Cliente(txtTelefono.Text, txtDireccion.Text, new Localidad(Convert.ToInt32(cbxLocalidad.SelectedValue)), new Rango(r), new Municipio(Convert.ToInt32(cbxMunicipio.SelectedValue)), new Usuario()), Convert.ToInt32(txtIdCliente.Text));
                             MessageBox.Show("Usuario modificado exitosamente");
                             dataGridView1.DataSource = ListarRegistroCliente();
                         }
@@ -864,6 +865,12 @@ namespace BlingLuxury
                 res.Append(caracteres[rnd.Next(caracteres.Length)]);
             }
             return res.ToString();
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Solo aceptara letras
+            Validar.SoloLetras(e);
         }
     }
 }
