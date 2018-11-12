@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,6 @@ namespace BlingLuxury
 {
     public partial class FrmProducto : Form
     {
-
         public FrmProducto()
         {
             InitializeComponent();
@@ -494,6 +494,11 @@ namespace BlingLuxury
         private void btnAgregar_Click_1(object sender, EventArgs e)
         {
             Insertar();
+            SaveFileDialog Guardar = new SaveFileDialog();
+            Guardar.Filter = "JPEG(*.JPG)|*.JPG|GIF(*.GIF)|*.GIF|BMP(*.BMP)|*.BMP";
+            Guardar.ShowDialog();
+            pbxImagen.Image.Save(Guardar.FileName);
+            MessageBox.Show("Imagen Guardada");
             limpiarRegistro();
             // mostrarRegistroProducto();
         }
@@ -621,12 +626,26 @@ namespace BlingLuxury
         {
             cbxColor.Text = color;
         }
-
+        //AGREGE 12 DE NOVIEMBRE 
         private void cbxCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
             // mostrarCategoria();
-        }
+            //if (cbxCategoria.SelectedIndex == -1)
+            //{
+            //    cbxCategoria.SelectedIndex = 0;
+            //}
 
+            if (File.Exists("C:\\Users\\User\\Desktop\\06\\BlingLuxury\\BlingLuxury\\Imagenes\\" + cbxCategoria.Text + ".jpg"))
+            {//Verificamos si existe la imagen que corresponda al usuario seleccionado :p
+                pbxImagen.Image = System.Drawing.Image.FromFile("C:\\Users\\User\\Desktop\\06\\BlingLuxury\\BlingLuxury\\Imagenes\\" + cbxCategoria.Text + ".jpg");
+                pbxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            else
+            {
+                pbxImagen.Image = System.Drawing.Image.FromFile("C:\\Users\\User\\Desktop\\06\\BlingLuxury\\BlingLuxury\\Imagenes\\default.jpg");
+            }
+        }
+        //HASTA AQUI
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.SoloNumeros(e);
@@ -661,6 +680,25 @@ namespace BlingLuxury
         public void realizar3(string marca)
         {
             cbxMarca.Text = marca;
+        }
+
+        private void gbxProducto1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCargarImagen_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog Abrir = new OpenFileDialog();
+            Abrir.Filter = "Archivos JPEG(*.jpg) |*.jpg";
+            Abrir.InitialDirectory = "C:\\Users\\User\\Desktop\\06\\BlingLuxury\\BlingLuxury\\Imagenes";
+            if (Abrir.ShowDialog()  == DialogResult.OK)
+            {
+                string direccion = Abrir.FileName;
+                Bitmap imagen = new Bitmap(direccion);
+                pbxImagen.Image = (Image)imagen;
+                pbxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
         }
     }
 }

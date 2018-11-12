@@ -60,7 +60,7 @@ namespace BlingLuxury.DAO
                         if (reader.HasRows)
                         {
                             while (reader.Read())
-                            {
+                            {                                
                                 int idProducto = reader.GetInt32(0);
                                 string codigoProducto = reader.GetString(1);
                                 double pesoProducto = reader.GetDouble(2);

@@ -26,6 +26,7 @@ namespace BlingLuxury.Validaciones
                 MessageBox.Show("NO SE ADMITEN LETRAS, SOLO NÚMEROS", "¡¡¡ADVERTENCIA!!!", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             }
         }
+        //Metodo para validar que los valores sean caracteres
         public static void SoloLetras(KeyPressEventArgs pE)
         {
             if (Char.IsLetter(pE.KeyChar))
@@ -46,11 +47,13 @@ namespace BlingLuxury.Validaciones
                 MessageBox.Show("NO SE ADMITEN NÚMEROS, SOLO LETRAS", "¡¡¡ADVERTENCIA!!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+        //Validar que no acepte espacios
         public static void SinEspacios(KeyPressEventArgs pE)
         {
             if (Char.IsSeparator(pE.KeyChar))
                 pE.Handled = true;
         }
+        //Para validar solo numereos decimales
         public static void SoloDecimales(KeyPressEventArgs pE)
         {
             if (Char.IsDigit(pE.KeyChar))
