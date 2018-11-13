@@ -30,6 +30,7 @@
         {
             this.btnProducto = new System.Windows.Forms.Button();
             this.btnRegistro = new System.Windows.Forms.Button();
+            this.btnInventario = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnProducto
@@ -51,11 +52,22 @@
             this.btnRegistro.Text = "&Registro ";
             this.btnRegistro.UseVisualStyleBackColor = true;
             // 
+            // btnInventario
+            // 
+            this.btnInventario.Location = new System.Drawing.Point(23, 109);
+            this.btnInventario.Name = "btnInventario";
+            this.btnInventario.Size = new System.Drawing.Size(75, 23);
+            this.btnInventario.TabIndex = 2;
+            this.btnInventario.Text = "Inventario";
+            this.btnInventario.UseVisualStyleBackColor = true;
+            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
+            // 
             // fmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(440, 388);
+            this.Controls.Add(this.btnInventario);
             this.Controls.Add(this.btnRegistro);
             this.Controls.Add(this.btnProducto);
             this.Name = "fmPrincipal";
@@ -69,5 +81,6 @@
 
         private System.Windows.Forms.Button btnProducto;
         private System.Windows.Forms.Button btnRegistro;
+        private System.Windows.Forms.Button btnInventario;
     }
 }

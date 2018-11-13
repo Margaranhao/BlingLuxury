@@ -27,5 +27,11 @@ namespace BlingLuxury
         {
 
         }
+
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            frmInventario inventario = new BlingLuxury.frmInventario();
+            inventario.Show();
+        }
     }
 }
