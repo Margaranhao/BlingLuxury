@@ -704,26 +704,26 @@ namespace BlingLuxury
             this.lblProducto = new System.Windows.Forms.Label();
             this.flpProducto = new System.Windows.Forms.FlowLayoutPanel();
             this.gbxProducto = new System.Windows.Forms.GroupBox();
-            this.btnPrecios = new System.Windows.Forms.Button();
-            this.cbxPrecios = new System.Windows.Forms.ComboBox();
+            this.btnCargarImagen = new System.Windows.Forms.Button();
             this.pbxImagen = new System.Windows.Forms.PictureBox();
-            this.txtPeso = new System.Windows.Forms.TextBox();
-            this.lblPeso = new System.Windows.Forms.Label();
-            this.lblPrecio = new System.Windows.Forms.Label();
-            this.lblCodigoBarras = new System.Windows.Forms.Label();
-            this.txtCodigoBarras = new System.Windows.Forms.TextBox();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.lblId = new System.Windows.Forms.Label();
             this.btnMarca = new System.Windows.Forms.Button();
+            this.btnPrecios = new System.Windows.Forms.Button();
             this.btnColor = new System.Windows.Forms.Button();
+            this.cbxPrecios = new System.Windows.Forms.ComboBox();
             this.btnModelo = new System.Windows.Forms.Button();
             this.btnCategoria = new System.Windows.Forms.Button();
+            this.lblPeso = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
+            this.lblPrecio = new System.Windows.Forms.Label();
             this.cbxColor = new System.Windows.Forms.ComboBox();
+            this.lblCodigoBarras = new System.Windows.Forms.Label();
             this.cbxMarca = new System.Windows.Forms.ComboBox();
+            this.txtCodigoBarras = new System.Windows.Forms.TextBox();
             this.lblColor = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.lblModelo = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.Label();
             this.cbxCategoria = new System.Windows.Forms.ComboBox();
             this.cbxModelo = new System.Windows.Forms.ComboBox();
             this.dgvProducto = new System.Windows.Forms.DataGridView();
@@ -739,8 +739,10 @@ namespace BlingLuxury
             this.btnClose = new System.Windows.Forms.Button();
             this.btnMin = new System.Windows.Forms.Button();
             this.btnRestaurar = new System.Windows.Forms.Button();
-            this.btnCargarImagen = new System.Windows.Forms.Button();
             this.ofdExploradorImagen = new System.Windows.Forms.OpenFileDialog();
+            this.txtPeso = new System.Windows.Forms.TextBox();
+            this.lblDescripcion = new System.Windows.Forms.Label();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.flpProducto.SuspendLayout();
             this.gbxProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
@@ -775,6 +777,8 @@ namespace BlingLuxury
             // gbxProducto
             // 
             this.gbxProducto.BackColor = System.Drawing.SystemColors.Window;
+            this.gbxProducto.Controls.Add(this.txtDescripcion);
+            this.gbxProducto.Controls.Add(this.lblDescripcion);
             this.gbxProducto.Controls.Add(this.btnCargarImagen);
             this.gbxProducto.Controls.Add(this.pbxImagen);
             this.gbxProducto.Controls.Add(this.btnMarca);
@@ -807,27 +811,15 @@ namespace BlingLuxury
             this.gbxProducto.TabIndex = 7;
             this.gbxProducto.TabStop = false;
             // 
-            // btnPrecios
+            // btnCargarImagen
             // 
-            this.btnPrecios.Location = new System.Drawing.Point(311, 125);
-            this.btnPrecios.Name = "btnPrecios";
-            this.btnPrecios.Size = new System.Drawing.Size(25, 25);
-            this.btnPrecios.TabIndex = 16;
-            this.btnPrecios.Text = "+";
-            this.btnPrecios.UseVisualStyleBackColor = true;
-            // 
-            // cbxPrecios
-            // 
-            this.cbxPrecios.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cbxPrecios.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbxPrecios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxPrecios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.cbxPrecios.FormattingEnabled = true;
-            this.cbxPrecios.Location = new System.Drawing.Point(110, 126);
-            this.cbxPrecios.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cbxPrecios.Name = "cbxPrecios";
-            this.cbxPrecios.Size = new System.Drawing.Size(192, 24);
-            this.cbxPrecios.TabIndex = 17;
+            this.btnCargarImagen.Location = new System.Drawing.Point(726, 272);
+            this.btnCargarImagen.Name = "btnCargarImagen";
+            this.btnCargarImagen.Size = new System.Drawing.Size(86, 23);
+            this.btnCargarImagen.TabIndex = 18;
+            this.btnCargarImagen.Text = "Cargar Imagen";
+            this.btnCargarImagen.UseVisualStyleBackColor = true;
+            this.btnCargarImagen.Click += new System.EventHandler(this.btnCargarImagen_Click);
             // 
             // pbxImagen
             // 
@@ -837,89 +829,10 @@ namespace BlingLuxury
             this.pbxImagen.Margin = new System.Windows.Forms.Padding(8, 30, 8, 30);
             this.pbxImagen.Name = "pbxImagen";
             this.pbxImagen.Padding = new System.Windows.Forms.Padding(8);
-            this.pbxImagen.Size = new System.Drawing.Size(418, 251);
+            this.pbxImagen.Size = new System.Drawing.Size(418, 231);
             this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxImagen.TabIndex = 15;
             this.pbxImagen.TabStop = false;
-            // 
-            // txtPeso
-            // 
-            this.txtPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPeso.Location = new System.Drawing.Point(110, 93);
-            this.txtPeso.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtPeso.Name = "txtPeso";
-            this.txtPeso.Size = new System.Drawing.Size(192, 22);
-            this.txtPeso.TabIndex = 3;
-            this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeso_KeyPress);
-            // 
-            // lblPeso
-            // 
-            this.lblPeso.AutoSize = true;
-            this.lblPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPeso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
-            this.lblPeso.Location = new System.Drawing.Point(14, 95);
-            this.lblPeso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPeso.Name = "lblPeso";
-            this.lblPeso.Size = new System.Drawing.Size(93, 18);
-            this.lblPeso.TabIndex = 7;
-            this.lblPeso.Text = "Peso (KG):";
-            // 
-            // lblPrecio
-            // 
-            this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
-            this.lblPrecio.Location = new System.Drawing.Point(14, 127);
-            this.lblPrecio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(88, 18);
-            this.lblPrecio.TabIndex = 5;
-            this.lblPrecio.Text = "Precio ($):";
-            // 
-            // lblCodigoBarras
-            // 
-            this.lblCodigoBarras.AutoSize = true;
-            this.lblCodigoBarras.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigoBarras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
-            this.lblCodigoBarras.Location = new System.Drawing.Point(14, 62);
-            this.lblCodigoBarras.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCodigoBarras.Name = "lblCodigoBarras";
-            this.lblCodigoBarras.Size = new System.Drawing.Size(145, 18);
-            this.lblCodigoBarras.TabIndex = 5;
-            this.lblCodigoBarras.Text = "Código de Barras:";
-            // 
-            // txtCodigoBarras
-            // 
-            this.txtCodigoBarras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoBarras.Location = new System.Drawing.Point(162, 61);
-            this.txtCodigoBarras.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtCodigoBarras.MaxLength = 13;
-            this.txtCodigoBarras.Name = "txtCodigoBarras";
-            this.txtCodigoBarras.Size = new System.Drawing.Size(140, 22);
-            this.txtCodigoBarras.TabIndex = 2;
-            this.txtCodigoBarras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoBarras_KeyPress_1);
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(162, 24);
-            this.txtId.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(165, 20);
-            this.txtId.TabIndex = 1;
-            this.txtId.Visible = false;
-            // 
-            // lblId
-            // 
-            this.lblId.AutoSize = true;
-            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
-            this.lblId.Location = new System.Drawing.Point(128, 26);
-            this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(26, 18);
-            this.lblId.TabIndex = 13;
-            this.lblId.Text = "Id:";
-            this.lblId.Visible = false;
             // 
             // btnMarca
             // 
@@ -931,6 +844,15 @@ namespace BlingLuxury
             this.btnMarca.UseVisualStyleBackColor = true;
             this.btnMarca.Click += new System.EventHandler(this.btnMarca_Click);
             // 
+            // btnPrecios
+            // 
+            this.btnPrecios.Location = new System.Drawing.Point(311, 125);
+            this.btnPrecios.Name = "btnPrecios";
+            this.btnPrecios.Size = new System.Drawing.Size(25, 25);
+            this.btnPrecios.TabIndex = 16;
+            this.btnPrecios.Text = "+";
+            this.btnPrecios.UseVisualStyleBackColor = true;
+            // 
             // btnColor
             // 
             this.btnColor.Location = new System.Drawing.Point(311, 258);
@@ -940,6 +862,19 @@ namespace BlingLuxury
             this.btnColor.Text = "+";
             this.btnColor.UseVisualStyleBackColor = true;
             this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
+            // 
+            // cbxPrecios
+            // 
+            this.cbxPrecios.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cbxPrecios.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbxPrecios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxPrecios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.cbxPrecios.FormattingEnabled = true;
+            this.cbxPrecios.Location = new System.Drawing.Point(110, 125);
+            this.cbxPrecios.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cbxPrecios.Name = "cbxPrecios";
+            this.cbxPrecios.Size = new System.Drawing.Size(192, 24);
+            this.cbxPrecios.TabIndex = 17;
             // 
             // btnModelo
             // 
@@ -961,6 +896,18 @@ namespace BlingLuxury
             this.btnCategoria.UseVisualStyleBackColor = true;
             this.btnCategoria.Click += new System.EventHandler(this.btnCategoria_Click);
             // 
+            // lblPeso
+            // 
+            this.lblPeso.AutoSize = true;
+            this.lblPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPeso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
+            this.lblPeso.Location = new System.Drawing.Point(14, 95);
+            this.lblPeso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPeso.Name = "lblPeso";
+            this.lblPeso.Size = new System.Drawing.Size(93, 18);
+            this.lblPeso.TabIndex = 7;
+            this.lblPeso.Text = "Peso (KG):";
+            // 
             // lblMarca
             // 
             this.lblMarca.AutoSize = true;
@@ -972,6 +919,18 @@ namespace BlingLuxury
             this.lblMarca.Size = new System.Drawing.Size(60, 18);
             this.lblMarca.TabIndex = 11;
             this.lblMarca.Text = "Marca:";
+            // 
+            // lblPrecio
+            // 
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
+            this.lblPrecio.Location = new System.Drawing.Point(14, 127);
+            this.lblPrecio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(88, 18);
+            this.lblPrecio.TabIndex = 5;
+            this.lblPrecio.Text = "Precio ($):";
             // 
             // cbxColor
             // 
@@ -986,6 +945,18 @@ namespace BlingLuxury
             this.cbxColor.Size = new System.Drawing.Size(192, 24);
             this.cbxColor.TabIndex = 8;
             // 
+            // lblCodigoBarras
+            // 
+            this.lblCodigoBarras.AutoSize = true;
+            this.lblCodigoBarras.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigoBarras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
+            this.lblCodigoBarras.Location = new System.Drawing.Point(14, 62);
+            this.lblCodigoBarras.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCodigoBarras.Name = "lblCodigoBarras";
+            this.lblCodigoBarras.Size = new System.Drawing.Size(145, 18);
+            this.lblCodigoBarras.TabIndex = 5;
+            this.lblCodigoBarras.Text = "Código de Barras:";
+            // 
             // cbxMarca
             // 
             this.cbxMarca.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -999,6 +970,17 @@ namespace BlingLuxury
             this.cbxMarca.Size = new System.Drawing.Size(192, 24);
             this.cbxMarca.TabIndex = 7;
             // 
+            // txtCodigoBarras
+            // 
+            this.txtCodigoBarras.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoBarras.Location = new System.Drawing.Point(162, 61);
+            this.txtCodigoBarras.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtCodigoBarras.MaxLength = 13;
+            this.txtCodigoBarras.Name = "txtCodigoBarras";
+            this.txtCodigoBarras.Size = new System.Drawing.Size(140, 22);
+            this.txtCodigoBarras.TabIndex = 2;
+            this.txtCodigoBarras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoBarras_KeyPress_1);
+            // 
             // lblColor
             // 
             this.lblColor.AutoSize = true;
@@ -1010,6 +992,15 @@ namespace BlingLuxury
             this.lblColor.Size = new System.Drawing.Size(55, 18);
             this.lblColor.TabIndex = 7;
             this.lblColor.Text = "Color:";
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(162, 24);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(165, 20);
+            this.txtId.TabIndex = 1;
+            this.txtId.Visible = false;
             // 
             // lblCategoria
             // 
@@ -1034,6 +1025,19 @@ namespace BlingLuxury
             this.lblModelo.Size = new System.Drawing.Size(69, 18);
             this.lblModelo.TabIndex = 9;
             this.lblModelo.Text = "Modelo:";
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
+            this.lblId.Location = new System.Drawing.Point(128, 26);
+            this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(26, 18);
+            this.lblId.TabIndex = 13;
+            this.lblId.Text = "Id:";
+            this.lblId.Visible = false;
             // 
             // cbxCategoria
             // 
@@ -1189,6 +1193,7 @@ namespace BlingLuxury
             // 
             this.txtBuscar.Location = new System.Drawing.Point(229, 397);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtBuscar.MaxLength = 13;
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(165, 20);
             this.txtBuscar.TabIndex = 18;
@@ -1254,19 +1259,43 @@ namespace BlingLuxury
             this.btnRestaurar.UseVisualStyleBackColor = false;
             this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
-            // btnCargarImagen
-            // 
-            this.btnCargarImagen.Location = new System.Drawing.Point(574, 287);
-            this.btnCargarImagen.Name = "btnCargarImagen";
-            this.btnCargarImagen.Size = new System.Drawing.Size(86, 23);
-            this.btnCargarImagen.TabIndex = 18;
-            this.btnCargarImagen.Text = "Cargar Imagen";
-            this.btnCargarImagen.UseVisualStyleBackColor = true;
-            this.btnCargarImagen.Click += new System.EventHandler(this.btnCargarImagen_Click);
-            // 
             // ofdExploradorImagen
             // 
             this.ofdExploradorImagen.FileName = "openFileDialog1";
+            // 
+            // txtPeso
+            // 
+            this.txtPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPeso.Location = new System.Drawing.Point(110, 93);
+            this.txtPeso.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtPeso.MaxLength = 6;
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.Size = new System.Drawing.Size(192, 22);
+            this.txtPeso.TabIndex = 3;
+            this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeso_KeyPress);
+            // 
+            // lblDescripcion
+            // 
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
+            this.lblDescripcion.Location = new System.Drawing.Point(391, 261);
+            this.lblDescripcion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(103, 18);
+            this.lblDescripcion.TabIndex = 19;
+            this.lblDescripcion.Text = "Descripción:";
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripcion.Location = new System.Drawing.Point(492, 259);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtDescripcion.MaxLength = 200;
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(227, 47);
+            this.txtDescripcion.TabIndex = 20;
             // 
             // FrmProducto
             // 
@@ -1306,7 +1335,6 @@ namespace BlingLuxury
         private System.Windows.Forms.Label lblProducto;
         private System.Windows.Forms.FlowLayoutPanel flpProducto;
         private System.Windows.Forms.GroupBox gbxProducto;
-        private System.Windows.Forms.TextBox txtPeso;
         private System.Windows.Forms.Label lblPeso;
         private System.Windows.Forms.PictureBox pbxImagen;
         private System.Windows.Forms.Label lblCodigoBarras;
@@ -1343,5 +1371,8 @@ namespace BlingLuxury
         private System.Windows.Forms.Button btnPrecios;
         private System.Windows.Forms.Button btnCargarImagen;
         private System.Windows.Forms.OpenFileDialog ofdExploradorImagen;
+        private System.Windows.Forms.TextBox txtPeso;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.Label lblDescripcion;
     }
 }

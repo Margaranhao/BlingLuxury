@@ -30,7 +30,7 @@ namespace BlingLuxury.DAO
             try
             {                
                 //modifique esta parte codigo_de_barras = '" + t.codigoDeBarras + "' y el where le agrege lo del codigo y movi precio
-                sql = "UPDATE producto SET peso = '" + t.peso + "', id_modelo = '" + t.id_modelo.id + "', id_precio_adquisicion = '" + t.id_precio_adquisicion.precio + "', id_color = '" + t.id_color.id + "', id_categoria = '" + t.id_categoria.id + "' WHERE id > 0 AND codigo_de_barras > 0 AND id = '" + id + "';";
+                sql = "UPDATE producto SET peso = '" + t.peso + "', descripcion = '" + t.descripcion + "', id_modelo = '" + t.id_modelo.id + "', id_precio_adquisicion = '" + t.id_precio_adquisicion.precio + "', id_color = '" + t.id_color.id + "', id_categoria = '" + t.id_categoria.id + "' WHERE id > 0 AND codigo_de_barras > 0 AND id = '" + id + "';";
 
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
@@ -62,7 +62,7 @@ namespace BlingLuxury.DAO
                             while (reader.Read())//se recorre cada elemento que obtuvo el reader
                             {                                
                                 // Se crea un nuevo objeto de la clase y se retorna                                                                                             
-                                producto = new Producto(reader.GetInt32(0), reader.GetString(1), reader.GetDouble(2), new Modelo(), new PrecioAdquisicion(), new Color(), new Categoria());
+                                producto = new Producto(reader.GetInt32(0), reader.GetString(1), reader.GetDouble(2), reader.GetString(3), new Modelo(), new PrecioAdquisicion(), new Color(), new Categoria());
 
                                 return producto;
                             }
@@ -96,7 +96,7 @@ namespace BlingLuxury.DAO
             {
                 //sql = "INSERT INTO producto(codigo_de_barras, peso, id_modelo, id_precio_adquisicion, id_color, id_categoria) VALUES ('" + t.codigoDeBarras + "','" + t.peso + "''" + t.id_modelo.id + "','" + t.id_precio_adquisicion.id + "', '" + t.id_color.id + "', '" + t.id_categoria.id + "');";
 
-                sql = "INSERT INTO producto (codigo_de_barras, peso, id_modelo, id_precio_adquisicion, id_color, id_categoria) VALUES ('" + t.codigoDeBarras + "','" + t.peso + "','" + t.id_modelo.id + "','" + t.id_precio_adquisicion.precio + "','" + t.id_color.id + "','" + t.id_categoria.id + "');";
+                sql = "INSERT INTO producto(codigo_de_barras, peso, descripcion, id_modelo, id_precio_adquisicion, id_color, id_categoria) VALUES ('" + t.codigoDeBarras + "','" + t.peso + "','" + t.descripcion + "','" + t.id_modelo.id + "','" + t.id_precio_adquisicion.precio + "','" + t.id_color.id + "','" + t.id_categoria.id + "');";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
@@ -127,7 +127,7 @@ namespace BlingLuxury.DAO
                             while (reader.Read())
                             {
                                 //productoLista.Add(new Producto(reader.GetInt32(0), reader.GetInt32(1), reader.GetDouble(2), new Modelo(reader.GetString(3)), new PrecioAdquisicion(reader.GetDouble(4)), new Color(reader.GetString(5)), new Categoria(reader.GetString(6))));
-                                productoLista.Add(new Producto(reader.GetInt32(0), reader.GetString(1), reader.GetDouble(2), new Modelo(reader.GetString(3)), new PrecioAdquisicion(reader.GetDouble(4)), new Color(reader.GetString(5)), new Categoria(reader.GetString(6))));
+                                productoLista.Add(new Producto(reader.GetInt32(0), reader.GetString(1), reader.GetDouble(2), reader.GetString(3), new Modelo(reader.GetString(3)), new PrecioAdquisicion(reader.GetDouble(4)), new Color(reader.GetString(5)), new Categoria(reader.GetString(6))));
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();

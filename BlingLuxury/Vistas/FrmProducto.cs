@@ -42,7 +42,7 @@ namespace BlingLuxury
 
                 if (df.Rows.Count == 0)//si no hay resultados realiza la insercion
                 {
-                    ProductoDAO.getInstance().Actualizar(new Producto(Convert.ToDouble(txtPeso.Text), new Modelo(Convert.ToInt32(cbxModelo.SelectedValue)), new PrecioAdquisicion(Convert.ToInt32(cbxPrecios.SelectedValue)), new Clases.Color(Convert.ToInt32(cbxColor.SelectedValue)), new Categoria(Convert.ToInt32(cbxCategoria.SelectedValue))), id);
+                    ProductoDAO.getInstance().Actualizar(new Producto(Convert.ToDouble(txtPeso.Text), txtDescripcion.Text, new Modelo(Convert.ToInt32(cbxModelo.SelectedValue), new Marca(Convert.ToInt32(cbxMarca.SelectedValue))), new PrecioAdquisicion(Convert.ToInt32(cbxPrecios.SelectedValue)), new Clases.Color(Convert.ToInt32(cbxColor.SelectedValue)), new Categoria(Convert.ToInt32(cbxCategoria.SelectedValue))), id);
                     MessageBox.Show("Producto modificado exitosamente", "Modificado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dgvProducto.DataSource = listarRegistroProducto();//actualiza el datagridview                    
                 }
@@ -62,7 +62,7 @@ namespace BlingLuxury
         {
             try
             {
-                ProductoDAO.getInstance().Insertar(new Producto(Convert.ToString(txtCodigoBarras.Text), Convert.ToDouble(txtPeso.Text), new Modelo(Convert.ToInt32(cbxModelo.SelectedValue), new Marca(Convert.ToInt32(cbxMarca.SelectedValue))), new PrecioAdquisicion(Convert.ToInt32(cbxPrecios.SelectedValue)), new Clases.Color(Convert.ToInt32(cbxColor.SelectedValue)), new Categoria(Convert.ToInt32(cbxCategoria.SelectedValue))));
+                ProductoDAO.getInstance().Insertar(new Producto(Convert.ToString(txtCodigoBarras.Text), Convert.ToDouble(txtPeso.Text), txtDescripcion.Text, new Modelo(Convert.ToInt32(cbxModelo.SelectedValue), new Marca(Convert.ToInt32(cbxMarca.SelectedValue))), new PrecioAdquisicion(Convert.ToInt32(cbxPrecios.SelectedValue)), new Clases.Color(Convert.ToInt32(cbxColor.SelectedValue)), new Categoria(Convert.ToInt32(cbxCategoria.SelectedValue))));
                 MessageBox.Show("Producto agrego correctamente", "Producto Agregado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 mostrarRegistroProducto();
             }
@@ -218,6 +218,7 @@ namespace BlingLuxury
             dt.Columns.Add("Id");
             dt.Columns.Add("CodigoBarras");
             dt.Columns.Add("Peso");
+            dt.Columns.Add("Descripción");
             dt.Columns.Add("Modelo Id");
             dt.Columns.Add("Modelo");
             dt.Columns.Add("Marca Id");
@@ -234,7 +235,7 @@ namespace BlingLuxury
 
             try
             {
-                sql = "select producto.id, producto.codigo_de_barras, producto.peso, producto.id_modelo, modelo.nombre, modelo.id_marca, marca.nombre, ";
+                sql = "select producto.id, producto.codigo_de_barras, producto.peso, producto.descripcion, producto.id_modelo, modelo.nombre, modelo.id_marca, marca.nombre, ";
                 sql += "producto.id_precio_adquisicion, precio_adquisicion.precio, producto.id_color, color.nombre, producto.id_categoria, categoria.nombre ";
                 sql += "from producto inner join modelo on modelo.id = producto.id_modelo inner join marca on marca.id = modelo.id_marca ";
                 sql += "inner join precio_adquisicion on precio_adquisicion.id = producto.id_precio_adquisicion ";
@@ -245,7 +246,7 @@ namespace BlingLuxury
                 List<RegistroProducto> listarRegistroProducto = RegistroProductoDAO.getInstance().Listar(sql);
                 for (int i = 0; i < listarRegistroProducto.Count; i++)
                 {
-                    dt.Rows.Add(listarRegistroProducto[i].idProducto, listarRegistroProducto[i].codigoProducto, listarRegistroProducto[i].pesoProducto,
+                    dt.Rows.Add(listarRegistroProducto[i].idProducto, listarRegistroProducto[i].codigoProducto, listarRegistroProducto[i].pesoProducto, listarRegistroProducto[i].descripcionProducto,
                                 listarRegistroProducto[i].productoIdModelo.id, listarRegistroProducto[i].productoIdModelo.nombre, listarRegistroProducto[i].modeloIdMarca.id, listarRegistroProducto[i].modeloIdMarca.nombre,
                                 listarRegistroProducto[i].productoIdPrecio_adquisicion.id,
                                 listarRegistroProducto[i].productoIdPrecio_adquisicion.precio, listarRegistroProducto[i].productoIdColor.id, listarRegistroProducto[i].productoIdColor.nombre,
@@ -271,16 +272,17 @@ namespace BlingLuxury
                 //dgvProducto.Columns[0].Visible = true; // Id
                 //dgvProducto.Columns[1].Visible = true; //CodigoBarras
                 //dgvProducto.Columns[2].Visible = true; //Peso
-                dgvProducto.Columns[3].Visible = false; // ModeloId
-                //dgvProducto.Columns[4].Visible = true; //Modelo
-                dgvProducto.Columns[5].Visible = false; //MarcaId
-                //dgvProducto.Columns[6].Visible = true; //Marca
-                dgvProducto.Columns[7].Visible = false; //PrecioIdAdquisicion 
-                //dgvProducto.Columns[8].Visible = true; //Precio
-                dgvProducto.Columns[9].Visible = false; // ColorId
-                //dgvProducto.Columns[10].Visible = true; //Color
-                dgvProducto.Columns[11].Visible = false; // CategoriaId
-                //dgvProducto.Columns[12].Visible = true; //Categoria 
+                //dgvProducto.Columns[3].Visible = true; //Descripción
+                dgvProducto.Columns[4].Visible = false; // ModeloId
+                //dgvProducto.Columns[5].Visible = true; //Modelo
+                dgvProducto.Columns[6].Visible = false; //MarcaId
+                //dgvProducto.Columns[7].Visible = true; //Marca
+                dgvProducto.Columns[8].Visible = false; //PrecioIdAdquisicion 
+                //dgvProducto.Columns[9].Visible = true; //Precio
+                dgvProducto.Columns[10].Visible = false; // ColorId
+                //dgvProducto.Columns[11].Visible = true; //Color
+                dgvProducto.Columns[12].Visible = false; // CategoriaId
+                //dgvProducto.Columns[13].Visible = true; //Categoria 
                 #endregion
             }
             catch
@@ -441,15 +443,14 @@ namespace BlingLuxury
             mostrarCategoria();
             mostrarColor();
             mostrarModelo();
-            mostrarPrecio();
-            //this.Location = Screen.PrimaryScreen.WorkingArea.Location;
-            //this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            mostrarPrecio();         
         }
         private void limpiarRegistro()
         {
             txtId.Clear();
             txtCodigoBarras.Clear();
             txtPeso.Clear();
+            txtDescripcion.Clear();
             cbxPrecios.SelectedIndex = 0;
             cbxCategoria.SelectedIndex = 0;
             cbxColor.SelectedIndex = 0;
@@ -459,11 +460,11 @@ namespace BlingLuxury
         //Para colocar los datos en una fila del datagridview en los texbox y combobox
         private void dgvProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
             //txtId.Text = dgvProducto.Rows[e.RowIndex].Cells["Id"].Value.ToString();
             txtId.Text = dgvProducto.CurrentRow.Cells[0].Value.ToString();
             txtCodigoBarras.Text = dgvProducto.Rows[e.RowIndex].Cells["CodigoBarras"].Value.ToString();
             txtPeso.Text = dgvProducto.Rows[e.RowIndex].Cells["Peso"].Value.ToString();
+            txtDescripcion.Text = dgvProducto.CurrentRow.Cells[3].Value.ToString();
             cbxModelo.SelectedValue = dgvProducto.Rows[e.RowIndex].Cells["Modelo Id"].Value;
             //cbxModelo.SelectedValue = dgvProducto.Rows[e.RowIndex].Cells["Modelo"].Value;
             cbxMarca.SelectedValue = dgvProducto.Rows[e.RowIndex].Cells["Marca Id"].Value;
@@ -638,7 +639,7 @@ namespace BlingLuxury
             if (File.Exists("C:\\Users\\User\\Desktop\\06\\BlingLuxury\\BlingLuxury\\Imagenes\\" + cbxCategoria.Text + ".jpg"))
             {//Verificamos si existe la imagen que corresponda al usuario seleccionado :p
                 pbxImagen.Image = System.Drawing.Image.FromFile("C:\\Users\\User\\Desktop\\06\\BlingLuxury\\BlingLuxury\\Imagenes\\" + cbxCategoria.Text + ".jpg");
-                pbxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
+                pbxImagen.SizeMode = PictureBoxSizeMode.Zoom;
             }
             else
             {

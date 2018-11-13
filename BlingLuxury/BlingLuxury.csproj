@@ -180,6 +180,12 @@
     <Compile Include="Vistas\frmModelo.Designer.cs">
       <DependentUpon>frmModelo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\frmPrecios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmPrecios.Designer.cs">
+      <DependentUpon>frmPrecios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\FrmProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmModelo.resx">
       <DependentUpon>frmModelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frmPrecios.resx">
+      <DependentUpon>frmPrecios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FrmProducto.resx">
       <DependentUpon>FrmProducto.cs</DependentUpon>

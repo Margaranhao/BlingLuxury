@@ -64,23 +64,19 @@ namespace BlingLuxury.DAO
                                 int idProducto = reader.GetInt32(0);
                                 string codigoProducto = reader.GetString(1);
                                 double pesoProducto = reader.GetDouble(2);
-                                Modelo productoIdModelo = new Modelo(reader.GetInt32(3), reader.GetString(4));
-                                Marca modeloIdMarca = new Marca(reader.GetInt32(5), reader.GetString(6));
-                                PrecioAdquisicion productoIdPrecio_adquisicion = new PrecioAdquisicion(reader.GetInt32(7), reader.GetDouble(8));
-                                Color productoIdColor = new Color(reader.GetInt32(9), reader.GetString(10));
-                                Categoria productoIdCategoria = new Categoria(reader.GetInt32(11), reader.GetString(12));
-
-                                //registroproductoLista.Add(new RegistroProducto(idProducto, codigoProducto, pesoProducto, productoIdModelo, modeloIdMarca,
-                                //                          productoIdPrecio_adquisicion, productoIdColor, productoIdCategoria));
-
-                                registroproductoLista.Add(new RegistroProducto(idProducto, codigoProducto, pesoProducto, productoIdModelo, modeloIdMarca,
-                                                          productoIdPrecio_adquisicion, productoIdColor, productoIdCategoria));
-
+                                string descripcionProducto = reader.GetString(3);
+                                Modelo productoIdModelo = new Modelo(reader.GetInt32(4), reader.GetString(5));
+                                Marca modeloIdMarca = new Marca(reader.GetInt32(6), reader.GetString(7));
+                                PrecioAdquisicion productoIdPrecio_adquisicion = new PrecioAdquisicion(reader.GetInt32(8), reader.GetDouble(9));
+                                Color productoIdColor = new Color(reader.GetInt32(10), reader.GetString(11));
+                                Categoria productoIdCategoria = new Categoria(reader.GetInt32(12), reader.GetString(13));                                
+                                
+                                registroproductoLista.Add(new RegistroProducto(idProducto, codigoProducto, pesoProducto, descripcionProducto, productoIdModelo, modeloIdMarca,
+                                                          productoIdPrecio_adquisicion, productoIdColor, productoIdCategoria));                                
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();
                             return registroproductoLista;
-
                         }
                         else
                         {
