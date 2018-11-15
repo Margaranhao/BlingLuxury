@@ -706,10 +706,10 @@ namespace BlingLuxury
             this.gbxProducto = new System.Windows.Forms.GroupBox();
             this.btnPrecios = new System.Windows.Forms.Button();
             this.cbxPrecios = new System.Windows.Forms.ComboBox();
+            this.pbxImagen = new System.Windows.Forms.PictureBox();
             this.txtPeso = new System.Windows.Forms.TextBox();
             this.lblPeso = new System.Windows.Forms.Label();
             this.lblPrecio = new System.Windows.Forms.Label();
-            this.pbxImagen = new System.Windows.Forms.PictureBox();
             this.lblCodigoBarras = new System.Windows.Forms.Label();
             this.txtCodigoBarras = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
@@ -756,7 +756,7 @@ namespace BlingLuxury
             this.lblProducto.AutoSize = true;
             this.lblProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProducto.ForeColor = System.Drawing.Color.White;
-            this.lblProducto.Location = new System.Drawing.Point(488, 13);
+            this.lblProducto.Location = new System.Drawing.Point(473, 13);
             this.lblProducto.Name = "lblProducto";
             this.lblProducto.Size = new System.Drawing.Size(118, 29);
             this.lblProducto.TabIndex = 1;
@@ -817,6 +817,16 @@ namespace BlingLuxury
             this.cbxPrecios.Size = new System.Drawing.Size(164, 24);
             this.cbxPrecios.TabIndex = 17;
             // 
+            // pbxImagen
+            // 
+            this.pbxImagen.Image = ((System.Drawing.Image)(resources.GetObject("pbxImagen.Image")));
+            this.pbxImagen.Location = new System.Drawing.Point(383, 16);
+            this.pbxImagen.Name = "pbxImagen";
+            this.pbxImagen.Size = new System.Drawing.Size(254, 145);
+            this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxImagen.TabIndex = 15;
+            this.pbxImagen.TabStop = false;
+            // 
             // txtPeso
             // 
             this.txtPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -850,16 +860,6 @@ namespace BlingLuxury
             this.lblPrecio.Size = new System.Drawing.Size(88, 18);
             this.lblPrecio.TabIndex = 5;
             this.lblPrecio.Text = "Precio ($):";
-            // 
-            // pbxImagen
-            // 
-            this.pbxImagen.Image = ((System.Drawing.Image)(resources.GetObject("pbxImagen.Image")));
-            this.pbxImagen.Location = new System.Drawing.Point(383, 16);
-            this.pbxImagen.Name = "pbxImagen";
-            this.pbxImagen.Size = new System.Drawing.Size(254, 145);
-            this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbxImagen.TabIndex = 15;
-            this.pbxImagen.TabStop = false;
             // 
             // lblCodigoBarras
             // 
@@ -1222,7 +1222,7 @@ namespace BlingLuxury
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.ForeColor = System.Drawing.Color.Transparent;
-            this.btnClose.Location = new System.Drawing.Point(1033, 4);
+            this.btnClose.Location = new System.Drawing.Point(1003, 4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(36, 29);
             this.btnClose.TabIndex = 20;
@@ -1238,7 +1238,7 @@ namespace BlingLuxury
             this.btnMin.FlatAppearance.BorderSize = 0;
             this.btnMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMin.ForeColor = System.Drawing.Color.Transparent;
-            this.btnMin.Location = new System.Drawing.Point(958, 4);
+            this.btnMin.Location = new System.Drawing.Point(928, 4);
             this.btnMin.Name = "btnMin";
             this.btnMin.Size = new System.Drawing.Size(36, 29);
             this.btnMin.TabIndex = 22;
@@ -1254,7 +1254,7 @@ namespace BlingLuxury
             this.btnRestaurar.FlatAppearance.BorderSize = 0;
             this.btnRestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRestaurar.ForeColor = System.Drawing.Color.Transparent;
-            this.btnRestaurar.Location = new System.Drawing.Point(994, 4);
+            this.btnRestaurar.Location = new System.Drawing.Point(964, 4);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(36, 29);
             this.btnRestaurar.TabIndex = 23;
@@ -1266,7 +1266,7 @@ namespace BlingLuxury
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
-            this.ClientSize = new System.Drawing.Size(1074, 670);
+            this.ClientSize = new System.Drawing.Size(1044, 670);
             this.Controls.Add(this.btnRestaurar);
             this.Controls.Add(this.btnMin);
             this.Controls.Add(this.btnClose);

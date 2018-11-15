@@ -38,6 +38,19 @@ namespace BlingLuxury.Clases
             this.productoIdCategoria = productoIdCategoria;
 
         }
+
+        public RegistroProducto(string codigoProducto, double pesoProducto, Modelo productoIdModelo, Marca modeloIdMarca,
+                               PrecioAdquisicion productoIdPrecio_adquisicion, Color productoIdColor, Categoria productoIdCategoria)
+        {
+            this.codigoProducto = codigoProducto;
+            this.pesoProducto = pesoProducto;
+            this.productoIdModelo = productoIdModelo;
+            this.modeloIdMarca = modeloIdMarca;
+            this.productoIdPrecio_adquisicion = productoIdPrecio_adquisicion;
+            this.productoIdColor = productoIdColor;
+            this.productoIdCategoria = productoIdCategoria;
+
+        }
         public RegistroProducto(int idProducto, string codigoProducto)
         {
             this.idProducto = idProducto;

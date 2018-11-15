@@ -74,5 +74,16 @@ namespace BlingLuxury.Clases
             this.id_color = id_color;
             this.id_categoria = id_categoria;
         }
+        public Inventario(DateTime fecha,int cantidad, RegistroProducto id_registroProducto)
+        {
+            this.fecha = fecha;
+            this.cantidad = cantidad;
+            this.id_registroProducto = id_registroProducto;
+        }
+        public Inventario(int cantidad, RegistroProducto id_registroProducto)
+        {            
+            this.cantidad = cantidad;
+            this.id_registroProducto = id_registroProducto;
+        }
     }
 }

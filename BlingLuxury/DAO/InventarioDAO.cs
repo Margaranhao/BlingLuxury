@@ -30,18 +30,18 @@ namespace BlingLuxury.DAO
         {
             try
             {
-                sql = "UPDATE inventario SET fecha ='" + t.fecha + "', cantidad ='" + t.cantidad + "', id_producto ='" + t.id_registroProducto + "', id_usuario ='" + t.id_usuario + "' WHERE id > 0 AND id = '" + id + "';";
+                sql = "UPDATE inventario SET fecha = NOW(), cantidad ='" + t.cantidad + "' WHERE id > 0 AND id = '" + id + "';";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();
                 Conexion.getInstance().getConnection().Close();
-                throw new NotImplementedException();
+               
             }
             catch (Exception ex)
             {
 
-                throw new Exception(ex.Message);
+               // throw new Exception(ex.Message);
             }
         }
 
@@ -106,7 +106,7 @@ namespace BlingLuxury.DAO
         {
             try
             {
-                sql = "INSERT INTO inventario(fecha, cantidad, id_producto, id_usuario)VALUES('" + t.fecha + "','" + t.cantidad + "','" + t.id_registroProducto + "','" + t.id_usuario + "');";
+                sql = "INSERT INTO inventario(fecha, cantidad, id_producto)VALUES( NOW(), '" + t.cantidad + "', last_insert_id());";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();

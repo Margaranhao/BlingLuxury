@@ -30,34 +30,52 @@ namespace BlingLuxury
         private void frmInventario_Load(object sender, EventArgs e)
         {
             mostrarInvenario();
+            mostrarRegistroProducto();
         }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        #region radiobuttons
+        private void frmInventario_Shown(object sender, EventArgs e)// coloca en automatico activo el radiobutton de inventario
         {
-
+            rbnInventario.Checked = true;
+            rbnProductos.Checked = false;
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void rbnInventario_CheckedChanged(object sender, EventArgs e)// cambia el estado para mostrar la tabla de inventario
         {
-
+            if(rbnInventario.Checked == true)
+            {
+                rbnProductos.Checked = false;
+                dgvInventario.Visible = true;
+                dgvProductos.Visible = false;
+            }
         }
-
-        private void txtCodBarras_TextChanged(object sender, EventArgs e)
+        private void rbnProductos_CheckedChanged(object sender, EventArgs e)// cambia el estado para mostrar la tabla de productos sin inventariar
         {
-
+            if(rbnProductos.Checked == true)
+            {
+                rbnInventario.Checked = false;
+                dgvInventario.Visible = false;
+                dgvProductos.Visible = true;
+            }
         }
-
-        private void label8_Click(object sender, EventArgs e)
+        #endregion
+        #region Limpiar registro
+        private void LimpiarInventario()// para limpiar los campos del formulario
         {
-
+            txtId.Clear();
+            txtModelo.Clear();
+            txtMarca.Clear();
+            txtColor.Clear();            
+            txtPrecio.Clear();
+            txtCantidad.Clear();
+            txtFecha.Clear();
+            txtCategoria.Clear();
+            txtCodBarras.Clear();
+            
         }
+        #endregion
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-           // Validar.SoloLetras(e); //Solo aceptar letras
-        }
-
-        #region Cargar Datos al dgv
+        #region Cargar Datos al dgv de Inventario
+        DataTable dr = new DataTable();//tabla para las busquedas
 
         public DataTable ListarInventario() // Metodo que obtiene en forma de lista
         {
@@ -73,6 +91,7 @@ namespace BlingLuxury
             dt.Columns.Add("Categoria");
             
             dgvInventario.DataSource = dt;
+            dr = dt;
 
             try
             {
@@ -83,7 +102,8 @@ namespace BlingLuxury
                         + "INNER JOIN marca ma ON m.id_marca = ma.id "
                         + "INNER JOIN color c ON p.id_color = c.id "
                         + "INNER JOIN precio_adquisicion pr ON p.id_precio_adquisicion = pr.id "
-                        + "INNER JOIN categoria cat ON p.id_categoria = cat.id;";
+                        + "INNER JOIN categoria cat ON p.id_categoria = cat.id "
+                        + "WHERE i.cantidad > 0;";
                 List<Inventario> inventarioList = InventarioDAO.getInstance().Listar(sql);
                 for (int i = 0; i < inventarioList.Count; i++)
                 {
@@ -106,7 +126,7 @@ namespace BlingLuxury
             try
             {
                 dgvInventario.DataSource = ListarInventario();
-                /*dgvInventario.Columns[0].Visible = true;
+                dgvInventario.Columns[0].Visible = false;
                 dgvInventario.Columns[1].Visible = true;
                 dgvInventario.Columns[2].Visible = true;
                 dgvInventario.Columns[3].Visible = true;
@@ -114,8 +134,76 @@ namespace BlingLuxury
                 dgvInventario.Columns[5].Visible = true;
                 dgvInventario.Columns[6].Visible = true;
                 dgvInventario.Columns[7].Visible = true;
-                dgvInventario.Columns[8].Visible = true;
-                */
+                dgvInventario.Columns[8].Visible = true;                
+            }
+            catch
+            {
+
+            }
+        }
+
+        #endregion
+        #region Cargar Datos al dgv de Productos
+
+        public DataTable listarProducto()//metodo que enlista los productos
+        {
+            DataTable dt = new DataTable("Producto");
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Fecha");
+            dt.Columns.Add("Cantidad");
+            dt.Columns.Add("Codigo de Barras");
+            dt.Columns.Add("Modelo");
+            dt.Columns.Add("Marca");
+            dt.Columns.Add("Precio");
+            dt.Columns.Add("Color");
+            dt.Columns.Add("Categoria");
+
+            dgvProductos.DataSource = dt;
+            dr = dt;
+
+            try
+            {
+                sql = "select i.id, i.fecha, i.cantidad, p.codigo_de_barras, m.nombre, ma.nombre,  pr.precio, c.nombre,  cat.nombre "
+                        + "FROM inventario i "
+                        + "INNER JOIN producto p ON i.id_producto = p.id "
+                        + "INNER JOIN modelo m ON p.id_modelo = m.id "
+                        + "INNER JOIN marca ma ON m.id_marca = ma.id "
+                        + "INNER JOIN color c ON p.id_color = c.id "
+                        + "INNER JOIN precio_adquisicion pr ON p.id_precio_adquisicion = pr.id "
+                        + "INNER JOIN categoria cat ON p.id_categoria = cat.id "
+                        + "WHERE i.cantidad = 0;";
+                List<Inventario> inventarioList = InventarioDAO.getInstance().Listar(sql);
+                for (int i = 0; i < inventarioList.Count; i++)
+                {
+                    dt.Rows.Add(inventarioList[i].id, inventarioList[i].fecha, inventarioList[i].cantidad,
+                                inventarioList[i].id_registroProducto.codigoProducto, inventarioList[i].id_modelo.nombre,
+                                inventarioList[i].id_marca.nombre, inventarioList[i].id_precioAdquisicion.precio,
+                                inventarioList[i].id_color.nombre, inventarioList[i].id_categoria.nombre);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return dt;
+            }
+        }
+
+        private void mostrarRegistroProducto()// Metodo que muestra el producto
+        {
+            try
+            {
+                dgvProductos.DataSource = listarProducto();
+                dgvProductos.Columns[0].Visible = false;
+                dgvProductos.Columns[1].Visible = true;
+                dgvProductos.Columns[2].Visible = true;
+                dgvProductos.Columns[3].Visible = true;
+                dgvProductos.Columns[4].Visible = true;
+                dgvProductos.Columns[5].Visible = true;
+                dgvProductos.Columns[6].Visible = true;
+                dgvProductos.Columns[7].Visible = true;
+                dgvProductos.Columns[8].Visible = true;
+                
             }
             catch
             {
@@ -125,9 +213,110 @@ namespace BlingLuxury
 
         #endregion
 
-        private void dgvInventario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        #region Cargar datos del dgvInventario al frm
+        private void dgvInventario_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            txtId.Text = dgvInventario.Rows[e.RowIndex].Cells["Id"].Value.ToString();
+            txtModelo.Text = dgvInventario.Rows[e.RowIndex].Cells["Modelo"].Value.ToString();
+            txtMarca.Text = dgvInventario.Rows[e.RowIndex].Cells["Marca"].Value.ToString();
+            txtColor.Text = dgvInventario.Rows[e.RowIndex].Cells["Color"].Value.ToString();            
+            txtPrecio.Text = dgvInventario.Rows[e.RowIndex].Cells["Precio"].Value.ToString();
+            txtCantidad.Text = dgvInventario.Rows[e.RowIndex].Cells["Cantidad"].Value.ToString();
+            txtFecha.Text = dgvInventario.Rows[e.RowIndex].Cells["Fecha"].Value.ToString();
+            txtCategoria.Text = dgvInventario.Rows[e.RowIndex].Cells["Categoria"].Value.ToString();
+            txtCodBarras.Text = dgvInventario.Rows[e.RowIndex].Cells["Codigo de Barras"].Value.ToString();
+        }
+        #endregion
+        #region Cargar datos del dgvProductos al frm
+        private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtId.Text = dgvProductos.Rows[e.RowIndex].Cells["Id"].Value.ToString();
+            txtModelo.Text = dgvProductos.Rows[e.RowIndex].Cells["Modelo"].Value.ToString();
+            txtMarca.Text = dgvProductos.Rows[e.RowIndex].Cells["Marca"].Value.ToString();
+            txtColor.Text = dgvProductos.Rows[e.RowIndex].Cells["Color"].Value.ToString();
+            txtPrecio.Text = dgvProductos.Rows[e.RowIndex].Cells["Precio"].Value.ToString();
+            txtCantidad.Text = dgvProductos.Rows[e.RowIndex].Cells["Cantidad"].Value.ToString();
+            txtFecha.Text = dgvProductos.Rows[e.RowIndex].Cells["Fecha"].Value.ToString();
+            txtCategoria.Text = dgvProductos.Rows[e.RowIndex].Cells["Categoria"].Value.ToString();
+            txtCodBarras.Text = dgvProductos.Rows[e.RowIndex].Cells["Codigo de Barras"].Value.ToString();
+        }
+
+
+        #endregion
+
+        #region Buscar en Inventario
+
+        public static DataTable BuscarProducto(string nombre)//busqueda de producto en el dgv
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                string sql = "select i.id, i.fecha, i.cantidad, p.codigo_de_barras, m.nombre, ma.nombre,  pr.precio, c.nombre,  cat.nombre "
+                        + "FROM inventario i "
+                        + "INNER JOIN producto p ON i.id_producto = p.id "
+                        + "INNER JOIN modelo m ON p.id_modelo = m.id "
+                        + "INNER JOIN marca ma ON m.id_marca = ma.id "
+                        + "INNER JOIN color c ON p.id_color = c.id "
+                        + "INNER JOIN precio_adquisicion pr ON p.id_precio_adquisicion = pr.id "
+                        + "INNER JOIN categoria cat ON p.id_categoria = cat.id WHERE m.nombre= @nombre;";
+                Conexion.getInstance().setCadenaConnection();
+                MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                adap.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return dt;
+            }
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            dr.DefaultView.RowFilter = $"Modelo LIKE '%" + txtBuscar.Text + "%'";// para buscar coincidencias en el campo nombre
+        }
+
+        #endregion
+
+        #region Insertar
+
+        private void Insertar()//metodo para registrar inventario
+        {
+            //InventarioDAO.getInstance().Insertar(new Inventario(txtCantidad.Text));
 
         }
+
+        #endregion
+        #region Modificar
+        private void Modificar() // Metodo que modifica la cantidad y fecha de el producto inventariado
+        {
+            InventarioDAO.getInstance().Actualizar(new Clases.Inventario(DateTime.Now, Convert.ToInt32(txtCantidad.Text), new RegistroProducto()),Convert.ToInt32(txtId.Text));
+            MessageBox.Show("Modificacion exitosa");
+            dgvInventario.DataSource = ListarInventario();
+            dgvProductos.DataSource = listarProducto();
+            LimpiarInventario();
+        }
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Modificar();
+        }
+
+        #endregion
+        #region botones
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarInventario();
+        }
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        #endregion
+
+        
     }
 }
