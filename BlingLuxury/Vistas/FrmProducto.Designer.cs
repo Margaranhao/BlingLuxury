@@ -704,13 +704,17 @@ namespace BlingLuxury
             this.lblProducto = new System.Windows.Forms.Label();
             this.flpProducto = new System.Windows.Forms.FlowLayoutPanel();
             this.gbxProducto = new System.Windows.Forms.GroupBox();
+            this.cbxPrecio = new System.Windows.Forms.ComboBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.lblDescripcion = new System.Windows.Forms.Label();
             this.btnCargarImagen = new System.Windows.Forms.Button();
             this.pbxImagen = new System.Windows.Forms.PictureBox();
             this.btnMarca = new System.Windows.Forms.Button();
             this.btnPrecios = new System.Windows.Forms.Button();
             this.btnColor = new System.Windows.Forms.Button();
-            this.cbxPrecios = new System.Windows.Forms.ComboBox();
             this.btnModelo = new System.Windows.Forms.Button();
+            this.txtPeso = new System.Windows.Forms.TextBox();
             this.btnCategoria = new System.Windows.Forms.Button();
             this.lblPeso = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
@@ -740,9 +744,6 @@ namespace BlingLuxury
             this.btnMin = new System.Windows.Forms.Button();
             this.btnRestaurar = new System.Windows.Forms.Button();
             this.ofdExploradorImagen = new System.Windows.Forms.OpenFileDialog();
-            this.txtPeso = new System.Windows.Forms.TextBox();
-            this.lblDescripcion = new System.Windows.Forms.Label();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.flpProducto.SuspendLayout();
             this.gbxProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
@@ -777,6 +778,8 @@ namespace BlingLuxury
             // gbxProducto
             // 
             this.gbxProducto.BackColor = System.Drawing.SystemColors.Window;
+            this.gbxProducto.Controls.Add(this.cbxPrecio);
+            this.gbxProducto.Controls.Add(this.txtPrecio);
             this.gbxProducto.Controls.Add(this.txtDescripcion);
             this.gbxProducto.Controls.Add(this.lblDescripcion);
             this.gbxProducto.Controls.Add(this.btnCargarImagen);
@@ -784,7 +787,6 @@ namespace BlingLuxury
             this.gbxProducto.Controls.Add(this.btnMarca);
             this.gbxProducto.Controls.Add(this.btnPrecios);
             this.gbxProducto.Controls.Add(this.btnColor);
-            this.gbxProducto.Controls.Add(this.cbxPrecios);
             this.gbxProducto.Controls.Add(this.btnModelo);
             this.gbxProducto.Controls.Add(this.txtPeso);
             this.gbxProducto.Controls.Add(this.btnCategoria);
@@ -811,9 +813,53 @@ namespace BlingLuxury
             this.gbxProducto.TabIndex = 7;
             this.gbxProducto.TabStop = false;
             // 
+            // cbxPrecio
+            // 
+            this.cbxPrecio.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cbxPrecio.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbxPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
+            this.cbxPrecio.FormattingEnabled = true;
+            this.cbxPrecio.Location = new System.Drawing.Point(110, 125);
+            this.cbxPrecio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cbxPrecio.Name = "cbxPrecio";
+            this.cbxPrecio.Size = new System.Drawing.Size(192, 24);
+            this.cbxPrecio.TabIndex = 22;
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Location = new System.Drawing.Point(110, 298);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(192, 20);
+            this.txtPrecio.TabIndex = 21;
+            this.txtPrecio.Visible = false;
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripcion.Location = new System.Drawing.Point(492, 266);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtDescripcion.MaxLength = 200;
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(227, 47);
+            this.txtDescripcion.TabIndex = 20;
+            // 
+            // lblDescripcion
+            // 
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
+            this.lblDescripcion.Location = new System.Drawing.Point(391, 268);
+            this.lblDescripcion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(103, 18);
+            this.lblDescripcion.TabIndex = 19;
+            this.lblDescripcion.Text = "Descripción:";
+            // 
             // btnCargarImagen
             // 
-            this.btnCargarImagen.Location = new System.Drawing.Point(726, 272);
+            this.btnCargarImagen.Location = new System.Drawing.Point(726, 279);
             this.btnCargarImagen.Name = "btnCargarImagen";
             this.btnCargarImagen.Size = new System.Drawing.Size(86, 23);
             this.btnCargarImagen.TabIndex = 18;
@@ -852,6 +898,7 @@ namespace BlingLuxury
             this.btnPrecios.TabIndex = 16;
             this.btnPrecios.Text = "+";
             this.btnPrecios.UseVisualStyleBackColor = true;
+            this.btnPrecios.Visible = false;
             // 
             // btnColor
             // 
@@ -863,19 +910,6 @@ namespace BlingLuxury
             this.btnColor.UseVisualStyleBackColor = true;
             this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
             // 
-            // cbxPrecios
-            // 
-            this.cbxPrecios.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cbxPrecios.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbxPrecios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxPrecios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.cbxPrecios.FormattingEnabled = true;
-            this.cbxPrecios.Location = new System.Drawing.Point(110, 125);
-            this.cbxPrecios.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cbxPrecios.Name = "cbxPrecios";
-            this.cbxPrecios.Size = new System.Drawing.Size(192, 24);
-            this.cbxPrecios.TabIndex = 17;
-            // 
             // btnModelo
             // 
             this.btnModelo.Location = new System.Drawing.Point(311, 195);
@@ -885,6 +919,17 @@ namespace BlingLuxury
             this.btnModelo.Text = "+";
             this.btnModelo.UseVisualStyleBackColor = true;
             this.btnModelo.Click += new System.EventHandler(this.btnModelo_Click);
+            // 
+            // txtPeso
+            // 
+            this.txtPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPeso.Location = new System.Drawing.Point(110, 93);
+            this.txtPeso.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtPeso.MaxLength = 6;
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.Size = new System.Drawing.Size(192, 22);
+            this.txtPeso.TabIndex = 3;
+            this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeso_KeyPress);
             // 
             // btnCategoria
             // 
@@ -1263,40 +1308,6 @@ namespace BlingLuxury
             // 
             this.ofdExploradorImagen.FileName = "openFileDialog1";
             // 
-            // txtPeso
-            // 
-            this.txtPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPeso.Location = new System.Drawing.Point(110, 93);
-            this.txtPeso.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtPeso.MaxLength = 6;
-            this.txtPeso.Name = "txtPeso";
-            this.txtPeso.Size = new System.Drawing.Size(192, 22);
-            this.txtPeso.TabIndex = 3;
-            this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeso_KeyPress);
-            // 
-            // lblDescripcion
-            // 
-            this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
-            this.lblDescripcion.Location = new System.Drawing.Point(391, 261);
-            this.lblDescripcion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(103, 18);
-            this.lblDescripcion.TabIndex = 19;
-            this.lblDescripcion.Text = "Descripción:";
-            // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(492, 259);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtDescripcion.MaxLength = 200;
-            this.txtDescripcion.Multiline = true;
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(227, 47);
-            this.txtDescripcion.TabIndex = 20;
-            // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1356,7 +1367,6 @@ namespace BlingLuxury
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.ComboBox cbxMarca;
-        private System.Windows.Forms.ComboBox cbxPrecios;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtBuscar;
@@ -1374,5 +1384,7 @@ namespace BlingLuxury
         private System.Windows.Forms.TextBox txtPeso;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label lblDescripcion;
+        private System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.ComboBox cbxPrecio;
     }
 }

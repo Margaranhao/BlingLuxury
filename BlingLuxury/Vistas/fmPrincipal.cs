@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlingLuxury.Vistas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,11 +22,19 @@ namespace BlingLuxury
         {
             FrmProducto producto = new FrmProducto();
             producto.Show();
+            this.Hide();
         }
 
         private void fmPrincipal_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCatalogo_Click(object sender, EventArgs e)
+        {
+            frmCatalogo catalogo = new frmCatalogo();
+            catalogo.Show();
+            this.Hide();
         }
     }
 }

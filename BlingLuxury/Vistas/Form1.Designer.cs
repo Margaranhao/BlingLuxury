@@ -39,6 +39,7 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblIntentos = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -55,7 +56,7 @@
             this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Location = new System.Drawing.Point(126, 267);
+            this.btnLogin.Location = new System.Drawing.Point(88, 294);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(0, 6, 0, 0);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
@@ -174,6 +175,14 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Password";
             // 
+            // lblIntentos
+            // 
+            this.lblIntentos.AutoSize = true;
+            this.lblIntentos.Location = new System.Drawing.Point(93, 270);
+            this.lblIntentos.Name = "lblIntentos";
+            this.lblIntentos.Size = new System.Drawing.Size(0, 13);
+            this.lblIntentos.TabIndex = 7;
+            // 
             // fmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,6 +190,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
             this.ClientSize = new System.Drawing.Size(332, 402);
             this.ControlBox = false;
+            this.Controls.Add(this.lblIntentos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLogin);
@@ -215,6 +225,7 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblIntentos;
     }
 }
 

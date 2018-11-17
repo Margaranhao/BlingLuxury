@@ -30,6 +30,7 @@
         {
             this.btnProducto = new System.Windows.Forms.Button();
             this.btnRegistro = new System.Windows.Forms.Button();
+            this.btnCatalogo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnProducto
@@ -51,11 +52,22 @@
             this.btnRegistro.Text = "&Registro ";
             this.btnRegistro.UseVisualStyleBackColor = true;
             // 
+            // btnCatalogo
+            // 
+            this.btnCatalogo.Location = new System.Drawing.Point(23, 106);
+            this.btnCatalogo.Name = "btnCatalogo";
+            this.btnCatalogo.Size = new System.Drawing.Size(75, 23);
+            this.btnCatalogo.TabIndex = 2;
+            this.btnCatalogo.Text = "Catalogo";
+            this.btnCatalogo.UseVisualStyleBackColor = true;
+            this.btnCatalogo.Click += new System.EventHandler(this.btnCatalogo_Click);
+            // 
             // fmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(440, 388);
+            this.Controls.Add(this.btnCatalogo);
             this.Controls.Add(this.btnRegistro);
             this.Controls.Add(this.btnProducto);
             this.Name = "fmPrincipal";
@@ -69,5 +81,6 @@
 
         private System.Windows.Forms.Button btnProducto;
         private System.Windows.Forms.Button btnRegistro;
+        private System.Windows.Forms.Button btnCatalogo;
     }
 }

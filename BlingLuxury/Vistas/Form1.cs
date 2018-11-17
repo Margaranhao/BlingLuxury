@@ -1,5 +1,10 @@
-﻿using System;
+﻿using BlingLuxury.Connection;
+using MySql.Data.MySqlClient;
+using System;
+using System.Data;
 using System.Drawing;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows.Forms;
 
 
@@ -8,14 +13,15 @@ namespace BlingLuxury
 
     public partial class fmLogin : Form
     {
-        
-        
+        protected string sql;
+        private MySqlConnection connection;
+
         public fmLogin()
         {
             InitializeComponent();
-            
+
         }
-       
+
         private void Form1_Load(object sender, EventArgs e)
         {
             //placeholder para el campo usuario
@@ -28,7 +34,7 @@ namespace BlingLuxury
         #region Focus
         public void TextGotFocus(object sender, EventArgs e)
         {
-            if(txtUser.Text == "usuario")
+            if (txtUser.Text == "usuario")
             {
                 txtUser.Text = "";
                 txtUser.ForeColor = Color.Black;
@@ -45,7 +51,7 @@ namespace BlingLuxury
 
         public void TextLostFocus(object sender, EventArgs e)
         {
-            if(txtUser.Text == "")
+            if (txtUser.Text == "")
             {
                 txtUser.Text = "usuario";
                 txtUser.ForeColor = Color.Gray;
@@ -63,14 +69,30 @@ namespace BlingLuxury
 
         #endregion
 
-        private void btnLogin_Click(object sender, EventArgs e)
-        {            
-            fmPrincipal principal = new fmPrincipal();
-            principal.Show();
-        }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
+            sql = "SELECT nombre, nick, pass, id_nivel FROM usuario WHERE nick='" + txtUser.Text + "'AND pass='" + txtPass.Text + "';";
+            MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection()); //Realizamos una selecion de la tabla usuarios.
+            MySqlDataReader leer = cmd.ExecuteReader();
+            if (leer.Read()) //Si el usuario es correcto nos abrira la otra ventana.
+            {
+                //if ((txtUser.Text != "") && (txtPass.Text != ""))
+                //{
+                //    MessageBox.Show("Ingresa Usuario y contraseña", "CAMPOS BASIOS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //}
+                //else if ((txtUser.Text == nick) && (txtPass.Text == pass))
+                //{
+                this.Hide();
+                MessageBox.Show("Acceso Correcto", "Bienvenido");
+                fmPrincipal principal = new fmPrincipal();
+                principal.Show();
+            }
+            else //Si no lo es mostrara este mensaje.
+                MessageBox.Show("Error - Ingrese sus datos correctamente");            
+        }                        
+        private void button1_Click(object sender, EventArgs e)
+        {                                    
             fmRegistro registro = new fmRegistro();
             registro.Show();
         }
