@@ -12,6 +12,7 @@ using BlingLuxury.Clases;
 using BlingLuxury.Connection;
 using BlingLuxury.Validaciones;
 using BlingLuxury.DAO;
+using System.IO;
 
 namespace BlingLuxury
 {
@@ -41,7 +42,7 @@ namespace BlingLuxury
 
         private void rbnInventario_CheckedChanged(object sender, EventArgs e)// cambia el estado para mostrar la tabla de inventario
         {
-            if(rbnInventario.Checked == true)
+            if (rbnInventario.Checked == true)
             {
                 rbnProductos.Checked = false;
                 dgvInventario.Visible = true;
@@ -50,7 +51,7 @@ namespace BlingLuxury
         }
         private void rbnProductos_CheckedChanged(object sender, EventArgs e)// cambia el estado para mostrar la tabla de productos sin inventariar
         {
-            if(rbnProductos.Checked == true)
+            if (rbnProductos.Checked == true)
             {
                 rbnInventario.Checked = false;
                 dgvInventario.Visible = false;
@@ -64,13 +65,13 @@ namespace BlingLuxury
             txtId.Clear();
             txtModelo.Clear();
             txtMarca.Clear();
-            txtColor.Clear();            
+            txtColor.Clear();
             txtPrecio.Clear();
             txtCantidad.Clear();
             txtFecha.Clear();
             txtCategoria.Clear();
             txtCodBarras.Clear();
-            
+
         }
         #endregion
 
@@ -83,13 +84,13 @@ namespace BlingLuxury
             dt.Columns.Add("Id");
             dt.Columns.Add("Fecha");
             dt.Columns.Add("Cantidad");
-            dt.Columns.Add("Codigo de Barras");            
+            dt.Columns.Add("Codigo de Barras");
             dt.Columns.Add("Modelo");
             dt.Columns.Add("Marca");
             dt.Columns.Add("Precio");
             dt.Columns.Add("Color");
             dt.Columns.Add("Categoria");
-            
+
             dgvInventario.DataSource = dt;
             dr = dt;
 
@@ -110,7 +111,7 @@ namespace BlingLuxury
                     dt.Rows.Add(inventarioList[i].id, inventarioList[i].fecha, inventarioList[i].cantidad,
                                 inventarioList[i].id_registroProducto.codigoProducto, inventarioList[i].id_modelo.nombre,
                                 inventarioList[i].id_marca.nombre, inventarioList[i].id_precioAdquisicion.precio,
-                                inventarioList[i].id_color.nombre, inventarioList[i].id_categoria.nombre);                
+                                inventarioList[i].id_color.nombre, inventarioList[i].id_categoria.nombre);
                 }
                 return dt;
             }
@@ -134,7 +135,7 @@ namespace BlingLuxury
                 dgvInventario.Columns[5].Visible = true;
                 dgvInventario.Columns[6].Visible = true;
                 dgvInventario.Columns[7].Visible = true;
-                dgvInventario.Columns[8].Visible = true;                
+                dgvInventario.Columns[8].Visible = true;
             }
             catch
             {
@@ -143,6 +144,7 @@ namespace BlingLuxury
         }
 
         #endregion
+        
         #region Cargar Datos al dgv de Productos
 
         public DataTable listarProducto()//metodo que enlista los productos
@@ -203,7 +205,6 @@ namespace BlingLuxury
                 dgvProductos.Columns[6].Visible = true;
                 dgvProductos.Columns[7].Visible = true;
                 dgvProductos.Columns[8].Visible = true;
-                
             }
             catch
             {
@@ -219,7 +220,7 @@ namespace BlingLuxury
             txtId.Text = dgvInventario.Rows[e.RowIndex].Cells["Id"].Value.ToString();
             txtModelo.Text = dgvInventario.Rows[e.RowIndex].Cells["Modelo"].Value.ToString();
             txtMarca.Text = dgvInventario.Rows[e.RowIndex].Cells["Marca"].Value.ToString();
-            txtColor.Text = dgvInventario.Rows[e.RowIndex].Cells["Color"].Value.ToString();            
+            txtColor.Text = dgvInventario.Rows[e.RowIndex].Cells["Color"].Value.ToString();
             txtPrecio.Text = dgvInventario.Rows[e.RowIndex].Cells["Precio"].Value.ToString();
             txtCantidad.Text = dgvInventario.Rows[e.RowIndex].Cells["Cantidad"].Value.ToString();
             txtFecha.Text = dgvInventario.Rows[e.RowIndex].Cells["Fecha"].Value.ToString();
@@ -240,7 +241,6 @@ namespace BlingLuxury
             txtCategoria.Text = dgvProductos.Rows[e.RowIndex].Cells["Categoria"].Value.ToString();
             txtCodBarras.Text = dgvProductos.Rows[e.RowIndex].Cells["Codigo de Barras"].Value.ToString();
         }
-
 
         #endregion
 
@@ -293,7 +293,7 @@ namespace BlingLuxury
         #region Modificar
         private void Modificar() // Metodo que modifica la cantidad y fecha de el producto inventariado
         {
-            InventarioDAO.getInstance().Actualizar(new Clases.Inventario(DateTime.Now, Convert.ToInt32(txtCantidad.Text), new RegistroProducto()),Convert.ToInt32(txtId.Text));
+            InventarioDAO.getInstance().Actualizar(new Clases.Inventario(DateTime.Now, Convert.ToInt32(txtCantidad.Text), new RegistroProducto()), Convert.ToInt32(txtId.Text));
             MessageBox.Show("Modificacion exitosa");
             dgvInventario.DataSource = ListarInventario();
             dgvProductos.DataSource = listarProducto();
@@ -315,8 +315,17 @@ namespace BlingLuxury
             Close();
         }
 
+
         #endregion
 
-        
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloNumeros(e);
+        }
     }
 }
