@@ -42,26 +42,6 @@ namespace BlingLuxury.Clases
             this.nick = nick;
             this.pass = pass;
             this.id_nivel = id_nivel;
-        }
-        //public bool iniciarSesion(string nick, string pass)
-        //{
-        //    try
-        //    {
-        //        string sql = "SELECT id, nombre, nick, pass, id_nivel FROM usuario WHERE nick= @usuario AND pass = @password;";
-        //        Conexion.getInstance().setCadenaConnection();
-        //        MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
-        //        cmd.Parameters.AddWithValue("@usuario", nick);
-        //        cmd.Parameters.AddWithValue("@password", pass);
-        //        MySqlDataReader dr; 
-        //        dr = cmd.ExecuteReader();
-        //        dr.Read();
-        //        //return dt;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //        //return dt;
-        //    }
-        //}
+        }        
     }    
 }

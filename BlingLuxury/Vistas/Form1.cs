@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
@@ -13,9 +14,7 @@ namespace BlingLuxury
 
     public partial class fmLogin : Form
     {
-        protected string sql;
-        private MySqlConnection connection;
-
+        protected string sql;        
         public fmLogin()
         {
             InitializeComponent();
@@ -29,7 +28,7 @@ namespace BlingLuxury
             txtUser.LostFocus += new EventHandler(this.TextLostFocus);
             txtPass.GotFocus += new EventHandler(this.TextGotFocus1);
             txtPass.LostFocus += new EventHandler(this.TextLostFocus1);
-
+            CrearDirectorio();
         }
         #region Focus
         public void TextGotFocus(object sender, EventArgs e)
@@ -69,9 +68,31 @@ namespace BlingLuxury
 
         #endregion
 
-
-        private void btnLogin_Click(object sender, EventArgs e)
+        #region Crear directorio
+        private void CrearDirectorio()
         {
+            string path = @"C:\BlingPicture";
+            try
+            {
+                //determinar si el directorio existe
+                if (Directory.Exists(path))
+                {
+                    Console.WriteLine("El directorio ya existe.");
+                    return;
+                }
+                // Intenta crear el directorio
+                DirectoryInfo di = Directory.CreateDirectory(path);
+                Console.WriteLine("El directorio se ha creado satisfactoriamente", Directory.GetCreationTime(path));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("El proceso ha fallado", e.ToString());
+            }
+            finally { }
+        }
+        #endregion
+        private void btnLogin_Click(object sender, EventArgs e)
+        {            
             sql = "SELECT nombre, nick, pass, id_nivel FROM usuario WHERE nick='" + txtUser.Text + "'AND pass='" + txtPass.Text + "';";
             MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection()); //Realizamos una selecion de la tabla usuarios.
             MySqlDataReader leer = cmd.ExecuteReader();
@@ -89,14 +110,13 @@ namespace BlingLuxury
                 principal.Show();
             }
             else //Si no lo es mostrara este mensaje.
-                MessageBox.Show("Error - Ingrese sus datos correctamente");            
+                MessageBox.Show("Usuario y/o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);            
         }                        
         private void button1_Click(object sender, EventArgs e)
         {                                    
             fmRegistro registro = new fmRegistro();
             registro.Show();
         }
-
         private void btnSalir_Click_1(object sender, EventArgs e)
         {
             // Close();

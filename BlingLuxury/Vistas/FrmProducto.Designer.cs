@@ -1043,9 +1043,9 @@ namespace BlingLuxury
             this.txtId.Location = new System.Drawing.Point(162, 24);
             this.txtId.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(165, 20);
+            this.txtId.Size = new System.Drawing.Size(140, 20);
             this.txtId.TabIndex = 1;
-            this.txtId.Visible = false;
+            this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
             // 
             // lblCategoria
             // 

@@ -459,7 +459,7 @@ namespace BlingLuxury
         }
         //Para colocar los datos en una fila del datagridview en los texbox y combobox
         private void dgvProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        {            
             //txtId.Text = dgvProducto.Rows[e.RowIndex].Cells["Id"].Value.ToString();
             txtId.Text = dgvProducto.CurrentRow.Cells[0].Value.ToString();
             txtCodigoBarras.Text = dgvProducto.Rows[e.RowIndex].Cells["CodigoBarras"].Value.ToString();
@@ -496,17 +496,29 @@ namespace BlingLuxury
         {
             //int resultado;
             Insertar();
-            SaveFileDialog Guardar = new SaveFileDialog();
-            string ultimate = "SELECT last_insert_id() from producto;";           
+            DataTable dt = new DataTable();
+
+            string sql = "CREATE TEMPORARY TABLE ultimoId AS (SELECT max(id) FROM producto limit 1);"
+                         + " CREATE TEMPORARY TABLE destino (respuesta varchar(10));"
+                         + " INSERT INTO destino(select * from ultimoId);"
+                         + " select respuesta from destino; ";
             Conexion.getInstance().setCadenaConnection();
             MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
-            //resultado = cmd.ExecuteScalar();
-            Guardar.FileName = ultimate;
-            
+            MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
+            adaptador.Fill(dt);
+            string rsql;
+
+
+            rsql = dt.Rows[0]["respuesta"].ToString();
+
+            SaveFileDialog Guardar = new SaveFileDialog();
+            Guardar.Title = "Productos";
+            Guardar.FileName = rsql;
+            Guardar.InitialDirectory = "C:\\BlingPicture";
+
             Guardar.Filter = "JPEG(*.JPG)|*.JPG|GIF(*.GIF)|*.GIF|BMP(*.BMP)|*.BMP";
             Guardar.ShowDialog();
-            pbxImagen.Image.Save(Guardar.FileName);
-            MessageBox.Show("Imagen Guardada");
+            pbxImagen.Image.Save(Guardar.FileName);            
             limpiarRegistro();            
         }
         private void btnModificar_Click(object sender, EventArgs e)
@@ -640,18 +652,17 @@ namespace BlingLuxury
             //if (cbxCategoria.SelectedIndex == -1)
             //{
             //    cbxCategoria.SelectedIndex = 0;
+            //}     
+            //if (File.Exists("C:\\BlingPicture" + cbxCategoria.Text + ".jpg"))
+            //{
+            //    //Verificamos si existe la imagen que corresponda al usuario seleccionado 
+            //    pbxImagen.Image = System.Drawing.Image.FromFile("C:\\BlingPicture" + cbxCategoria.Text + ".jpg");
+            //    pbxImagen.SizeMode = PictureBoxSizeMode.Zoom;
             //}
-
-            if (File.Exists("C:\\Users\\User\\Desktop\\06\\BlingLuxury\\BlingLuxury\\Imagenes\\" + cbxCategoria.Text + ".jpg"))
-            {
-                //Verificamos si existe la imagen que corresponda al usuario seleccionado 
-                pbxImagen.Image = System.Drawing.Image.FromFile("C:\\Users\\User\\Desktop\\06\\BlingLuxury\\BlingLuxury\\Imagenes\\" + cbxCategoria.Text + ".jpg");
-                pbxImagen.SizeMode = PictureBoxSizeMode.Zoom;
-            }
-            else
-            {
-                pbxImagen.Image = System.Drawing.Image.FromFile("C:\\Users\\User\\Desktop\\06\\BlingLuxury\\BlingLuxury\\Imagenes\\default.jpg");
-            }
+            //else
+            //{
+            //pbxImagen.Image = System.Drawing.Image.FromFile("C:\\BlingPicture\\default.jpg");
+            //}       
         }
         //HASTA AQUI
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
@@ -697,7 +708,7 @@ namespace BlingLuxury
         {
             OpenFileDialog Abrir = new OpenFileDialog();
             Abrir.Filter = "Archivos JPEG(*.jpg) |*.jpg";
-            Abrir.InitialDirectory = "C:\\Users\\User\\Desktop\\06\\BlingLuxury\\BlingLuxury\\Imagenes";
+            Abrir.InitialDirectory = "C:\\BlingPicture";
             if (Abrir.ShowDialog()  == DialogResult.OK)
             {
                 string direccion = Abrir.FileName;
@@ -705,7 +716,21 @@ namespace BlingLuxury
                 pbxImagen.Image = (Image)imagen;
                 pbxImagen.SizeMode = PictureBoxSizeMode.StretchImage;
             }
-        }        
+        }
+
+        private void txtId_TextChanged(object sender, EventArgs e)
+        {
+            if (File.Exists("C:\\BlingPicture" + txtId.Text + ".jpg"))
+            {
+                //Verificamos si existe la imagen que corresponda al usuario seleccionado 
+                pbxImagen.Image = System.Drawing.Image.FromFile("C:\\BlingPicture" + txtId.Text + ".jpg");
+                pbxImagen.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            else
+            {
+                pbxImagen.Image = System.Drawing.Image.FromFile("C:\\BlingPicture\\default.jpg");
+            }
+        }
     }
 }
 #endregion

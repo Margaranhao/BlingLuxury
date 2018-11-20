@@ -120,7 +120,6 @@ namespace BlingLuxury
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(371, 23);
             this.txtNombre.TabIndex = 2;
-            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtDireccion
@@ -133,7 +132,6 @@ namespace BlingLuxury
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(453, 23);
             this.txtDireccion.TabIndex = 3;
-            this.txtDireccion.TextChanged += new System.EventHandler(this.txtDireccion_TextChanged);
             this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccion_KeyPress);
             // 
             // label3
@@ -223,7 +221,6 @@ namespace BlingLuxury
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(157, 22);
             this.txtTelefono.TabIndex = 4;
-            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label7
@@ -401,7 +398,7 @@ namespace BlingLuxury
             this.txtPass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtPass.MaxLength = 15;
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(220, 23);
+            this.txtPass.Size = new System.Drawing.Size(278, 23);
             this.txtPass.TabIndex = 9;
             // 
             // txtUsuario
@@ -412,9 +409,8 @@ namespace BlingLuxury
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtUsuario.MaxLength = 20;
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(181, 23);
+            this.txtUsuario.Size = new System.Drawing.Size(239, 23);
             this.txtUsuario.TabIndex = 8;
-            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
             // btnModificar

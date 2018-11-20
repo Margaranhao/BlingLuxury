@@ -14,6 +14,7 @@ using BlingLuxury.DAO;
 using BlingLuxury.Validaciones;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Security.Cryptography;
 
 namespace BlingLuxury
 {
@@ -22,9 +23,7 @@ namespace BlingLuxury
         #region variables
         //variables 
         int r = 1;//asignacion de rango basico a cliente nuevo        
-        protected string sql;//variable para las consultas
-        string user;//guarda en string los datos insertados en el textNombre
-        string aux;//guarda el array para mostrarlo en el textUsuario y el textPass
+        protected string sql;//variable para las consultas       
         string res;
         string last;
         char[] arregloUsuario = new char[10];
@@ -33,7 +32,6 @@ namespace BlingLuxury
         {
             InitializeComponent();
         }
-
         private void fmRegistro_Load(object sender, EventArgs e)
         {
             //muestra los items de los combobox al cargar formulario
@@ -61,8 +59,7 @@ namespace BlingLuxury
         {
             rbnClientes.Checked = true;
             rbnAdmin.Checked = false;
-        }
-                        
+        }                        
         private void LimpiarRegistro()//para limpiar los campos del formulario
         {
             txtId.Clear();
@@ -76,8 +73,7 @@ namespace BlingLuxury
             cbxEntidadFederativa.SelectedIndex = 0;
             cbxLocalidad.SelectedIndex = 0;
             cbxMunicipio.SelectedIndex = 0;
-        }
-        
+        }        
         #region recuperar de dgv
         //para colocar los datos de una fila en el datagridview de la tabla Clientes  
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -94,7 +90,6 @@ namespace BlingLuxury
             cbxMunicipio.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells["idMunicipio"].Value;
             cbxLocalidad.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells["idLocalidad"].Value;
         }
-
         // Para colocar los datos de una fila de datagridview en campos de texto
         private void dataGridView2_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -102,15 +97,13 @@ namespace BlingLuxury
             txtNombre.Text = dataGridView2.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
             txtUsuario.Text = dataGridView2.Rows[e.RowIndex].Cells["Nick"].Value.ToString();
             txtPass.Text = dataGridView2.Rows[e.RowIndex].Cells["Pass"].Value.ToString();
-            cbxNivel.SelectedValue = dataGridView2.Rows[e.RowIndex].Cells["id_nivel"].Value;
+            cbxNivel.SelectedValue = dataGridView2.Rows[e.RowIndex].Cells["id_nivel"].Value;            
         }
         #endregion
-
         #region buscar
         public static DataTable Buscar(string nombre)//para evitar nick duplicados
         {
             DataTable dt = new DataTable();
-
             try
             {
                 string sql = "SELECT id, nombre FROM usuario WHERE nick= @nombre;";
@@ -130,7 +123,6 @@ namespace BlingLuxury
         public static DataTable BuscarCliente(string nombre)//para evitar nick duplicados
         {
             DataTable dt = new DataTable();
-
             try
             {
                 string sql = "select  usuario.id, usuario.nombre, usuario.nick, usuario.pass,usuario.id_nivel, nivel.nombre,cliente.id_rango, rango.nombre,"+
@@ -152,7 +144,6 @@ namespace BlingLuxury
             }
         }
         #endregion
-
         #region busqueda para modificar
         public static DataTable BuscarConId(int id, string nombre)//para evitar nick duplicados
         {
@@ -181,7 +172,6 @@ namespace BlingLuxury
         public static DataTable BuscarClienteConId(int id, string nombre)//para evitar nick duplicados
         {
             DataTable dt = new DataTable();
-
             try
             {
                string sql = "select  usuario.id, usuario.nombre, usuario.nick, usuario.pass,usuario.id_nivel, " +
@@ -212,8 +202,6 @@ namespace BlingLuxury
         #region Usuario
         DataTable dr = new DataTable();
         DataTable dc = new DataTable();
-
-
         public DataTable ListarUsuario()// Metodo que obtiene en forma de lista 
         {
             DataTable dt = new DataTable("Usuario");
@@ -241,7 +229,6 @@ namespace BlingLuxury
                 return dt;
             }
         }
-
         public void mostrarUsuario()//Metodo que muestra el usuario
         {
             try
@@ -260,11 +247,9 @@ namespace BlingLuxury
 
             }
         }
-
         #region RegistroClientes
         public DataTable ListarRegistroCliente()// metodo para listar toda la info del cliente
         {
-
             DataTable dt = new DataTable("Registros");
             dt.Columns.Add("idUsuario");
             dt.Columns.Add("Nombre");
@@ -307,8 +292,7 @@ namespace BlingLuxury
                         registroUsuarioList[i].usuarioIdNivel.nombre, registroUsuarioList[i].usuarioRango.id, registroUsuarioList[i].usuarioRango.nombre,
                        registroUsuarioList[i].idCliente, registroUsuarioList[i].telefonoCliente, registroUsuarioList[i].calleCliente, registroUsuarioList[i].idLocalidad.id, registroUsuarioList[i].idLocalidad.nombre,
                         registroUsuarioList[i].idCp, registroUsuarioList[i].idCp.nombre, registroUsuarioList[i].idMunicipio.id, registroUsuarioList[i].idMunicipio.nombre,
-                        registroUsuarioList[i].idEntidadFederativa.id, registroUsuarioList[i].idEntidadFederativa.nombre);
-                                   
+                        registroUsuarioList[i].idEntidadFederativa.id, registroUsuarioList[i].idEntidadFederativa.nombre);                                   
                 }
                 return dt;
             }
@@ -318,7 +302,6 @@ namespace BlingLuxury
                 return dt;
             }
         }
-
         public void mostrarRegistroUsuario()//Metodo que muestra el usuario
         {
             try
@@ -354,6 +337,7 @@ namespace BlingLuxury
             }
         }
         #endregion
+        #region Codigo comentado
         /*public DataTable ListarCliente()
         {
             DataTable dt = new DataTable("Cliente");
@@ -381,19 +365,17 @@ namespace BlingLuxury
                 return dt;
             }
         }*/
-
+        #endregion
         public void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             dr.DefaultView.RowFilter = $"Nombre LIKE '%" + txtBuscar.Text + "%'";// para buscar coincidencias de el campo nombre
-            dc.DefaultView.RowFilter = $"Nombre LIKE '%" + txtBuscar.Text + "%'";
-            
+            dc.DefaultView.RowFilter = $"Nombre LIKE '%" + txtBuscar.Text + "%'";            
         }
         #endregion
 
         #region registro
         private void Insertar()//metodo para registrar usuarios
         {
-
             //registrar usuarios Administrador y vendedor
             if (Convert.ToInt32(cbxNivel.SelectedValue) == 1 || Convert.ToInt32(cbxNivel.SelectedValue) == 2)
             {
@@ -403,15 +385,14 @@ namespace BlingLuxury
 
                     if (df.Rows.Count == 0)//si no hay resultados realiza la insercion
                     {
-                        UsuarioDAO.getInstance().Insertar(new Usuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))));
+                        UsuarioDAO.getInstance().Insertar(new Usuario(txtNombre.Text, txtUsuario.Text, SeguridadDAO.getInstance().Encriptar(txtPass.Text), new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))));
                         MessageBox.Show("Usuario registrado");
                         dataGridView2.DataSource = ListarUsuario();//actualiza el datagridview                    
                     }
                     if (df.Rows.Count >= 1)
                     {
                         MessageBox.Show("Ya existe un Usuario con ese nombre. Intente otro");
-                    }
-                    
+                    }                    
                 }
                 else
                 {
@@ -432,7 +413,7 @@ namespace BlingLuxury
                     DataTable df = Buscar(txtUsuario.Text);//envia a buscar el usuario
                     if (df.Rows.Count == 0)//si no hay resultados realiza la insercion
                     {
-                        UsuarioDAO.getInstance().Insertar(new Usuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))));
+                        UsuarioDAO.getInstance().Insertar(new Usuario(txtNombre.Text, txtUsuario.Text, SeguridadDAO.getInstance().Encriptar(txtPass.Text), new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))));
                         {
                             ClienteDAO.getInstance().Insertar(new Cliente(txtTelefono.Text, txtDireccion.Text, new Localidad(Convert.ToInt32(cbxLocalidad.SelectedValue)), new Rango(r), new Municipio(Convert.ToInt32(cbxMunicipio.SelectedValue)), new Usuario()));
                             MessageBox.Show("Usuario registrado");
@@ -683,7 +664,7 @@ namespace BlingLuxury
 
                     if (df.Rows.Count == 0)//si no hay resultados realiza la insercion
                     {
-                        UsuarioDAO.getInstance().Actualizar(new Usuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))), Convert.ToInt32(txtId.Text));
+                        UsuarioDAO.getInstance().Actualizar(new Usuario(txtNombre.Text, txtUsuario.Text, SeguridadDAO.getInstance().Encriptar(txtPass.Text), new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))), Convert.ToInt32(txtId.Text));
                         MessageBox.Show("Usuario modificado exitosamente");
                         dataGridView2.DataSource = ListarUsuario();//actualiza el datagridview                    
                     }
@@ -696,8 +677,7 @@ namespace BlingLuxury
                 {
                     MessageBox.Show("Falta agregar datos");
                 }
-            }       
-    
+            }           
             // registrar usuarios cliente
             if (Convert.ToInt32(cbxNivel.SelectedValue) == 3)
             {
@@ -712,7 +692,7 @@ namespace BlingLuxury
                     DataTable df = BuscarConId(Convert.ToInt32(txtId.Text),txtUsuario.Text);//envia a buscar el usuario
                     if (df.Rows.Count == 0)//si no hay resultados realiza la insercion
                     {                        
-                        UsuarioDAO.getInstance().Actualizar(new Usuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))), Convert.ToInt32(txtId.Text));
+                        UsuarioDAO.getInstance().Actualizar(new Usuario(txtNombre.Text, txtUsuario.Text, SeguridadDAO.getInstance().Encriptar(txtPass.Text), new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))), Convert.ToInt32(txtId.Text));
                         {
                             ClienteDAO.getInstance().Actualizar(new Cliente(txtTelefono.Text, txtDireccion.Text, new Localidad(Convert.ToInt32(cbxLocalidad.SelectedValue)), new Rango(r), new Municipio(Convert.ToInt32(cbxMunicipio.SelectedValue)), new Usuario()), Convert.ToInt32(txtIdCliente.Text));
                             MessageBox.Show("Usuario modificado exitosamente");
@@ -746,7 +726,7 @@ namespace BlingLuxury
             modificar();
         }
         private void btnUsuario_Click(object sender, EventArgs e)//genera el usuario automaticamente con el campo de nombre
-        {
+        {            
             guardarCaracteres();
             if (string.IsNullOrEmpty(txtNombre.Text))
             {
@@ -776,7 +756,6 @@ namespace BlingLuxury
         {
             Validar.SoloNumeros(e);
         }
-
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)//metodo para validar solo letras 
         {
             Validar.SoloLetras(e);
@@ -787,42 +766,18 @@ namespace BlingLuxury
         public void guardarCaracteres() {
            res= txtNombre.Text.Split(' ').First();
             last = txtNombre.Text.Split(' ').Last();
-
-        }
-
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTelefono_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDireccion_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        }       
         private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
         {
             txtDireccion.Text = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtDireccion.Text);
             txtDireccion.SelectionStart = txtDireccion.Text.Length;
         }
-
         private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.SinEspacios(e);
             txtUsuario.Text = txtUsuario.Text.Trim();
-        }
-
-        private void txtUsuario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        }        
         #endregion              
-
         private void rbnClientes_CheckedChanged(object sender, EventArgs e)//cambia el estado para mostrar la tabla de clientes
         {
             if (rbnClientes.Checked == true)
@@ -830,10 +785,8 @@ namespace BlingLuxury
                 rbnAdmin.Checked = false;
                 dataGridView1.Visible = true;
                 dataGridView2.Visible = false;
-            }
-           
+            }           
         }
-
         private void rbnAdmin_CheckedChanged(object sender, EventArgs e)//cambia el estado para mostrar la tabla de administradores
         {
             if (rbnAdmin.Checked == true)
@@ -843,7 +796,6 @@ namespace BlingLuxury
                 dataGridView1.Visible = false;
             }
         }
-
         public string CrearUsuario(int longitud)//random para crear usuario y password
         {
             string caracteres = "abcdefghijklmnopqrstuvwxyz0123456789?!";
@@ -866,13 +818,11 @@ namespace BlingLuxury
             }
             return res.ToString();
         }
-
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Solo aceptara letras
             Validar.SoloLetras(e);
         }
-
         private void btnRestaurar_Click(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Normal)
@@ -886,7 +836,6 @@ namespace BlingLuxury
                 WindowState = FormWindowState.Normal;
             }
         }
-
         private void btnMin_Click(object sender, EventArgs e)
         {
             //Minimizar

@@ -22,5 +22,15 @@ namespace BlingLuxury.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://atc.mx/WebService/Aplicacion de escritorio/seguridad/seguridad.php")]
+        public string BlingLuxury_mx_atc_criptografiaService {
+            get {
+                return ((string)(this["BlingLuxury_mx_atc_criptografiaService"]));
+            }
+        }
     }
 }

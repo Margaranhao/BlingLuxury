@@ -88,7 +88,7 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.txtUser);
             this.flowLayoutPanel1.Controls.Add(this.txtPass);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(126, 167);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(114, 167);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(149, 91);
             this.flowLayoutPanel1.TabIndex = 3;
@@ -99,7 +99,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(58, 186);
+            this.label1.Location = new System.Drawing.Point(46, 186);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 16);
             this.label1.TabIndex = 5;
@@ -169,7 +169,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(44, 235);
+            this.label2.Location = new System.Drawing.Point(32, 235);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 16);
             this.label2.TabIndex = 6;

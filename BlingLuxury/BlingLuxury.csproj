@@ -58,6 +58,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -128,9 +130,11 @@
     <Compile Include="DAO\RegistroUsuarioDAO.cs" />
     <Compile Include="DAO\RegistroProductoDAO.cs" />
     <Compile Include="DAO\RetiroDAO.cs" />
+    <Compile Include="DAO\SeguridadDAO.cs" />
     <Compile Include="DAO\TipoEnvioDAO.cs" />
     <Compile Include="DAO\TipoLocalidadDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="Validaciones\Seguridad.cs" />
     <Compile Include="Validaciones\Validar.cs" />
     <Compile Include="Vistas\fmPrincipal.cs">
       <SubType>Form</SubType>
@@ -206,6 +210,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web References\mx.atc\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Vistas\fmPrincipal.resx">
       <DependentUpon>fmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -256,6 +265,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Web References\mx.atc\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\mx.atc\seguridad.wsdl" />
     <None Include="Zahar.SqlClient.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -288,6 +302,25 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Imagenes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://atc.mx/WebService/Aplicacion%2520de%2520escritorio/seguridad/seguridad.php%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\mx.atc\</RelPath>
+      <UpdateFromURL>http://atc.mx/WebService/Aplicacion%2520de%2520escritorio/seguridad/seguridad.php%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>BlingLuxury_mx_atc_criptografiaService</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
