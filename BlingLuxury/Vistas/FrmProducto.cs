@@ -209,7 +209,7 @@ namespace BlingLuxury
             }
         }
 
-        #endregion Precios
+        #endregion        
         #region Producto
         DataTable dr = new DataTable();
         public DataTable listarRegistroProducto() //Metodo que obtiene en forma de lista
@@ -232,7 +232,6 @@ namespace BlingLuxury
 
             dgvProducto.DataSource = dt;
             //dr = dt;
-
             try
             {
                 sql = "select producto.id, producto.codigo_de_barras, producto.peso, producto.descripcion, producto.id_modelo, modelo.nombre, modelo.id_marca, marca.nombre, ";
@@ -283,6 +282,7 @@ namespace BlingLuxury
                 //dgvProducto.Columns[11].Visible = true; //Color
                 dgvProducto.Columns[12].Visible = false; // CategoriaId
                 //dgvProducto.Columns[13].Visible = true; //Categoria 
+                
                 #endregion
             }
             catch
@@ -443,7 +443,8 @@ namespace BlingLuxury
             mostrarCategoria();
             mostrarColor();
             mostrarModelo();
-            mostrarPrecio();         
+            mostrarPrecio();
+                                           
         }
         private void limpiarRegistro()
         {
@@ -455,11 +456,11 @@ namespace BlingLuxury
             cbxCategoria.SelectedIndex = 0;
             cbxColor.SelectedIndex = 0;
             cbxModelo.SelectedIndex = 0;
-            cbxMarca.SelectedIndex = 0;
+            cbxMarca.SelectedIndex = 0;                       
         }
         //Para colocar los datos en una fila del datagridview en los texbox y combobox
         private void dgvProducto_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {            
+        {                
             //txtId.Text = dgvProducto.Rows[e.RowIndex].Cells["Id"].Value.ToString();
             txtId.Text = dgvProducto.CurrentRow.Cells[0].Value.ToString();
             txtCodigoBarras.Text = dgvProducto.Rows[e.RowIndex].Cells["CodigoBarras"].Value.ToString();
@@ -475,7 +476,7 @@ namespace BlingLuxury
             //cbxColor.SelectedValue = dgvProducto.Rows[e.RowIndex].Cells["Color"].Value;
             cbxCategoria.SelectedValue = dgvProducto.Rows[e.RowIndex].Cells["Categoria Id"].Value;
             //cbxCategoria.SelectedValue = dgvProducto.Rows[e.RowIndex].Cells["Categoria"].Value; 
-
+            MostrarImagen();
             id = Convert.ToInt32(txtId.Text);
         }
         #endregion        
@@ -661,8 +662,8 @@ namespace BlingLuxury
             //}
             //else
             //{
-            //pbxImagen.Image = System.Drawing.Image.FromFile("C:\\BlingPicture\\default.jpg");
-            //}       
+            //    pbxImagen.Image = System.Drawing.Image.FromFile("C:\\BlingPicture\\default.jpg");
+            //}
         }
         //HASTA AQUI
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
@@ -699,11 +700,7 @@ namespace BlingLuxury
         public void realizar3(string marca)
         {
             cbxMarca.Text = marca;
-        }
-        //private void mostrarImagen() //Metodo para mostrar la imagen del producto  
-        //{
-
-        //}      
+        }            
         private void btnCargarImagen_Click(object sender, EventArgs e)
         {
             OpenFileDialog Abrir = new OpenFileDialog();
@@ -720,17 +717,21 @@ namespace BlingLuxury
 
         private void txtId_TextChanged(object sender, EventArgs e)
         {
-            if (File.Exists("C:\\BlingPicture" + txtId.Text + ".jpg"))
+            MostrarImagen();
+        }       
+        private void MostrarImagen()
+        {
+            if (File.Exists("C:\\BlingPicture\\" + txtId.Text + ".jpg"))
             {
                 //Verificamos si existe la imagen que corresponda al usuario seleccionado 
-                pbxImagen.Image = System.Drawing.Image.FromFile("C:\\BlingPicture" + txtId.Text + ".jpg");
+                pbxImagen.Image = Image.FromFile("C:\\BlingPicture\\" + txtId.Text + ".jpg");
                 pbxImagen.SizeMode = PictureBoxSizeMode.Zoom;
             }
             else
             {
-                pbxImagen.Image = System.Drawing.Image.FromFile("C:\\BlingPicture\\default.jpg");
+                //pbxImagen.Image = System.Drawing.Image.FromFile("C:\\BlingPicture\default.jpg");
             }
-        }
+        }       
     }
 }
 #endregion

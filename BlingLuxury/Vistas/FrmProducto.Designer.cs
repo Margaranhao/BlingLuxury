@@ -870,7 +870,6 @@ namespace BlingLuxury
             // pbxImagen
             // 
             this.pbxImagen.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbxImagen.Image = ((System.Drawing.Image)(resources.GetObject("pbxImagen.Image")));
             this.pbxImagen.Location = new System.Drawing.Point(394, 26);
             this.pbxImagen.Margin = new System.Windows.Forms.Padding(8, 30, 8, 30);
             this.pbxImagen.Name = "pbxImagen";
@@ -1040,11 +1039,12 @@ namespace BlingLuxury
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(162, 24);
+            this.txtId.Location = new System.Drawing.Point(162, 27);
             this.txtId.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(140, 20);
             this.txtId.TabIndex = 1;
+            this.txtId.Visible = false;
             this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
             // 
             // lblCategoria
