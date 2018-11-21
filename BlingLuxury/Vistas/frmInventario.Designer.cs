@@ -38,8 +38,6 @@
             this.lbl = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn = new System.Windows.Forms.Button();
-            this.btnCargar = new System.Windows.Forms.Button();
             this.txtFecha = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.pbxImagen = new System.Windows.Forms.PictureBox();
@@ -69,7 +67,6 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.rbnProductos = new System.Windows.Forms.RadioButton();
             this.rbnInventario = new System.Windows.Forms.RadioButton();
-            this.txtInsert = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
@@ -103,8 +100,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btn);
-            this.groupBox1.Controls.Add(this.btnCargar);
             this.groupBox1.Controls.Add(this.txtFecha);
             this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Controls.Add(this.pbxImagen);
@@ -129,26 +124,6 @@
             this.groupBox1.Size = new System.Drawing.Size(618, 239);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            // 
-            // btn
-            // 
-            this.btn.Location = new System.Drawing.Point(149, 212);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(75, 23);
-            this.btn.TabIndex = 26;
-            this.btn.Text = "button1";
-            this.btn.UseVisualStyleBackColor = true;
-            this.btn.Click += new System.EventHandler(this.btn_Click);
-            // 
-            // btnCargar
-            // 
-            this.btnCargar.Location = new System.Drawing.Point(313, 212);
-            this.btnCargar.Name = "btnCargar";
-            this.btnCargar.Size = new System.Drawing.Size(75, 23);
-            this.btnCargar.TabIndex = 25;
-            this.btnCargar.Text = "cargar";
-            this.btnCargar.UseVisualStyleBackColor = true;
-            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
             // txtFecha
             // 
@@ -566,20 +541,12 @@
             this.rbnInventario.UseVisualStyleBackColor = true;
             this.rbnInventario.CheckedChanged += new System.EventHandler(this.rbnInventario_CheckedChanged);
             // 
-            // txtInsert
-            // 
-            this.txtInsert.Location = new System.Drawing.Point(12, 322);
-            this.txtInsert.Name = "txtInsert";
-            this.txtInsert.Size = new System.Drawing.Size(100, 20);
-            this.txtInsert.TabIndex = 28;
-            // 
             // frmInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
             this.ClientSize = new System.Drawing.Size(789, 614);
-            this.Controls.Add(this.txtInsert);
             this.Controls.Add(this.rbnProductos);
             this.Controls.Add(this.rbnInventario);
             this.Controls.Add(this.flowLayoutPanel2);
@@ -643,8 +610,5 @@
         private System.Windows.Forms.RadioButton rbnProductos;
         private System.Windows.Forms.RadioButton rbnInventario;
         private System.Windows.Forms.TextBox txtFecha;
-        private System.Windows.Forms.Button btnCargar;
-        private System.Windows.Forms.Button btn;
-        private System.Windows.Forms.TextBox txtInsert;
     }
 }
