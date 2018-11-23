@@ -31,6 +31,7 @@
             this.btnProducto = new System.Windows.Forms.Button();
             this.btnRegistro = new System.Windows.Forms.Button();
             this.btnCatalogo = new System.Windows.Forms.Button();
+            this.btnInventario = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnProducto
@@ -54,7 +55,7 @@
             // 
             // btnCatalogo
             // 
-            this.btnCatalogo.Location = new System.Drawing.Point(23, 106);
+            this.btnCatalogo.Location = new System.Drawing.Point(23, 138);
             this.btnCatalogo.Name = "btnCatalogo";
             this.btnCatalogo.Size = new System.Drawing.Size(75, 23);
             this.btnCatalogo.TabIndex = 2;
@@ -62,12 +63,23 @@
             this.btnCatalogo.UseVisualStyleBackColor = true;
             this.btnCatalogo.Click += new System.EventHandler(this.btnCatalogo_Click);
             // 
+            // btnInventario
+            // 
+            this.btnInventario.Location = new System.Drawing.Point(23, 103);
+            this.btnInventario.Name = "btnInventario";
+            this.btnInventario.Size = new System.Drawing.Size(75, 23);
+            this.btnInventario.TabIndex = 2;
+            this.btnInventario.Text = "Inventario";
+            this.btnInventario.UseVisualStyleBackColor = true;
+            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
+            // 
             // fmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(440, 388);
             this.Controls.Add(this.btnCatalogo);
+            this.Controls.Add(this.btnInventario);
             this.Controls.Add(this.btnRegistro);
             this.Controls.Add(this.btnProducto);
             this.Name = "fmPrincipal";
@@ -82,5 +94,6 @@
         private System.Windows.Forms.Button btnProducto;
         private System.Windows.Forms.Button btnRegistro;
         private System.Windows.Forms.Button btnCatalogo;
+        private System.Windows.Forms.Button btnInventario;
     }
 }

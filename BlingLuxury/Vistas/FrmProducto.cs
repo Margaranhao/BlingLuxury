@@ -64,6 +64,9 @@ namespace BlingLuxury
             {
                 ProductoDAO.getInstance().Insertar(new Producto(Convert.ToString(txtCodigoBarras.Text), Convert.ToDouble(txtPeso.Text), txtDescripcion.Text, new Modelo(Convert.ToInt32(cbxModelo.SelectedValue), new Marca(Convert.ToInt32(cbxMarca.SelectedValue))), new PrecioAdquisicion(Convert.ToInt32(cbxPrecio.SelectedValue)), new Clases.Color(Convert.ToInt32(cbxColor.SelectedValue)), new Categoria(Convert.ToInt32(cbxCategoria.SelectedValue))));
                 MessageBox.Show("Producto agrego correctamente", "Producto Agregado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+               // ProductoDAO.getInstance().Insertar(new Producto(Convert.ToString(txtCodigoBarras.Text), Convert.ToDouble(txtPeso.Text), new Modelo(Convert.ToInt32(cbxModelo.SelectedValue), new Marca(Convert.ToInt32(cbxMarca.SelectedValue))), new PrecioAdquisicion(Convert.ToInt32(cbxPrecios.SelectedValue)), new Clases.Color(Convert.ToInt32(cbxColor.SelectedValue)), new Categoria(Convert.ToInt32(cbxCategoria.SelectedValue))));
+                InventarioDAO.getInstance().Insertar(new Clases.Inventario(0, new RegistroProducto()));//te la inserto el wicho
+                MessageBox.Show("Producto agregado correctamente", "Producto Agregado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);//corregi una parte del texto att wicho
                 mostrarRegistroProducto();
             }
             catch (Exception ex)

@@ -92,5 +92,58 @@ namespace BlingLuxury.DAO
                 throw new Exception(ex.Message);
             }
         }
+        public List<RegistroProducto> Listar2(string query)
+        {
+            List<RegistroProducto> registroproductoLista = new List<RegistroProducto>();
+            try
+            {
+                Conexion.getInstance().setCadenaConnection();
+                using (MySqlCommand cmd = new MySqlCommand(query, Conexion.getInstance().getConnection()))
+                {
+                    MySqlDataReader reader;
+                    cmd.Prepare();
+                    cmd.CommandTimeout = 60;
+                    using (reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                int idProducto = reader.GetInt32(0);
+                                string codigoProducto = reader.GetString(1);
+                                double pesoProducto = reader.GetDouble(2);
+                                string descripcionProducto = reader.GetString(3);
+                                Modelo productoIdModelo = new Modelo(reader.GetString(4));
+                                Marca modeloIdMarca = new Marca(reader.GetString(5));
+                                PrecioAdquisicion productoIdPrecio_adquisicion = new PrecioAdquisicion(reader.GetDouble(6));
+                                Color productoIdColor = new Color(reader.GetString(7));
+                                Categoria productoIdCategoria = new Categoria(reader.GetString(8));
+
+                                //registroproductoLista.Add(new RegistroProducto(idProducto, codigoProducto, pesoProducto, productoIdModelo, modeloIdMarca,
+                                //                          productoIdPrecio_adquisicion, productoIdColor, productoIdCategoria));
+
+                                registroproductoLista.Add(new RegistroProducto(idProducto, codigoProducto, pesoProducto, descripcionProducto, productoIdModelo, modeloIdMarca,
+                                                          productoIdPrecio_adquisicion, productoIdColor, productoIdCategoria));
+
+                            }
+                            Conexion.getInstance().Desconectar();
+                            reader.Close();
+                            return registroproductoLista;
+
+                        }
+                        else
+                        {
+                            Conexion.getInstance().Desconectar();
+                            reader.Close();
+                            return registroproductoLista;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
