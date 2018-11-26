@@ -23,6 +23,8 @@ namespace BlingLuxury
         protected string sql; //variable para las consultas
 
         #endregion
+
+        #region eventos del formulario
         public frmInventario()
         {
             InitializeComponent();
@@ -32,6 +34,7 @@ namespace BlingLuxury
         {
             mostrarInvenario();
             mostrarRegistroProducto();
+            MostrarImagen();
         }
         #region radiobuttons
         private void frmInventario_Shown(object sender, EventArgs e)// coloca en automatico activo el radiobutton de inventario
@@ -59,6 +62,8 @@ namespace BlingLuxury
             }
         }
         #endregion
+        #endregion
+
         #region Limpiar registro
         private void LimpiarInventario()// para limpiar los campos del formulario
         {
@@ -71,6 +76,7 @@ namespace BlingLuxury
             txtFecha.Clear();
             txtCategoria.Clear();
             txtCodBarras.Clear();
+            pbxImagen.Image = System.Drawing.Image.FromFile("C:\\BlingPicture\\default.png");
 
         }
         #endregion
@@ -136,6 +142,9 @@ namespace BlingLuxury
                 dgvInventario.Columns[6].Visible = true;
                 dgvInventario.Columns[7].Visible = true;
                 dgvInventario.Columns[8].Visible = true;
+
+                
+
             }
             catch
             {
@@ -143,8 +152,25 @@ namespace BlingLuxury
             }
         }
 
+        private void dgvInventario_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Remarca en color verde las columnas donde se encuentran gran cantidad de productos disponibles
+            if (this.dgvInventario.Columns[e.ColumnIndex].Name == "Cantidad")
+            {
+                if (Convert.ToInt32(e.Value) <= 10)
+                {
+                    //e.CellStyle.ForeColor = System.Drawing.Color.Red;
+                    e.CellStyle.BackColor = System.Drawing.Color.Orange;
+                }
+                if (Convert.ToInt32(e.Value) > 10)
+                {
+                    e.CellStyle.BackColor = System.Drawing.Color.Green;
+                }
+            }
+        }
+
         #endregion
-        
+
         #region Cargar Datos al dgv de Productos
 
         public DataTable listarProducto()//metodo que enlista los productos
@@ -212,6 +238,19 @@ namespace BlingLuxury
             }
         }
 
+        private void dgvProductos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Marca en color rojo las columnas donde ya no hay productos inventariados
+            if (this.dgvProductos.Columns[e.ColumnIndex].Name == "Cantidad")
+            {
+                if (Convert.ToInt32(e.Value) == 0)
+                {
+                    e.CellStyle.BackColor = System.Drawing.Color.Red;
+                }
+            }
+
+        }
+
         #endregion
 
         #region Cargar datos del dgvInventario al frm
@@ -226,8 +265,10 @@ namespace BlingLuxury
             txtFecha.Text = dgvInventario.Rows[e.RowIndex].Cells["Fecha"].Value.ToString();
             txtCategoria.Text = dgvInventario.Rows[e.RowIndex].Cells["Categoria"].Value.ToString();
             txtCodBarras.Text = dgvInventario.Rows[e.RowIndex].Cells["Codigo de Barras"].Value.ToString();
+            MostrarImagen();
         }
         #endregion
+
         #region Cargar datos del dgvProductos al frm
         private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -240,6 +281,7 @@ namespace BlingLuxury
             txtFecha.Text = dgvProductos.Rows[e.RowIndex].Cells["Fecha"].Value.ToString();
             txtCategoria.Text = dgvProductos.Rows[e.RowIndex].Cells["Categoria"].Value.ToString();
             txtCodBarras.Text = dgvProductos.Rows[e.RowIndex].Cells["Codigo de Barras"].Value.ToString();
+            MostrarImagen();
         }
 
         #endregion
@@ -290,14 +332,18 @@ namespace BlingLuxury
         }
 
         #endregion
+
         #region Modificar
         private void Modificar() // Metodo que modifica la cantidad y fecha de el producto inventariado
         {
-            InventarioDAO.getInstance().Actualizar(new Clases.Inventario(DateTime.Now, Convert.ToInt32(txtCantidad.Text), new RegistroProducto()), Convert.ToInt32(txtId.Text));
-            MessageBox.Show("Modificacion exitosa");
-            dgvInventario.DataSource = ListarInventario();
-            dgvProductos.DataSource = listarProducto();
-            LimpiarInventario();
+            if (txtCantidad.Text.Length > 0)
+            {
+                InventarioDAO.getInstance().Actualizar(new Clases.Inventario(DateTime.Now, Convert.ToInt32(txtCantidad.Text), new RegistroProducto()), Convert.ToInt32(txtId.Text));
+                MessageBox.Show("Productos agregados");
+                dgvInventario.DataSource = ListarInventario();
+                dgvProductos.DataSource = listarProducto();
+                LimpiarInventario();
+            }
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -305,6 +351,7 @@ namespace BlingLuxury
         }
 
         #endregion
+
         #region botones
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
@@ -318,6 +365,7 @@ namespace BlingLuxury
 
         #endregion
 
+        #region TextBox
         private void txtCantidad_TextChanged(object sender, EventArgs e)
         {
 
@@ -327,5 +375,29 @@ namespace BlingLuxury
         {
             Validar.SoloNumeros(e);
         }
+
+        #endregion
+
+        #region Imagen
+
+        private void MostrarImagen()
+        {
+            if (File.Exists("C:\\BlingPicture\\" + txtId.Text + ".jpg"))
+            {
+                //Verificamos si existe la imagen que corresponda al usuario seleccionado 
+                pbxImagen.Image = Image.FromFile("C:\\BlingPicture\\" + txtId.Text + ".jpg");
+                pbxImagen.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            else
+            {
+                pbxImagen.Image = System.Drawing.Image.FromFile("C:\\BlingPicture\\default.png");
+            }
+        }
+
+        #endregion
+
+        
+
+       
     }
 }

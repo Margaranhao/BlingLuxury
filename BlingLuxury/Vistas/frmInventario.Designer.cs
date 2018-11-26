@@ -148,9 +148,9 @@
             // 
             // pbxImagen
             // 
-            this.pbxImagen.Location = new System.Drawing.Point(328, 15);
+            this.pbxImagen.Location = new System.Drawing.Point(305, 15);
             this.pbxImagen.Name = "pbxImagen";
-            this.pbxImagen.Size = new System.Drawing.Size(283, 134);
+            this.pbxImagen.Size = new System.Drawing.Size(306, 148);
             this.pbxImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxImagen.TabIndex = 21;
             this.pbxImagen.TabStop = false;
@@ -161,7 +161,7 @@
             this.txtCantidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
             this.txtCantidad.Location = new System.Drawing.Point(84, 131);
             this.txtCantidad.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtCantidad.MaxLength = 50;
+            this.txtCantidad.MaxLength = 5;
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(155, 23);
             this.txtCantidad.TabIndex = 20;
@@ -196,7 +196,7 @@
             // 
             this.txtCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.txtCategoria.Location = new System.Drawing.Point(397, 160);
+            this.txtCategoria.Location = new System.Drawing.Point(396, 186);
             this.txtCategoria.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtCategoria.MaxLength = 50;
             this.txtCategoria.Name = "txtCategoria";
@@ -209,7 +209,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
-            this.label7.Location = new System.Drawing.Point(303, 162);
+            this.label7.Location = new System.Drawing.Point(302, 188);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 18);
@@ -268,7 +268,7 @@
             // 
             this.txtCodBarras.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodBarras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
-            this.txtCodBarras.Location = new System.Drawing.Point(456, 189);
+            this.txtCodBarras.Location = new System.Drawing.Point(455, 215);
             this.txtCodBarras.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtCodBarras.MaxLength = 50;
             this.txtCodBarras.Name = "txtCodBarras";
@@ -281,7 +281,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
-            this.label4.Location = new System.Drawing.Point(303, 190);
+            this.label4.Location = new System.Drawing.Point(302, 216);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(145, 18);
@@ -367,6 +367,7 @@
             this.dgvInventario.Size = new System.Drawing.Size(643, 253);
             this.dgvInventario.TabIndex = 21;
             this.dgvInventario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventario_CellClick);
+            this.dgvInventario.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvInventario_CellFormatting);
             // 
             // label10
             // 
@@ -421,6 +422,7 @@
             this.dgvProductos.Size = new System.Drawing.Size(643, 253);
             this.dgvProductos.TabIndex = 24;
             this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
+            this.dgvProductos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProductos_CellFormatting);
             // 
             // flowLayoutPanel2
             // 
