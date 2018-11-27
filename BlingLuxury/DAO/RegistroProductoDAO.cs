@@ -109,20 +109,20 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())
                             {
-                                int idProducto = reader.GetInt32(0);
-                                string codigoProducto = reader.GetString(1);
-                                double pesoProducto = reader.GetDouble(2);
-                                string descripcionProducto = reader.GetString(3);
-                                Modelo productoIdModelo = new Modelo(reader.GetString(4));
-                                Marca modeloIdMarca = new Marca(reader.GetString(5));
-                                PrecioAdquisicion productoIdPrecio_adquisicion = new PrecioAdquisicion(reader.GetDouble(6));
-                                Color productoIdColor = new Color(reader.GetString(7));
-                                Categoria productoIdCategoria = new Categoria(reader.GetString(8));
+                                //string codigoProducto = reader.GetString(1);
+                                //double pesoProducto = reader.GetDouble(2);
+                                int idProducto = reader.GetInt32(0);                                
+                                string descripcionProducto = reader.GetString(1);
+                                Modelo productoIdModelo = new Modelo(reader.GetString(2));
+                                Marca modeloIdMarca = new Marca(reader.GetString(3));
+                                PrecioAdquisicion productoIdPrecio_adquisicion = new PrecioAdquisicion(reader.GetDouble(4));
+                                Color productoIdColor = new Color(reader.GetString(5));
+                                Categoria productoIdCategoria = new Categoria(reader.GetString(6));
 
                                 //registroproductoLista.Add(new RegistroProducto(idProducto, codigoProducto, pesoProducto, productoIdModelo, modeloIdMarca,
                                 //                          productoIdPrecio_adquisicion, productoIdColor, productoIdCategoria));
 
-                                registroproductoLista.Add(new RegistroProducto(idProducto, codigoProducto, pesoProducto, descripcionProducto, productoIdModelo, modeloIdMarca,
+                                registroproductoLista.Add(new RegistroProducto(idProducto, descripcionProducto, productoIdModelo, modeloIdMarca,
                                                           productoIdPrecio_adquisicion, productoIdColor, productoIdCategoria));
 
                             }

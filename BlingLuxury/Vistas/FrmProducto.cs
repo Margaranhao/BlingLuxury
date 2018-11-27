@@ -732,7 +732,7 @@ namespace BlingLuxury
             }
             else
             {
-                //pbxImagen.Image = System.Drawing.Image.FromFile("C:\\BlingPicture\default.jpg");
+                pbxImagen.Image = System.Drawing.Image.FromFile("C:\\BlingPicture\\Default.png");
             }
         }       
     }
