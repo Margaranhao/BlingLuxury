@@ -28,10 +28,10 @@ namespace BlingLuxury.DAO
         public void Actualizar(Producto t, int id) //Actualizar se recibe en la clase a actualizar y el indice de busqueda
         {
             try
-            {                
+            {
                 //modifique esta parte codigo_de_barras = '" + t.codigoDeBarras + "' y el where le agrege lo del codigo y movi precio
                 sql = "UPDATE producto SET peso = '" + t.peso + "', descripcion = '" + t.descripcion + "', id_modelo = '" + t.id_modelo.id + "', id_precio_adquisicion = '" + t.id_precio_adquisicion.precio + "', id_color = '" + t.id_color.id + "', id_categoria = '" + t.id_categoria.id + "' WHERE id > 0 AND codigo_de_barras > 0 AND id = '" + id + "';";
-
+                //sql = "UPDATE producto SET peso = '" + t.peso + "', descripcion = '" + t.descripcion + "', id_modelo = '" + t.id_modelo.id + "', precio = '" + t.id_precio_adquisicion.precio + "', id_color = '" + t.id_color.id + "', id_categoria = '" + t.id_categoria.id + "' WHERE id > 0 AND codigo_de_barras > 0 AND id = '" + id + "';";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
@@ -94,9 +94,9 @@ namespace BlingLuxury.DAO
         {
             try
             {
-                //sql = "INSERT INTO producto(codigo_de_barras, peso, id_modelo, id_precio_adquisicion, id_color, id_categoria) VALUES ('" + t.codigoDeBarras + "','" + t.peso + "''" + t.id_modelo.id + "','" + t.id_precio_adquisicion.id + "', '" + t.id_color.id + "', '" + t.id_categoria.id + "');";
+                //sql = "INSERT INTO producto(codigo_de_barras, peso, descripcion, id_modelo, precio, id_color, id_categoria) VALUES ('" + t.codigoDeBarras + "','" + t.peso + "','" + t.descripcion + "','" + t.id_modelo.id + "','" + t.id_precio_adquisicion.precio + "','" + t.id_color.id + "','" + t.id_categoria.id + "');";
 
-                sql = "INSERT INTO producto(codigo_de_barras, peso, descripcion, id_modelo, id_precio_adquisicion, id_color, id_categoria) VALUES ('" + t.codigoDeBarras + "','" + t.peso + "','" + t.descripcion + "','" + t.id_modelo.id + "','" + t.id_precio_adquisicion.precio + "','" + t.id_color.id + "','" + t.id_categoria.id + "');";
+                 sql = "INSERT INTO producto(codigo_de_barras, peso, descripcion, id_modelo, id_precio_adquisicion, id_color, id_categoria) VALUES ('" + t.codigoDeBarras + "','" + t.peso + "','" + t.descripcion + "','" + t.id_modelo.id + "','" + t.id_precio_adquisicion.precio + "','" + t.id_color.id + "','" + t.id_categoria.id + "');";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();

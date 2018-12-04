@@ -145,5 +145,44 @@ namespace BlingLuxury.DAO
                 throw new Exception(ex.Message);
             }
         }
+        public List<TipoLocalidad> Listar2(string query)
+        {
+            List<TipoLocalidad> tipoLocalidadLista = new List<TipoLocalidad>();
+            try
+            {
+                Conexion.getInstance().setCadenaConnection();
+                using (MySqlCommand cmd = new MySqlCommand(query, Conexion.getInstance().getConnection()))
+                {
+                    MySqlDataReader reader;
+                    cmd.Prepare();
+                    cmd.CommandTimeout = 60;
+                    using (reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                int id = reader.GetInt32(0);
+                                string nombre = reader.GetString(1);
+                                tipoLocalidadLista.Add(new TipoLocalidad(id, nombre));
+                            }
+                            Conexion.getInstance().Desconectar();
+                            reader.Close();
+                            return tipoLocalidadLista;
+                        }
+                        else
+                        {
+                            Conexion.getInstance().Desconectar();
+                            reader.Close();
+                            return tipoLocalidadLista;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

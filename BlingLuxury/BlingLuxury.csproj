@@ -135,6 +135,12 @@
     <Compile Include="DAO\TipoLocalidadDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="Validaciones\Seguridad.cs" />
+    <Compile Include="Vistas\frmEntidadFederativa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmEntidadFederativa.Designer.cs">
+      <DependentUpon>frmEntidadFederativa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\frmInventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,12 @@
     <Compile Include="Vistas\frmCatalogo.Designer.cs">
       <DependentUpon>frmCatalogo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\frmLocalidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmLocalidad.Designer.cs">
+      <DependentUpon>frmLocalidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\frmModificarRegistro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +207,12 @@
     </Compile>
     <Compile Include="Vistas\frmModelo.Designer.cs">
       <DependentUpon>frmModelo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\frmMunicipio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmMunicipio.Designer.cs">
+      <DependentUpon>frmMunicipio.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\frmPrecios.cs">
       <SubType>Form</SubType>
@@ -239,14 +257,23 @@
     <EmbeddedResource Include="Vistas\frmColor.resx">
       <DependentUpon>frmColor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frmEntidadFederativa.resx">
+      <DependentUpon>frmEntidadFederativa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmInventario.resx">
       <DependentUpon>frmInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frmLocalidad.resx">
+      <DependentUpon>frmLocalidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmMarca.resx">
       <DependentUpon>frmMarca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmModelo.resx">
       <DependentUpon>frmModelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frmMunicipio.resx">
+      <DependentUpon>frmMunicipio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmPrecios.resx">
       <DependentUpon>frmPrecios.cs</DependentUpon>
@@ -274,6 +301,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ReporteInventario.rpt" />
     <None Include="Web References\mx.atc\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

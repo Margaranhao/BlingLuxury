@@ -60,8 +60,8 @@ namespace BlingLuxury.Vistas
                 this.Close(); //si se cumple Se cierra el Formulario Color
             }
         }
-        #endregion
-        #region Interaccion BD
+        #endregion Eventos
+        #region Interacción BD
         #region Insertar
         private void Insertar() //Metodo para Insertar Colores
         {
@@ -122,13 +122,13 @@ namespace BlingLuxury.Vistas
             }
         }
         #endregion Color
-        #endregion
-        #region Interaccion Formularios
+        #endregion Interacción BD
+        #region Interacción Formularios
         private void frmColor_Load(object sender, EventArgs e)
         {
             mostrarColores();
         }
-        #endregion
+        #endregion Interacción Formulario
         #region Validaciones
         private void txtColor_KeyPress(object sender, KeyPressEventArgs e) //Valida que al ingresar datos solo acepta Letras
         {
@@ -150,8 +150,3 @@ namespace BlingLuxury.Vistas
     }
 }
 #endregion
-
-
-
-
-

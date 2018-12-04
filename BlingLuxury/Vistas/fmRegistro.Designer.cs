@@ -58,6 +58,9 @@ namespace BlingLuxury
             this.cbxLocalidad = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnLocalidad = new System.Windows.Forms.Button();
+            this.btnEstado = new System.Windows.Forms.Button();
+            this.btnMunicipio = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnUsuario = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
@@ -130,7 +133,7 @@ namespace BlingLuxury
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtDireccion.MaxLength = 50;
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(453, 23);
+            this.txtDireccion.Size = new System.Drawing.Size(446, 23);
             this.txtDireccion.TabIndex = 3;
             this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccion_KeyPress);
             // 
@@ -233,14 +236,14 @@ namespace BlingLuxury
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 18);
             this.label7.TabIndex = 13;
-            this.label7.Text = "Telefono:";
+            this.label7.Text = "Teléfono:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
-            this.label6.Location = new System.Drawing.Point(328, 63);
+            this.label6.Location = new System.Drawing.Point(320, 63);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 18);
@@ -255,7 +258,7 @@ namespace BlingLuxury
             this.cbxEntidadFederativa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxEntidadFederativa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
             this.cbxEntidadFederativa.FormattingEnabled = true;
-            this.cbxEntidadFederativa.Location = new System.Drawing.Point(417, 61);
+            this.cbxEntidadFederativa.Location = new System.Drawing.Point(409, 61);
             this.cbxEntidadFederativa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbxEntidadFederativa.Name = "cbxEntidadFederativa";
             this.cbxEntidadFederativa.Size = new System.Drawing.Size(157, 24);
@@ -294,7 +297,7 @@ namespace BlingLuxury
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(24)))), ((int)(((byte)(131)))));
-            this.label4.Location = new System.Drawing.Point(328, 91);
+            this.label4.Location = new System.Drawing.Point(320, 91);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 18);
@@ -309,7 +312,7 @@ namespace BlingLuxury
             this.cbxLocalidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxLocalidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
             this.cbxLocalidad.FormattingEnabled = true;
-            this.cbxLocalidad.Location = new System.Drawing.Point(417, 89);
+            this.cbxLocalidad.Location = new System.Drawing.Point(409, 89);
             this.cbxLocalidad.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbxLocalidad.Name = "cbxLocalidad";
             this.cbxLocalidad.Size = new System.Drawing.Size(157, 24);
@@ -329,6 +332,9 @@ namespace BlingLuxury
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnLocalidad);
+            this.groupBox2.Controls.Add(this.btnEstado);
+            this.groupBox2.Controls.Add(this.btnMunicipio);
             this.groupBox2.Controls.Add(this.txtTelefono);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label7);
@@ -347,6 +353,39 @@ namespace BlingLuxury
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // btnLocalidad
+            // 
+            this.btnLocalidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnLocalidad.Location = new System.Drawing.Point(571, 89);
+            this.btnLocalidad.Name = "btnLocalidad";
+            this.btnLocalidad.Size = new System.Drawing.Size(25, 25);
+            this.btnLocalidad.TabIndex = 18;
+            this.btnLocalidad.Text = "+";
+            this.btnLocalidad.UseVisualStyleBackColor = true;
+            this.btnLocalidad.Click += new System.EventHandler(this.btnLocalidad_Click);
+            // 
+            // btnEstado
+            // 
+            this.btnEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnEstado.Location = new System.Drawing.Point(571, 60);
+            this.btnEstado.Name = "btnEstado";
+            this.btnEstado.Size = new System.Drawing.Size(25, 25);
+            this.btnEstado.TabIndex = 17;
+            this.btnEstado.Text = "+";
+            this.btnEstado.UseVisualStyleBackColor = true;
+            this.btnEstado.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnMunicipio
+            // 
+            this.btnMunicipio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnMunicipio.Location = new System.Drawing.Point(284, 88);
+            this.btnMunicipio.Name = "btnMunicipio";
+            this.btnMunicipio.Size = new System.Drawing.Size(25, 25);
+            this.btnMunicipio.TabIndex = 16;
+            this.btnMunicipio.Text = "+";
+            this.btnMunicipio.UseVisualStyleBackColor = true;
+            this.btnMunicipio.Click += new System.EventHandler(this.btnMunicipio_Click);
             // 
             // groupBox3
             // 
@@ -753,5 +792,8 @@ namespace BlingLuxury
         private System.Windows.Forms.TextBox txtIdCliente;
         private System.Windows.Forms.Button btnRestaurar;
         private System.Windows.Forms.Button btnMin;
+        private System.Windows.Forms.Button btnMunicipio;
+        private System.Windows.Forms.Button btnLocalidad;
+        private System.Windows.Forms.Button btnEstado;
     }
 }

@@ -41,7 +41,6 @@ namespace BlingLuxury
             this.btnCargarImagen = new System.Windows.Forms.Button();
             this.pbxImagen = new System.Windows.Forms.PictureBox();
             this.btnMarca = new System.Windows.Forms.Button();
-            this.btnPrecios = new System.Windows.Forms.Button();
             this.btnColor = new System.Windows.Forms.Button();
             this.btnModelo = new System.Windows.Forms.Button();
             this.txtPeso = new System.Windows.Forms.TextBox();
@@ -115,7 +114,6 @@ namespace BlingLuxury
             this.gbxProducto.Controls.Add(this.btnCargarImagen);
             this.gbxProducto.Controls.Add(this.pbxImagen);
             this.gbxProducto.Controls.Add(this.btnMarca);
-            this.gbxProducto.Controls.Add(this.btnPrecios);
             this.gbxProducto.Controls.Add(this.btnColor);
             this.gbxProducto.Controls.Add(this.btnModelo);
             this.gbxProducto.Controls.Add(this.txtPeso);
@@ -150,7 +148,7 @@ namespace BlingLuxury
             this.cbxPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
             this.cbxPrecio.FormattingEnabled = true;
-            this.cbxPrecio.Location = new System.Drawing.Point(110, 125);
+            this.cbxPrecio.Location = new System.Drawing.Point(110, 126);
             this.cbxPrecio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbxPrecio.Name = "cbxPrecio";
             this.cbxPrecio.Size = new System.Drawing.Size(192, 24);
@@ -158,7 +156,7 @@ namespace BlingLuxury
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(110, 298);
+            this.txtPrecio.Location = new System.Drawing.Point(110, 293);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(192, 20);
             this.txtPrecio.TabIndex = 21;
@@ -218,16 +216,6 @@ namespace BlingLuxury
             this.btnMarca.Text = "+";
             this.btnMarca.UseVisualStyleBackColor = true;
             this.btnMarca.Click += new System.EventHandler(this.btnMarca_Click);
-            // 
-            // btnPrecios
-            // 
-            this.btnPrecios.Location = new System.Drawing.Point(311, 125);
-            this.btnPrecios.Name = "btnPrecios";
-            this.btnPrecios.Size = new System.Drawing.Size(25, 25);
-            this.btnPrecios.TabIndex = 14;
-            this.btnPrecios.Text = "+";
-            this.btnPrecios.UseVisualStyleBackColor = true;
-            this.btnPrecios.Visible = false;
             // 
             // btnColor
             // 
@@ -709,7 +697,6 @@ namespace BlingLuxury
         private System.Windows.Forms.Button btnColor;
         private System.Windows.Forms.Button btnModelo;
         private System.Windows.Forms.Button btnCategoria;
-        private System.Windows.Forms.Button btnPrecios;
         private System.Windows.Forms.Button btnCargarImagen;
         private System.Windows.Forms.OpenFileDialog ofdExploradorImagen;
         private System.Windows.Forms.TextBox txtPeso;

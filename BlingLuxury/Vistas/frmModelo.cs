@@ -150,7 +150,7 @@ namespace BlingLuxury.Vistas
             Validar.SoloLetras(e);
         }
 
-        private void txtIdMarca_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtIdMarca_KeyPress(object sender, KeyPressEventArgs e) //Valida que al ingresar datos solo acepta Letras
         {
             //Solo Acepta Números
             Validar.SoloNumeros(e);

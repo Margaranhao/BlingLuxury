@@ -29,7 +29,7 @@ namespace BlingLuxury.DAO
         {
             try
             {
-                sql = "UPDATE municipio SET nombre = '" + t.nombre + "', id entidad_federativa= " + t.id_entidad_federativa.id + " WHERE id > 0 AND id = " + id + ";";
+                sql = "UPDATE municipio SET nombre = '" + t.nombre + "', id entidad_federativa= " + t.id_entidad_federativa.nombre + " WHERE id > 0 AND id = " + id + ";";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
@@ -60,7 +60,7 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())//se recorre cada elemento que obtuvo el reader
                             {
-                                // Se crea un nuevo objeto de la clase y se retorna
+                                // Se crea un nuevo objeto de la clase y se retorna                                
                                 municipio = new Municipio(reader.GetInt32(0), reader.GetString(1), new EntidadFederativa());
                                 return municipio;
                             }
@@ -93,7 +93,7 @@ namespace BlingLuxury.DAO
         {
             try
             {
-                sql = "INSERT INTO municipio(nombre, id_entidad_federativa) VALUES ('" + t.nombre + "'," + t.id_entidad_federativa.id + ");";
+                sql = "INSERT INTO municipio(nombre, id_entidad_federativa) VALUES ('" + t.nombre + "'," + t.id_entidad_federativa.nombre + ");";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();
@@ -123,11 +123,50 @@ namespace BlingLuxury.DAO
                         if (reader.HasRows)
                         {
                             while (reader.Read())
-                            {
-                                
+                            {                                        
                                 municipioLista.Add(new Municipio(reader.GetInt32(0), reader.GetString(1), new EntidadFederativa()));
                                 //municipioLista.Add(new Municipio(reader.GetInt32(0), reader.GetString(1), new Localidad(reader.GetInt32(2), reader.GetString(3), new CodigoPostal())));
+                            }
+                            Conexion.getInstance().Desconectar();
+                            reader.Close();
+                            return municipioLista;
+                        }
+                        else
+                        {
+                            Conexion.getInstance().Desconectar();
+                            reader.Close();
+                            return municipioLista;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public List<Municipio> Listar2(string query)
+        {
+            List<Municipio> municipioLista = new List<Municipio>();
+            try
+            {
+                Conexion.getInstance().setCadenaConnection();
+                using (MySqlCommand cmd = new MySqlCommand(query, Conexion.getInstance().getConnection()))
+                {
+                    MySqlDataReader reader;
+                    cmd.Prepare();
+                    cmd.CommandTimeout = 60;
+                    using (reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                int id = reader.GetInt32(0);
+                                string nombre = reader.GetString(1);
+                                EntidadFederativa id_entidad_federativa = new EntidadFederativa(reader.GetInt32(2), reader.GetString(3));
 
+                                municipioLista.Add(new Municipio(id, nombre , id_entidad_federativa));
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();

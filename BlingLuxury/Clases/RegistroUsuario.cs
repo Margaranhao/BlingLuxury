@@ -29,9 +29,8 @@ namespace BlingLuxury.Clases
         }
         
         public RegistroUsuario(int idUsuario, string nombreUsuario, string nickUsuario, string pass,
-       Nivel usuarioIdNivel, Rango usuarioRango, int idCliente, string telefonoCliente, string calleCliente, Localidad idLocalidad, 
-       CodigoPostal idCp, Municipio idMunicipio, EntidadFederativa idEntidadFederativa)
-       
+        Nivel usuarioIdNivel, Rango usuarioRango, int idCliente, string telefonoCliente, string calleCliente, 
+        Localidad idLocalidad, CodigoPostal idCp, Municipio idMunicipio, EntidadFederativa idEntidadFederativa)       
         {
             this.idUsuario = idUsuario;
             this.nombreUsuario = nombreUsuario;
