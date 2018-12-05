@@ -19,6 +19,7 @@ namespace BlingLuxury.Clases
         public string telefonoCliente { get; set; }
         public string calleCliente { get; set; }
         public Localidad idLocalidad { get; set; }
+        public TipoLocalidad idTipoLocalidad { get; set; }
         public CodigoPostal idCp { get; set; }
         public Municipio idMunicipio { get; set; }
         public EntidadFederativa idEntidadFederativa { get; set; }
@@ -49,5 +50,20 @@ namespace BlingLuxury.Clases
             
         }
 
+        public RegistroUsuario(string nombreUsuario, Rango usuarioRango, string telefonoCliente, 
+            string calleCliente, Localidad idLocalidad, TipoLocalidad idTipoLocalidad,
+       CodigoPostal idCp, Municipio idMunicipio, EntidadFederativa idEntidadFederativa)
+        {
+            
+            this.nombreUsuario = nombreUsuario;
+            this.usuarioRango = usuarioRango;
+            this.telefonoCliente = telefonoCliente;
+            this.calleCliente = calleCliente;
+            this.idLocalidad = idLocalidad;
+            this.idTipoLocalidad = idTipoLocalidad;
+            this.idCp = idCp;
+            this.idMunicipio = idMunicipio;
+            this.idEntidadFederativa = idEntidadFederativa;          
+        }
     }
 }

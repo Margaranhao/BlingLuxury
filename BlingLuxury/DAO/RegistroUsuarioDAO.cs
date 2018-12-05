@@ -100,5 +100,56 @@ namespace BlingLuxury.DAO
                 throw new Exception(ex.Message);
             }
         }
+        public List<RegistroUsuario> Listar2(string query)
+        {
+            List<RegistroUsuario> registroUsuarioLista = new List<RegistroUsuario>();
+            try
+            {
+                Conexion.getInstance().setCadenaConnection();
+                using (MySqlCommand cmd = new MySqlCommand(query, Conexion.getInstance().getConnection()))
+                {
+                    MySqlDataReader reader;
+                    cmd.Prepare();
+                    cmd.CommandTimeout = 60;
+                    using (reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                
+                                string nombreUsuario = reader.GetString(0);
+                                Rango usuarioRango = new Clases.Rango(reader.GetString(1));
+                                string telefonoCliente = reader.GetString(2);
+                                string calleCliente = reader.GetString(3);
+                                Localidad idLocalidad = new Localidad(reader.GetString(4));
+                                TipoLocalidad idTipoLocalidad = new TipoLocalidad(reader.GetString(5));
+                                CodigoPostal idCp = new CodigoPostal(reader.GetString(6));
+                                Municipio idMunicipio = new Municipio(reader.GetString(7));
+                                EntidadFederativa idEntidadFederativa = new EntidadFederativa(reader.GetString(8));
+                                
+                                registroUsuarioLista.Add(new RegistroUsuario(nombreUsuario, usuarioRango, telefonoCliente, 
+                                    calleCliente, idLocalidad, idTipoLocalidad, idCp, idMunicipio, idEntidadFederativa));
+
+                            }
+                            Conexion.getInstance().Desconectar();
+                            reader.Close();
+                            return registroUsuarioLista;
+                        }
+                        else
+                        {
+                            Conexion.getInstance().Desconectar();
+                            reader.Close();
+                            return registroUsuarioLista;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

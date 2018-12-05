@@ -45,5 +45,9 @@ namespace BlingLuxury.Clases
             this.nombre = nombre;
             this.id_entidad_federativa = id_entidad_federativa;
         }
+        public Municipio(string nombre)
+        {
+            this.nombre = nombre;            
+        }
     }
 }

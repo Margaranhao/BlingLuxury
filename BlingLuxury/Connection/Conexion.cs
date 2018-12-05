@@ -13,7 +13,7 @@ namespace BlingLuxury.Connection
         public static Conexion conexion;
         public MySqlConnection connection;
 
-        public string cadenaConexion = "Server = localhost; port = 3306; database = bling_luxury; Uid = root; Pwd = root;";
+        public string cadenaConexion = "Server = 127.0.0.1; port = 3306; database = bling_luxury; Uid = root; Pwd = root;";
 
         public static MySqlConnection Connection { get; internal set; }
 

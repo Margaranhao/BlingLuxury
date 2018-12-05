@@ -32,5 +32,15 @@ namespace BlingLuxury.Properties {
                 return ((string)(this["BlingLuxury_mx_atc_criptografiaService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;password=root;database=bling_luxury")]
+        public string bling_luxuryConnectionString {
+            get {
+                return ((string)(this["bling_luxuryConnectionString"]));
+            }
+        }
     }
 }

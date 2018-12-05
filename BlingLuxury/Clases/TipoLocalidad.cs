@@ -16,6 +16,15 @@ namespace BlingLuxury.Clases
         {
 
         }
+        public TipoLocalidad(string nombre)
+        {
+            this.nombre = nombre;
+        }
+        public TipoLocalidad(int id, string nombre)
+        {
+            this.id = id;
+            this.nombre = nombre;            
+        }
         //constructor con todos los parametros, muy util para listar
         public TipoLocalidad(int id, string nombre, Localidad id_licalidad)
         {

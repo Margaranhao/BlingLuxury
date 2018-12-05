@@ -54,6 +54,12 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
+    <Reference Include="conexionBDMysql">
+      <HintPath>..\..\..\..\Documents\PROYECTO BLING LUXURY\pruebas\conector a MYSQL SERVER\conexionBDMysql.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.10.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -134,7 +140,19 @@
     <Compile Include="DAO\TipoEnvioDAO.cs" />
     <Compile Include="DAO\TipoLocalidadDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="Reportes\ReporteInventario.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteInventario.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Validaciones\Seguridad.cs" />
+    <Compile Include="Vistas\frmCarteraDeClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\frmCarteraDeClientes.Designer.cs">
+      <DependentUpon>frmCarteraDeClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\frmInventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +239,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reportes\ReporteInventario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteInventario.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\fmPrincipal.resx">
       <DependentUpon>fmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\frmCarteraDeClientes.resx">
+      <DependentUpon>frmCarteraDeClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\frmCatalogo.resx">
       <DependentUpon>frmCatalogo.cs</DependentUpon>
@@ -296,6 +321,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

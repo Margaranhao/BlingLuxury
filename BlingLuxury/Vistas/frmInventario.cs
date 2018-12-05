@@ -323,16 +323,6 @@ namespace BlingLuxury
 
         #endregion
 
-        #region Insertar
-
-        private void Insertar()//metodo para registrar inventario
-        {
-            //InventarioDAO.getInstance().Insertar(new Inventario(txtCantidad.Text));
-
-        }
-
-        #endregion
-
         #region Modificar
         private void Modificar() // Metodo que modifica la cantidad y fecha de el producto inventariado
         {
@@ -393,11 +383,7 @@ namespace BlingLuxury
                 pbxImagen.Image = System.Drawing.Image.FromFile("C:\\BlingPicture\\default.png");
             }
         }
-
+ 
         #endregion
-
-        
-
-       
     }
 }
