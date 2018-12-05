@@ -803,6 +803,7 @@ namespace BlingLuxury
             StringBuilder res = new StringBuilder();
             Random rnd = new Random();
             while(0 < longitud--)
+
             {
                 res.Append(caracteres[rnd.Next(caracteres.Length)]);
             }
