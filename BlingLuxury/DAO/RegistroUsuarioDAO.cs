@@ -78,7 +78,7 @@ namespace BlingLuxury.DAO
                                 EntidadFederativa entidadFederativa = new EntidadFederativa(reader.GetInt32(17),reader.GetString(18));
 
                                 registroUsuarioLista.Add(new RegistroUsuario(idUsuario, nombreUsuario, nickUsuario, pass, nivel, rango, idCliente,
-                                    telefonoCliente, calleCliente, localidad,codigoPostal, municipio, entidadFederativa));
+                                    telefonoCliente, calleCliente, localidad, codigoPostal, municipio, entidadFederativa));
                                 
                             }
                             Conexion.getInstance().Desconectar();
@@ -100,6 +100,7 @@ namespace BlingLuxury.DAO
                 throw new Exception(ex.Message);
             }
         }
+		
         public List<RegistroUsuario> Listar2(string query)
         {
             List<RegistroUsuario> registroUsuarioLista = new List<RegistroUsuario>();

@@ -41,7 +41,6 @@ namespace BlingLuxury
             this.btnCargarImagen = new System.Windows.Forms.Button();
             this.pbxImagen = new System.Windows.Forms.PictureBox();
             this.btnMarca = new System.Windows.Forms.Button();
-            this.btnPrecios = new System.Windows.Forms.Button();
             this.btnColor = new System.Windows.Forms.Button();
             this.btnModelo = new System.Windows.Forms.Button();
             this.txtPeso = new System.Windows.Forms.TextBox();
@@ -115,7 +114,6 @@ namespace BlingLuxury
             this.gbxProducto.Controls.Add(this.btnCargarImagen);
             this.gbxProducto.Controls.Add(this.pbxImagen);
             this.gbxProducto.Controls.Add(this.btnMarca);
-            this.gbxProducto.Controls.Add(this.btnPrecios);
             this.gbxProducto.Controls.Add(this.btnColor);
             this.gbxProducto.Controls.Add(this.btnModelo);
             this.gbxProducto.Controls.Add(this.txtPeso);
@@ -150,15 +148,15 @@ namespace BlingLuxury
             this.cbxPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
             this.cbxPrecio.FormattingEnabled = true;
-            this.cbxPrecio.Location = new System.Drawing.Point(110, 125);
+            this.cbxPrecio.Location = new System.Drawing.Point(110, 126);
             this.cbxPrecio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbxPrecio.Name = "cbxPrecio";
             this.cbxPrecio.Size = new System.Drawing.Size(192, 24);
-            this.cbxPrecio.TabIndex = 22;
+            this.cbxPrecio.TabIndex = 3;
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(110, 298);
+            this.txtPrecio.Location = new System.Drawing.Point(110, 293);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(192, 20);
             this.txtPrecio.TabIndex = 21;
@@ -173,7 +171,7 @@ namespace BlingLuxury
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(227, 47);
-            this.txtDescripcion.TabIndex = 20;
+            this.txtDescripcion.TabIndex = 8;
             // 
             // lblDescripcion
             // 
@@ -192,7 +190,7 @@ namespace BlingLuxury
             this.btnCargarImagen.Location = new System.Drawing.Point(726, 279);
             this.btnCargarImagen.Name = "btnCargarImagen";
             this.btnCargarImagen.Size = new System.Drawing.Size(86, 23);
-            this.btnCargarImagen.TabIndex = 18;
+            this.btnCargarImagen.TabIndex = 19;
             this.btnCargarImagen.Text = "Cargar Imagen";
             this.btnCargarImagen.UseVisualStyleBackColor = true;
             this.btnCargarImagen.Click += new System.EventHandler(this.btnCargarImagen_Click);
@@ -214,27 +212,17 @@ namespace BlingLuxury
             this.btnMarca.Location = new System.Drawing.Point(311, 227);
             this.btnMarca.Name = "btnMarca";
             this.btnMarca.Size = new System.Drawing.Size(25, 25);
-            this.btnMarca.TabIndex = 15;
+            this.btnMarca.TabIndex = 17;
             this.btnMarca.Text = "+";
             this.btnMarca.UseVisualStyleBackColor = true;
             this.btnMarca.Click += new System.EventHandler(this.btnMarca_Click);
-            // 
-            // btnPrecios
-            // 
-            this.btnPrecios.Location = new System.Drawing.Point(311, 125);
-            this.btnPrecios.Name = "btnPrecios";
-            this.btnPrecios.Size = new System.Drawing.Size(25, 25);
-            this.btnPrecios.TabIndex = 16;
-            this.btnPrecios.Text = "+";
-            this.btnPrecios.UseVisualStyleBackColor = true;
-            this.btnPrecios.Visible = false;
             // 
             // btnColor
             // 
             this.btnColor.Location = new System.Drawing.Point(311, 258);
             this.btnColor.Name = "btnColor";
             this.btnColor.Size = new System.Drawing.Size(25, 25);
-            this.btnColor.TabIndex = 14;
+            this.btnColor.TabIndex = 18;
             this.btnColor.Text = "+";
             this.btnColor.UseVisualStyleBackColor = true;
             this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
@@ -244,7 +232,7 @@ namespace BlingLuxury
             this.btnModelo.Location = new System.Drawing.Point(311, 195);
             this.btnModelo.Name = "btnModelo";
             this.btnModelo.Size = new System.Drawing.Size(25, 25);
-            this.btnModelo.TabIndex = 13;
+            this.btnModelo.TabIndex = 16;
             this.btnModelo.Text = "+";
             this.btnModelo.UseVisualStyleBackColor = true;
             this.btnModelo.Click += new System.EventHandler(this.btnModelo_Click);
@@ -265,7 +253,7 @@ namespace BlingLuxury
             this.btnCategoria.Location = new System.Drawing.Point(311, 163);
             this.btnCategoria.Name = "btnCategoria";
             this.btnCategoria.Size = new System.Drawing.Size(25, 25);
-            this.btnCategoria.TabIndex = 12;
+            this.btnCategoria.TabIndex = 15;
             this.btnCategoria.Text = "+";
             this.btnCategoria.UseVisualStyleBackColor = true;
             this.btnCategoria.Click += new System.EventHandler(this.btnCategoria_Click);
@@ -317,7 +305,7 @@ namespace BlingLuxury
             this.cbxColor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbxColor.Name = "cbxColor";
             this.cbxColor.Size = new System.Drawing.Size(192, 24);
-            this.cbxColor.TabIndex = 8;
+            this.cbxColor.TabIndex = 7;
             // 
             // lblCodigoBarras
             // 
@@ -342,7 +330,7 @@ namespace BlingLuxury
             this.cbxMarca.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbxMarca.Name = "cbxMarca";
             this.cbxMarca.Size = new System.Drawing.Size(192, 24);
-            this.cbxMarca.TabIndex = 7;
+            this.cbxMarca.TabIndex = 6;
             // 
             // txtCodigoBarras
             // 
@@ -425,7 +413,7 @@ namespace BlingLuxury
             this.cbxCategoria.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(192, 24);
-            this.cbxCategoria.TabIndex = 5;
+            this.cbxCategoria.TabIndex = 4;
             this.cbxCategoria.SelectedIndexChanged += new System.EventHandler(this.cbxCategoria_SelectedIndexChanged);
             // 
             // cbxModelo
@@ -439,7 +427,7 @@ namespace BlingLuxury
             this.cbxModelo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbxModelo.Name = "cbxModelo";
             this.cbxModelo.Size = new System.Drawing.Size(192, 24);
-            this.cbxModelo.TabIndex = 6;
+            this.cbxModelo.TabIndex = 5;
             // 
             // dgvProducto
             // 
@@ -450,6 +438,7 @@ namespace BlingLuxury
             this.dgvProducto.Location = new System.Drawing.Point(3, 16);
             this.dgvProducto.Name = "dgvProducto";
             this.dgvProducto.ReadOnly = true;
+            this.dgvProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProducto.Size = new System.Drawing.Size(877, 211);
             this.dgvProducto.StandardTab = true;
             this.dgvProducto.TabIndex = 9;
@@ -571,7 +560,7 @@ namespace BlingLuxury
             this.txtBuscar.MaxLength = 13;
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(165, 20);
-            this.txtBuscar.TabIndex = 18;
+            this.txtBuscar.TabIndex = 9;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             // 
@@ -708,7 +697,6 @@ namespace BlingLuxury
         private System.Windows.Forms.Button btnColor;
         private System.Windows.Forms.Button btnModelo;
         private System.Windows.Forms.Button btnCategoria;
-        private System.Windows.Forms.Button btnPrecios;
         private System.Windows.Forms.Button btnCargarImagen;
         private System.Windows.Forms.OpenFileDialog ofdExploradorImagen;
         private System.Windows.Forms.TextBox txtPeso;

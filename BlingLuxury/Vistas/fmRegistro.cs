@@ -15,6 +15,7 @@ using BlingLuxury.Validaciones;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography;
+using BlingLuxury.Vistas;
 
 namespace BlingLuxury
 {
@@ -40,7 +41,8 @@ namespace BlingLuxury
             mostrarLocalidad();
             mostrarMunicipio();
             mostrarRegistroUsuario();
-            mostrarUsuario();    
+            mostrarUsuario();  
+              
             #region dtv1
             //propiedades para el font del datagridview
             DataGridViewCellStyle cabecera;
@@ -802,6 +804,7 @@ namespace BlingLuxury
             StringBuilder res = new StringBuilder();
             Random rnd = new Random();
             while(0 < longitud--)
+
             {
                 res.Append(caracteres[rnd.Next(caracteres.Length)]);
             }
@@ -840,6 +843,45 @@ namespace BlingLuxury
         {
             //Minimizar
             WindowState = FormWindowState.Minimized;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {            
+            frmEntidadFederativa entidadFed = new frmEntidadFederativa();
+            entidadFed.enviado += new frmEntidadFederativa.pasarEntidad(realizar);
+            entidadFed.Show();
+            mostrarEntidadFederativa();
+        }
+        public void realizar(string entidad)
+        {
+            cbxEntidadFederativa.Text = entidad;
+            mostrarEntidadFederativa();
+        }
+
+        private void btnMunicipio_Click(object sender, EventArgs e)
+        {
+            frmMunicipio muni = new frmMunicipio();
+            muni.enviado += new frmMunicipio.pasarMunicipio(realizar1);
+            muni.Show();
+            mostrarMunicipio();
+        }
+        public void realizar1(string municipio)
+        {
+            cbxMunicipio.Text = municipio;
+            mostrarMunicipio();
+        }
+
+        private void btnLocalidad_Click(object sender, EventArgs e)
+        {
+            frmLocalidad loca = new frmLocalidad();
+            loca.enviado += new frmLocalidad.pasarLocalidad(realizar2);
+            loca.Show();
+            mostrarLocalidad();
+        }
+        public void realizar2(string localidad)
+        {
+            cbxLocalidad.Text = localidad;
+            mostrarLocalidad();
         }
     }
 }

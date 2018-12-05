@@ -62,7 +62,7 @@ namespace BlingLuxury.DAO
                             while (reader.Read())//se recorre cada elemento que obtuvo el reader
                             {
                                 // Se crea un nuevo objeto de la clase y se retorna
-                                tipoLocalidad = new TipoLocalidad(reader.GetInt32(0), reader.GetString(1), new Localidad(reader.GetString(2), new CodigoPostal(reader.GetString(3))));
+                                tipoLocalidad = new TipoLocalidad(reader.GetInt32(0), reader.GetString(1), new Localidad(reader.GetInt32(2), reader.GetString(3), new Municipio(), new TipoLocalidad(), new CodigoPostal(reader.GetInt32(4))));
                                 return tipoLocalidad;
                             }
                             // Se cierra la conexion y se retorna
@@ -125,7 +125,46 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())
                             {
-                                tipoLocalidadLista.Add(new TipoLocalidad(reader.GetInt32(0), reader.GetString(1), new Localidad(reader.GetString(2), new CodigoPostal(reader.GetString(3)))));
+                                tipoLocalidadLista.Add(new TipoLocalidad(reader.GetInt32(0), reader.GetString(1), new Localidad(reader.GetInt32(2), reader.GetString(3), new Municipio(), new TipoLocalidad(), new CodigoPostal())));
+                            }
+                            Conexion.getInstance().Desconectar();
+                            reader.Close();
+                            return tipoLocalidadLista;
+                        }
+                        else
+                        {
+                            Conexion.getInstance().Desconectar();
+                            reader.Close();
+                            return tipoLocalidadLista;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public List<TipoLocalidad> Listar2(string query)
+        {
+            List<TipoLocalidad> tipoLocalidadLista = new List<TipoLocalidad>();
+            try
+            {
+                Conexion.getInstance().setCadenaConnection();
+                using (MySqlCommand cmd = new MySqlCommand(query, Conexion.getInstance().getConnection()))
+                {
+                    MySqlDataReader reader;
+                    cmd.Prepare();
+                    cmd.CommandTimeout = 60;
+                    using (reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                int id = reader.GetInt32(0);
+                                string nombre = reader.GetString(1);
+                                tipoLocalidadLista.Add(new TipoLocalidad(id, nombre));
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();

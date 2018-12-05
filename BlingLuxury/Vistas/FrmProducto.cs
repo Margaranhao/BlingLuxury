@@ -631,13 +631,11 @@ namespace BlingLuxury
             frmCategoria categoriafrm = new frmCategoria();
             categoriafrm.enviado += new frmCategoria.pasarCategoria(realizar);
             categoriafrm.Show();
-
         }
         public void realizar(string categoria)
         {
             cbxCategoria.Text = categoria;
         }
-
         private void btnColor_Click(object sender, EventArgs e)
         {
             frmColor colorfrm = new frmColor();
@@ -732,7 +730,7 @@ namespace BlingLuxury
             }
             else
             {
-                //pbxImagen.Image = System.Drawing.Image.FromFile("C:\\BlingPicture\default.jpg");
+                pbxImagen.Image = System.Drawing.Image.FromFile("C:\\BlingPicture\\Default.png");
             }
         }       
     }

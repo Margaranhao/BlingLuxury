@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,36 +33,43 @@ namespace BlingLuxury.Vistas
         public DataTable ListarCatalogo() // Metodo que obtiene en forma de lista
         {
             DataTable dt = new DataTable("Catalogo");
-            dt.Columns.Add("Id");            
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Descripción");
             dt.Columns.Add("Modelo");
             dt.Columns.Add("Marca");
             dt.Columns.Add("Precio");
             dt.Columns.Add("Color");
             dt.Columns.Add("Categoria");
-            dt.Columns.Add("Descripción");
 
             dgvCatalogo.DataSource = dt;
-            dr = dt;
+            //dr = dt;
 
             try
             {
-                sql = "select i.id, i.fecha, i.cantidad, p.codigo_de_barras, m.nombre, ma.nombre,  pr.precio, c.nombre,  cat.nombre "
-                        + "FROM inventario i "
-                        + "INNER JOIN producto p ON i.id_producto = p.id "
-                        + "INNER JOIN modelo m ON p.id_modelo = m.id "
-                        + "INNER JOIN marca ma ON m.id_marca = ma.id "
-                        + "INNER JOIN color c ON p.id_color = c.id "
-                        + "INNER JOIN precio_adquisicion pr ON p.id_precio_adquisicion = pr.id "
-                        + "INNER JOIN categoria cat ON p.id_categoria = cat.id "
-                        + "WHERE i.cantidad > 0;";
-                //List<Inventario> inventarioList = InventarioDAO.getInstance().Listar(sql);
-                //for (int i = 0; i < inventarioList.Count; i++)
-                //{
-                //    dt.Rows.Add(inventarioList[i].id, inventarioList[i].fecha, inventarioList[i].cantidad,
-                //                inventarioList[i].id_registroProducto.codigoProducto, inventarioList[i].id_modelo.nombre,
-                //                inventarioList[i].id_marca.nombre, inventarioList[i].id_precioAdquisicion.precio,
-                //                inventarioList[i].id_color.nombre, inventarioList[i].id_categoria.nombre);
-                //}
+                //sql = "select i.id, p.descripcion, m.nombre, ma.nombre,  pr.precio, c.nombre,  cat.nombre ";
+                //sql += "FROM inventario i ";
+                //sql += "INNER JOIN producto p ON i.id_producto = p.id ";
+                //sql += "INNER JOIN modelo m ON p.id_modelo = m.id ";
+                //sql += "INNER JOIN marca ma ON m.id_marca = ma.id ";
+                //sql += "INNER JOIN color c ON p.id_color = c.id ";
+                //sql += "INNER JOIN precio_adquisicion pr ON p.id_precio_adquisicion = pr.id ";
+                //sql += "INNER JOIN categoria cat ON p.id_categoria = cat.id;
+                sql = "select p.id, p.descripcion, mo.nombre, ma.nombre, pr.precio, co.nombre, cat.nombre ";
+                sql += "FROM producto p ";
+                sql += "INNER JOIN modelo mo ON p.id_modelo = mo.id ";
+                sql += "INNER JOIN marca ma ON mo.id_marca = ma.id ";
+                sql += "INNER JOIN color co ON p.id_color = co.id ";
+                sql += "INNER JOIN precio_adquisicion pr ON p.id_precio_adquisicion = pr.id ";
+                sql += "INNER JOIN categoria cat ON p.id_categoria = cat.id ";
+                sql += "order by p.id desc ;";
+                List<RegistroProducto> productoList = RegistroProductoDAO.getInstance().Listar2(sql);
+                for (int i = 0; i < productoList.Count; i++)
+                {
+                    dt.Rows.Add(productoList[i].idProducto, productoList[i].descripcionProducto,
+                                productoList[i].productoIdModelo.nombre, productoList[i].modeloIdMarca.nombre,
+                                productoList[i].productoIdPrecio_adquisicion.precio, productoList[i].productoIdColor.nombre,
+                                productoList[i].productoIdCategoria.nombre);
+                }
                 return dt;
             }
             catch (Exception ex)
@@ -110,13 +118,46 @@ namespace BlingLuxury.Vistas
             BindingSource bs = new BindingSource();
 
             bs.DataSource = dgvCatalogo.DataSource;
-            bs.Filter = $"CodigoBarras like '%" + txtBuscar.Text + "%'";
+            bs.Filter = $"Marca like '%" + txtBuscar.Text + "%'";
             dgvCatalogo.DataSource = bs;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmCatalogo_Load(object sender, EventArgs e)
+        {
+            mostrarCatalogo();
+            MostrarImagen();
+        }
+        private void MostrarImagen()
+        {
+            if (File.Exists("C:\\BlingPicture\\" + txtId.Text + ".jpg"))
+            {
+                //Verificamos si existe la imagen que corresponda al usuario seleccionado 
+                pbxImagen.Image = Image.FromFile("C:\\BlingPicture\\" + txtId.Text + ".jpg");
+                pbxImagen.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            else
+            {
+                pbxImagen.Image = System.Drawing.Image.FromFile("C:\\BlingPicture\\Default.png");
+            }
+        }
+
+        private void dgvCatalogo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //txtId.Text = dgvProducto.Rows[e.RowIndex].Cells["Id"].Value.ToString();
+            txtId.Text = dgvCatalogo.Rows[e.RowIndex].Cells["Id"].Value.ToString();
+            txtDescripcion.Text = dgvCatalogo.Rows[e.RowIndex].Cells["Descripción"].Value.ToString();
+            txtModelo.Text = dgvCatalogo.Rows[e.RowIndex].Cells["Modelo"].Value.ToString();
+            txtMarca.Text = dgvCatalogo.Rows[e.RowIndex].Cells["Marca"].Value.ToString();
+            txtPrecio.Text = dgvCatalogo.Rows[e.RowIndex].Cells["Precio"].Value.ToString();
+            txtColor.Text = dgvCatalogo.Rows[e.RowIndex].Cells["Color"].Value.ToString();
+            txtCategoria.Text = dgvCatalogo.Rows[e.RowIndex].Cells["Categoria"].Value.ToString();
+            MostrarImagen();
+            //id = Convert.ToInt32(txtId.Text);
         }
     }
 }

@@ -115,37 +115,41 @@
             // 
             this.txtColor.Location = new System.Drawing.Point(137, 190);
             this.txtColor.Name = "txtColor";
+            this.txtColor.ReadOnly = true;
             this.txtColor.Size = new System.Drawing.Size(192, 20);
-            this.txtColor.TabIndex = 25;
-            this.txtColor.Visible = false;
+            this.txtColor.TabIndex = 6;
             // 
             // txtMarca
             // 
             this.txtMarca.Location = new System.Drawing.Point(137, 159);
             this.txtMarca.Name = "txtMarca";
+            this.txtMarca.ReadOnly = true;
             this.txtMarca.Size = new System.Drawing.Size(192, 20);
-            this.txtMarca.TabIndex = 24;
+            this.txtMarca.TabIndex = 5;
             // 
             // txtModelo
             // 
             this.txtModelo.Location = new System.Drawing.Point(137, 125);
             this.txtModelo.Name = "txtModelo";
+            this.txtModelo.ReadOnly = true;
             this.txtModelo.Size = new System.Drawing.Size(192, 20);
-            this.txtModelo.TabIndex = 23;
+            this.txtModelo.TabIndex = 4;
             // 
             // txtCategoria
             // 
             this.txtCategoria.Location = new System.Drawing.Point(137, 93);
             this.txtCategoria.Name = "txtCategoria";
+            this.txtCategoria.ReadOnly = true;
             this.txtCategoria.Size = new System.Drawing.Size(192, 20);
-            this.txtCategoria.TabIndex = 22;
+            this.txtCategoria.TabIndex = 3;
             // 
             // txtPrecio
             // 
             this.txtPrecio.Location = new System.Drawing.Point(137, 60);
             this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.ReadOnly = true;
             this.txtPrecio.Size = new System.Drawing.Size(192, 20);
-            this.txtPrecio.TabIndex = 21;
+            this.txtPrecio.TabIndex = 2;
             // 
             // txtDescripcion
             // 
@@ -155,8 +159,9 @@
             this.txtDescripcion.MaxLength = 200;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.ReadOnly = true;
             this.txtDescripcion.Size = new System.Drawing.Size(192, 72);
-            this.txtDescripcion.TabIndex = 20;
+            this.txtDescripcion.TabIndex = 7;
             // 
             // lblDescripcion
             // 
@@ -224,6 +229,7 @@
             this.txtId.Location = new System.Drawing.Point(162, 24);
             this.txtId.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(165, 20);
             this.txtId.TabIndex = 1;
             this.txtId.Visible = false;
@@ -272,7 +278,7 @@
             this.txtBuscar.MaxLength = 13;
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(165, 20);
-            this.txtBuscar.TabIndex = 21;
+            this.txtBuscar.TabIndex = 8;
             this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // lblBuscar
@@ -314,9 +320,11 @@
             this.dgvCatalogo.Location = new System.Drawing.Point(3, 16);
             this.dgvCatalogo.Name = "dgvCatalogo";
             this.dgvCatalogo.ReadOnly = true;
+            this.dgvCatalogo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCatalogo.Size = new System.Drawing.Size(877, 211);
             this.dgvCatalogo.StandardTab = true;
             this.dgvCatalogo.TabIndex = 9;
+            this.dgvCatalogo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCatalogo_CellContentClick);
             // 
             // btnClose
             // 
@@ -348,6 +356,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCatalogo";
             this.Text = "frmCatalogo";
+            this.Load += new System.EventHandler(this.frmCatalogo_Load);
             this.flpProducto.ResumeLayout(false);
             this.gbxProducto.ResumeLayout(false);
             this.gbxProducto.PerformLayout();
