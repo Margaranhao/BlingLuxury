@@ -129,6 +129,7 @@
             this.btnMuAgregar.TabIndex = 23;
             this.btnMuAgregar.Text = "Agregar";
             this.btnMuAgregar.UseVisualStyleBackColor = true;
+            this.btnMuAgregar.Click += new System.EventHandler(this.btnMuAgregar_Click);
             // 
             // cbxTipoLocalidad
             // 

@@ -131,9 +131,9 @@ namespace BlingLuxury.Vistas
         {
             try
             {
-                //LocalidadDAO.getInstance().Insertar(new Localidad(txtLocalidad.Text, new Municipio(Convert.ToInt32(txtMunicipioId.Text)), new TipoLocalidad(Convert.ToInt32(txtLocalidad), Convert.ToString(cbxTipoLocalidad.SelectedValue)), new CodigoPostal(Convert.ToInt32(txtCodigoPostal.Text))));
+                LocalidadDAO.getInstance().Insertar(new Localidad(txtLocalidad.Text, new Municipio(Convert.ToInt32(txtMunicipioId.Text)), new TipoLocalidad(Convert.ToInt32(cbxTipoLocalidad.SelectedValue)), new CodigoPostal(txtCodigoPostal.Text)));
                 //Manda mensaje de confirmacion cuando se agregan los datos
-                MessageBox.Show("Entidad Federativa agregada correctamente", "Estado Agregado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Localidad agregada correctamente", "Localidad Agregado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 mostrarLocalidades(); //Actualiza el DataGridView
             }
             catch (Exception ex)
@@ -146,6 +146,11 @@ namespace BlingLuxury.Vistas
         {
             mostrarLocalidades();
             mostrarTipoLocalidad();
+        }
+
+        private void btnMuAgregar_Click(object sender, EventArgs e)
+        {
+            Insertar();
         }
     }
 }

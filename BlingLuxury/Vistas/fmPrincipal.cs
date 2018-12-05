@@ -22,7 +22,7 @@ namespace BlingLuxury
         {
             FrmProducto producto = new FrmProducto();
             producto.Show();
-            this.Hide();
+            //this.Hide();
         }
 
         private void fmPrincipal_Load(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace BlingLuxury
         {
             frmCatalogo catalogo = new frmCatalogo();
             catalogo.Show();
-		this.Hide();
+		//this.Hide();
 		}
         private void btnInventario_Click(object sender, EventArgs e)
         {

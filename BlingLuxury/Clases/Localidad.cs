@@ -40,7 +40,7 @@ namespace BlingLuxury.Clases
             this.id_cp = id_cp;
         }
         //constructor sin id, muy util para inserts
-        public Localidad(string nombre, CodigoPostal id_cp)
+        public Localidad(string nombre, Municipio id_municipio, TipoLocalidad id_tipo_localidad, CodigoPostal id_cp)
         {
             this.nombre = nombre;
             this.id_municipio = id_municipio;

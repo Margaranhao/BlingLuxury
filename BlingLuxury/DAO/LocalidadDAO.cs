@@ -93,7 +93,7 @@ namespace BlingLuxury.DAO
         {
             try
             {
-                sql = "INSERT INTO localidad(nombre, id_municipio, id_tipo_localidad, id_cp) VALUES ('" + t.nombre + "'," + t.id_municipio.id + "," + t.id_tipo_localidad.id + "," + t.id_cp.id + ");";
+                sql = "INSERT INTO localidad(nombre, id_municipio, id_tipo_localidad, id_cp) VALUES ('" + t.nombre + "'," + t.id_municipio.id + "," + t.id_tipo_localidad.id + "," + t.id_cp.nombre + ");";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();

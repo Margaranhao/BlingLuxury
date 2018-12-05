@@ -79,7 +79,7 @@ namespace BlingLuxury.Vistas
             {
                 MunicipioDAO.getInstance().Insertar(new Municipio(txtMunicipio.Text, new EntidadFederativa(txtEstado.Text)));
                 //Manda mensaje de confirmacion cuando se agregan los datos
-                MessageBox.Show("Entidad Federativa agregada correctamente", "Estado Agregado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Municipio agregado correctamente", "Municipio Agregado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 mostrarMunicipios(); //Actualiza el DataGridView
             }
             catch (Exception ex)
