@@ -37,11 +37,7 @@ namespace BlingLuxury.Clases
             this.nombre = nombre;
             this.id_localidad = id_localidad;
         }
-        public TipoLocalidad(int id, string nombre)
-        {
-            this.id = id;
-            this.nombre = nombre;            
-        }
+        
         public TipoLocalidad(int id)
         {
             this.id = id;
