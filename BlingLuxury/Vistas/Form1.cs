@@ -14,7 +14,8 @@ namespace BlingLuxury
 
     public partial class fmLogin : Form
     {
-        protected string sql;        
+        protected string sql;
+        #region EVENTOS DEL FORMULARIO
         public fmLogin()
         {
             InitializeComponent();
@@ -30,7 +31,10 @@ namespace BlingLuxury
             txtPass.LostFocus += new EventHandler(this.TextLostFocus1);
             CrearDirectorio();
         }
-        #region Focus
+
+        #endregion
+
+        #region Botones de inicio
         public void TextGotFocus(object sender, EventArgs e)
         {
             if (txtUser.Text == "usuario")
@@ -65,10 +69,9 @@ namespace BlingLuxury
             }
         }
 
-
         #endregion
 
-        #region Crear directorio
+        #region CREAR CARPETA DE DIRECTORIO
         private void CrearDirectorio()
         {
             string path = @"C:\BlingPicture";
@@ -91,6 +94,8 @@ namespace BlingLuxury
             finally { }
         }
         #endregion
+
+        #region BOTON INICIO DE SESION
         private void btnLogin_Click(object sender, EventArgs e)
         {            
             sql = "SELECT nombre, nick, pass, id_nivel FROM usuario WHERE nick='" + txtUser.Text + "'AND pass='" + txtPass.Text + "';";
@@ -111,7 +116,10 @@ namespace BlingLuxury
             }
             else //Si no lo es mostrara este mensaje.
                 MessageBox.Show("Usuario y/o contraseña incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);            
-        }                        
+        }
+        #endregion
+
+        #region Eventos de botones
         private void button1_Click(object sender, EventArgs e)
         {                                    
             fmRegistro registro = new fmRegistro();
@@ -122,6 +130,7 @@ namespace BlingLuxury
             // Close();
             Application.Exit();
         }
+        #endregion
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {

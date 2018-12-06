@@ -48,5 +48,11 @@ namespace BlingLuxury
             frmCarteraDeClientes clientes = new frmCarteraDeClientes();
             clientes.Show();
         }
+
+        private void btnRegistro_Click(object sender, EventArgs e)
+        {
+            fmRegistro registro = new fmRegistro();
+            registro.Show();
+        }
     }
 }
