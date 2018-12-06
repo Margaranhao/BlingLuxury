@@ -41,8 +41,7 @@ namespace BlingLuxury
             mostrarLocalidad();
             mostrarMunicipio();
             mostrarRegistroUsuario();
-            mostrarUsuario();  
-              
+            mostrarUsuario();            
             #region dtv1
             //propiedades para el font del datagridview
             DataGridViewCellStyle cabecera;
@@ -73,8 +72,8 @@ namespace BlingLuxury
             txtPass.Clear();
             cbxNivel.SelectedIndex = 0;
             cbxEntidadFederativa.SelectedIndex = 0;
-            cbxLocalidad.SelectedIndex = 0;
-            cbxMunicipio.SelectedIndex = 0;
+            cbxMunicipio.SelectedIndex = 1;
+            cbxLocalidad.SelectedIndex = 0;            
         }        
         #region recuperar de dgv
         //para colocar los datos de una fila en el datagridview de la tabla Clientes  
@@ -83,7 +82,7 @@ namespace BlingLuxury
             txtId.Text = dataGridView1.Rows[e.RowIndex].Cells["idUsuario"].Value.ToString();
             txtIdCliente.Text = dataGridView1.Rows[e.RowIndex].Cells["idCliente"].Value.ToString();
             txtNombre.Text = dataGridView1.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
-            txtUsuario.Text = dataGridView1.Rows[e.RowIndex].Cells["Nick"].Value.ToString();
+            txtUsuario.Text = dataGridView1.Rows[e.RowIndex].Cells["Nick"].Value.ToString();           
             txtPass.Text = dataGridView1.Rows[e.RowIndex].Cells["Password"].Value.ToString();
             cbxNivel.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells["IdNivel"].Value;
             txtTelefono.Text = dataGridView1.Rows[e.RowIndex].Cells["Telefono"].Value.ToString();
@@ -176,7 +175,7 @@ namespace BlingLuxury
             DataTable dt = new DataTable();
             try
             {
-               string sql = "select  usuario.id, usuario.nombre, usuario.nick, usuario.pass,usuario.id_nivel, " +
+               string sql = "select  usuario.id, usuario.nombre, usuario.nick, usuario.pass, usuario.id_nivel, " +
                         "nivel.nombre,cliente.id_rango, rango.nombre," +
                         "cliente.telefono, cliente.calle, cliente.id_localidad, localidad.nombre, localidad.id_cp," +
                         " codigo_postal.nombre, cliente.id_municipio, municipio.nombre, municipio.id_entidad_federativa," +
@@ -217,7 +216,7 @@ namespace BlingLuxury
             dr = dt;
             try
             {
-                sql = "SELECT id, nombre, nick, pass, id_nivel from usuario WHERE NOT id_nivel=3;";
+                sql = "SELECT id, nombre, nick, pass, id_nivel from usuario WHERE NOT id_nivel = 3;";
                 List<Usuario> usuarioList = UsuarioDAO.getInstance().Listar(sql);
                 for (int i = 0; i < usuarioList.Count; i++)
                 {
@@ -254,7 +253,7 @@ namespace BlingLuxury
         {
             DataTable dt = new DataTable("Registros");
             dt.Columns.Add("idUsuario");
-            dt.Columns.Add("Nombre");
+            dt.Columns.Add("Nombre");            
             dt.Columns.Add("Nick");
             dt.Columns.Add("Password");
             dt.Columns.Add("IdNivel");
@@ -278,7 +277,7 @@ namespace BlingLuxury
 
             try
             {
-                sql = "select  usuario.id, usuario.nombre, usuario.nick, usuario.pass,usuario.id_nivel, "+
+                sql = "select  usuario.id, usuario.nombre, usuario.nick, usuario.pass, usuario.id_nivel, "+
                         "nivel.nombre,cliente.id_rango, rango.nombre, cliente.id,"+
                         "cliente.telefono, cliente.calle, cliente.id_localidad, localidad.nombre, localidad.id_cp,"+
                         " codigo_postal.nombre, cliente.id_municipio, municipio.nombre, municipio.id_entidad_federativa,"+
@@ -387,7 +386,7 @@ namespace BlingLuxury
 
                     if (df.Rows.Count == 0)//si no hay resultados realiza la insercion
                     {
-                        UsuarioDAO.getInstance().Insertar(new Usuario(txtNombre.Text, txtUsuario.Text, SeguridadDAO.getInstance().Encriptar(txtPass.Text), new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))));
+                        UsuarioDAO.getInstance().Insertar(new Usuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))));
                         MessageBox.Show("Usuario registrado");
                         dataGridView2.DataSource = ListarUsuario();//actualiza el datagridview                    
                     }
@@ -415,7 +414,7 @@ namespace BlingLuxury
                     DataTable df = Buscar(txtUsuario.Text);//envia a buscar el usuario
                     if (df.Rows.Count == 0)//si no hay resultados realiza la insercion
                     {
-                        UsuarioDAO.getInstance().Insertar(new Usuario(txtNombre.Text, txtUsuario.Text, SeguridadDAO.getInstance().Encriptar(txtPass.Text), new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))));
+                        UsuarioDAO.getInstance().Insertar(new Usuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))));
                         {
                             ClienteDAO.getInstance().Insertar(new Cliente(txtTelefono.Text, txtDireccion.Text, new Localidad(Convert.ToInt32(cbxLocalidad.SelectedValue)), new Rango(r), new Municipio(Convert.ToInt32(cbxMunicipio.SelectedValue)), new Usuario()));
                             MessageBox.Show("Usuario registrado");
@@ -666,7 +665,7 @@ namespace BlingLuxury
 
                     if (df.Rows.Count == 0)//si no hay resultados realiza la insercion
                     {
-                        UsuarioDAO.getInstance().Actualizar(new Usuario(txtNombre.Text, txtUsuario.Text, SeguridadDAO.getInstance().Encriptar(txtPass.Text), new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))), Convert.ToInt32(txtId.Text));
+                        UsuarioDAO.getInstance().Actualizar(new Usuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))), Convert.ToInt32(txtId.Text));
                         MessageBox.Show("Usuario modificado exitosamente");
                         dataGridView2.DataSource = ListarUsuario();//actualiza el datagridview                    
                     }

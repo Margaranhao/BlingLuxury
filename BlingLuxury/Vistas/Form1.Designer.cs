@@ -82,7 +82,7 @@
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(137, 29);
-            this.txtPass.TabIndex = 3;
+            this.txtPass.TabIndex = 3;            
             // 
             // flowLayoutPanel1
             // 

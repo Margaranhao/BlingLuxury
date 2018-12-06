@@ -93,10 +93,8 @@ namespace BlingLuxury.DAO
         public void Insertar(Producto t) // Se recibe el objeto de la clase a insertar
         {
             try
-            {
-                //sql = "INSERT INTO producto(codigo_de_barras, peso, descripcion, id_modelo, precio, id_color, id_categoria) VALUES ('" + t.codigoDeBarras + "','" + t.peso + "','" + t.descripcion + "','" + t.id_modelo.id + "','" + t.id_precio_adquisicion.precio + "','" + t.id_color.id + "','" + t.id_categoria.id + "');";
-
-                 sql = "INSERT INTO producto(codigo_de_barras, peso, descripcion, id_modelo, id_precio_adquisicion, id_color, id_categoria) VALUES ('" + t.codigoDeBarras + "','" + t.peso + "','" + t.descripcion + "','" + t.id_modelo.id + "','" + t.id_precio_adquisicion.precio + "','" + t.id_color.id + "','" + t.id_categoria.id + "');";
+            {                         
+                sql = "INSERT INTO producto (codigo_de_barras, peso, descripcion, id_modelo, id_precio_adquisicion, id_color, id_categoria) VALUES ('" + t.codigoDeBarras + "','" + t.peso + "','" + t.descripcion + "','" + t.id_modelo.id + "','" + t.id_precio_adquisicion.precio + "','" + t.id_color.id + "','" + t.id_categoria.id + "');";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();

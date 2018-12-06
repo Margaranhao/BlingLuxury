@@ -148,19 +148,19 @@ namespace BlingLuxury
             this.cbxPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(171)))));
             this.cbxPrecio.FormattingEnabled = true;
-            this.cbxPrecio.Location = new System.Drawing.Point(110, 126);
+            this.cbxPrecio.Location = new System.Drawing.Point(110, 294);
             this.cbxPrecio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbxPrecio.Name = "cbxPrecio";
             this.cbxPrecio.Size = new System.Drawing.Size(192, 24);
             this.cbxPrecio.TabIndex = 3;
+            this.cbxPrecio.Visible = false;
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(110, 293);
+            this.txtPrecio.Location = new System.Drawing.Point(110, 128);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(192, 20);
+            this.txtPrecio.Size = new System.Drawing.Size(79, 20);
             this.txtPrecio.TabIndex = 21;
-            this.txtPrecio.Visible = false;
             // 
             // txtDescripcion
             // 

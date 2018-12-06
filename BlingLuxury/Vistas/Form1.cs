@@ -1,4 +1,5 @@
 ﻿using BlingLuxury.Connection;
+using BlingLuxury.DAO;
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
@@ -92,7 +93,8 @@ namespace BlingLuxury
         }
         #endregion
         private void btnLogin_Click(object sender, EventArgs e)
-        {            
+        {
+            SeguridadDAO.getInstance().Encriptar(txtPass.Text);
             sql = "SELECT nombre, nick, pass, id_nivel FROM usuario WHERE nick='" + txtUser.Text + "'AND pass='" + txtPass.Text + "';";
             MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection()); //Realizamos una selecion de la tabla usuarios.
             MySqlDataReader leer = cmd.ExecuteReader();
@@ -126,7 +128,6 @@ namespace BlingLuxury
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
-        }
-
+        }        
     }
 }

@@ -23,5 +23,10 @@ namespace BlingLuxury.Clases
         {
             this.precio = precio;
         }
+        public PrecioAdquisicion(int id) //Constructor con el parametro de id
+        {
+            this.id = id;
+        }
+
     }
 }
