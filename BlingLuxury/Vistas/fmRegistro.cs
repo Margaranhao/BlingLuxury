@@ -27,7 +27,7 @@ namespace BlingLuxury
         protected string sql;//variable para las consultas       
         string res;
         string last;
-        char[] arregloUsuario = new char[10];
+        char[] arregloUsuario = new char[10];        
         #endregion
         public fmRegistro()
         {
@@ -71,9 +71,9 @@ namespace BlingLuxury
             txtUsuario.Clear();
             txtPass.Clear();
             cbxNivel.SelectedIndex = 0;
-            cbxEntidadFederativa.SelectedIndex = 0;
-            cbxMunicipio.SelectedIndex = 0;
-            cbxLocalidad.SelectedIndex = 0;            
+            cbxEntidadFederativa.SelectedIndex = -1;            
+            cbxLocalidad.SelectedIndex = -1;
+            cbxMunicipio.SelectedIndex = -1;
         }        
         #region recuperar de dgv
         //para colocar los datos de una fila en el datagridview de la tabla Clientes  
@@ -734,9 +734,9 @@ namespace BlingLuxury
                 MessageBox.Show("El campo de Nombre esta vacio");
             }
             else
-            {
-                txtUsuario.Text = res + last + CrearUsuario(4);
-                txtPass.Text = res + last + CrearPassword(6);
+            {                
+                txtUsuario.Text = res + last + CrearUsuario(2);
+                txtPass.Text = res + CrearPassword(4);
             }
         }
         private void btnSalir_Click(object sender, EventArgs e)
@@ -799,7 +799,7 @@ namespace BlingLuxury
         }
         public string CrearUsuario(int longitud)//random para crear usuario y password
         {
-            string caracteres = "abcdefghijklmnopqrstuvwxyz0123456789?!";
+            string caracteres = "abcdefghijklmnopqrstuvwxyz0123456789#$?!";
             StringBuilder res = new StringBuilder();
             Random rnd = new Random();
             while(0 < longitud--)
@@ -811,7 +811,7 @@ namespace BlingLuxury
         }
         public string CrearPassword(int longitud)
         {
-            string caracteres = "abcdefghijklmnopqrstuvwxyz0123456789?!";
+            string caracteres = "abcdefghijklmnopqrstuvwxyz0123456789#$?!";
             StringBuilder res = new StringBuilder();
             Random rnd = new Random();
             while (0 < longitud--)
