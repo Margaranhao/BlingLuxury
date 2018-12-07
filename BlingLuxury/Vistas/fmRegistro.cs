@@ -72,7 +72,7 @@ namespace BlingLuxury
             txtPass.Clear();
             cbxNivel.SelectedIndex = 0;
             cbxEntidadFederativa.SelectedIndex = 0;
-            cbxMunicipio.SelectedIndex = 1;
+            cbxMunicipio.SelectedIndex = 0;
             cbxLocalidad.SelectedIndex = 0;            
         }        
         #region recuperar de dgv
@@ -386,7 +386,7 @@ namespace BlingLuxury
 
                     if (df.Rows.Count == 0)//si no hay resultados realiza la insercion
                     {
-                        UsuarioDAO.getInstance().Insertar(new Usuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))));
+                        UsuarioDAO.getInstance().Insertar(new Usuario(txtNombre.Text, txtUsuario.Text, SeguridadDAO.getInstance().Encriptar(txtPass.Text), new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))));
                         MessageBox.Show("Usuario registrado");
                         dataGridView2.DataSource = ListarUsuario();//actualiza el datagridview                    
                     }
@@ -414,7 +414,7 @@ namespace BlingLuxury
                     DataTable df = Buscar(txtUsuario.Text);//envia a buscar el usuario
                     if (df.Rows.Count == 0)//si no hay resultados realiza la insercion
                     {
-                        UsuarioDAO.getInstance().Insertar(new Usuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))));
+                        UsuarioDAO.getInstance().Insertar(new Usuario(txtNombre.Text, txtUsuario.Text, SeguridadDAO.getInstance().Encriptar(txtPass.Text), new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))));
                         {
                             ClienteDAO.getInstance().Insertar(new Cliente(txtTelefono.Text, txtDireccion.Text, new Localidad(Convert.ToInt32(cbxLocalidad.SelectedValue)), new Rango(r), new Municipio(Convert.ToInt32(cbxMunicipio.SelectedValue)), new Usuario()));
                             MessageBox.Show("Usuario registrado");
@@ -665,7 +665,7 @@ namespace BlingLuxury
 
                     if (df.Rows.Count == 0)//si no hay resultados realiza la insercion
                     {
-                        UsuarioDAO.getInstance().Actualizar(new Usuario(txtNombre.Text, txtUsuario.Text, txtPass.Text, new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))), Convert.ToInt32(txtId.Text));
+                        UsuarioDAO.getInstance().Actualizar(new Usuario(txtNombre.Text, txtUsuario.Text, SeguridadDAO.getInstance().Encriptar(txtPass.Text), new Nivel(Convert.ToInt32(cbxNivel.SelectedValue))), Convert.ToInt32(txtId.Text));
                         MessageBox.Show("Usuario modificado exitosamente");
                         dataGridView2.DataSource = ListarUsuario();//actualiza el datagridview                    
                     }
