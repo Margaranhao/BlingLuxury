@@ -67,12 +67,14 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.rbnProductos = new System.Windows.Forms.RadioButton();
             this.rbnInventario = new System.Windows.Forms.RadioButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl
@@ -520,7 +522,7 @@
             this.rbnProductos.AutoSize = true;
             this.rbnProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbnProductos.ForeColor = System.Drawing.Color.Black;
-            this.rbnProductos.Location = new System.Drawing.Point(403, 324);
+            this.rbnProductos.Location = new System.Drawing.Point(514, 326);
             this.rbnProductos.Name = "rbnProductos";
             this.rbnProductos.Size = new System.Drawing.Size(93, 20);
             this.rbnProductos.TabIndex = 27;
@@ -534,7 +536,7 @@
             this.rbnInventario.AutoSize = true;
             this.rbnInventario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbnInventario.ForeColor = System.Drawing.Color.Black;
-            this.rbnInventario.Location = new System.Drawing.Point(277, 324);
+            this.rbnInventario.Location = new System.Drawing.Point(388, 326);
             this.rbnInventario.Name = "rbnInventario";
             this.rbnInventario.Size = new System.Drawing.Size(105, 20);
             this.rbnInventario.TabIndex = 26;
@@ -543,12 +545,23 @@
             this.rbnInventario.UseVisualStyleBackColor = true;
             this.rbnInventario.CheckedChanged += new System.EventHandler(this.rbnInventario_CheckedChanged);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(277, 323);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 23);
+            this.pictureBox1.TabIndex = 28;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(802, 614);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.rbnProductos);
             this.Controls.Add(this.rbnInventario);
             this.Controls.Add(this.flowLayoutPanel2);
@@ -573,6 +586,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -612,5 +626,6 @@
         private System.Windows.Forms.RadioButton rbnProductos;
         private System.Windows.Forms.RadioButton rbnInventario;
         private System.Windows.Forms.TextBox txtFecha;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

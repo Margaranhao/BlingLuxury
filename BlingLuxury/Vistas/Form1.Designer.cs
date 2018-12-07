@@ -61,7 +61,7 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
             this.btnLogin.Size = new System.Drawing.Size(114, 33);
-            this.btnLogin.TabIndex = 4;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -74,7 +74,7 @@
             this.txtUser.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(254, 29);
-            this.txtUser.TabIndex = 2;
+            this.txtUser.TabIndex = 1;
             // 
             // txtPass
             // 
@@ -86,7 +86,7 @@
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(254, 29);
-            this.txtPass.TabIndex = 3;
+            this.txtPass.TabIndex = 2;
             // 
             // flowLayoutPanel1
             // 
@@ -128,7 +128,7 @@
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
             this.btnSalir.Size = new System.Drawing.Size(114, 33);
-            this.btnSalir.TabIndex = 1;
+            this.btnSalir.TabIndex = 4;
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
             // 

@@ -50,6 +50,7 @@
             this.btnProducto.BackColor = System.Drawing.Color.Transparent;
             this.btnProducto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnProducto.BackgroundImage")));
             this.btnProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProducto.FlatAppearance.BorderSize = 0;
             this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProducto.Location = new System.Drawing.Point(7, 94);
@@ -62,6 +63,7 @@
             // 
             // btnRegistro
             // 
+            this.btnRegistro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegistro.Location = new System.Drawing.Point(7, 145);
             this.btnRegistro.Margin = new System.Windows.Forms.Padding(7);
             this.btnRegistro.Name = "btnRegistro";
@@ -76,6 +78,7 @@
             this.btnCatalogo.BackColor = System.Drawing.Color.Transparent;
             this.btnCatalogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCatalogo.BackgroundImage")));
             this.btnCatalogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCatalogo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCatalogo.FlatAppearance.BorderSize = 0;
             this.btnCatalogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCatalogo.Location = new System.Drawing.Point(7, 250);
@@ -91,6 +94,7 @@
             this.btnInventario.BackColor = System.Drawing.Color.Transparent;
             this.btnInventario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnInventario.BackgroundImage")));
             this.btnInventario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnInventario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnInventario.FlatAppearance.BorderSize = 0;
             this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInventario.Location = new System.Drawing.Point(7, 197);
@@ -103,6 +107,7 @@
             // 
             // button1
             // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Location = new System.Drawing.Point(7, 303);
             this.button1.Margin = new System.Windows.Forms.Padding(7);
             this.button1.Name = "button1";
