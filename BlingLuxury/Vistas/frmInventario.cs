@@ -160,11 +160,11 @@ namespace BlingLuxury
                 if (Convert.ToInt32(e.Value) <= 10)
                 {
                     //e.CellStyle.ForeColor = System.Drawing.Color.Red;
-                    e.CellStyle.BackColor = System.Drawing.Color.Orange;
+                    e.CellStyle.BackColor = System.Drawing.Color.Yellow;
                 }
                 if (Convert.ToInt32(e.Value) > 10)
                 {
-                    e.CellStyle.BackColor = System.Drawing.Color.Green;
+                    e.CellStyle.BackColor = System.Drawing.Color.LightSeaGreen;
                 }
             }
         }
@@ -245,7 +245,7 @@ namespace BlingLuxury
             {
                 if (Convert.ToInt32(e.Value) == 0)
                 {
-                    e.CellStyle.BackColor = System.Drawing.Color.Red;
+                    e.CellStyle.BackColor = System.Drawing.Color.LightPink;
                 }
             }
 

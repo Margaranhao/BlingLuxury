@@ -45,7 +45,8 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(210)))), ((int)(((byte)(68)))));
+            this.btnLogin.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogin.BackgroundImage")));
             this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
@@ -61,7 +62,6 @@
             this.btnLogin.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
             this.btnLogin.Size = new System.Drawing.Size(114, 33);
             this.btnLogin.TabIndex = 4;
-            this.btnLogin.Text = "Entrar";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -112,7 +112,8 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(210)))), ((int)(((byte)(68)))));
+            this.btnSalir.BackColor = System.Drawing.Color.Transparent;
+            this.btnSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSalir.BackgroundImage")));
             this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
@@ -128,7 +129,6 @@
             this.btnSalir.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
             this.btnSalir.Size = new System.Drawing.Size(114, 33);
             this.btnSalir.TabIndex = 1;
-            this.btnSalir.Text = "Cerrar";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
             // 
@@ -166,11 +166,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Font = new System.Drawing.Font("Palace Script MT", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(210)))), ((int)(((byte)(68)))));
             this.label3.Location = new System.Drawing.Point(667, 51);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 33);
+            this.label3.Size = new System.Drawing.Size(129, 60);
             this.label3.TabIndex = 9;
             this.label3.Text = "Login";
             // 

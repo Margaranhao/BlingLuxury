@@ -180,5 +180,13 @@ namespace BlingLuxury.Vistas
             }            
         }
         #endregion
+
+        #region Boton
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        #endregion
     }
 }
