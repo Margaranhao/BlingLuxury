@@ -38,15 +38,40 @@ namespace BlingLuxury
 		}
         private void btnInventario_Click(object sender, EventArgs e)
         {
-            frmInventario inventario = new BlingLuxury.frmInventario();
-            inventario.Show();
+            AbrirFormulario(new frmInventario());
         }
 
 		
         private void button1_Click_1(object sender, EventArgs e)
         {
-            frmCarteraDeClientes clientes = new frmCarteraDeClientes();
-            clientes.Show();
+            AbrirFormulario(new frmCarteraDeClientes());
         }
+
+        private void btnRegistro_Click(object sender, EventArgs e)
+        {
+            fmRegistro registro = new fmRegistro();
+            registro.Show();
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        #region Panel
+        //permite mostrar el formulario en el panel 2
+        private void AbrirFormulario(object formHijo)
+        {
+            if(this.splitContainer1.Panel2.Controls.Count > 0)            
+                this.splitContainer1.Panel2.Controls.RemoveAt(0);
+            Form fh = formHijo as Form;
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
+            this.splitContainer1.Panel2.Controls.Add(fh);
+            this.splitContainer1.Panel2.Tag = fh;
+            fh.Show();
+        }
+
+        #endregion
     }
 }
