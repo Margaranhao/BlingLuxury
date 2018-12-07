@@ -62,7 +62,7 @@ namespace BlingLuxury
         {
             try
             {
-                //PrecioAdquisicionDAO.getInstance().Insertar(new PrecioAdquisicion(Convert.ToInt32(txtIdPrecio), Convert.ToDouble(txtPrecio.Text)));
+                PrecioAdquisicionDAO.getInstance().Insertar(new PrecioAdquisicion(Convert.ToDouble(txtPrecio)));      
                 ProductoDAO.getInstance().Insertar(new Producto(Convert.ToString(txtCodigoBarras.Text), Convert.ToDouble(txtPeso.Text), txtDescripcion.Text, new Modelo(Convert.ToInt32(cbxModelo.SelectedValue), new Marca(Convert.ToInt32(cbxMarca.SelectedValue))), new PrecioAdquisicion(Convert.ToDouble(txtPrecio.Text)), new Clases.Color(Convert.ToInt32(cbxColor.SelectedValue)), new Categoria(Convert.ToInt32(cbxCategoria.SelectedValue))));
                 MessageBox.Show("Producto agrego correctamente", "Producto Agregado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                //ProductoDAO.getInstance().Insertar(new Producto(Convert.ToString(txtCodigoBarras.Text), Convert.ToDouble(txtPeso.Text), new Modelo(Convert.ToInt32(cbxModelo.SelectedValue), new Marca(Convert.ToInt32(cbxMarca.SelectedValue))), new PrecioAdquisicion(Convert.ToInt32(cbxPrecios.SelectedValue)), new Clases.Color(Convert.ToInt32(cbxColor.SelectedValue)), new Categoria(Convert.ToInt32(cbxCategoria.SelectedValue))));
@@ -170,50 +170,50 @@ namespace BlingLuxury
         }
         #endregion Marca
 
-        #region Precios
-        public DataTable listarPrecio()
-        {
-            DataTable dt = new DataTable("Precio Adquisicion");
-            dt.Columns.Add("Id");
-            dt.Columns.Add("Precio");
+        //#region Precios
+        //public DataTable listarPrecio()
+        //{
+        //    DataTable dt = new DataTable("Precio Adquisicion");
+        //    dt.Columns.Add("Id");
+        //    dt.Columns.Add("Precio");
 
-            try
-            {
-                sql = "SELECT id, precio FROM precio_adquisicion;";
-                List<PrecioAdquisicion> precioLista = PrecioAdquisicionDAO.getInstance().Listar(sql);
-                for (int i = 0; i < precioLista.Count; i++)
-                {
-                    dt.Rows.Add(precioLista[i].id, precioLista[i].precio);
-                }
-                return dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return dt;
-            }
-        }
-        public void mostrarPrecio()
-        {
-            try
-            {
-                //Cargar los Atributos de Precio Adquisicion
-                #region
-                cbxPrecio.DataSource = listarPrecio();
-                cbxPrecio.DisplayMember = "Precio";
-                cbxPrecio.ValueMember = "id";
-                cbxPrecio.SelectedIndex = 0;
-                cbxPrecio.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                cbxPrecio.AutoCompleteSource = AutoCompleteSource.ListItems;
-                #endregion
-            }
-            catch
-            {
+        //    try
+        //    {
+        //        sql = "SELECT id, precio FROM precio_adquisicion;";
+        //        List<PrecioAdquisicion> precioLista = PrecioAdquisicionDAO.getInstance().Listar(sql);
+        //        for (int i = 0; i < precioLista.Count; i++)
+        //        {
+        //            dt.Rows.Add(precioLista[i].id, precioLista[i].precio);
+        //        }
+        //        return dt;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //        return dt;
+        //    }
+        //}
+        //public void mostrarPrecio()
+        //{
+        //    try
+        //    {
+        //        //Cargar los Atributos de Precio Adquisicion
+        //        #region
+        //        cbxPrecio.DataSource = listarPrecio();
+        //        cbxPrecio.DisplayMember = "Precio";
+        //        cbxPrecio.ValueMember = "id";
+        //        cbxPrecio.SelectedIndex = 0;
+        //        cbxPrecio.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+        //        cbxPrecio.AutoCompleteSource = AutoCompleteSource.ListItems;
+        //        #endregion
+        //    }
+        //    catch
+        //    {
 
-            }
-        }
+        //    }
+        //}
 
-        #endregion        
+        //#endregion        
         #region Producto
         DataTable dr = new DataTable();
         public DataTable listarRegistroProducto() //Metodo que obtiene en forma de lista
@@ -447,7 +447,7 @@ namespace BlingLuxury
             mostrarCategoria();
             mostrarColor();
             mostrarModelo();
-            mostrarPrecio();
+            //mostrarPrecio();
                                            
         }
         private void limpiarRegistro()
@@ -456,7 +456,8 @@ namespace BlingLuxury
             txtCodigoBarras.Clear();
             txtPeso.Clear();
             txtDescripcion.Clear();
-            cbxPrecio.SelectedIndex = 0;
+            txtPrecio.Clear();
+            //cbxPrecio.SelectedIndex = 0;
             cbxCategoria.SelectedIndex = 0;
             cbxColor.SelectedIndex = 0;
             cbxModelo.SelectedIndex = 0;
@@ -474,7 +475,8 @@ namespace BlingLuxury
             //cbxModelo.SelectedValue = dgvProducto.Rows[e.RowIndex].Cells["Modelo"].Value;
             cbxMarca.SelectedValue = dgvProducto.Rows[e.RowIndex].Cells["Marca Id"].Value;
             //cbxMarca.SelectedValue = dgvProducto.Rows[e.RowIndex].Cells["Marca"].Value;
-            cbxPrecio.SelectedValue = dgvProducto.Rows[e.RowIndex].Cells["Precio Adquisicion Id"].Value.ToString();
+            //cbxPrecio.SelectedValue = dgvProducto.Rows[e.RowIndex].Cells["Precio Adquisicion Id"].Value.ToString();
+            txtPrecio.Text =dgvProducto.Rows[e.RowIndex].Cells["Precio"].Value.ToString();
             //txtPrecio.Text = dgvProducto.Rows[e.RowIndex].Cells["Precio"].Value.ToString();
             cbxColor.SelectedValue = dgvProducto.Rows[e.RowIndex].Cells["Color Id"].Value;
             //cbxColor.SelectedValue = dgvProducto.Rows[e.RowIndex].Cells["Color"].Value;
@@ -482,6 +484,7 @@ namespace BlingLuxury
             //cbxCategoria.SelectedValue = dgvProducto.Rows[e.RowIndex].Cells["Categoria"].Value; 
             MostrarImagen();
             id = Convert.ToInt32(txtId.Text);
+
         }
         #endregion        
 

@@ -90,6 +90,8 @@ namespace BlingLuxury
             cbxEntidadFederativa.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells["idEntFed"].Value;
             cbxMunicipio.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells["idMunicipio"].Value;
             cbxLocalidad.SelectedValue = dataGridView1.Rows[e.RowIndex].Cells["idLocalidad"].Value;
+
+            SeguridadDAO.getInstance().Desencriptar(txtPass.Text);
         }
         // Para colocar los datos de una fila de datagridview en campos de texto
         private void dataGridView2_CellClick_1(object sender, DataGridViewCellEventArgs e)
@@ -98,7 +100,9 @@ namespace BlingLuxury
             txtNombre.Text = dataGridView2.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
             txtUsuario.Text = dataGridView2.Rows[e.RowIndex].Cells["Nick"].Value.ToString();
             txtPass.Text = dataGridView2.Rows[e.RowIndex].Cells["Pass"].Value.ToString();
-            cbxNivel.SelectedValue = dataGridView2.Rows[e.RowIndex].Cells["id_nivel"].Value;            
+            cbxNivel.SelectedValue = dataGridView2.Rows[e.RowIndex].Cells["id_nivel"].Value;
+
+            SeguridadDAO.getInstance().Desencriptar(txtPass.Text);
         }
         #endregion
         #region buscar
