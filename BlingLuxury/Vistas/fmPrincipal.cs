@@ -72,5 +72,20 @@ namespace BlingLuxury
         }
 
         #endregion
+
+        #region Botones de ventana
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnCerrar1_Click(object sender, EventArgs e)
+        {
+            Close();
+
+            fmLogin login = new fmLogin();
+            login.Show();
+        }
+        #endregion
     }
 }

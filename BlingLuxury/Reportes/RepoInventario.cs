@@ -16,14 +16,14 @@ namespace BlingLuxury.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class ReporteInventario : ReportClass {
+    public class RepoInventario : ReportClass {
         
-        public ReporteInventario() {
+        public RepoInventario() {
         }
         
         public override string ResourceName {
             get {
-                return "ReporteInventario.rpt";
+                return "RepoInventario.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace BlingLuxury.Reportes {
         
         public override string FullResourceName {
             get {
-                return "BlingLuxury.Reportes.ReporteInventario.rpt";
+                return "BlingLuxury.Reportes.RepoInventario.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace BlingLuxury.Reportes {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedReporteInventario : Component, ICachedReport {
+    public class CachedRepoInventario : Component, ICachedReport {
         
-        public CachedReporteInventario() {
+        public CachedRepoInventario() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace BlingLuxury.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            ReporteInventario rpt = new ReporteInventario();
+            RepoInventario rpt = new RepoInventario();
             rpt.Site = this.Site;
             return rpt;
         }

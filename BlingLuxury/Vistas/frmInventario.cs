@@ -13,6 +13,7 @@ using BlingLuxury.Connection;
 using BlingLuxury.Validaciones;
 using BlingLuxury.DAO;
 using System.IO;
+using BlingLuxury.Vistas;
 
 namespace BlingLuxury
 {
@@ -329,7 +330,7 @@ namespace BlingLuxury
             if (txtCantidad.Text.Length > 0)
             {
                 InventarioDAO.getInstance().Actualizar(new Clases.Inventario(DateTime.Now, Convert.ToInt32(txtCantidad.Text), new RegistroProducto()), Convert.ToInt32(txtId.Text));
-                MessageBox.Show("Productos agregados");
+                MessageBox.Show("Productos modificados");
                 dgvInventario.DataSource = ListarInventario();
                 dgvProductos.DataSource = listarProducto();
                 LimpiarInventario();
@@ -383,7 +384,14 @@ namespace BlingLuxury
                 pbxImagen.Image = System.Drawing.Image.FromFile("C:\\BlingPicture\\default.png");
             }
         }
- 
+
         #endregion
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            frmReporteInventario reporteInventario = new frmReporteInventario(dgvInventario);
+            reporteInventario.Show();
+            
+        }
     }
 }
