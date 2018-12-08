@@ -49,8 +49,7 @@ namespace BlingLuxury
 
         private void btnRegistro_Click(object sender, EventArgs e)
         {
-            fmRegistro registro = new fmRegistro();
-            registro.Show();
+            AbrirFormulario(new fmRegistro());
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)

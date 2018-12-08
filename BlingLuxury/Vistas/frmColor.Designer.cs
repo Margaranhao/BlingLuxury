@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmColor));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCoCancelar = new System.Windows.Forms.Button();
             this.btnCoAgregar = new System.Windows.Forms.Button();
             this.txtColor = new System.Windows.Forms.TextBox();
@@ -42,27 +44,37 @@
             // 
             // btnCoCancelar
             // 
-            this.btnCoCancelar.Location = new System.Drawing.Point(133, 159);
+            this.btnCoCancelar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCoCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCoCancelar.BackgroundImage")));
+            this.btnCoCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCoCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCoCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCoCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCoCancelar.Location = new System.Drawing.Point(141, 159);
             this.btnCoCancelar.Name = "btnCoCancelar";
-            this.btnCoCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCoCancelar.Size = new System.Drawing.Size(95, 32);
             this.btnCoCancelar.TabIndex = 13;
-            this.btnCoCancelar.Text = "Cancelar";
-            this.btnCoCancelar.UseVisualStyleBackColor = true;
+            this.btnCoCancelar.UseVisualStyleBackColor = false;
             this.btnCoCancelar.Click += new System.EventHandler(this.btnCoCancelar_Click);
             // 
             // btnCoAgregar
             // 
-            this.btnCoAgregar.Location = new System.Drawing.Point(36, 159);
+            this.btnCoAgregar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCoAgregar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCoAgregar.BackgroundImage")));
+            this.btnCoAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCoAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCoAgregar.FlatAppearance.BorderSize = 0;
+            this.btnCoAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCoAgregar.Location = new System.Drawing.Point(16, 159);
             this.btnCoAgregar.Name = "btnCoAgregar";
-            this.btnCoAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnCoAgregar.Size = new System.Drawing.Size(95, 32);
             this.btnCoAgregar.TabIndex = 12;
-            this.btnCoAgregar.Text = "Agregar";
-            this.btnCoAgregar.UseVisualStyleBackColor = true;
+            this.btnCoAgregar.UseVisualStyleBackColor = false;
             this.btnCoAgregar.Click += new System.EventHandler(this.btnCoAgregar_Click);
             // 
             // txtColor
             // 
-            this.txtColor.Location = new System.Drawing.Point(46, 17);
+            this.txtColor.Location = new System.Drawing.Point(58, 17);
             this.txtColor.MaxLength = 15;
             this.txtColor.Name = "txtColor";
             this.txtColor.Size = new System.Drawing.Size(138, 20);
@@ -74,9 +86,11 @@
             // lblColor
             // 
             this.lblColor.AutoSize = true;
+            this.lblColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblColor.ForeColor = System.Drawing.Color.Black;
             this.lblColor.Location = new System.Drawing.Point(12, 20);
             this.lblColor.Name = "lblColor";
-            this.lblColor.Size = new System.Drawing.Size(34, 13);
+            this.lblColor.Size = new System.Drawing.Size(40, 13);
             this.lblColor.TabIndex = 8;
             this.lblColor.Text = "Color:";
             // 
@@ -84,7 +98,9 @@
             // 
             this.dgvColores.AllowUserToAddRows = false;
             this.dgvColores.AllowUserToDeleteRows = false;
-            this.dgvColores.BackgroundColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvColores.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvColores.BackgroundColor = System.Drawing.Color.White;
             this.dgvColores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvColores.Location = new System.Drawing.Point(16, 43);
             this.dgvColores.Name = "dgvColores";
@@ -109,14 +125,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(252, 185);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(210)))), ((int)(((byte)(68)))));
+            this.ClientSize = new System.Drawing.Size(252, 203);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.dgvColores);
             this.Controls.Add(this.btnCoCancelar);
             this.Controls.Add(this.btnCoAgregar);
             this.Controls.Add(this.txtColor);
             this.Controls.Add(this.lblColor);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmColor";
             this.Text = "frmColor";
             this.Load += new System.EventHandler(this.frmColor_Load);

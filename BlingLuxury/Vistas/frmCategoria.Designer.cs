@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCategoria));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.txtCategoria = new System.Windows.Forms.TextBox();
             this.btnCAgregar = new System.Windows.Forms.Button();
@@ -62,29 +64,41 @@
             // 
             // btnCAgregar
             // 
-            this.btnCAgregar.Location = new System.Drawing.Point(44, 157);
+            this.btnCAgregar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCAgregar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCAgregar.BackgroundImage")));
+            this.btnCAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCAgregar.FlatAppearance.BorderSize = 0;
+            this.btnCAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCAgregar.Location = new System.Drawing.Point(29, 168);
             this.btnCAgregar.Name = "btnCAgregar";
-            this.btnCAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnCAgregar.Size = new System.Drawing.Size(95, 33);
             this.btnCAgregar.TabIndex = 6;
-            this.btnCAgregar.Text = "Agregar";
-            this.btnCAgregar.UseVisualStyleBackColor = true;
+            this.btnCAgregar.UseVisualStyleBackColor = false;
             this.btnCAgregar.Click += new System.EventHandler(this.btnCAgregar_Click);
             // 
             // btnCcancelar
             // 
-            this.btnCcancelar.Location = new System.Drawing.Point(130, 157);
+            this.btnCcancelar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCcancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCcancelar.BackgroundImage")));
+            this.btnCcancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCcancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCcancelar.FlatAppearance.BorderSize = 0;
+            this.btnCcancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCcancelar.Location = new System.Drawing.Point(130, 168);
             this.btnCcancelar.Name = "btnCcancelar";
-            this.btnCcancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCcancelar.Size = new System.Drawing.Size(95, 33);
             this.btnCcancelar.TabIndex = 7;
-            this.btnCcancelar.Text = "Cancelar";
-            this.btnCcancelar.UseVisualStyleBackColor = true;
+            this.btnCcancelar.UseVisualStyleBackColor = false;
             this.btnCcancelar.Click += new System.EventHandler(this.btnCcancelar_Click);
             // 
             // dgvCategorias
             // 
             this.dgvCategorias.AllowUserToAddRows = false;
             this.dgvCategorias.AllowUserToDeleteRows = false;
-            this.dgvCategorias.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvCategorias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvCategorias.BackgroundColor = System.Drawing.Color.White;
             this.dgvCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCategorias.Location = new System.Drawing.Point(15, 42);
             this.dgvCategorias.Name = "dgvCategorias";
@@ -109,14 +123,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Violet;
-            this.ClientSize = new System.Drawing.Size(252, 185);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(210)))), ((int)(((byte)(68)))));
+            this.ClientSize = new System.Drawing.Size(252, 213);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.dgvCategorias);
             this.Controls.Add(this.btnCcancelar);
             this.Controls.Add(this.btnCAgregar);
             this.Controls.Add(this.txtCategoria);
             this.Controls.Add(this.lblCategoria);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCategoria";
             this.Text = "frmCategoria";
             this.Load += new System.EventHandler(this.frmCategoria_Load);

@@ -27,8 +27,10 @@ namespace BlingLuxury
         protected string sql;//variable para las consultas       
         string res;
         string last;
-        char[] arregloUsuario = new char[10];        
+        char[] arregloUsuario = new char[10];
         #endregion
+
+        #region EVENTOS DEL FORMULARIO
         public fmRegistro()
         {
             InitializeComponent();
@@ -37,11 +39,11 @@ namespace BlingLuxury
         {
             //muestra los items de los combobox al cargar formulario
             mostrarNivel();
-            mostrarEntidadFederativa();           
+            mostrarEntidadFederativa();
             mostrarLocalidad();
             mostrarMunicipio();
             mostrarRegistroUsuario();
-            mostrarUsuario();            
+            mostrarUsuario();
             #region dtv1
             //propiedades para el font del datagridview
             DataGridViewCellStyle cabecera;
@@ -60,7 +62,11 @@ namespace BlingLuxury
         {
             rbnClientes.Checked = true;
             rbnAdmin.Checked = false;
-        }                        
+        }
+
+        #endregion
+
+        #region LIMPIAR REGISTRO
         private void LimpiarRegistro()//para limpiar los campos del formulario
         {
             txtId.Clear();
@@ -71,10 +77,13 @@ namespace BlingLuxury
             txtUsuario.Clear();
             txtPass.Clear();
             cbxNivel.SelectedIndex = 0;
-            cbxEntidadFederativa.SelectedIndex = -1;            
+            cbxEntidadFederativa.SelectedIndex = -1;
             cbxLocalidad.SelectedIndex = -1;
             cbxMunicipio.SelectedIndex = -1;
-        }        
+        }
+
+        #endregion
+
         #region recuperar de dgv
         //para colocar los datos de una fila en el datagridview de la tabla Clientes  
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -105,6 +114,7 @@ namespace BlingLuxury
             SeguridadDAO.getInstance().Desencriptar(txtPass.Text);
         }
         #endregion
+
         #region buscar
         public static DataTable Buscar(string nombre)//para evitar nick duplicados
         {
@@ -149,6 +159,7 @@ namespace BlingLuxury
             }
         }
         #endregion
+
         #region busqueda para modificar
         public static DataTable BuscarConId(int id, string nombre)//para evitar nick duplicados
         {
@@ -781,8 +792,11 @@ namespace BlingLuxury
         {
             Validar.SinEspacios(e);
             txtUsuario.Text = txtUsuario.Text.Trim();
-        }        
-        #endregion              
+        }
+        #endregion
+
+        #region RADIO BUTTONS
+
         private void rbnClientes_CheckedChanged(object sender, EventArgs e)//cambia el estado para mostrar la tabla de clientes
         {
             if (rbnClientes.Checked == true)
@@ -790,7 +804,7 @@ namespace BlingLuxury
                 rbnAdmin.Checked = false;
                 dataGridView1.Visible = true;
                 dataGridView2.Visible = false;
-            }           
+            }
         }
         private void rbnAdmin_CheckedChanged(object sender, EventArgs e)//cambia el estado para mostrar la tabla de administradores
         {
@@ -801,12 +815,15 @@ namespace BlingLuxury
                 dataGridView1.Visible = false;
             }
         }
+        #endregion
+
+        #region CREAR USUARIO Y PASSWORD
         public string CrearUsuario(int longitud)//random para crear usuario y password
         {
             string caracteres = "abcdefghijklmnopqrstuvwxyz0123456789#$?!";
             StringBuilder res = new StringBuilder();
             Random rnd = new Random();
-            while(0 < longitud--)
+            while (0 < longitud--)
 
             {
                 res.Append(caracteres[rnd.Next(caracteres.Length)]);
@@ -824,6 +841,9 @@ namespace BlingLuxury
             }
             return res.ToString();
         }
+
+        #endregion
+
         private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Solo aceptara letras

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLocalidad));
             this.txtLocalidad = new System.Windows.Forms.TextBox();
             this.lblLocalidad = new System.Windows.Forms.Label();
             this.lblMunicipio = new System.Windows.Forms.Label();
@@ -104,7 +106,9 @@
             // 
             this.dgvLocalidades.AllowUserToAddRows = false;
             this.dgvLocalidades.AllowUserToDeleteRows = false;
-            this.dgvLocalidades.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvLocalidades.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvLocalidades.BackgroundColor = System.Drawing.Color.White;
             this.dgvLocalidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLocalidades.Location = new System.Drawing.Point(191, 37);
             this.dgvLocalidades.Name = "dgvLocalidades";
@@ -114,21 +118,32 @@
             // 
             // btnMuCancelar
             // 
-            this.btnMuCancelar.Location = new System.Drawing.Point(425, 230);
+            this.btnMuCancelar.BackColor = System.Drawing.Color.Transparent;
+            this.btnMuCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMuCancelar.BackgroundImage")));
+            this.btnMuCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMuCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMuCancelar.FlatAppearance.BorderSize = 0;
+            this.btnMuCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMuCancelar.Location = new System.Drawing.Point(434, 223);
             this.btnMuCancelar.Name = "btnMuCancelar";
-            this.btnMuCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnMuCancelar.Size = new System.Drawing.Size(104, 33);
             this.btnMuCancelar.TabIndex = 24;
-            this.btnMuCancelar.Text = "Cancelar";
-            this.btnMuCancelar.UseVisualStyleBackColor = true;
+            this.btnMuCancelar.UseVisualStyleBackColor = false;
+            this.btnMuCancelar.Click += new System.EventHandler(this.btnMuCancelar_Click);
             // 
             // btnMuAgregar
             // 
-            this.btnMuAgregar.Location = new System.Drawing.Point(230, 230);
+            this.btnMuAgregar.BackColor = System.Drawing.Color.Transparent;
+            this.btnMuAgregar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMuAgregar.BackgroundImage")));
+            this.btnMuAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMuAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMuAgregar.FlatAppearance.BorderSize = 0;
+            this.btnMuAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMuAgregar.Location = new System.Drawing.Point(307, 220);
             this.btnMuAgregar.Name = "btnMuAgregar";
-            this.btnMuAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnMuAgregar.Size = new System.Drawing.Size(104, 39);
             this.btnMuAgregar.TabIndex = 23;
-            this.btnMuAgregar.Text = "Agregar";
-            this.btnMuAgregar.UseVisualStyleBackColor = true;
+            this.btnMuAgregar.UseVisualStyleBackColor = false;
             this.btnMuAgregar.Click += new System.EventHandler(this.btnMuAgregar_Click);
             // 
             // cbxTipoLocalidad
@@ -152,6 +167,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(210)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(564, 265);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.cbxTipoLocalidad);
@@ -165,6 +181,7 @@
             this.Controls.Add(this.txtMunicipioId);
             this.Controls.Add(this.lblLocalidad);
             this.Controls.Add(this.txtLocalidad);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLocalidad";
             this.Text = "frmLocalidad";
             this.Load += new System.EventHandler(this.frmLocalidad_Load);

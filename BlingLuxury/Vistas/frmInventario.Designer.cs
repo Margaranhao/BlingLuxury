@@ -81,8 +81,8 @@
             // 
             this.lbl.AutoSize = true;
             this.lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(121)))), ((int)(((byte)(177)))));
-            this.lbl.Location = new System.Drawing.Point(287, 9);
+            this.lbl.ForeColor = System.Drawing.Color.Black;
+            this.lbl.Location = new System.Drawing.Point(324, 9);
             this.lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl.Name = "lbl";
             this.lbl.Size = new System.Drawing.Size(127, 29);

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEntidadFederativa));
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.lblEstado = new System.Windows.Forms.Label();
             this.dgvEntidades = new System.Windows.Forms.DataGridView();
@@ -64,7 +66,9 @@
             // 
             this.dgvEntidades.AllowUserToAddRows = false;
             this.dgvEntidades.AllowUserToDeleteRows = false;
-            this.dgvEntidades.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvEntidades.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvEntidades.BackgroundColor = System.Drawing.Color.White;
             this.dgvEntidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEntidades.Location = new System.Drawing.Point(36, 59);
             this.dgvEntidades.Name = "dgvEntidades";
@@ -74,22 +78,32 @@
             // 
             // btnEsCancelar
             // 
-            this.btnEsCancelar.Location = new System.Drawing.Point(159, 186);
+            this.btnEsCancelar.BackColor = System.Drawing.Color.Transparent;
+            this.btnEsCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEsCancelar.BackgroundImage")));
+            this.btnEsCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEsCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEsCancelar.FlatAppearance.BorderSize = 0;
+            this.btnEsCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEsCancelar.Location = new System.Drawing.Point(155, 175);
             this.btnEsCancelar.Name = "btnEsCancelar";
-            this.btnEsCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnEsCancelar.Size = new System.Drawing.Size(101, 34);
             this.btnEsCancelar.TabIndex = 17;
-            this.btnEsCancelar.Text = "Cancelar";
-            this.btnEsCancelar.UseVisualStyleBackColor = true;
+            this.btnEsCancelar.UseVisualStyleBackColor = false;
             this.btnEsCancelar.Click += new System.EventHandler(this.btnEsCancelar_Click);
             // 
             // btnEsAgregar
             // 
-            this.btnEsAgregar.Location = new System.Drawing.Point(62, 186);
+            this.btnEsAgregar.BackColor = System.Drawing.Color.Transparent;
+            this.btnEsAgregar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEsAgregar.BackgroundImage")));
+            this.btnEsAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEsAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEsAgregar.FlatAppearance.BorderSize = 0;
+            this.btnEsAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEsAgregar.Location = new System.Drawing.Point(36, 175);
             this.btnEsAgregar.Name = "btnEsAgregar";
-            this.btnEsAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnEsAgregar.Size = new System.Drawing.Size(101, 34);
             this.btnEsAgregar.TabIndex = 16;
-            this.btnEsAgregar.Text = "Agregar";
-            this.btnEsAgregar.UseVisualStyleBackColor = true;
+            this.btnEsAgregar.UseVisualStyleBackColor = false;
             this.btnEsAgregar.Click += new System.EventHandler(this.btnEsAgregar_Click);
             // 
             // errorEstado
@@ -109,6 +123,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(210)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(276, 222);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.btnEsCancelar);
@@ -116,6 +131,7 @@
             this.Controls.Add(this.dgvEntidades);
             this.Controls.Add(this.txtEstado);
             this.Controls.Add(this.lblEstado);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmEntidadFederativa";
             this.Text = "frmEntidadFederativa";
             this.Load += new System.EventHandler(this.frmEntidadFederativa_Load);

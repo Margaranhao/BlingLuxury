@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMunicipio));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtId = new System.Windows.Forms.TextBox();
             this.btnMuCancelar = new System.Windows.Forms.Button();
             this.btnMuAgregar = new System.Windows.Forms.Button();
@@ -53,29 +55,41 @@
             // 
             // btnMuCancelar
             // 
-            this.btnMuCancelar.Location = new System.Drawing.Point(269, 271);
+            this.btnMuCancelar.BackColor = System.Drawing.Color.Transparent;
+            this.btnMuCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMuCancelar.BackgroundImage")));
+            this.btnMuCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMuCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMuCancelar.FlatAppearance.BorderSize = 0;
+            this.btnMuCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMuCancelar.Location = new System.Drawing.Point(280, 271);
             this.btnMuCancelar.Name = "btnMuCancelar";
-            this.btnMuCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnMuCancelar.Size = new System.Drawing.Size(102, 32);
             this.btnMuCancelar.TabIndex = 5;
-            this.btnMuCancelar.Text = "Cancelar";
-            this.btnMuCancelar.UseVisualStyleBackColor = true;
+            this.btnMuCancelar.UseVisualStyleBackColor = false;
             this.btnMuCancelar.Click += new System.EventHandler(this.btnMuCancelar_Click);
             // 
             // btnMuAgregar
             // 
-            this.btnMuAgregar.Location = new System.Drawing.Point(74, 271);
+            this.btnMuAgregar.BackColor = System.Drawing.Color.Transparent;
+            this.btnMuAgregar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMuAgregar.BackgroundImage")));
+            this.btnMuAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMuAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMuAgregar.FlatAppearance.BorderSize = 0;
+            this.btnMuAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMuAgregar.Location = new System.Drawing.Point(143, 271);
             this.btnMuAgregar.Name = "btnMuAgregar";
-            this.btnMuAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnMuAgregar.Size = new System.Drawing.Size(102, 32);
             this.btnMuAgregar.TabIndex = 4;
-            this.btnMuAgregar.Text = "Agregar";
-            this.btnMuAgregar.UseVisualStyleBackColor = true;
+            this.btnMuAgregar.UseVisualStyleBackColor = false;
             this.btnMuAgregar.Click += new System.EventHandler(this.btnEsAgregar_Click);
             // 
             // dgvMunicipios
             // 
             this.dgvMunicipios.AllowUserToAddRows = false;
             this.dgvMunicipios.AllowUserToDeleteRows = false;
-            this.dgvMunicipios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvMunicipios.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvMunicipios.BackgroundColor = System.Drawing.Color.White;
             this.dgvMunicipios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMunicipios.Location = new System.Drawing.Point(35, 85);
             this.dgvMunicipios.Name = "dgvMunicipios";
@@ -128,6 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(210)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(413, 315);
             this.Controls.Add(this.txtEstado);
             this.Controls.Add(this.txtMunicipio);
@@ -137,7 +152,9 @@
             this.Controls.Add(this.btnMuAgregar);
             this.Controls.Add(this.dgvMunicipios);
             this.Controls.Add(this.lblEstado);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMunicipio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMunicipio";
             this.Load += new System.EventHandler(this.frmMunicipio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMunicipios)).EndInit();

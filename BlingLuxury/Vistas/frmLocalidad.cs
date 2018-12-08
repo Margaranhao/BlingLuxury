@@ -152,5 +152,10 @@ namespace BlingLuxury.Vistas
         {
             Insertar();
         }
+
+        private void btnMuCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
