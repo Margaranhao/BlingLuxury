@@ -87,5 +87,10 @@ namespace BlingLuxury
             login.Show();
         }
         #endregion
+
+        private void btnCajaChica_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new frmCajaChica());
+        }
     }
 }

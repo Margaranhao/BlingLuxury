@@ -43,5 +43,10 @@ namespace BlingLuxury.Clases
             this.pass = pass;
             this.id_nivel = id_nivel;
         }        
+
+        public Usuario(string nick)
+        {
+            this.nick = nick;
+        }
     }    
 }

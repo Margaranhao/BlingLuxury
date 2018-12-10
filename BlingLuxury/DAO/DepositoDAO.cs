@@ -61,11 +61,17 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())//Se recorre cada elemento que obtuvo el reader
                             {
-                               //Se crea un nuevo objeto de la clase y se retorna
-                                deposito = new Deposito(reader.GetInt32(0), reader.GetDouble(1), reader.GetDateTime(2), new Estado(reader.GetString(3)), new Usuario(reader.GetString(4), reader.GetString(5), reader.GetString(6), new Nivel(reader.GetString(7))));
-                                return deposito;
+                                //Se crea un nuevo objeto de la clase y se retorna
+                                int id = reader.GetInt32(0);
+                                float cantidad = reader.GetFloat(1);
+                                DateTime fecha = reader.GetDateTime(2);
+                                Estado id_estado = new Estado(reader.GetInt32(3), reader.GetString(4));
+                                Usuario id_usuario = new Usuario(reader.GetString(5));
+
+                                deposito = new Deposito(id, cantidad, fecha, id_estado, id_usuario);
+                                   
                             }
-                            // Se cierra la conexion y se retorna
+                            //Se Cierra la conexión y se retorna
                             Conexion.getInstance().getConnection().Close();
                             return new Deposito();
                         }
@@ -126,7 +132,14 @@ namespace BlingLuxury.DAO
                         {
                             while (reader.Read())
                             {
-                                depositoLista.Add(new Deposito(reader.GetInt32(0), reader.GetDouble(1), reader.GetDateTime(2), new Estado(reader.GetString(3)), new Usuario(reader.GetString(4), reader.GetString(5), reader.GetString(6), new Nivel(reader.GetString(7))))); 
+                                int id = reader.GetInt32(0);
+                                float cantidad = reader.GetFloat(1);
+                                DateTime fecha = reader.GetDateTime(2);
+                                Estado id_estado = new Estado(reader.GetInt32(3), reader.GetString(4));
+                                Usuario id_usuario = new Usuario(reader.GetString(5));
+
+                                depositoLista.Add(new Deposito(id, cantidad, fecha, id_estado, id_usuario));
+                                         
                             }
                             Conexion.getInstance().Desconectar();
                             reader.Close();
