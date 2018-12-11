@@ -28,5 +28,10 @@ namespace BlingLuxury.Clases
             this.nombre = nombre;
         }
 
+        public Estado(int id)
+        {
+            this.id = id;
+        }
+
     }
 }

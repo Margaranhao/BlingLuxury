@@ -39,8 +39,9 @@ namespace BlingLuxury.Vistas
 
             txtIdRetiro.Clear();
             txtRetiro.Clear();
-            txtRazon.Clear();                                              
+            txtRazon.Clear();
 
+            txtBuscar.Clear();
 
         }
         
@@ -146,6 +147,19 @@ namespace BlingLuxury.Vistas
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCaja();
+        }
+
+        private void btnDepositar_Click(object sender, EventArgs e)
+        {
+            if (txtDeposito.Text.Length > 0)
+            {
+                modificar();
+            }
         }
         #endregion
 
@@ -304,8 +318,93 @@ namespace BlingLuxury.Vistas
 
 
 
+
         #endregion
 
-        
+        #region TEXTBOX
+        //para colocar los decimales y solo aceptar numeros en el textbox de Deposito
+        private void txtDeposito_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 8)
+            {
+                e.Handled = false;
+                return;
+            }
+
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < txtDeposito.Text.Length; i++)
+            {
+                if (txtDeposito.Text[i] == '.')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 46)
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
+        }
+
+        //para colocar solo dos decimales y aceptar solo numeros en textbox de Retiro
+            private void txtRetiro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 8)
+            {
+                e.Handled = false;
+                return;
+            }
+
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < txtRetiro.Text.Length; i++)
+            {
+                if (txtRetiro.Text[i] == '.')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 46)
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
+        }
+
+
+        #endregion
+
+        #region ACTUALIZAR DEPOSITO
+
+        private void modificar()
+        {
+            DepositoDAO.getInstance().Actualizar(new Deposito(Convert.ToDouble(txtDeposito.Text), DateTime.Now, new Estado(Convert.ToInt32(cbxEstado.SelectedValue))), Convert.ToInt32(txtIdDeposito.Text));
+            MessageBox.Show("Peticion Actualizada");
+            dgvDeposito.DataSource = listarDeposito();
+        }
+
+        #endregion
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }

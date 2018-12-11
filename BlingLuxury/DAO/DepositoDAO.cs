@@ -30,7 +30,7 @@ namespace BlingLuxury.DAO
         {
             try
             {
-                sql = "UPDATE deposito SET cantidad = '" + t.cantidad + "', fecha = '" + t.fecha + "', id_estado = '" + t.id_estado + "', id_usuario = '" + t.id_usuario + "' WHERE id > 0 AND id = '" + id + "';";
+                sql = "UPDATE deposito SET cantidad = '" + t.cantidad + "', fecha = NOW(), id_estado = '" + t.id_estado.id + "' WHERE id > 0 AND id = '" + id + "';";
                 Conexion.getInstance().setCadenaConnection();
                 MySqlCommand cmd = new MySqlCommand(sql, Conexion.getInstance().getConnection());
                 cmd.Prepare();

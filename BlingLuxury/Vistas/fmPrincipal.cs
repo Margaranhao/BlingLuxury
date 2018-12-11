@@ -13,9 +13,10 @@ namespace BlingLuxury
 {
     public partial class fmPrincipal : Form
     {
-        public fmPrincipal()
+        public fmPrincipal(string nick)
         {
             InitializeComponent();
+            lblUsuario.Text = nick;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -91,6 +92,11 @@ namespace BlingLuxury
         private void btnCajaChica_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new frmCajaChica());
+        }
+
+        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

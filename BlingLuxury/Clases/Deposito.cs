@@ -38,5 +38,12 @@ namespace BlingLuxury.Clases
             this.id_estado = id_estado;
             this.id_usuario = id_usuario;
         }
+
+        public Deposito(double cantidad, DateTime fecha, Estado id_estado)
+        {
+            this.cantidad = cantidad;
+            this.fecha = fecha;
+            this.id_estado = id_estado;
+        }
     }
 }

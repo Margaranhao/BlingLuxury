@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCajaChica));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCajaChica));
             this.lbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -47,6 +47,7 @@
             this.btnDepositar = new System.Windows.Forms.Button();
             this.txtDeposito = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtIdRetiro = new System.Windows.Forms.TextBox();
             this.btnRetirar = new System.Windows.Forms.Button();
             this.txtRazon = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -63,9 +64,7 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvRetiro = new System.Windows.Forms.DataGridView();
             this.txtIdDeposito = new System.Windows.Forms.TextBox();
-            this.btnModificar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.txtIdRetiro = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeposito)).BeginInit();
@@ -99,7 +98,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnModificar);
             this.groupBox1.Controls.Add(this.txtUsuario);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtFecha);
@@ -120,6 +118,7 @@
             // 
             this.txtUsuario.Location = new System.Drawing.Point(93, 96);
             this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.ReadOnly = true;
             this.txtUsuario.Size = new System.Drawing.Size(116, 20);
             this.txtUsuario.TabIndex = 24;
             // 
@@ -139,6 +138,7 @@
             // 
             this.txtFecha.Location = new System.Drawing.Point(93, 43);
             this.txtFecha.Name = "txtFecha";
+            this.txtFecha.ReadOnly = true;
             this.txtFecha.Size = new System.Drawing.Size(116, 20);
             this.txtFecha.TabIndex = 22;
             // 
@@ -168,6 +168,7 @@
             // 
             // cbxEstado
             // 
+            this.cbxEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxEstado.FormattingEnabled = true;
             this.cbxEstado.Location = new System.Drawing.Point(93, 69);
             this.cbxEstado.Name = "cbxEstado";
@@ -192,6 +193,7 @@
             this.btnDepositar.Size = new System.Drawing.Size(114, 33);
             this.btnDepositar.TabIndex = 18;
             this.btnDepositar.UseVisualStyleBackColor = false;
+            this.btnDepositar.Click += new System.EventHandler(this.btnDepositar_Click);
             // 
             // txtDeposito
             // 
@@ -199,6 +201,7 @@
             this.txtDeposito.Name = "txtDeposito";
             this.txtDeposito.Size = new System.Drawing.Size(116, 20);
             this.txtDeposito.TabIndex = 4;
+            this.txtDeposito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDeposito_KeyPress);
             // 
             // groupBox2
             // 
@@ -214,6 +217,15 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Retiro";
+            // 
+            // txtIdRetiro
+            // 
+            this.txtIdRetiro.Location = new System.Drawing.Point(301, 14);
+            this.txtIdRetiro.Name = "txtIdRetiro";
+            this.txtIdRetiro.ReadOnly = true;
+            this.txtIdRetiro.Size = new System.Drawing.Size(27, 20);
+            this.txtIdRetiro.TabIndex = 35;
+            this.txtIdRetiro.Visible = false;
             // 
             // btnRetirar
             // 
@@ -237,6 +249,7 @@
             // txtRazon
             // 
             this.txtRazon.Location = new System.Drawing.Point(93, 54);
+            this.txtRazon.MaxLength = 200;
             this.txtRazon.Multiline = true;
             this.txtRazon.Name = "txtRazon";
             this.txtRazon.Size = new System.Drawing.Size(235, 101);
@@ -260,6 +273,7 @@
             this.txtRetiro.Name = "txtRetiro";
             this.txtRetiro.Size = new System.Drawing.Size(72, 20);
             this.txtRetiro.TabIndex = 4;
+            this.txtRetiro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRetiro_KeyPress);
             // 
             // label1
             // 
@@ -449,25 +463,6 @@
             this.txtIdDeposito.TabIndex = 25;
             this.txtIdDeposito.Visible = false;
             // 
-            // btnModificar
-            // 
-            this.btnModificar.BackColor = System.Drawing.Color.Transparent;
-            this.btnModificar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnModificar.BackgroundImage")));
-            this.btnModificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.Cyan;
-            this.btnModificar.FlatAppearance.BorderSize = 0;
-            this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Location = new System.Drawing.Point(93, 125);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.btnModificar.Size = new System.Drawing.Size(114, 33);
-            this.btnModificar.TabIndex = 25;
-            this.btnModificar.UseVisualStyleBackColor = false;
-            // 
             // btnLimpiar
             // 
             this.btnLimpiar.BackColor = System.Drawing.Color.Transparent;
@@ -486,15 +481,7 @@
             this.btnLimpiar.Size = new System.Drawing.Size(114, 33);
             this.btnLimpiar.TabIndex = 26;
             this.btnLimpiar.UseVisualStyleBackColor = false;
-            // 
-            // txtIdRetiro
-            // 
-            this.txtIdRetiro.Location = new System.Drawing.Point(301, 14);
-            this.txtIdRetiro.Name = "txtIdRetiro";
-            this.txtIdRetiro.ReadOnly = true;
-            this.txtIdRetiro.Size = new System.Drawing.Size(27, 20);
-            this.txtIdRetiro.TabIndex = 35;
-            this.txtIdRetiro.Visible = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // frmCajaChica
             // 
@@ -565,7 +552,6 @@
         private System.Windows.Forms.TextBox txtFecha;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtIdDeposito;
-        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.TextBox txtIdRetiro;
     }

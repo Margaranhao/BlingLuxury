@@ -113,7 +113,7 @@ namespace BlingLuxury
                 //{
                 this.Hide();
                 MessageBox.Show("Acceso Correcto", "Bienvenido");
-                fmPrincipal principal = new fmPrincipal();
+                fmPrincipal principal = new fmPrincipal(txtUser.Text);
                 principal.Show();
             }
             else //Si no lo es mostrara este mensaje.
